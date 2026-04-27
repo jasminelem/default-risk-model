@@ -253,6 +253,23 @@ def model_info():
     }
 
 
+# === TEMPORARY DEBUG ENDPOINT (remove after fixing) ===
+@app.get("/debug/files")
+def debug_files():
+    import os
+    base = PROJECT_ROOT
+    def safe_list(p): 
+        try: return os.listdir(p)
+        except: return "NOT FOUND"
+    return {
+        "company_index_exists": (base / "models" / "company_index.parquet").exists(),
+        "top_12m_csv_exists": (base / "outputs" / "12m_model" / "top_2026_companies.csv").exists(),
+        "top_5y_csv_exists": (base / "outputs" / "5y_model" / "top_2026_risk_5y_2026data_only_alive.csv").exists(),
+        "outputs_12m_files": safe_list(base / "outputs" / "12m_model"),
+        "outputs_5y_files": safe_list(base / "outputs" / "5y_model"),
+    }
+
+
 # === Top Risk Lists (for the clean main dashboard) ===
 def _safe_records(df: pd.DataFrame):
     """Convert DataFrame to fully JSON-safe records (handles NaN, inf, -inf)."""
