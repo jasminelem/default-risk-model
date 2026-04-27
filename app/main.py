@@ -65,7 +65,11 @@ with open(MODELS_DIR / "best_params_defaultinnext5y.json") as f:
     BEST_PARAMS_5Y = json.load(f)
 
 # Company index for lightning-fast typeahead
+print(">>> LOADING company_index from:", (MODELS_DIR / "company_index.parquet").resolve())
 company_index = pd.read_parquet(MODELS_DIR / "company_index.parquet")
+zy = company_index[company_index["gvkey"].astype(str).str.zfill(6) == "038804"]
+print(">>> ZYVERSA ticker in loaded index:", zy["ticker"].values[0] if len(zy) > 0 else "NOT FOUND")
+print(">>> Total companies loaded:", len(company_index))
 
 # Full latest data for feature extraction (we keep the test panel + fall back to full if needed)
 try:
@@ -74,8 +78,8 @@ except Exception:
     full_latest = pd.read_parquet(DATA_PROC / "monthly_panel_after_attachments.parquet")
 
 # === CRITICAL: Normalize gvkey to string everywhere for reliable matching ===
-full_latest["gvkey"] = full_latest["gvkey"].astype(str).str.strip()
-company_index["gvkey"] = company_index["gvkey"].astype(str).str.strip()
+full_latest["gvkey"] = full_latest["gvkey"].astype(str).str.strip().str.zfill(6)
+company_index["gvkey"] = company_index["gvkey"].astype(str).str.strip().str.zfill(6)
 
 # Defensive: never allow target columns into features (in case old feature_cols.json is loaded)
 TARGET_COLS = {"default_in_next_12m", "default_in_next_5y"}
