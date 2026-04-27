@@ -272,10 +272,10 @@ def debug_files():
 
 # === Top Risk Lists (for the clean main dashboard) ===
 def _safe_records(df: pd.DataFrame):
-    """Convert DataFrame to fully JSON-safe records (handles NaN, inf, -inf)."""
-    # Replace infinity values first
-    df = df.replace([float('inf'), float('-inf')], None)
-    # Replace remaining NaN/NaT with None
+    """Nuclear-safe JSON serialization for pandas DataFrames."""
+    # Convert all object columns that might contain 'nan' strings etc.
+    df = df.applymap(lambda x: None if (isinstance(x, float) and (pd.isna(x) or x in (float('inf'), float('-inf')))) else x)
+    # Final safety net
     return df.where(pd.notna(df), None).to_dict(orient="records")
 
 
