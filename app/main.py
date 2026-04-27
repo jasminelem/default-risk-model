@@ -272,10 +272,12 @@ def debug_files():
 
 # === Top Risk Lists (for the clean main dashboard) ===
 def _safe_records(df: pd.DataFrame):
-    """Nuclear-safe JSON serialization for pandas DataFrames."""
-    # Convert all object columns that might contain 'nan' strings etc.
-    df = df.applymap(lambda x: None if (isinstance(x, float) and (pd.isna(x) or x in (float('inf'), float('-inf')))) else x)
-    # Final safety net
+    """Nuclear-safe JSON serialization (works with pandas 1.x and 2.x)."""
+    # Modern pandas uses .map(), older versions use .applymap()
+    map_func = getattr(df, "map", getattr(df, "applymap", None))
+    if map_func:
+        df = map_func(lambda x: None if (isinstance(x, float) and (pd.isna(x) or x in (float('inf'), float('-inf')))) else x)
+    # Final safety net for any remaining NaN
     return df.where(pd.notna(df), None).to_dict(orient="records")
 
 
