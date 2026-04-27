@@ -228,8 +228,11 @@ def predict_company(gvkey: str) -> Dict[str, Any]:
 
     result = _predict_and_explain(row)
 
-    # Get ticker from company index
-    ticker_row = company_index[company_index["gvkey"] == str(gvkey)]
+    # Get ticker from company index (padding-tolerant match)
+    gvkey_norm = str(gvkey).strip().zfill(6)
+    ticker_row = company_index[company_index["gvkey"] == gvkey_norm]
+    if len(ticker_row) == 0:
+        ticker_row = company_index[company_index["gvkey"].str.zfill(6) == gvkey_norm]
     ticker = str(ticker_row["ticker"].iloc[0]).upper() if len(ticker_row) > 0 and pd.notna(ticker_row["ticker"].iloc[0]) else ""
 
     # Fetch live market data (price, market cap, etc.)
