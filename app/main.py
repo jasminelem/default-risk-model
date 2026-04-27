@@ -12,6 +12,7 @@ Run with:
 """
 
 import json
+import math
 from pathlib import Path
 from typing import List, Dict, Any
 from datetime import datetime
@@ -272,9 +273,20 @@ def debug_files():
 
 # === Top Risk Lists (for the clean main dashboard) ===
 def _safe_records(df: pd.DataFrame):
-    """Simple, reliable NaN/inf sanitizer (works on all pandas versions)."""
-    df = df.replace([float('inf'), float('-inf')], None)
-    return df.where(pd.notna(df), None).to_dict(orient="records")
+    """Most reliable sanitizer - sanitizes AFTER to_dict to guarantee no NaN/inf reaches JSON."""
+    records = df.to_dict(orient="records")
+    cleaned = []
+    for row in records:
+        new_row = {}
+        for k, v in row.items():
+            if pd.isna(v):
+                new_row[k] = None
+            elif isinstance(v, float) and not math.isfinite(v):
+                new_row[k] = None
+            else:
+                new_row[k] = v
+        cleaned.append(new_row)
+    return cleaned
 
 
 @app.get("/api/top/12m")
