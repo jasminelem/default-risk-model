@@ -2,7 +2,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 345920,HYDROFARM HLDNG GP INC,HYFM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.94880104
 038804,ZYVERSA THERAPEUTICS INC,ZVSA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.94802356
 036519,IM CANNABIS CORP,IMCC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9457789
-050437,WELLGISTICS HEALTH INC,WGRX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9447899
+050437,WELLGISTICS HEALTH INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9447899
 050382,ZSPACE INC,ZSPC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9435042
 062302,SPAR GROUP INC,SGRP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.94325274
 018290,DSS INC,DSS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9431602
@@ -16,12 +16,12 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 038242,LONGEVITY HEALTH HLDINGS INC,CTCX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.93585885
 041686,SNAIL INC,SNAL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9353352
 018047,NOODLES & CO,NDLS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.93445146
-039966,CID HOLDCO INC,DAIC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9333474
+039966,CID HOLDCO INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9333474
 039912,NEUROSENSE THERAPEUTICS LTD,NRSN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.933316
 037541,BIOATLA INC,BCAB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.93260247
 026356,ARTELO BIOSCIENCES INC,ARTL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9325987
 034753,GENERATION INCOME PROPER INC,GIPR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9325613
-038025,LIMINATUS PHARMA INC,LIMN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.93115884
+038025,LIMINATUS PHARMA INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.93115884
 039903,GCT SEMICONDUCTOR HOLDNG INC,GCTS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9298713
 050791,SKY QUARRY INC,SKYQ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.92740333
 039436,URGENT.LY INC,ULY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.9266532
@@ -126,7 +126,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 037633,CLENE INC,CLNN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.8132298
 036641,RACKSPACE TECHNOLOGY INC,RXT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.8127237
 177637,AMC ENTERTAINMENT HOLDINGS,AMC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.811388
-050435,BRAG HOUSE HOLDINGS INC,TBH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.8080204
+050435,BRAG HOUSE HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.8080204
 133869,LIVEPERSON INC,LPSN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.806723
 129823,BEASLEY BROADCAST GROUP INC,BBGI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.8063141
 063446,AINOS INC,AIMD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.8061006
@@ -151,7 +151,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 028749,FULL HOUSE RESORTS INC,FLL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7891317
 043574,FIBROBIOLOGICS INC,FBLG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7890094
 027251,VIVID SEATS INC,SEAT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.78891313
-051841,VIEWBIX INC,VBIX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.78815854
+051841,VIEWBIX INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.78815854
 039592,HEARTBEAM INC,BEAT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.78615737
 032193,CIBUS INC,CBUS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.78400826
 037841,JAWS MUSTANG ACQU CORP,JWSM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.78330946
@@ -181,7 +181,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 039427,MOMENTUS INC,MNTS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7551922
 039875,ESS TECH INC,GWH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7550165
 291881,CAN-FITE BIOPHARMA LTD,CANF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7542675
-045655,TEN HOLDINGS INC,TENB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.75356966
+045655,TEN HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.75356966
 033634,QUANTUM BIOPHARMA LTD,QNTM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7521475
 166491,IGC PHARMA INC,IGC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7513838
 038783,SENTI BIOSCIENCES INC,SNTI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7506316
@@ -212,9 +212,9 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 018930,KARYOPHARM THERAPEUTICS INC,KPTI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7250902
 033499,EXICURE INC,XCUR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.72387105
 148470,RED ROBIN GOURMET BURGERS,RRGB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.72355944
-045712,FUNCTIONAL BRANDS INC,MEHA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7235516
+045712,FUNCTIONAL BRANDS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7235516
 036500,PRESIDIO PROPERTY TRUST INC,SQFT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7234657
-040488,PICARD MEDICAL INC,PMI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.720527
+040488,PICARD MEDICAL INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.720527
 332115,ARMATA PHARMACEUTICALS INC,ARMP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.71909183
 036206,ALTA EQUIPMENT GROUP INC,ALTG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.7189275
 038056,ADAGIO MEDICAL HOLDINGS INC,ADGM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.71725285
@@ -299,7 +299,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 150221,GALECTIN THERAPEUTICS INC,GALT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.65019494
 034566,HOTH THERAPEUTICS INC,HOTH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6500454
 027299,51TALK ONLINE EDU GROUP -ADR,COE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.64846253
-074783,APTERA MOTORS CORP,SEV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6483308
+074783,APTERA MOTORS CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6483308
 021967,POLYPID LTD,PYPD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.64638925
 021421,VIVANI MEDICAL INC,VANI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6461796
 017727,EKSO BIONICS HOLDINGS INC,EKSO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6458215
@@ -332,7 +332,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 020890,NOUVEAU MONDE GRAPHITE INC,NMG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6279168
 175299,DOLPHIN ENTERTAINMENT INC,DLPN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6273437
 186974,CELLECTAR BIOSCIENCES INC,CLRB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.627287
-050991,NOMADAR CORP,NOMA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.62720364
+050991,NOMADAR CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.62720364
 019267,DIRTT ENVIRONMENTL SOLUTIONS,DRTT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.62675416
 339950,NYXOAH S A,NYXH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6266046
 023705,PAVMED INC,PAVM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.6261157
@@ -397,7 +397,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 040414,INNOVATIVE EYEWEAR INC,LUCY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5759205
 133767,KRISPY KREME INC,DNUT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5749766
 032396,ENVVENO MEDICAL CORPORATION,NVNO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.57487416
-050708,TOPPOINT HOLDINGS INC,TOPP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5748725
+050708,TOPPOINT HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5748725
 039805,ARTERIS INC,AIP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5732437
 039632,EMPERY DIGITAL INC,VLCN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5728645
 043888,FRACTYL HEALTH INC,GUTS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.572566
@@ -435,7 +435,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 036603,SOLARIS RESOURCES INC,SLSR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5484494
 027338,APTEVO THERAPEUTICS INC,APVO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5475814
 013561,MBIA INC,MBI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.54660386
-043188,LIBERTY LIVE HOLDINGS INC,LLYVK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5455344
+043188,LIBERTY LIVE HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5455344
 013562,BRANDYWINE REALTY TRUST,BDN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.54543066
 043457,NAKAMOTO INC,KDLY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5444774
 063531,MICROVISION INC,MVIS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5444406
@@ -458,7 +458,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 034580,MMTEC INC,MTC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.53734004
 038053,ADVANCED FLOWER CAPITAL INC,AFCG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.53703415
 031061,UROGEN PHARMA LTD,URGN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5359183
-050509,INLIF LTD,ZIM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.535896
+050509,INLIF LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.535896
 040248,ORION OFFICE REIT INC,ONL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.53410167
 186109,CONTANGO SILVER & GOLD INC,CTGO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5330966
 022570,ALMADEN MINERALS LTD,AAU,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.53152615
@@ -471,7 +471,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 034746,CYCLERION THERAPEUTICS,CYCN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5272829
 018315,PRECIGEN INC,PGEN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.526461
 021554,CREATIVE REALITIES INC,CREX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.52559
-074422,TURN THERAPEUTICS INC,TTRX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.52321666
+074422,TURN THERAPEUTICS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.52321666
 039294,SOPHIA GENETICS SA,SOPH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5228853
 027712,LIFEZONE METALS LTD,LZM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.5221141
 032365,SYNLOGIC INC,SYBX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.52210283
@@ -547,7 +547,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 038014,ROYALTY MANAGEMENT HOLD CORP,RMCO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.48051164
 042891,CHEETAH NET SUPLY CN SER INC,CTNT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.47995278
 035837,CANAAN INC,CAN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4783745
-051668,REGENTIS BIOMATERIALS LTD,RGNT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.47763044
+051668,REGENTIS BIOMATERIALS LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.47763044
 147204,COGENT COMMUNICATIONS HLDGS,CCOI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.47661656
 035727,CABALETTA BIO INC,CABA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.47615048
 181327,FURY GOLD MINES LTD,FURY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.47511598
@@ -579,7 +579,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 137642,FILANA THERAPEUTICS INC,SAVA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.46249682
 023627,ATYR PHARMA INC,ATYR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4611873
 036915,LEONABIO INC,ATHA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.46010548
-050874,CURANEX PHARMACEUTICALS INC,CURX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.45997933
+050874,CURANEX PHARMACEUTICALS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.45997933
 178097,CUMBERLAND PHARMACEUTICALS,CPIX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.45989752
 045281,RUBRIK INC,RBRK,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4595757
 174926,NEXPOINT DIVERSIFIED RE TS,NXDT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.45934933
@@ -672,8 +672,8 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 037325,OPUS GENETICS INC,IRD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.40758952
 019154,TVARDI THERAPEUTICS INC,CARA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4061148
 038393,CHEMOMAB THERAPEU -ADR,CMMB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.405727
-074746,OFF THE HOOK YS INC,OTH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4056744
-032589,TITAN MINING CORP,TII,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4048427
+074746,OFF THE HOOK YS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4056744
+032589,TITAN MINING CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4048427
 002818,CATO CORP  -CL A,CATO,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.40424657
 021282,KIORA PHARMACEUTICALS INC,KPRX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.40390232
 038986,ACUMEN PHARMACEUTICALS INC,ABOS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.4036428
@@ -688,7 +688,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 035090,NEXTCURE INC,NXTC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.39963976
 039337,LUCID GROUP INC,LCID,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3994165
 026809,CERVOMED INC,CRVO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3981593
-039574,XCF GLOBAL INC,SAFX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3968334
+039574,XCF GLOBAL INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3968334
 026753,FERROGLOBE PLC,GSM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3961053
 039784,VELO3D INC,VLD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3953296
 034447,BEYOND MEAT INC,BYND,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.39528355
@@ -724,7 +724,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 037363,BINAH CAPITAL GROUP INC,BCG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.37393185
 039290,COGNITION THERAPEUTICS INC,CGTX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.37367386
 164652,BROOKDALE SENIOR LIVING INC,BKD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.37364405
-356257,BTQ TECHNOLOGIES CORP,BTQ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.37253824
+356257,BTQ TECHNOLOGIES CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.37253824
 019859,AKEBIA THERAPEUTICS INC,AKBA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.37195885
 031006,BRAGG GAMING GROUP,BRAG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.37145498
 017826,NEXGEN ENERGY LTD,NXE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3710042
@@ -741,7 +741,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 035008,ENLIVEX LTD,ENLV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3679369
 034118,KODIAK SCIENCES INC,KOD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3678346
 040833,AN2 THERAPEUTICS INC,ANTX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.36767298
-324138,MOBILICOM LTD,MOBBW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.36744058
+324138,MOBILICOM LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.36744058
 351038,QUOIN PHARMACEUTICALS LTD,QNRX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3670877
 027703,AIRGAIN INC,AIRG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.36690745
 037790,BUMBLE INC,BMBL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3662548
@@ -772,7 +772,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 163765,COOPER-STANDARD HOLDINGS INC,CPS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.35416794
 039190,RANI THERAPET HOLD INC,RANI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3540236
 062592,PROTALIX BIOTHERAPEUTICS INC,PLX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.35241786
-060747,NASUS PHARMA LTD,NSRX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.35217094
+060747,NASUS PHARMA LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.35217094
 108265,SKEENA RESOURCES LTD,SKE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3519287
 037198,REAL BROKERAGE INC (THE),REAX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3517055
 019355,SIMMONS FIRST NATL CP  -CL A,SFNC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.35105747
@@ -785,7 +785,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 040783,WEARABLE DEVICES LTD,WLDS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3495274
 038357,AEVA TECHNOLOGIES INC,AEVA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.34896854
 178073,BRC GROUP HOLDINGS INC,RILY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.34890923
-074793,GLOO HOLDINGS INC,GLOO,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.348846
+074793,GLOO HOLDINGS INC,,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.348846
 162293,FIRST INTERNET BANCORP,INBK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.34875447
 043287,NEUMORA THERAPEUTICS INC,NMRA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.34853908
 016101,ABBVIE INC,ABBV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3483129
@@ -910,7 +910,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 038558,TREACE MEDIC CNCPTS INC,TMCI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.30849218
 036787,INHIBIKASE THERAPE INC,IKT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3084442
 065590,STONERIDGE INC,SRI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.30844373
-036512,VROOM INC,VRM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3078286
+036512,VROOM INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3078286
 022590,PALVELLA THERAPEUTICS INC,PVLA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.30750966
 028819,FUEL TECH INC,FTEK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3071227
 179249,BROADWIND INC,BWEN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.3068943
@@ -1098,7 +1098,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 023671,NOKIA OYJ,NOK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.26272133
 012761,SUNOPTA INC,STKL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2621096
 041084,COREBRIDGE FINANCIAL INC,CRBG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.26208004
-033773,SS INNOVATIONS INTERNATI INC,N68.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2619387
+033773,SS INNOVATIONS INTERNATI INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2619387
 038617,ARTIVA BIOTHERAPEUTICS INC,ARTV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.26191562
 039621,BLACKSKY TECHNOLOGY INC,BKSY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2618689
 006829,LOWE'S COS INC,LOW,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.26171368
@@ -1232,7 +1232,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 183780,TWO HARBORS INVESTMENT CORP,TWO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.24001674
 171023,BLACKROCK TCP CAPITAL,TCPC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23992014
 017228,TALOS ENERGY INC,TALO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2396772
-051858,CAPSOVISION INC,CV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23955728
+051858,CAPSOVISION INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23955728
 022460,CRONOS GROUP INC,CRON,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2394166
 005680,HOME DEPOT INC,HD,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2393775
 023225,CABLE ONE INC,CABO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23931855
@@ -1264,7 +1264,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 038374,ACV AUCTIONS INC,ACVA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23658605
 036482,LEGEND BIOTEC COR -ADR,LEGN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23655747
 037676,RLX TECHNOLOGY INC,RLX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23654573
-024625,TOTALENERGIES SE,TTE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23630744
+024625,TOTALENERGIES SE,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23630744
 036768,ANNEXON INC,ANNX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23624185
 133288,SILICON LABORATORIES INC,SLAB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23600712
 033195,HUT 8 CORP,HUT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.23532327
@@ -1321,7 +1321,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 105394,PAYSIGN INC,PAYS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.22814503
 028180,O'REILLY AUTOMOTIVE INC,ORLY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.22813451
 007163,S&P GLOBAL INC,SPGI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.22808178
-074449,FERMI INC,FRMI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2276788
+074449,FERMI INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2276788
 174729,TRAVEL PLUS LEISURE CO,TNL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.22766511
 012471,WORLD KINECT CORP,WKC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.22725502
 015420,AMBARELLA INC,AMBA,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.22712044
@@ -1424,7 +1424,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 160681,HYSTER YALE INC,HY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21770787
 038222,LOGISTIC PRP OF THE AMERICAS,LPA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21758698
 035120,FASTLY INC,FSLY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21757194
-061467,GEMINI SPACE STATION INC,GEMI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21748427
+061467,GEMINI SPACE STATION INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21748427
 039266,INVIVYD INC,IVVD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21744506
 030397,WARRIOR MET COAL INC,HCC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.2174246
 120456,MANHATTAN BRIDGE CAPITAL INC,LOAN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21726994
@@ -1501,7 +1501,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 023238,ETSY INC,ETSY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21081379
 003735,DANAHER CORP,DHR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21080981
 039269,CANDEL THERAPTCS INC,CADL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21064058
-050491,RYOJBABA CO LTD,RYOJ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21062034
+050491,RYOJBABA CO LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21062034
 041995,HESAI GROUP,HSAI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21061903
 060923,DAVE & BUSTER'S ENTMT INC,PLAY,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21060315
 121440,UNITED THERAPEUTICS CORP,UTHR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.21053997
@@ -1668,7 +1668,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 014391,TRANSALTA CORP,TAC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1976382
 025539,CPI CARD GROUP INC,PMTS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19740023
 009969,STAAR SURGICAL CO,STAA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19739293
-074382,NETSKOPE INC,NTSK,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19738632
+074382,NETSKOPE INC,,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19738632
 010504,TEXAS PACIFIC LAND CORP,TPL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19733414
 165746,LIVE NATION ENTERTAINMENT,LYV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19731888
 032571,BANDWIDTH INC,BAND,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19731843
@@ -1712,14 +1712,14 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 031249,ALTIMMUNE INC,ALT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19488381
 192255,ACADIA HEALTHCARE CO INC,ACHC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19481453
 007585,MOTOROLA SOLUTIONS INC,MSI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19475012
-051497,HINGE HEALTH INC,HNGE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19457622
+051497,HINGE HEALTH INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19457622
 025119,MOHAWK INDUSTRIES INC,MHK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19451913
 157855,SALESFORCE INC,CRM,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19448058
 065108,JONES LANG LASALLE INC,JLL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19440025
 033500,DIANTHUS THERAPEUTICS INC,DNTH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19435777
 038931,CONFLUENT INC,CFLT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19423284
 004611,MACY'S INC,M,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19418779
-013714,PARAMOUNT SKYDANCE CORP,PSKY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19413699
+013714,PARAMOUNT SKYDANCE CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19413699
 043837,ALTO NEUROSCIENCE INC,ANRO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19410902
 028216,REINSURANCE GROUP AMER INC,RGA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19402452
 011300,GRAHAM HOLDINGS CO,GHC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.19394796
@@ -1807,7 +1807,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 038469,IMAGENEBIO INC,IKNA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.187945
 005597,HERSHEY CO,HSY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1879073
 008551,PVH CORP,PVH,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18783599
-051314,NEWSMAX INC,NMAX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18782231
+051314,NEWSMAX INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18782231
 065500,NORDIC AMERICAN TANKERS LTD,NAT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18777321
 024370,CAMECO CORP,CCJ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18767442
 050290,ONESTREAM INC,OS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18762647
@@ -1839,7 +1839,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 002184,BEST BUY CO INC,BBY,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18654905
 028349,ALLSTATE CORP,ALL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18652101
 037148,MEDIAALPHA INC,MAX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18647459
-317637,NEXXEN INTERNATIONAL LTD,7P91.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18644397
+317637,NEXXEN INTERNATIONAL LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18644397
 029156,UFP INDUSTRIES INC,UFPI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18641385
 006135,ENBRIDGE INC,ENB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18638957
 008215,O-I GLASS INC,OI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18638743
@@ -1863,7 +1863,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 142248,AMERICA MOVIL SAB DE C V,AMX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18524657
 038188,DIGITALOCEAN HOLDINGS INC,DOCN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18514079
 036911,DYNE THERAPEUTICS INC,DYN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18511967
-051514,STARZ ENTERTAINMENT CORP,STRZ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18511215
+051514,STARZ ENTERTAINMENT CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18511215
 002403,BRISTOL-MYERS SQUIBB CO,BMY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18509239
 020235,DNOW INC,DNOW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18509117
 028272,ASTRAZENECA PLC,AZN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1850743
@@ -1911,13 +1911,13 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 164755,CROCS INC,CROX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18233761
 037513,NEWAMSTERDAM PHARMA COMPANY,NAMS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18229216
 260774,CBRE GROUP INC,CBRE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18217623
-074434,PARK DENTAL PARTNERS INC,PARK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18216841
+074434,PARK DENTAL PARTNERS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18216841
 186310,HUNTINGTON INGALLS IND INC,HII,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18208613
 166385,GRUPO AEROPORTUARIO DEL PACI,PAC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18199769
 126020,INTELLICHECK INC,IDN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18195276
 039265,HOLLEY INC,HLLY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18194768
 007750,TENET HEALTHCARE CORP,THC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18189898
-041278,WEBULL CORP,BULL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1818487
+041278,WEBULL CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1818487
 144559,ZIMMER BIOMET HOLDINGS INC,ZBH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18182003
 037407,MP MATERIALS CORP,MP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18177497
 273726,SEADRILL LTD,SDRL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.18172812
@@ -1952,11 +1952,11 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 014891,MGP INGREDIENTS INC,MGPI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1798218
 185821,HORIZON TECHNOLOGY FINANCE,HRZN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17982008
 107712,ENERGY FUELS INC,UUUU,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17977539
-038977,ODYSIGHT.AI INC,Z40.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1795815
+038977,ODYSIGHT.AI INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1795815
 039453,PROCEPT BIOROBTCS CORP,PRCT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17950585
 033161,SUNLANDS TECHNOLOGY GROUP,STG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17949128
 050389,LINEAGE INC,LINE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17937683
-060799,ACCELERANT HOLDINGS,GL4.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17925438
+060799,ACCELERANT HOLDINGS,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17925438
 021352,AVANOS MEDICAL INC,AVNS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17924415
 050526,MBX BIOSCIENCES INC,MBX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17924356
 011032,UNIVERSAL HEALTH SVCS INC,UHS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17916484
@@ -1992,7 +1992,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 024861,PLANET FITNESS INC,PLNT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17785296
 064547,SOUTH STATE BANK CORP,SSB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17776917
 002436,CALERES INC,CAL,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17765333
-050302,AUREUS GREENWAY HOLDINGS INC,AGH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17763646
+050302,AUREUS GREENWAY HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17763646
 038598,AST SPACEMOBILE INC,ASTS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17755254
 025898,SURGERY PARTNERS INC,SGRY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17754553
 036600,VAXCYTE INC,PCVX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17751098
@@ -2073,7 +2073,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 050831,INGRAM MICRO HOLDING CORP,INGM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17401077
 039111,VTEX,VTEX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17396973
 005072,ALLY FINANCIAL INC,ALLY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17396742
-060856,RUBICO INC,RUBI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17390467
+060856,RUBICO INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17390467
 126296,EXPEDIA GROUP INC,EXPE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17386654
 150306,TEXAS CAPITAL BANCSHARES INC,TCBI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.17386034
 014418,MGM RESORTS INTERNATIONAL,MGM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1738491
@@ -2361,7 +2361,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 062965,SS&C TECHNOLOGIES HLDGS INC,SSNC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15897247
 032930,ADT INC,ADT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15888558
 141459,GARMIN LTD,GRMN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15886867
-334288,ASCENTAGE PHARMA GROUP,AAPG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15883689
+334288,ASCENTAGE PHARMA GROUP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15883689
 038618,FINANCE OF AMERICA COMPANIES,FOA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15879062
 101973,TORM PLC,TRMD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15869829
 187406,AMC GLOBAL MEDIA INC,AMCX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15868771
@@ -2425,7 +2425,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 011455,WEYCO GROUP INC,WEYS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15564612
 032547,NEXA RESOURCES SA,NEXA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15560491
 063000,RUSH ENTERPRISES INC,RUSHA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15557918
-051266,KLARNA GROUP PLC,H1W.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15555751
+051266,KLARNA GROUP PLC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15555751
 021825,CITIZENS FINANCIAL GROUP INC,CFG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1554198
 035137,BICYCLE THERAPEUTICS PLC,BCYC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15534523
 021238,VICOR CORP,VICR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15533724
@@ -2554,7 +2554,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 030024,MILLICOM INTL CELLULAR SA,TIGO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15053427
 328795,ARCOSA INC,ACA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15052573
 027706,INTERNATIONAL SEAWAYS INC,INSW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15043923
-074582,ANDERSEN GROUP INC,ANDG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15032859
+074582,ANDERSEN GROUP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15032859
 037449,QUANTUMSCAPE CORP,QS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1502929
 005559,STERLING INFRASTRUCTURE INC,STRL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15022622
 125074,RADWARE LTD,RDWR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.15020962
@@ -2655,7 +2655,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 037587,AERSALE CORP,ASLE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1452239
 028236,GILAT SATELLITE NETWORKS LTD,GILT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14520606
 014822,BERKLEY (W R) CORP,WRB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14519846
-045768,SAILPOINT INC,SAIL,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14510442
+045768,SAILPOINT INC,,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14510442
 315629,CHIPMOS TECHNOLOGIES INC,IMOS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14509614
 163946,CF INDUSTRIES HOLDINGS INC,CF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14509054
 034010,COMSTOCK RESOURCES INC,CRK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14500754
@@ -2673,7 +2673,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 162988,ZUMIEZ INC,ZUMZ,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14452834
 030218,BANCO SANTANDER-CHILE,BSAC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14452337
 017248,UNITED BANKSHARES INC/WV,UBSI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14448683
-051461,CIRCLE INTERNET GROUP INC,CRCL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14447907
+051461,CIRCLE INTERNET GROUP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14447907
 206243,EXPRO GROUP HOLDINGS N V,XPRO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14447063
 008486,TUTOR PERINI CORP,TPC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14443523
 179234,SOUND FINANCIAL BANCORP INC,SFBC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14442433
@@ -2773,9 +2773,9 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 161997,HURON CONSULTING GROUP INC,HURN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1401697
 022134,AXALTA COATING SYSTEMS LTD,AXTA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14016528
 139804,TTM TECHNOLOGIES INC,TTMI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14012708
-060849,FIGMA INC,FIG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14011616
+060849,FIGMA INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14011616
 004448,ESCALADE INC,ESCA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.14002164
-170728,DOLLY VARDEN SILVER CORP,DVQ.DU,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13999748
+170728,DOLLY VARDEN SILVER CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13999748
 161055,BUILD-A-BEAR WORKSHOP INC,BBW,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13999459
 006649,LEGGETT & PLATT INC,LEG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13997696
 022815,TRIMBLE INC,TRMB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13994028
@@ -2952,7 +2952,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 024293,KAISER ALUMINUM CORP,KALU,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13362081
 024232,HANCOCK WHITNEY CORP,HWC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13361932
 003946,DIEBOLD NIXDORF INC,DBD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13360009
-160753,AVIDBANK HOLDINGS INC,AVBH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13359553
+160753,AVIDBANK HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13359553
 287111,KAMADA LTD,KMDA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13353981
 061420,POOL CORP,POOL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13353221
 165743,STAR BULK CARRIERS CORP,SBLK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13348301
@@ -3020,8 +3020,8 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 147849,TRUBRIDGE INC,TBRG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13061617
 009771,SMITH (A.O.),AOS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1305671
 018498,MURPHY USA INC,MUSA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13051134
-051139,COREWEAVE INC,CRWV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13046396
-051058,RESOLUTE HOLDINGS MANAGEMENT,RHLD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13042685
+051139,COREWEAVE INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13046396
+051058,RESOLUTE HOLDINGS MANAGEMENT,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13042685
 019873,WASHINGTON TR BANCORP INC,WASH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13029222
 066731,FEDERATED HERMES INC,FHI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1302857
 316726,BW LPG LTD,BWLP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.13028164
@@ -3055,7 +3055,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 148390,FORMFACTOR INC,FORM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12949398
 016790,COMMUNITY FINANCIAL SYST INC,CBU,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12943965
 035874,REYNOLDS CONSUMER PRODUCTS,REYN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12936199
-009919,AEBI SCHMIDT HOLDING AG,AEBI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12928842
+009919,AEBI SCHMIDT HOLDING AG,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12928842
 020661,V2X INC,VVX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1292822
 027235,BUSINESS FIRST BANCSHS INC,BFST,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12918432
 001545,AMERICAN REALTY INVESTORS,ARL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12909111
@@ -3116,7 +3116,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 030877,COVENANT LOGISTICS GROUP INC,CVLG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12701686
 030547,SOLARIS ENRGY INFRASTRUCTURE,SEI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12696745
 019518,KNOWLES CORP,KN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1269466
-018164,GRABAGUN DIGITAL HOLDING INC,PEW-WT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12688601
+018164,GRABAGUN DIGITAL HOLDING INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12688601
 007022,MARCUS CORP,MCS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12679477
 160668,INNOVIVA INC,INVA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12672299
 179889,AGNC INVESTMENT CORP,AGNC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12671229
@@ -3212,7 +3212,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 038038,SUN CONTY AIR HLD INC,SNCY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12286191
 023086,NEXPOINT RESIDENTIAL TR INC,NXRT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12280191
 005237,GORMAN-RUPP CO,GRC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12271542
-050372,LINKHOME HOLDINGS INC,LHAI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.122663334
+050372,LINKHOME HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.122663334
 066288,MID PENN BANCORP INC,MPB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.122641325
 024302,ALKERMES PLC,ALKS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1224917
 178797,AMERICAN PUBLIC EDUCATION,APEI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.12246701
@@ -3255,7 +3255,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 026071,FIRST CMNTY BANCSHARES INC,FCBC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.120088525
 111819,ORRSTOWN FINANCIAL SVCS INC,ORRF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.119981974
 061711,TG THERAPEUTICS INC,TGTX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11991576
-181070,SANUWAVE HEALTH INC,SNWV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11990462
+181070,SANUWAVE HEALTH INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11990462
 063739,BJ'S RESTAURANTS INC,BJRI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11979216
 112721,REPUBLIC BANCORP INC/KY,RBCAA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11972165
 002259,BLACK HILLS CORP,BKH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11961149
@@ -3278,7 +3278,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 029155,CARS.COM INC,CARS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11892874
 043589,UL SOLUTIONS INC,ULS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11885795
 062243,UNITY BANCORP INC,UNTY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.118735015
-051921,RALLIANT CORP,RAL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11862858
+051921,RALLIANT CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11862858
 017641,BANK SOUTH CAROLINA CORP,BKSC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11853956
 065084,CORECIVIC INC,CXW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1184771
 033435,INSPIRE MEDICAL SYSTEM,INSP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1184753
@@ -3293,7 +3293,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 106112,NEW GOLD INC,NGD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11823011
 178877,NAVIOS MARITIME PARTNERS LP,NMM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11819858
 028420,BLACKLINE INC,BL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1181571
-189598,ALMONTY INDUSTRIES INC,ALM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.118095145
+189598,ALMONTY INDUSTRIES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.118095145
 011506,WILLIAMS COS INC,WMB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.118094265
 009225,ROLLINS INC,ROL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11802143
 007161,MCGRATH RENTCORP,MGRC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11801213
@@ -3303,11 +3303,11 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 001823,ASTRONICS CORP,ATRO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11785389
 117034,FIRST CAPITAL INC,FCAP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11784128
 030536,GEO GROUP INC,GEO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11780355
-060791,WHITEFIBER INC,WYFI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11777787
+060791,WHITEFIBER INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11777787
 021799,VICTORY CPTL HLDGS INC,VCTR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1177733
 035759,HBT FINANCIAL INC,HBT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11776259
 033233,RED VIOLET INC,RDVT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11775886
-051380,STUBHUB HOLDINGS INC,STUB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11773905
+051380,STUBHUB HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11773905
 112759,CENTRUS ENERGY CORP,LEU,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11769447
 011304,AVISTA CORP,AVA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.117671244
 034132,BANK7 CORP,BSVN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11764836
@@ -3330,7 +3330,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 061408,HANOVER INSURANCE GROUP INC,THG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.117090896
 020430,SLM CORP,SLM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.117058516
 027803,DONNELLEY FINANCIAL SOLTNS,DFIN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11695739
-060787,HEARTFLOW INC,HTFL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11686969
+060787,HEARTFLOW INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11686969
 008113,OGE ENERGY CORP,OGE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11682513
 041901,VITESSE ENERGY INC,VTS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11672272
 161023,BAYCOM CORP,BCML,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11668719
@@ -3379,7 +3379,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 181820,FS BANCORP INC,FSBW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11412138
 032253,PONCE FINANCIAL GROUP INC,PDLB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11406825
 163668,LINCOLN EDUCATIONAL SERVICES,LINC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11406778
-051708,CHIME FINANCIAL INC,CHYM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.114022106
+051708,CHIME FINANCIAL INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.114022106
 066504,COLONY BANKCORP INC,CBAN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11401014
 035378,AFYA LIMITED,AFYA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11394356
 180183,HOME BANCORP INC,HBCP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11391087
@@ -3408,7 +3408,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 027111,METROCITY BANKSHARES INC,MCBS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11279071
 039902,THIRD COAST BANCSHARES INC,TCBX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.112777226
 176899,SANDRIDGE ENERGY INC,SD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.112777054
-045723,VENTURE GLOBAL INC,VG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11269909
+045723,VENTURE GLOBAL INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11269909
 165284,FIRST BUSINESS FINL SRV INC,FBIZ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11264045
 016890,INDEPENDENT BANK CORP/MI,IBCP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11263286
 034189,CAPITAL BANCORP INC,CBNK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11251203
@@ -3419,9 +3419,9 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 036329,INTERNATIONAL GEN INS HL LTD,IGIC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11225488
 038754,BOWMAN CONSLTG GRP LTD,BWMN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.112254724
 065460,RADCOM,RDCM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11206693
-038263,TWENTY ONE CAPITAL INC,XXI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11184102
-074628,BETA TECHNOLOGIES INC,BETA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11174203
-051747,VOYAGER TECHNOLOGIES INC,VOYG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11170521
+038263,TWENTY ONE CAPITAL INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11184102
+074628,BETA TECHNOLOGIES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11174203
+051747,VOYAGER TECHNOLOGIES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11170521
 178403,SEANERGY MARITIME HOLDINGS C,SHIP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11170056
 064791,G WILLI-FOOD INTERNATIONAL,WILC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11151049
 066155,NORWOOD FINANCIAL CORP,NWFL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.111412615
@@ -3433,7 +3433,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 164365,WATERSTONE FINANCIAL INC,WSBF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110869296
 178157,MIMEDX GROUP INC,MDXG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110844806
 183945,CORMEDIX INC,CRMD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1108301
-060758,FIREFLY AEROSPACE INC,FLY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11079097
+060758,FIREFLY AEROSPACE INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11079097
 032541,CARGURUS INC,CARG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110691674
 011854,NMI HOLDINGS INC,NMIH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11068451
 111179,HAWTHORN BANCSHARES INC,HWBK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11067804
@@ -3446,7 +3446,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 032608,ONESPAWORLD HOLDINGS LTD,OSW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11027121
 117829,AURINIA PHARMACEUTICALS INC,AUPH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11025498
 035642,PENNANT GROUP INC (THE),PNTG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110252425
-028646,ISOENERGY LTD,I010.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110199325
+028646,ISOENERGY LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110199325
 023339,ZEVRA THERAPEUTICS INC,ZVRA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110177025
 043515,WAYSTAR HOLDING CORP,WAY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.110149145
 186890,JOHN MARSHALL BANCORP INC,JMSB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.11012752
@@ -3466,7 +3466,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 183324,PENNYMAC MORTGAGE INVEST TR,PMT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1090494
 355398,SUPER HI INTERNATIONAL HOLDI,HDL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10901225
 045327,BOWHEAD SPECIALTY HOLDGS INC,BOW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10884038
-051938,HOYNE BANCORP INC,HYNE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10882239
+051938,HOYNE BANCORP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10882239
 034300,VERRA MOBILITY CORP,VRRM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1087604
 204203,CEMENTOS PACASMAYO SAA,CPAC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.108701736
 019517,ONE GAS INC,OGS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.108676955
@@ -3505,7 +3505,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 016125,CHIRON REAL ESTATE INC,GMRE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.105810426
 038747,PAYMENTUS HOLDINGS INC,PAY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10532668
 063456,CARRIAGE SERVICES INC,CSV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.105233744
-074439,BLACK ROCK COFFEE BAR INC,BRCB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10523072
+074439,BLACK ROCK COFFEE BAR INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10523072
 100338,RELX PLC,RELX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.105203986
 045445,LANDBRIDGE CO LLC,LB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10514167
 066210,LCNB CORP,LCNB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.105138846
@@ -3521,7 +3521,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 010999,UNITIL CORP,UTL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10376923
 008542,ESSENTIAL UTILITIES INC,WTRG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.103715025
 042856,KODIAK GAS SERVICES INC,KGS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.103444055
-060722,SHOULDER INNOVATIONS INC,SI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10343187
+060722,SHOULDER INNOVATIONS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10343187
 061163,SUNSTONE HOTEL INVESTORS INC,SHO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10340173
 060931,GLOBAL INDUSTRIAL CO,GIC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10315749
 036048,SOUND GROUP INC,SOGP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10301242
@@ -3531,7 +3531,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 016608,WHITEHORSE FINANCE INC,WHF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10274565
 184688,CHATHAM LODGING TRUST,CLDT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10261583
 332179,LIFE360 INC,LIF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10252353
-051160,EUROHOLDINGS LTD,EHLD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1025198
+051160,EUROHOLDINGS LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1025198
 185797,HOWARD HUGHES HOLDINGS INC,HHH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.102502115
 042314,USA RARE EARTH INC,IPXX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.1023048
 032580,VICI PROPERTIES INC,VICI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10205451
@@ -3539,7 +3539,7 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 186363,RLJ LODGING TRUST,RLJ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10179842
 021833,HESS MIDSTREAM LP,HESM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10174755
 028323,ACADIA REALTY TRUST,AKR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10173856
-074646,WEALTHFRONT CORP,WLTH,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10173017
+074646,WEALTHFRONT CORP,,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10173017
 021019,ACADIAN ASSET MANAGEMENT INC,BSIG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10165289
 333070,SEZZLE INC,SEZL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.10161395
 050659,CHAIN BRIDGE BANCORP INC,CBNA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.101469025
@@ -3554,12 +3554,12 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 183822,ARMOUR RESIDENTIAL REIT INC,ARR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09955131
 062919,MEDALLION FINANCIAL CORP,MFIN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09947914
 020791,BLACKSTONE MORTGAGE TR INC,BXMT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.099460326
-033948,GALAXY DIGITAL INC,GLXY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0989688
+033948,GALAXY DIGITAL INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0989688
 008001,NORTHWESTERN ENRGY GROUP INC,NWE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09887831
 034183,RILEY EXPL PERMIAN INC,REPX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.098857
 019526,FARMLAND PARTNERS INC,FPI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.098764166
-051244,AVIDIA BANCORP INC,AVBC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.098387085
-074615,NAVAN INC,NAVN,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09799426
+051244,AVIDIA BANCORP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.098387085
+074615,NAVAN INC,,2026-01-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09799426
 029389,SIMON PROPERTY GROUP INC,SPG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09791665
 160991,DIGITAL REALTY TRUST INC,DLR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09752229
 180228,INVESCO MORTGAGE CAPITAL INC,IVR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09742838
@@ -3568,28 +3568,28 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 039322,USCB FINANCIAL HOLDINGS INC,USCB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09683447
 026305,LAUREATE EDUCATION INC,LAUR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.096820526
 178823,AMERICAN COASTAL INSURA CORP,ACIC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09649378
-051624,COSTAMARE BULKERS HOLDINGS,CR1.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09624376
+051624,COSTAMARE BULKERS HOLDINGS,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09624376
 011657,YORK WATER CO,YORW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09612413
 030822,REALTY INCOME CORP,O,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09582966
 065556,ANNALY CAPITAL MANAGEMENT,NLY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09577071
 004045,DORCHESTER MINERALS  -LP,DMLP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09538123
 176973,GREENLIGHT CAPITAL RE LTD,GLRE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.095002085
-060793,NIQ GLOBAL INTELLIGENCE PLC,GD0.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.094513506
-060707,AMBIQ MICRO INC,AMBQ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.094449334
+060793,NIQ GLOBAL INTELLIGENCE PLC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.094513506
+060707,AMBIQ MICRO INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.094449334
 031958,SAFEHOLD INC,SAFE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09400297
 266214,COHEN & STEERS INC,CNS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.093375154
 074571,BEACON FINANCIAL CORP,BHLB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09319719
 014403,DYNEX CAPITAL INC,DX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09306264
-035946,EVOMMUNE INC,EVMN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09237809
+035946,EVOMMUNE INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09237809
 019925,TRIPLEPOINT VENTURE GWTH BDC,TPVG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09212623
 023433,BLACK STONE MINERALS LP,BSM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.092033416
 012252,XOMA ROYALTY CORP,XOMA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09171829
 003410,TRANSCONTINENTAL RLTY INVS,TCI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.091613434
-061461,VIA TRANSPORTATION INC,C0I.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.091395095
-045804,AARDVARK THERAPEUTICS INC,AARD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.091310486
+061461,VIA TRANSPORTATION INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.091395095
+045804,AARDVARK THERAPEUTICS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.091310486
 020105,FS KKR CAPITAL CORP,FSK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0912914
-356859,TIC SOLUTIONS INC,TIC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09126579
-369350,THE MAGNUM ICE CREAM CO,MICC.AS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09126268
+356859,TIC SOLUTIONS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09126579
+369350,THE MAGNUM ICE CREAM CO,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09126268
 017653,ADMA BIOLOGICS INC,ADMA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09088638
 016714,DONEGAL GROUP INC,DGICA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.090464145
 174360,SEVEN HILLS REALTY TRUST,SEVN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.09045894
@@ -3598,20 +3598,20 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 016113,ARTISAN PARTNERS ASSET MGMT,APAM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.090032406
 064784,JEFFERSONVILLE BANCORP,JFBC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08987874
 023147,NATIONAL STORAGE AFFILIATES,NSA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08944786
-045785,BETA BIONICS INC,BBNX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.089204304
-060795,CARLSMED INC,CARL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08856365
-264412,GCI LIBERTY INC,GLIBA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08851095
+045785,BETA BIONICS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.089204304
+060795,CARLSMED INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08856365
+264412,GCI LIBERTY INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08851095
 178862,CHIMERA INVESTMENT CORP,CIM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08805637
-051803,OMADA HEALTH INC,OMDA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.087939076
+051803,OMADA HEALTH INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.087939076
 030004,INVITATION HOMES INC,INVH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08778754
-043286,ALLIED GOLD CORP,A240.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08744164
+043286,ALLIED GOLD CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08744164
 036053,NEXPOINT REAL EST FIN,NREF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.085849956
 183388,STARWOOD PROPERTY TRUST INC,STWD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.085562244
-036743,ELEMENTAL ROYALTY CORP,ELE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08459986
+036743,ELEMENTAL ROYALTY CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08459986
 038753,ENACT HOLDINGS INC,ACT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08441651
 024620,RYMAN HOSPITALITY PPTYS INC,RHP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08441334
 017639,AMERICAN HOMES 4 RENT,AMH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.084102266
-045775,SMITHFIELD FOODS INC,SFD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08405407
+045775,SMITHFIELD FOODS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08405407
 010096,PUBLIC STORAGE,PSA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08315145
 185585,NEW MOUNTAIN FINANCE CORP,NMFC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08244057
 004605,FEDERAL REALTY INVESTMENT TR,FRT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08182429
@@ -3619,69 +3619,69 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 039039,ANGEL OAK MORTGAGE REIT INC,AOMR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08177318
 029052,LXP INDUSTRIAL TRUST,LXP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08105339
 029099,REGENCY CENTERS CORP,REG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.08088659
-050707,KYIVSTAR GROUP LTD,KYIV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.080873065
-060834,MIAMI INTERNATIONAL HOLD INC,U42.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07992286
+050707,KYIVSTAR GROUP LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.080873065
+060834,MIAMI INTERNATIONAL HOLD INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07992286
 037793,DREAM FINDERS HOMES INC,DFH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.079869576
-074388,LB PHARMACEUTICALS INC,LBRX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07983269
+074388,LB PHARMACEUTICALS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07983269
 009346,SABINE ROYALTY TRUST,SBR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07955481
-051684,ANTALPHA PLATFORM HOLDING CO,ANTA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0795003
+051684,ANTALPHA PLATFORM HOLDING CO,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0795003
 013125,HEALTHPEAK PROPERTIES INC,DOC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.079273
-074813,QNITY ELECTRONICS INC,Q,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.079171345
+074813,QNITY ELECTRONICS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.079171345
 034970,AMERICAN HEALTHCARE REIT INC,AHR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0787954
-045685,ANBIO BIOTECHNOLOGY,NNNN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07876872
+045685,ANBIO BIOTECHNOLOGY,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07876872
 018383,BRIXMOR PROPERTY GROUP INC,BRX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07841186
-045769,SIONNA THERAPEUTICS INC,SION,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.077904455
+045769,SIONNA THERAPEUTICS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.077904455
 039663,MODIV INDUSTRIAL INC,MDV,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0776202
 110179,VENTAS INC,VTR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.077432945
 064925,BXP INC,BXP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0771341
 050313,SUNRISE REALTY TRUST INC,SUNS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07663351
 031966,TPG RE FINANCE TRT INC,TRTX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07663182
 037723,TRINITY CAPITAL INC,TRIN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07617285
-074570,MAPLIGHT THERAPEUTICS INC,MPLT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07589272
+074570,MAPLIGHT THERAPEUTICS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07589272
 160541,HERCULES CAPITAL INC,HTGC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07581443
 018948,MECHANICS BANCORP,HMST,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07551747
-175230,AURA MINERALS INC,AUGO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0753323
+175230,AURA MINERALS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0753323
 039332,CHICAGO ATLANTIC BDC INC,LIEN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07508696
-061463,LEGENCE CORP,LGN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07442143
+061463,LEGENCE CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07442143
 004193,EASTGROUP PROPERTIES,EGP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.073815785
-275108,JBS NV,Z98.MU,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07368712
+275108,JBS NV,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07368712
 160706,DIAMONDROCK HOSPITALITY CO,DRH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07339764
 007063,HOST HOTELS & RESORTS INC,HST,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07335283
-366911,AMRIZE LTD,AMRZ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07317929
-154511,CENTRAL BANCOMPANY,CBC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07304452
-074927,SUNOCOCORP LLC,SUNC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07259167
-045711,MAZE THERAPEUTICS INC,MAZE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07229884
+366911,AMRIZE LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07317929
+154511,CENTRAL BANCOMPANY,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07304452
+074927,SUNOCOCORP LLC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07259167
+045711,MAZE THERAPEUTICS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07229884
 001257,ALEXANDER'S INC,ALX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.071348935
-051119,MNTN INC,MNTN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07117202
+051119,MNTN INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07117202
 030293,ESSEX PROPERTY TRUST,ESS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07115027
 012081,GLADSTONE LAND CORP,LAND,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.07075937
 003562,COUSINS PROPERTIES INC,CUZ,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06978126
 023353,GOLDMAN SACHS BDC INC,GSBD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06959236
 019440,LADDER CAPITAL CORP,LADR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06921047
-045796,NORTHPOINTE BANCSHARES INC,X31.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06894691
-074887,MEDLINE INC,MDLN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.068292044
+045796,NORTHPOINTE BANCSHARES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06894691
+074887,MEDLINE INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.068292044
 024731,KIMCO REALTY CORP,KIM,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06813676
 161966,ARES CAPITAL CORP,ARCC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06804559
 018071,REXFORD INDUS REALTY,REXR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06760376
 154739,GLADSTONE COMMERCIAL CORP,GOOD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.066889904
-153616,EAGLE FINANCIAL SERVICES INC,EFSI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.066536516
+153616,EAGLE FINANCIAL SERVICES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.066536516
 029649,MID-AMERICA APT CMNTYS INC,MAA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06585368
 014592,ALLIANCEBERNSTEIN HOLDING LP,AB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06539554
 043860,BRIDGEBIO ONCLGY THRPTCS INC,HLXB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.065353245
 025645,ALBERTSONS COS INC,ACI,2026-02-28,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.065303154
-074430,NEPTUNE INSURANCE HLDNGS INC,ETHB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06509897
+074430,NEPTUNE INSURANCE HLDNGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06509897
 011220,VORNADO REALTY TRUST,VNO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0650303
 033337,BLUE OWL CAPITAL CORP,OBDC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0646832
-075031,LUMEXA IMAGING HOLDINGS INC,LMRI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06444783
+075031,LUMEXA IMAGING HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06444783
 022983,XENIA HOTELS & RESORTS INC,XHR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06443865
 023556,COMMUNITY HEALTHCARE TRUST,CHCT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.064201176
 028733,EQUITY RESIDENTIAL,EQR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0641742
 017769,HA SUSTAINABLE INFRA CAP INC,HASI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06368883
 024533,NATIONAL HEALTH INVESTORS,NHI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.063222215
-074797,SOLSTICE ADVANCED MTRILS INC,ETHB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06307616
+074797,SOLSTICE ADVANCED MTRILS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06307616
 040353,RUNWAY GROWTH FINANCE CORP,RWAY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.062942706
 010894,UDR INC,UDR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.062787905
-060820,BULLISH,BLSH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.062458023
+060820,BULLISH,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.062458023
 018494,INDEPENDENCE REALTY TRUST,IRT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.062437836
 029082,CBL & ASSOCIATES PPTYS INC,CBL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06198663
 035030,POSTAL REALTY TRUST INC,PSTL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06186919
@@ -3693,20 +3693,20 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 064306,KILROY REALTY CORP,KRC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06079935
 064410,CARMAX INC,KMX,2026-02-28,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.06076953
 003429,CTO REALTY GROWTH INC,CTO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.060491234
-050770,INFINITY NATURAL RSOURCS INC,NG=F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.059763648
+050770,INFINITY NATURAL RSOURCS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.059763648
 011756,ALEXANDER & BALDWIN INC,ALEX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.059715826
 039989,BLACKSTONE SECURED LENDING F,BXSL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05960434
 019582,CARETRUST REIT INC,CTRE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05956589
-051531,AMERICAN INTEGRITY INSURANCE,8DI.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.059549775
-040232,EXZEO GROUP INC,XZO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05925804
-051778,SLIDE INSURANCE HOLDINGS INC,ID8.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.059171338
+051531,AMERICAN INTEGRITY INSURANCE,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.059549775
+040232,EXZEO GROUP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05925804
+051778,SLIDE INSURANCE HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.059171338
 002710,CONSTELLATION BRANDS,STZ,2026-02-28,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.058928464
-050678,YUANBAO INC -ADR,ETHB,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.058542766
+050678,YUANBAO INC -ADR,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.058542766
 028769,SAUL CENTERS INC,BFS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.058224704
 030637,VERIS RESIDENTIAL INC,VRE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.057979092
-074383,PATTERN GROUP INC,PTRN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.057863694
-126474,BOYD GROUP SERVICES INC,BGSI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.057149455
-051553,CHAGEE HOLDINGS LIMITED,CHA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.057067614
+074383,PATTERN GROUP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.057863694
+126474,BOYD GROUP SERVICES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.057149455
+051553,CHAGEE HOLDINGS LIMITED,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.057067614
 176725,BARINGS BDC INC,BBDC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0570151
 024825,COPT DEFENSE PROPERTIES,CDP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.056732904
 036967,BROADSTONE NET LEASE INC,BNL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.056597658
@@ -3714,28 +3714,28 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 031819,CARLYLE SECURED LENDING INC,CGBD,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05652856
 010917,UMH PROPERTIES INC,UMH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.056195818
 266257,MIDCAP FINANCIAL INVSMT CORP,MFIC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.056188796
-074725,BILLIONTOONE INC,BLLN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.056161106
+074725,BILLIONTOONE INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.056161106
 036133,CRESCENT CAPITAL BDC INC,CCAP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.055869464
 185618,SABRA HEALTH CARE REIT INC,SBRA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.055823505
 033684,ESSENTIAL PPT RLTY TST,EPRT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.055671018
-032350,COASTALSOUTH BANCSHARES INC,COSO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.055369694
+032350,COASTALSOUTH BANCSHARES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.055369694
 185549,AMERICAN ASSETS TRUST INC,AAT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.055363286
 022459,URBAN EDGE PROPERTIES,UE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.054988585
 018792,GAMING & LEISURE PPTYS,GLPI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05461874
-157307,ISABELLA BANK CORP,ISBA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.054589245
+157307,ISABELLA BANK CORP,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.054589245
 266315,KITE REALTY GROUP TRUST,KRG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.054566707
 065710,EPR PROPERTIES,EPR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05456543
-074397,COMMERCIAL BANCGROUP INC,CBK,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.054537367
-074529,WATERBRIDGE INFRASTRCTRE LLC,VRT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.053893145
+074397,COMMERCIAL BANCGROUP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.054537367
+074529,WATERBRIDGE INFRASTRCTRE LLC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.053893145
 185339,STAG INDUSTRIAL INC,STAG,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.053606015
-051869,CARIS LIFE SCIENCES INC,CAI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.053356733
+051869,CARIS LIFE SCIENCES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.053356733
 030384,FIRST INDL REALTY TRUST INC,FR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.053339887
 176256,BCP INVESTMENT CORP,PTMN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.053271662
 035770,SILA REALTY TRUST INC,SILA,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.052917797
 184287,SLR INVESTMENT CORP,SLRC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.052851986
 026839,PHILLIPS EDISON & CO INC,PECO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.052579094
 030298,HIGHWOODS PROPERTIES INC,HIW,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.0522824
-074767,CARDINAL INFRASTRU GROUP INC,CDNL,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05221665
+074767,CARDINAL INFRASTRU GROUP INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05221665
 004390,ENNIS INC,EBF,2026-02-28,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.051688023
 185453,WHITESTONE REIT,WSR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05160671
 178529,MAIN STREET CAPITAL CORP,MAIN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.051550053
@@ -3747,27 +3747,27 @@ gvkey,conm,ticker,latest_observed_date,risk_horizon,pred_risk_2026
 026410,FOUR CORNERS PROPERTY TR INC,FCPT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05071167
 039964,CHICAGO ATLANTIC REA E F INC,REFI,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.05029207
 012140,NNN REIT INC,NNN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04973099
-025792,EMERA INC,ERRAF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.049385563
+025792,EMERA INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.049385563
 187483,FIDUS INVESTMENT CORP,FDUS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04934957
-045751,TITAN AMERICA SA,IH9.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04916419
+045751,TITAN AMERICA SA,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04916419
 028340,TANGER INC,SKT,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.049102925
 025665,LTC PROPERTIES INC,LTC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048904333
-045710,FLOWCO HOLDINGS INC,FLOC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048819438
+045710,FLOWCO HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048819438
 034415,BAIN CAP SPECIALTY FIN INC,BCSF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048583552
-037688,GBANK FINANCIAL HOLDINGS INC,8AE.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048454333
+037688,GBANK FINANCIAL HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048454333
 030067,AGREE REALTY CORP,ADC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048359722
 183833,TERRENO REALTY CORP,TRNO,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04815261
-051383,ATEGRITY SPECIALTY INSURANCE,A1Q.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048128046
-074496,ALLIANCE LAUNDRY HOLDING INC,ALH,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.047461767
+051383,ATEGRITY SPECIALTY INSURANCE,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.048128046
+074496,ALLIANCE LAUNDRY HOLDING INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.047461767
 045373,KAYNE ANDERSON BDC INC,KBDC,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04713538
 019974,SIXTH STREET SPECIALTY LENDI,TSLX,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.046538305
-040692,SMARTSTOP SELF STORAGE R INC,D630.F,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04616973
+040692,SMARTSTOP SELF STORAGE R INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04616973
 027875,EQUITY LIFESTYLE PPTYS INC,ELS,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.045675986
-051379,ETORO GROUP LTD,ETOR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04554981
+051379,ETORO GROUP LTD,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04554981
 160990,CUBESMART,CUBE,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.04552218
 005149,GETTY REALTY CORP,GTY,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.044479962
-051766,JEFFERSON CAPITAL INC,JCAP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.041766696
-045783,KARMAN HOLDINGS INC,KRMN,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.040404715
-074340,FIGURE TECHNOLOGY SOLUTIONS,FIGR,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.038888797
-045779,MILLROSE PROPERTIES INC,MRP,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.028637577
-039498,MSC INCOME FUND INC,MSIF,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.024994588
+051766,JEFFERSON CAPITAL INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.041766696
+045783,KARMAN HOLDINGS INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.040404715
+074340,FIGURE TECHNOLOGY SOLUTIONS,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.038888797
+045779,MILLROSE PROPERTIES INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.028637577
+039498,MSC INCOME FUND INC,,2025-12-31,Dec 2025 - Dec 2026 (12 months from last fiscal year),0.024994588

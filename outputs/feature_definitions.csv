@@ -21,3 +21,11 @@ fedfunds_lag1,Federal Funds rate lagged 1 year — monetary policy tightness
 gs10_lag1,10-Year Treasury yield lagged — long-term rates
 baa_lag1,Baa corporate yield lagged — credit spreads & risk appetite
 aaa_lag1,Aaa corporate yield lagged — high-grade cost of debt
+prcc_f,Stock Price (Fiscal Year End) — market signal of distress
+seq,Stockholders' Equity (Book Value) — net worth (low/negative = insolvency risk)
+mktcap_dec,Market Capitalization (Decile) — firm size (small caps are riskier)
+ret_vol_12m,Stock Return Volatility (12M) — uncertainty and risk
+ni,Net Income — bottom-line profit (losses signal distress)
+wc_to_assets,Working Capital / Total Assets — short-term liquidity buffer
+equity_to_liabilities_mkt,Market Value of Equity / Total Liabilities — market leverage (low = distress)
+ret_12m,12-Month Stock Return — market performance (large drops precede default)

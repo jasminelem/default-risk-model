@@ -1,23 +1,23 @@
 gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
-039966,CID HOLDCO INC,DAIC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.90173334
+039966,CID HOLDCO INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.90173334
 050791,SKY QUARRY INC,SKYQ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.89243
-045655,TEN HOLDINGS INC,TENB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8909951
+045655,TEN HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8909951
 031418,PROPHASE LABS INC,PRPH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.89096457
 040601,HWH INTERNATIONAL INC,HWH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8861196
-050437,WELLGISTICS HEALTH INC,WGRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.88480735
-051841,VIEWBIX INC,VBIX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8770379
-050991,NOMADAR CORP,NOMA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.87205684
+050437,WELLGISTICS HEALTH INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.88480735
+051841,VIEWBIX INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8770379
+050991,NOMADAR CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.87205684
 022879,GREENPRO CAPITAL CORP,GRNQ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8701557
 035210,ATERIAN INC,ATER,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.86715126
 166491,IGC PHARMA INC,IGC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8650892
 038537,INSPIRA TECH OXY BHN LTD,IINN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8643532
 043435,SHIMMICK CORP,SHIM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.860082
-050708,TOPPOINT HOLDINGS INC,TOPP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.85964125
+050708,TOPPOINT HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.85964125
 325212,BRENMILLER ENERGY LTD,BNRG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.859062
 040511,ASPIRE BIOPHARMA HOLDING INC,PWUP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8576949
-040488,PICARD MEDICAL INC,PMI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8558685
+040488,PICARD MEDICAL INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8558685
 043386,PMGC HOLDINGS INC,ELAB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.85307467
-038025,LIMINATUS PHARMA INC,LIMN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8517953
+038025,LIMINATUS PHARMA INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8517953
 033483,XORTX THERAPEUTICS INC,XRTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8506498
 043574,FIBROBIOLOGICS INC,FBLG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.84988123
 024310,RENX ENTERPRISES CORP,SGD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.845017
@@ -40,12 +40,12 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 025302,INTRUSION INC,INTZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.82110023
 166460,ASCENT SOLAR TECH INC,ASTI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.82078624
 063446,AINOS INC,AIMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8203223
-074746,OFF THE HOOK YS INC,OTH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.81892943
+074746,OFF THE HOOK YS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.81892943
 018549,CLEARONE INC,CLRO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8154261
 037807,LONGEVERON INC,LGVN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8147557
 025447,SKYX PLATFORMS CORP,SKYX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.81335104
-045712,FUNCTIONAL BRANDS INC,MEHA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8128149
-050435,BRAG HOUSE HOLDINGS INC,TBH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.81279474
+045712,FUNCTIONAL BRANDS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.8128149
+050435,BRAG HOUSE HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.81279474
 345920,HYDROFARM HLDNG GP INC,HYFM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.81075585
 039728,LUCID DIAGNOSTICS INC,LUCD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.81061953
 037797,P3 HEALTH PARTNERS INC,PIII,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.80994517
@@ -66,7 +66,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 039342,BIOFRONTERA INC,BFRI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7903971
 165215,ALAUNOS THERAPEUTICS INC,TCRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.78842384
 033068,PURPLE INNOVATION INC,PRPL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7861259
-050491,RYOJBABA CO LTD,RYOJ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7844086
+050491,RYOJBABA CO LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7844086
 043455,MEDICUS PHARMA LTD,MDCX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.78328645
 039620,CINGULATE INC,CING,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7821777
 041936,BULLFROG AI HOLDINGS INC,BFRG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7805009
@@ -93,7 +93,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 036635,GOHEALTH INC,GOCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.75894934
 036335,CISO GLOBAL INC,CISO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7581756
 036237,ONCOLOGY INSTITUTE INC (THE),TOI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.75748867
-032589,TITAN MINING CORP,TII,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.75658494
+032589,TITAN MINING CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.75658494
 036003,TAOWEAVE INC,OBLG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7563612
 039525,HUMACYTE INC,HUMA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.75632054
 009393,SAN JUAN BASIN ROYALTY TR,SJT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.75596625
@@ -103,7 +103,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 032919,EVOLUS INC,EOLS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7502025
 039411,RENOVORX INC,RNXT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.749446
 065430,CHILDRENS PLACE INC,PLCE,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7482733
-051668,REGENTIS BIOMATERIALS LTD,RGNT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7475784
+051668,REGENTIS BIOMATERIALS LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7475784
 043758,OS THERAPIES INC,OSTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7469662
 039703,NERDY INC,NRDY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7456583
 017024,GLUCOTRACK INC,GCTK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.74513847
@@ -113,14 +113,14 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 041686,SNAIL INC,SNAL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7426945
 025105,PRESURANCE HOLDINGS INC,CNFR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7417754
 032233,DARE BIOSCIENCE INC,DARE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.74075085
-074422,TURN THERAPEUTICS INC,TTRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.74047303
+074422,TURN THERAPEUTICS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.74047303
 039712,VICARIOUS SURGICAL INC,RBOT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73972017
 040414,INNOVATIVE EYEWEAR INC,LUCY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73903894
 041474,NEWTON GOLF COMPANY INC,SPGC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73889387
 036481,BT BRANDS INC,BTBD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73884106
 296810,ICECURE MEDICAL LTD,ICCM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.737162
 021421,VIVANI MEDICAL INC,VANI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73687315
-074783,APTERA MOTORS CORP,SEV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7364336
+074783,APTERA MOTORS CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7364336
 039740,JASPER THERAPEUTICS INC,JSPR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7361552
 039501,CALIDI BIOTHERAPEUTICS INC,CLDI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73398244
 038625,WEREWOLF THERAPTCS INC,HOWL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73374516
@@ -129,7 +129,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 030614,ENERGY FOCUS INC,EFOI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.73187417
 040236,TENON MEDICAL INC,TNON,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7311314
 039863,ONCONETIX INC,ONCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.72982645
-050509,INLIF LTD,ZIM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7266687
+050509,INLIF LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7266687
 018398,BEELINE HOLDINGS INC,EAST,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7262938
 035019,WORKSPORT LTD,WKSP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.72487456
 039627,FGI INDUSTRIES LTD,FGI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7233746
@@ -148,7 +148,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 035779,TELA BIO INC,TELA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7154945
 039801,ABVC BIOPHARMA INC,ABVC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.71534586
 032193,CIBUS INC,CBUS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.71331793
-033773,SS INNOVATIONS INTERNATI INC,N68.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7112291
+033773,SS INNOVATIONS INTERNATI INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7112291
 135044,PIXELWORKS INC,PXLW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7111356
 038030,ENVOY MEDICAL INC,COCH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.71098554
 061321,SMITH MICRO SOFTWARE INC,SMSI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7106774
@@ -156,7 +156,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 039160,ENSYSCE BIOSCIENCES INC,ENSC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.707868
 021103,LIFEWARD LTD,LFWD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7072051
 039248,TEADS HOLDING CO,OB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.706362
-050874,CURANEX PHARMACEUTICALS INC,CURX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7050652
+050874,CURANEX PHARMACEUTICALS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7050652
 183799,FLUENT INC,FLNT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7048934
 040132,SOUTHLAND HOLDINGS INC,SLND,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.70445937
 037856,LOCAL BOUNTI CORP,LOCL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.7041027
@@ -227,7 +227,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 039724,ARBE ROBOTICS LTD,ARBE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.66122454
 027574,TPI COMPOSITES INC,TPIC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.6603611
 037490,LUMINAR TECHNOLOGIES INC,LAZR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65744853
-060747,NASUS PHARMA LTD,NSRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65715086
+060747,NASUS PHARMA LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65715086
 018509,IDEAL POWER INC,IPWR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65671116
 188355,LIQTECH INTERNATIONAL INC,LIQT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.655832
 339950,NYXOAH S A,NYXH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65565443
@@ -236,7 +236,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 160570,COMMERCIAL VEHICLE GROUP INC,CVGI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.6550506
 170430,SILO PHARMA INC,SILO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65409005
 038804,ZYVERSA THERAPEUTICS INC,ZVSA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.6512162
-074793,GLOO HOLDINGS INC,GLOO,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65095526
+074793,GLOO HOLDINGS INC,,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65095526
 286396,EVOGENE LTD,EVGN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.65024155
 036140,PASSAGE BIO INC,PASG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.64720774
 038082,COEPTIS THERAPEUTIC HOLD INC,COEP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.64719874
@@ -356,7 +356,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 107843,MARKER THERAPEUTICS INC,MRKR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5633166
 036535,STABLEX TECHNOLOGIES INC,AYRO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5632528
 008213,ACCENDRA HEALTH INC,OMI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.56301254
-051858,CAPSOVISION INC,CV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5629216
+051858,CAPSOVISION INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5629216
 038200,BIOTE CORP,BTMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5617109
 038308,ONEMEDNET CORP,ONMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5611648
 035100,MILESTONE PHARMACEUTICLS INC,MIST,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5605489
@@ -381,14 +381,14 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 035891,ZHONGCHAO INC,ZCMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5459996
 023818,EVOLENT HEALTH INC,EVH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54473877
 039231,WHEELS UP EXPERIENCE INC,UP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5446272
-050372,LINKHOME HOLDINGS INC,LHAI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54414237
+050372,LINKHOME HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54414237
 186953,INSPIREMD INC,NSPR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5440287
 039294,SOPHIA GENETICS SA,SOPH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54402316
 036632,BONK INC,SHOT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54351264
 016015,QUEST RESOURCE HOLDING CORP,QRHC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54343027
 036500,PRESIDIO PROPERTY TRUST INC,SQFT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.5431086
 035009,GREENLANE HOLDINGS INC,GNLN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54279184
-039574,XCF GLOBAL INC,SAFX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54274356
+039574,XCF GLOBAL INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54274356
 023627,ATYR PHARMA INC,ATYR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.54272443
 038014,ROYALTY MANAGEMENT HOLD CORP,RMCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.53972036
 035391,HEALTH CATALYST INC,HCAT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.53909045
@@ -513,7 +513,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 040417,DOUGLAS ELLIMAN INC,DOUG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47836834
 045388,INHIBRX BIOSCIENCES INC,INBX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47815982
 148470,RED ROBIN GOURMET BURGERS,RRGB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47689295
-324138,MOBILICOM LTD,MOBBW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47627
+324138,MOBILICOM LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47627
 037373,EVE HOLDING INC,EVEX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47569034
 064327,CERUS CORP,CERS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47460473
 037687,GOGORO INC,GGR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.47441307
@@ -530,7 +530,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 031629,READING INTL INC  -CL A,RDI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.46980396
 045320,SILVACO GROUP INC,SVCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.46862632
 038993,DERMATA THERAPEUTICS INC,DRMA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.46739212
-038977,ODYSIGHT.AI INC,Z40.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.4665531
+038977,ODYSIGHT.AI INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.4665531
 037182,HYLIION HOLDINGS CORP,HYLN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.46611458
 320806,NOVONIX LTD,NVX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.46549666
 031006,BRAGG GAMING GROUP,BRAG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.46410358
@@ -564,7 +564,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 116504,SLEEP NUMBER CORP,SNBR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.444616
 039127,CVRX INC,CVRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.44440186
 035649,ADC THERAPEUTICS SA,ADCT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.4441581
-074434,PARK DENTAL PARTNERS INC,PARK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.44367197
+074434,PARK DENTAL PARTNERS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.44367197
 001585,AMERICAN VANGUARD CORP,AVD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.44206744
 177943,DHI GROUP INC,DHX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.44148603
 039835,STRAN & COMPANY INC,SWAG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.4404425
@@ -578,7 +578,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 150221,GALECTIN THERAPEUTICS INC,GALT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.43642288
 001613,AMPCO-PITTSBURGH CORP,AP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.4362357
 061153,GRAFTECH INTERNATIONAL LTD,EAF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.43613076
-050302,AUREUS GREENWAY HOLDINGS INC,AGH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.43606722
+050302,AUREUS GREENWAY HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.43606722
 028551,INTELLIGENT PROCTN MGMT CORP,PALT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.43570194
 038461,AGILON HEALTH INC,AGL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.43544963
 041684,ACRIVON THERAPEUTICS INC,ACRV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.43498558
@@ -613,7 +613,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 033660,XERIS BIOPHARMA HOLDINGS INC,XERS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.41809782
 285556,VALNEVA SE,VALN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.41796726
 027372,AC IMMUNE SA,ACIU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.41794774
-051314,NEWSMAX INC,NMAX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.41767183
+051314,NEWSMAX INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.41767183
 038910,ACURX PHARMA INC,ACXP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.41750237
 039170,SERA PROGNOSTICS INC,SERA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.41696587
 021984,TON STRATEGY CO,VERB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.4157412
@@ -664,8 +664,8 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 036464,PLIANT THERAPEUTICS INC,PLRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3883799
 002504,UNISYS CORP,UIS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.38817206
 150201,MARTIN MIDSTREAM PARTNERS LP,MMLP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.387018
-189598,ALMONTY INDUSTRIES INC,ALM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.38572797
-061467,GEMINI SPACE STATION INC,GEMI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.38550815
+189598,ALMONTY INDUSTRIES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.38572797
+061467,GEMINI SPACE STATION INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.38550815
 034570,CARDIOL THERAPEUTICS INC,CRDL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.38471225
 036218,DIGI POWER X INC,DGHI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.38388586
 038065,PLAYBOY INC,PLBY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.383831
@@ -719,7 +719,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 164660,CLEAR CHANNEL OUTDOOR HLDGS,CCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3534227
 021841,COHERUS ONCOLOGY INC,CHRS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3533212
 019605,RAND CAPITAL CORP,RAND,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.35308567
-356257,BTQ TECHNOLOGIES CORP,BTQ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.35303327
+356257,BTQ TECHNOLOGIES CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.35303327
 043837,ALTO NEUROSCIENCE INC,ANRO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3522323
 039054,PLAYSTUDIOS INC,MYPS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.35169712
 031457,SOUNDTHINKING INC,SSTI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.35102457
@@ -744,9 +744,9 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 037350,FORUM MARKETS INC,ATNF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33953485
 039255,OWLET INC,OWLT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33846807
 038089,BETTER HOME & FINANCE HLG CO,BETR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33828548
-051514,STARZ ENTERTAINMENT CORP,STRZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33813864
+051514,STARZ ENTERTAINMENT CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33813864
 037562,SKILLZ INC,SKLZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33780268
-181070,SANUWAVE HEALTH INC,SNWV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33716404
+181070,SANUWAVE HEALTH INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33716404
 038762,MOBILE INFRASTRUCTURE CORP,BEEP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33662686
 036776,ORCHESTRA BIOMED HOLDING INC,OBIO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.336461
 032792,QUANTERIX CORP,QTRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3359889
@@ -754,7 +754,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 038121,OCULIS HOLDING AG,OCS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33497766
 061399,MYRIAD GENETICS INC,MYGN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33475858
 032315,TDH HOLDINGS INC,PETZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33475134
-060795,CARLSMED INC,CARL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33430392
+060795,CARLSMED INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.33430392
 003105,IHEARTMEDIA INC,IHRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3342048
 032365,SYNLOGIC INC,SYBX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3340026
 347354,ZOOZ STRATEGY LTD,ZOOZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3336455
@@ -798,12 +798,12 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 039961,SWEETGREEN INC,SG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31782305
 062956,BOS BETTER ONLINE SOLUTIONS,BOSC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31747776
 033631,KEZAR LIFE SCIENCES,KZR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31744447
-170728,DOLLY VARDEN SILVER CORP,DVQ.DU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31742218
+170728,DOLLY VARDEN SILVER CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31742218
 039251,ENOVIX CORP,ENVX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3168776
 158743,B&G FOODS INC,BGS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31669244
 036463,ALIGHT INC,ALIT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3164598
 024720,WABASH NATIONAL CORP,WNC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31604412
-074646,WEALTHFRONT CORP,WLTH,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31560102
+074646,WEALTHFRONT CORP,,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31560102
 033635,AUTOLUS THERAPEUTICS -ADR,AUTL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31495357
 179249,BROADWIND INC,BWEN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.31475484
 183139,ACCESS NEWSWIRE INC,ISDR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.3145198
@@ -972,7 +972,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 038688,AVEANNA HCARE HOLD INC,AVAH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25497726
 196269,FORTRESS BIOTECH INC,FBIO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25480852
 013582,CPS TECHNOLOGIES CORP,CPSH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25444847
-074570,MAPLIGHT THERAPEUTICS INC,MPLT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2536362
+074570,MAPLIGHT THERAPEUTICS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2536362
 178371,KESTREL GROUP LTD,MHLD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25363386
 019771,GALMED PHARMACEUTICALS LTD,GLMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25287092
 174169,BATTALION OIL CORP,BATL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25242746
@@ -982,7 +982,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 120456,MANHATTAN BRIDGE CAPITAL INC,LOAN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25156704
 024277,PROFOUND MEDICAL CORP,PROF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.25028023
 160681,HYSTER YALE INC,HY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2497501
-043188,LIBERTY LIVE HOLDINGS INC,LLYVK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.24902198
+043188,LIBERTY LIVE HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.24902198
 151423,NEPHROS INC,NEPH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.24891433
 325899,TELIX PHARMACEUTICALS LTD,TLX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.24877767
 014898,3D SYSTEMS CORP,DDD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.24825336
@@ -1041,7 +1041,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 021834,MAMMOTH ENERGY SERVICES INC,TUSK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2328573
 022284,SMART SAND INC,SND,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.23235731
 038790,SAGIMET BIOSCIENCES INC,SGMT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2323134
-060707,AMBIQ MICRO INC,AMBQ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.23225798
+060707,AMBIQ MICRO INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.23225798
 164506,ACCO BRANDS CORP,ACCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.23168884
 035211,CLARIVATE PLC,CLVT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.23160863
 183029,READY CAPITAL CORP,RC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.23129036
@@ -1081,7 +1081,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 020720,RELMADA THERAPEUTICS INC,RLMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.22077492
 190355,AXOGEN INC,AXGN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.22072157
 030622,YEXT INC,YEXT,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21928862
-051747,VOYAGER TECHNOLOGIES INC,VOYG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21919334
+051747,VOYAGER TECHNOLOGIES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21919334
 050718,BINGEX LTD -ADR,FLX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21895176
 032901,SELLAS LIFE SCIENCES GROUP I,SLS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2175519
 039901,CI&T INC,CINT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21742086
@@ -1091,7 +1091,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 171049,BLOOMIN' BRANDS INC,BLMN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21674852
 038053,ADVANCED FLOWER CAPITAL INC,AFCG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21648669
 034076,EVENTBRITE INC,EB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21554469
-051803,OMADA HEALTH INC,OMDA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21548747
+051803,OMADA HEALTH INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21548747
 033779,ESTABLISHMNT LBS HLDNG,ESTA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21529879
 061490,OPKO HEALTH INC,OPK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21515137
 029576,NI HOLDINGS INC,NODK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.21480376
@@ -1116,17 +1116,17 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 035035,KONTOOR BRANDS INC,KTB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20957243
 037513,NEWAMSTERDAM PHARMA COMPANY,NAMS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20956545
 037136,DWAVE QUANTUM INC,QBTS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2095041
-035946,EVOMMUNE INC,EVMN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20881854
+035946,EVOMMUNE INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20881854
 162988,ZUMIEZ INC,ZUMZ,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20868358
 037664,PURECYCLE TECHNOLOGIES INC,PCT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20844112
 028724,BALLARD POWER SYSTEMS INC,BLDP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20795624
-028646,ISOENERGY LTD,I010.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20750865
+028646,ISOENERGY LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20750865
 039992,NEXTNAV INC,NN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20743142
 034955,PAGERDUTY INC,PD,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20694298
 012603,CNO FINANCIAL GROUP INC,CNO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20684816
 023119,SOLAREDGE TECHNOLOGIES INC,SEDG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20683853
 147305,JETBLUE AIRWAYS CORP,JBLU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20678328
-018164,GRABAGUN DIGITAL HOLDING INC,PEW-WT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2064672
+018164,GRABAGUN DIGITAL HOLDING INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2064672
 039633,CONTEXT THERAPEUTICS INC,CNTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20638664
 035416,ANNOVIS BIO INC,ANVS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20610899
 175908,WHERE FOOD COMES FROM INC,WFCF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20567182
@@ -1138,7 +1138,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 025852,CONSUMER PORTFOLIO SVCS INC,CPSS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20406628
 187363,GROUPON INC,GRPN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20404963
 016775,CITIZENS INC,CIA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20359118
-074439,BLACK ROCK COFFEE BAR INC,BRCB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20314077
+074439,BLACK ROCK COFFEE BAR INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20314077
 035377,PHREESIA INC,PHR,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20312718
 015459,TREDEGAR CORP,TG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20305327
 038711,PALISADE BIO INC,PALI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20267531
@@ -1153,7 +1153,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 176523,NATIONAL CINEMEDIA INC,NCMI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20060207
 026167,BALDWIN INSURANCE GROUP INC,BWIN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.2003986
 177405,HYCROFT MINING HOLDING CORP,HYMC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.20007186
-074449,FERMI INC,FRMI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19978227
+074449,FERMI INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19978227
 179132,ORION GROUP HOLDINGS INC,ORN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1997458
 028347,FLOTEK INDUSTRIES INC,FTK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19942786
 030490,APARTMENT INVST & MGMT CO,AIV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19941826
@@ -1193,7 +1193,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 176840,RING ENERGY INC,REI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1913962
 179598,CELLDEX THERAPEUTICS INC,CLDX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19134325
 174926,NEXPOINT DIVERSIFIED RE TS,NXDT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1911474
-060787,HEARTFLOW INC,HTFL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19109593
+060787,HEARTFLOW INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19109593
 038881,TRUMP MEDIA & TECHNO GRP CRP,DJT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19053634
 026359,APELLIS PHARMACEUTICALS,APLS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.19031644
 038282,FRONTIER GRP HOLD INC,ULCC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18987699
@@ -1227,18 +1227,18 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 037480,908 DEVICES INC,MASS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1830588
 042314,USA RARE EARTH INC,IPXX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18289459
 036609,FORTE BIOSCIENCES INC,FBRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18281963
-045804,AARDVARK THERAPEUTICS INC,AARD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18281277
+045804,AARDVARK THERAPEUTICS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18281277
 111629,CREXENDO INC,CXDO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18274866
 039065,XOMETRY INC,XMTR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18266343
 038343,OUSTER INC,OUST,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18240997
 015087,LIFEWAY FOODS INC,LWAY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18240799
 163884,FRANKLIN STREET PROPERTIES,FSP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18236268
 033759,TENABLE HOLDINGS INC,TENB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18230352
-334288,ASCENTAGE PHARMA GROUP,AAPG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18223186
+334288,ASCENTAGE PHARMA GROUP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18223186
 038514,ZHIHU INC,ZH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18203868
 024980,CROSS TIMBERS ROYALTY TRUST,CRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18172036
 177426,POET TECHNOLOGIES INC,POET,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18170062
-074388,LB PHARMACEUTICALS INC,LBRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18161467
+074388,LB PHARMACEUTICALS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18161467
 038474,RECURSION PHARMA INC,RXRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18135473
 007799,NATURES SUNSHINE PRODS INC,NATR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18105552
 327115,INTER & CO INC,INTR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.18061876
@@ -1246,12 +1246,12 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 037148,MEDIAALPHA INC,MAX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1804017
 125074,RADWARE LTD,RDWR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1800078
 035490,CUSTOM TRUCK ONE SOURCE INC,CTOS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17995475
-060722,SHOULDER INNOVATIONS INC,SI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17945513
+060722,SHOULDER INNOVATIONS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17945513
 064915,INTEST CORP,INTT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17913291
 163060,DIANA SHIPPING INC,DSX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17888612
 029666,INSPIRED ENTERTAINMENT,INSE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17868833
 006379,KELLY SERVICES INC  -CL A,KELYA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1784341
-051766,JEFFERSON CAPITAL INC,JCAP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17814562
+051766,JEFFERSON CAPITAL INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17814562
 036570,AGORA INC,API,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17807417
 026349,AXSOME THERAPEUTICS INC,AXSM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17791918
 158053,ADAMAS TRUST INC,NYMT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1773965
@@ -1259,7 +1259,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 033723,CRINETICS PHARMCTCL INC,CRNX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17721424
 050567,BIOAGE LABS INC,BIOA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17707896
 043855,BBB FOODS INC,TBBB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17706953
-317637,NEXXEN INTERNATIONAL LTD,7P91.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17649144
+317637,NEXXEN INTERNATIONAL LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17649144
 034562,ORGANOGENESIS HOLDINGS INC,ORGO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17625937
 008060,NEWTEKONE INC,NEWT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17605273
 176260,MELCO RESORTS & ENTERTAINMEN,MLCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.17524263
@@ -1320,7 +1320,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 036836,NEW FOUND GOLD CORP,NFGC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16321778
 039402,TANGO THERAPEUTICS INC,TNGX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1630975
 035120,FASTLY INC,FSLY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16289707
-051684,ANTALPHA PLATFORM HOLDING CO,ANTA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16272485
+051684,ANTALPHA PLATFORM HOLDING CO,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16272485
 039786,VALENS SEMICONDUCTOR LTD,VLN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16250181
 064857,SAREPTA THERAPEUTICS INC,SRPT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16249846
 031214,MIND TECHNOLOGY INC,MIND,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16231546
@@ -1332,14 +1332,14 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 024426,XPENG INC,XPEV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16020623
 041366,ENHABIT INC,EHAB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.16001247
 041416,FTAI INFRASTRUCTURE INC,FIP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15960397
-045785,BETA BIONICS INC,BBNX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15958774
+045785,BETA BIONICS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15958774
 010390,TEJON RANCH CO,TRC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15915172
 065376,SIGA TECHNOLOGIES INC,SIGA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15889093
 174389,EHEALTH INC,EHTH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15851474
 013709,ICAHN ENTERPRISES LP,IEP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15842825
 140982,LIGHTBRIDGE CORP,LTBR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15798461
 032936,ZEPP HEALTH CORP,ZEPP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15777628
-045711,MAZE THERAPEUTICS INC,MAZE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15761279
+045711,MAZE THERAPEUTICS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15761279
 163668,LINCOLN EDUCATIONAL SERVICES,LINC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15752316
 016066,MONROE CAPITAL CORP,MRCC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15751046
 031236,APPIAN CORP,APPN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15710443
@@ -1369,7 +1369,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 278153,HUTCHMED (CHINA) LTD,HCM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15091944
 038467,EDGEWISE THERA INC,EWTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15075158
 031843,HARMONIC INC,HLIT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15069446
-060799,ACCELERANT HOLDINGS,GL4.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15037407
+060799,ACCELERANT HOLDINGS,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15037407
 285085,UNIQURE NV,QURE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.15014325
 036700,IMMATICS NV,IMTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14962456
 145308,WW INTERNATIONAL INC,WW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14961639
@@ -1394,7 +1394,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 043521,NET LEASE OFFICE PROPERTIES,NLOP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14726184
 037159,IHUMAN INC -ADR,IH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14691515
 033487,HUYA INC,HUYA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1467125
-009919,AEBI SCHMIDT HOLDING AG,AEBI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1462813
+009919,AEBI SCHMIDT HOLDING AG,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1462813
 039359,RALLYBIO CORP,RLYB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14610551
 026146,REGENXBIO INC,RGNX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14471069
 036083,REVOLUTION MEDICINES INC,RVMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14436303
@@ -1408,7 +1408,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 027199,VAALCO ENERGY INC,EGY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14183931
 111000,HACKETT GROUP INC,HCKT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14125401
 033810,LIQUIDIA CORP,LQDA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14124945
-038263,TWENTY ONE CAPITAL INC,XXI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14101994
+038263,TWENTY ONE CAPITAL INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14101994
 035378,AFYA LIMITED,AFYA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14065686
 186553,PRAIRIE OPERATING CO,PROP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14057024
 008606,PITNEY BOWES INC,PBI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.14048035
@@ -1419,7 +1419,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 034420,MEDALIST DIVERSIFIED INC,MDRR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13877524
 012471,WORLD KINECT CORP,WKC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13873915
 037803,PHARVARIS NV,PHVS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13866979
-051938,HOYNE BANCORP INC,HYNE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13866186
+051938,HOYNE BANCORP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13866186
 174280,WESTERN COPPER AND GOLD CORP,WRN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13843787
 037790,BUMBLE INC,BMBL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13803264
 107032,INTERNATIONAL TOWER HILL MIN,THM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13786256
@@ -1430,10 +1430,10 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 034102,GUARDANT HEALTH INC,GH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13672096
 015420,AMBARELLA INC,AMBA,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13667302
 032334,ZAI LAB LTD,ZLAB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13628823
-036512,VROOM INC,VRM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13615534
+036512,VROOM INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13615534
 039676,IHS HOLDING LIMITED,IHS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13615267
 171059,FORUM ENERGY TECH INC,FET,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13597693
-045768,SAILPOINT INC,SAIL,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13592829
+045768,SAILPOINT INC,,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13592829
 151630,HALOZYME THERAPEUTICS INC,HALO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13536602
 039677,IMMIX BIOPHARMA INC,IMMX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13531019
 029517,MEDIFAST INC,MED,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1350713
@@ -1463,7 +1463,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 037527,ABCELLERA BIOLOGICS INC,ABCL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13193522
 163889,ATRICURE INC,ATRC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13183723
 026847,TACTILE SYSTEMS TECHNOLOGY,TCMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13146861
-074767,CARDINAL INFRASTRU GROUP INC,CDNL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13124329
+074767,CARDINAL INFRASTRU GROUP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13124329
 050681,UPSTREAM BIO INC,UPB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13122992
 027387,IMPINJ INC,PI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13074706
 001050,CECO ENVIRONMENTAL CORP,CECO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13056557
@@ -1471,13 +1471,13 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 031099,CANTERBURY PARK HOLDING CORP,CPHC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13024943
 024291,DINE BRANDS GLOBAL INC,DIN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.13023575
 125794,NEOGENOMICS INC,NEO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12982902
-060758,FIREFLY AEROSPACE INC,FLY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12965506
+060758,FIREFLY AEROSPACE INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12965506
 029206,FORWARD AIR CORP,FWRD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12962563
 043784,SMITH DOUGLAS HOMES CORP,SDHC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12948042
 037961,DAVE INC,DAVE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12941265
 162146,CRYOPORT INC,CYRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12888573
 144437,PDF SOLUTIONS INC,PDFS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12875906
-060791,WHITEFIBER INC,WYFI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12873502
+060791,WHITEFIBER INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12873502
 017826,NEXGEN ENERGY LTD,NXE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12868062
 024724,LIBERTY LATIN AMERICA LTD,LILAK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.128574
 029282,FLAGSTAR BANK NA,FLG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12856363
@@ -1487,7 +1487,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 005284,GRAY MEDIA INC,GTN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12792134
 164724,MAINSTREET BANCSHARES INC,MNSB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12789327
 043858,CG ONCOLOGY INC,CGON,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12789148
-051461,CIRCLE INTERNET GROUP INC,CRCL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12786102
+051461,CIRCLE INTERNET GROUP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12786102
 039338,MICROVAST HOLDINGS INC,MVST,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12785193
 035674,KARAT PACKAGING INC,KRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12775381
 035810,GREENLAND TECH HOLDING CORP,GTEC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12746075
@@ -1496,7 +1496,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 029191,ICHOR HOLDINGS LTD,ICHR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12734127
 142546,MARINE PRODUCTS CORP,MPX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12714359
 033420,NLIGHT INC,LASR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12704517
-074582,ANDERSEN GROUP INC,ANDG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1270333
+074582,ANDERSEN GROUP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1270333
 038735,WATERDROP INC,WDH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12692922
 348615,NAYAX LTD,NYAX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12660305
 022410,INDIVIOR PHARMACEUTICALS INC,INDV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12657113
@@ -1525,7 +1525,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 027803,DONNELLEY FINANCIAL SOLTNS,DFIN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12223818
 011566,WOLVERINE WORLD WIDE,WWW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.122206755
 060931,GLOBAL INDUSTRIAL CO,GIC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.122097515
-074383,PATTERN GROUP INC,PTRN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12186638
+074383,PATTERN GROUP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12186638
 010124,STURM RUGER & CO INC,RGR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12158993
 039530,GDEV INC,GDEV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12157186
 185289,ASSEMBLY BIOSCIENCES INC,ASMB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12152288
@@ -1536,7 +1536,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 018320,FOX FACTORY HOLDING CP,FOXF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.12023855
 039661,EXODUS MOVEMENT INC,EXOD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11992311
 105394,PAYSIGN INC,PAYS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11969409
-060793,NIQ GLOBAL INTELLIGENCE PLC,GD0.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11966
+060793,NIQ GLOBAL INTELLIGENCE PLC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11966
 039321,GENEDX HOLDINGS CORP,WGS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11946393
 027706,INTERNATIONAL SEAWAYS INC,INSW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.119075745
 032564,ERO COPPER CORP,ERO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11901403
@@ -1573,7 +1573,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 061739,HARTFORD INSURANCE GROUP INC,HIG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1153082
 178507,MSCI INC,MSCI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.115213335
 028338,TRANSOCEAN LTD,RIG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.1149271
-045769,SIONNA THERAPEUTICS INC,SION,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11491352
+045769,SIONNA THERAPEUTICS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11491352
 036471,BURNING ROCK BIOTECH LIMITED,BNR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11483615
 004384,MARA HOLDINGS INC,MARA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11475338
 194256,WHEELER REAL ESTATE INVT TR,WHLR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.114646144
@@ -1600,7 +1600,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 045327,BOWHEAD SPECIALTY HOLDGS INC,BOW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11095285
 029955,BAUSCH HEALTH COMPANIES INC,BHC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11094823
 039555,AMPLITUDE INC,AMPL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11062766
-051266,KLARNA GROUP PLC,H1W.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11061478
+051266,KLARNA GROUP PLC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11061478
 035279,ADAPTIVE BIOTECH CORP,ADPT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11048404
 157452,OXFORD SQUARE CAPITAL CORP,OXSQ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.110479586
 005496,ENVIRI CORP,NVRI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.11047607
@@ -1641,7 +1641,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 062549,KVH INDUSTRIES INC,KVHI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.10581056
 040413,TERAWULF INC,WULF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.105790555
 005234,GOODYEAR TIRE & RUBBER CO,GT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.10545921
-356859,TIC SOLUTIONS INC,TIC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.10540752
+356859,TIC SOLUTIONS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.10540752
 023996,GLOBAL NET LEASE INC,GNL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.10536622
 060923,DAVE & BUSTER'S ENTMT INC,PLAY,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.10530848
 027938,SHOE CARNIVAL INC,SCVL,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.10523404
@@ -1686,7 +1686,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 036052,BLACK DIAMOND THERAPEUTICS,BDTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.099947445
 036711,NCINO INC,NCNO,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0999006
 038961,JANUS INTERNATIONL GROUP INC,JBI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09979721
-074382,NETSKOPE INC,NTSK,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09976078
+074382,NETSKOPE INC,,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09976078
 043421,GUARDIAN PHARMACY SERVIS INC,GRDN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09971187
 045412,RAPPORT THERAPEUTICS INC,RAPP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.099532165
 176022,EMERGENT BIOSOLUTIONS INC,EBS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.099528335
@@ -1736,15 +1736,15 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 163930,GENCO SHIPPING & TRADING,GNK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09475749
 007526,QUIDELORTHO CORP,QDEL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09447319
 008350,PARK OHIO HOLDINGS CORP,PKOH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09433959
-075031,LUMEXA IMAGING HOLDINGS INC,LMRI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.094328605
+075031,LUMEXA IMAGING HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.094328605
 061519,MATIV HOLDINGS INC,MATV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09411528
 142956,OMNICELL INC,OMCL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09409565
 037407,MP MATERIALS CORP,MP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09396367
 022638,ZOOMINFO TECHNO INC,ZI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09387568
 186773,SUNCOKE ENERGY INC,SXC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0936944
-045710,FLOWCO HOLDINGS INC,FLOC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09369266
+045710,FLOWCO HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09369266
 271357,SUMMIT THERAPEUTICS INC,SMMT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09368671
-074529,WATERBRIDGE INFRASTRCTRE LLC,VRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09356915
+074529,WATERBRIDGE INFRASTRCTRE LLC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09356915
 012266,WERNER ENTERPRISES INC,WERN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.09346378
 160668,INNOVIVA INC,INVA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.093368694
 061028,CLIMB GLOBAL SOLUTIONS INC,CLMB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.093334205
@@ -1795,7 +1795,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 039215,CADRE HOLDINGS INC,CDRE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.089295626
 175607,PRIMIS FINANCIAL CORP,FRST,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.088907704
 034526,ARDENT HEALTH INC,ARDT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08840526
-074615,NAVAN INC,NAVN,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08813705
+074615,NAVAN INC,,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08813705
 061325,PEDIATRIX MEDICAL GROUP INC,MD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.087840155
 033421,GOOSEHEAD INSURANCE,GSHD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08769861
 327677,MAREX GROUP PLC,MRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08753565
@@ -1819,9 +1819,9 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 013400,AVINO SILVER & GOLD MINS LTD,ASM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08611
 033195,HUT 8 CORP,HUT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08604143
 184258,DOUGLAS DYNAMICS INC,PLOW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08596988
-061461,VIA TRANSPORTATION INC,C0I.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.085931964
+061461,VIA TRANSPORTATION INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.085931964
 034338,RHINEBECK BANCORP INC,RBKB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0858983
-051624,COSTAMARE BULKERS HOLDINGS,CR1.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.085828885
+051624,COSTAMARE BULKERS HOLDINGS,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.085828885
 020684,OBSIDIAN ENERGY LTD,OBE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08576137
 183640,IRIDIUM COMMUNICATIONS INC,IRDM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.085748695
 161055,BUILD-A-BEAR WORKSHOP INC,BBW,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08571419
@@ -1841,7 +1841,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 111537,UNION BANKSHARES INC,UNB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08444478
 123998,SWK HOLDINGS CORP,SWKH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.084430054
 039344,NUVALENT INC,NUVL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08439484
-074628,BETA TECHNOLOGIES INC,BETA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0842839
+074628,BETA TECHNOLOGIES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0842839
 027716,MADRIGAL PHARMACEUTICALS INC,MDGL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.084268354
 037079,GLOBAL BUSINESS TRAVL GP INC,GBTG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.084234476
 020020,CIVEO CORP,CVEO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.083931774
@@ -1861,7 +1861,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 027810,LIVANOVA PLC,LIVN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0828968
 004186,EASTERN CO,EML,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08272678
 039787,CONSENSUS CLOUD SOLUTION INC,CCSI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08266736
-160753,AVIDBANK HOLDINGS INC,AVBH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08262615
+160753,AVIDBANK HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08262615
 025092,TASEKO MINES LTD,TGB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08261559
 038957,GH RESEARCH PLC,GHRS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.082379244
 174360,SEVEN HILLS REALTY TRUST,SEVN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.082308084
@@ -1886,7 +1886,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 140045,GRUPO AEROPORTUARIO SURESTE,ASR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.080663115
 180229,MISTRAS GROUP INC,MG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08055914
 180423,LENDINGTREE INC,TREE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08050602
-041278,WEBULL CORP,BULL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08043466
+041278,WEBULL CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08043466
 023450,NORTHRIM BANCORP INC,NRIM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08034084
 160785,PURSUIT ATTRC AND HSPTLY INC,VVI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08024877
 150306,TEXAS CAPITAL BANCSHARES INC,TCBI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.08002386
@@ -2065,7 +2065,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 018629,LGI HOMES INC,LGIH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06490992
 133564,CAMTEK LTD,CAMT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06483007
 162925,ACRES COMMERCIAL REALTY CORP,ACR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06478889
-264412,GCI LIBERTY INC,GLIBA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.064550444
+264412,GCI LIBERTY INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.064550444
 038125,HAYWARD HOLDINGS INC,HAYW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06448229
 019998,MEDPACE HOLDINGS INC,MEDP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06436587
 177227,INSULET CORP,PODD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.064282484
@@ -2080,7 +2080,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 045265,LOAR HOLDINGS INC,LOAR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06384734
 020686,SYNCHRONY FINANCIAL,SYF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06383385
 006733,BATH & BODY WORKS INC,BBWI,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06377789
-051160,EUROHOLDINGS LTD,EHLD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.063773416
+051160,EUROHOLDINGS LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.063773416
 007163,S&P GLOBAL INC,SPGI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06357439
 038647,TASKUS INC,TASK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.06356471
 045445,LANDBRIDGE CO LLC,LB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.063503355
@@ -2137,7 +2137,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 063224,COMMUNITY WEST BANCSHARES,CWBC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.059950624
 008199,OTTER TAIL CORP,OTTR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.059943344
 006528,LSB INDUSTRIES INC,LXU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.05989153
-013714,PARAMOUNT SKYDANCE CORP,PSKY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.059551615
+013714,PARAMOUNT SKYDANCE CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.059551615
 050311,TWFG INC,TWFG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.05953507
 249158,GOLAR LNG LTD,GLNG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.05942465
 017228,TALOS ENERGY INC,TALO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.059393656
@@ -2219,7 +2219,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 027345,PRINCETON BANCORP INC,BPRN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.054192986
 034938,RICHMOND MUTUAL BANCO INC,RMBI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.054112997
 036053,NEXPOINT REAL EST FIN,NREF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.054109134
-061463,LEGENCE CORP,LGN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.054067668
+061463,LEGENCE CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.054067668
 133289,SUN LIFE FINANCIAL INC,SLF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.054062653
 019518,KNOWLES CORP,KN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.054056976
 016981,OFG BANCORP,OFG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.053929936
@@ -2333,7 +2333,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 009317,SEI INVESTMENTS CO,SEIC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.048626572
 001104,ACME UNITED CORP,ACU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.048613224
 035101,SOUTH PLAINS FINANCIAL INC,SPFI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04861176
-051380,STUBHUB HOLDINGS INC,STUB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04836298
+051380,STUBHUB HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04836298
 019817,UNIVEST FINANCIAL CORP,UVSP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.048346292
 035062,TRANSMEDICS GROUP INC,TMDX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.048170384
 043057,PHINIA INC,PHIN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.048157915
@@ -2342,7 +2342,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 035065,AVANTOR INC,AVTR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04802263
 041623,BLUEROCK HOMES TRST INC,BHM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.048018295
 160211,DOMINO'S PIZZA INC,DPZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047974627
-050770,INFINITY NATURAL RSOURCS INC,NG=F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047971737
+050770,INFINITY NATURAL RSOURCS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047971737
 064254,HELIOS TECHNOLOGIES INC,HLIO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04794734
 006034,INTERFACE INC,TILE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047931354
 035882,BROOKFIELD INFRASTRCTR,BIPC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0478635
@@ -2366,7 +2366,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 186960,CHEFS' WAREHOUSE INC,CHEF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04737603
 025030,VIRTUS INVESTMENT PTNRS INC,VRTS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047282103
 005559,STERLING INFRASTRUCTURE INC,STRL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04725088
-033948,GALAXY DIGITAL INC,GLXY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047241066
+033948,GALAXY DIGITAL INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047241066
 016714,DONEGAL GROUP INC,DGICA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.047202233
 137573,ENTEGRIS INC,ENTG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04718226
 039481,ON HOLDING AG,ONON,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04716403
@@ -2409,7 +2409,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 025481,NATIONAL BANKSHARES INC VA,NKSH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04543946
 174700,GLOBAL SHIP LEASE INC,GSL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.045427654
 137602,AXCELIS TECHNOLOGIES INC,ACLS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.045365896
-074430,NEPTUNE INSURANCE HLDNGS INC,ETHB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.045339968
+074430,NEPTUNE INSURANCE HLDNGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.045339968
 356128,JOINT STOCK COMPANY KASPI KZ,KSPI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.045293983
 011721,OSHKOSH CORP,OSK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.045277674
 024978,CALLAWAY GOLF CO,MODG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.045260828
@@ -2449,12 +2449,12 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 122915,ALLIANCE RESOURCE PTNRS  -LP,ARLP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043948933
 025180,AGCO CORP,AGCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04387494
 033435,INSPIRE MEDICAL SYSTEM,INSP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043861013
-051119,MNTN INC,MNTN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0438254
+051119,MNTN INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0438254
 177881,MASIMO CORP,MASI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043705445
 184442,CHORD ENERGY CORP,CHRD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043693062
 008850,QUAKER HOUGHTON,KWR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04365982
 029135,BAYTEX ENERGY CORP,BTE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043635648
-045796,NORTHPOINTE BANCSHARES INC,X31.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043628007
+045796,NORTHPOINTE BANCSHARES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043628007
 107644,FINWARD BANCORP,FNWD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04360561
 062139,PLUMAS BANCORP,PLBC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043561883
 007991,TEREX CORP,TEX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043498807
@@ -2472,7 +2472,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 027187,LIBERTY MEDIA FORMULA ONE,FWONK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.043053646
 027638,ALCOA CORP,AA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042959783
 033850,OPERA LIMITED,OPRA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042917617
-051497,HINGE HEALTH INC,HNGE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04289174
+051497,HINGE HEALTH INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04289174
 039964,CHICAGO ATLANTIC REA E F INC,REFI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042853888
 148469,SAFETY INSURANCE GROUP INC,SAFT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042813625
 001678,APA CORP,APA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04273983
@@ -2496,7 +2496,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 034183,RILEY EXPL PERMIAN INC,REPX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042182423
 032619,MERCHANTS BANCORP,MBIN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042181045
 183974,SPS COMMERCE INC,SPSC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04215287
-040692,SMARTSTOP SELF STORAGE R INC,D630.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042139404
+040692,SMARTSTOP SELF STORAGE R INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042139404
 160913,ORMAT TECHNOLOGIES INC,ORA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.042110696
 185448,ARIS MINING CORP,ARMN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04201447
 157955,ASSURED GUARANTY LTD,AGO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04196816
@@ -2537,7 +2537,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 006078,INTL FLAVORS & FRAGRANCES,IFF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040817104
 181820,FS BANCORP INC,FSBW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040776342
 111819,ORRSTOWN FINANCIAL SVCS INC,ORRF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040766533
-045723,VENTURE GLOBAL INC,VG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040749345
+045723,VENTURE GLOBAL INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040749345
 005073,GENERAL MOTORS CO,GM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040737577
 040399,IMPERIAL PETROLEUM INC,IMPP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04072308
 010086,STEWART INFORMATION SERVICES,STC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040720064
@@ -2552,7 +2552,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 004145,REVVITY INC,RVTY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040472012
 012926,FRP HOLDINGS INC,FRPH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04040821
 035824,NUTEX HEALTH INC,NUTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04040713
-074496,ALLIANCE LAUNDRY HOLDING INC,ALH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04038103
+074496,ALLIANCE LAUNDRY HOLDING INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04038103
 178518,TELESAT CORP,TSAT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.04034985
 018004,CENTURY COMMUNITIES INC,CCS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040203255
 066504,COLONY BANKCORP INC,CBAN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.040174462
@@ -2615,7 +2615,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 024861,PLANET FITNESS INC,PLNT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.037958506
 063725,WEST BANCORPORATION INC,WTBA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.037920963
 026179,SMARTFINANCIAL INC,SMBK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03783005
-060856,RUBICO INC,RUBI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.037809186
+060856,RUBICO INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.037809186
 175966,CATALYST PHARMACEUTICALS INC,CPRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.037789103
 001979,BALCHEM CORP  -CL B,BCPC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.037761327
 100572,PEARSON PLC,PSO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03774979
@@ -2664,7 +2664,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 023247,PJT PARTNERS INC,PJT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.036218733
 007065,MARSH,MMC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03621671
 050720,SOUTH BOW CORP,SOBO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.036204197
-060834,MIAMI INTERNATIONAL HOLD INC,U42.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03619925
+060834,MIAMI INTERNATIONAL HOLD INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03619925
 006104,INTL PAPER CO,IP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03619453
 017245,TRUSTCO BANK CORP/NY,TRST,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03619029
 032348,KRYSTAL BIOTECH INC,KRYS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03616051
@@ -2692,11 +2692,11 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 117829,AURINIA PHARMACEUTICALS INC,AUPH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03524308
 112295,FIRST COMMUNITY CORP/SC,FCCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.035192657
 038822,MONDAY COM LTD,MNDY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.035178583
-051708,CHIME FINANCIAL INC,CHYM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.035171244
+051708,CHIME FINANCIAL INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.035171244
 011301,ELME COMMUNITIES,ELME,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.035151176
 012428,PORTLAND GENERAL ELECTRIC CO,POR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.035125665
 029751,ALBEMARLE CORP,ALB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.035116334
-051139,COREWEAVE INC,CRWV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03509487
+051139,COREWEAVE INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03509487
 027653,YETI HOLDINGS INC,YETI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03490502
 117034,FIRST CAPITAL INC,FCAP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.034873057
 183283,ADDUS HOMECARE CORP,ADUS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.034862995
@@ -2747,7 +2747,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 025749,ASGN INC,ASGN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03370039
 024447,BOK FINANCIAL CORP,BOKF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0336679
 030222,AMERIS BANCORP,ABCB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033642273
-051383,ATEGRITY SPECIALTY INSURANCE,A1Q.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03363568
+051383,ATEGRITY SPECIALTY INSURANCE,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03363568
 316726,BW LPG LTD,BWLP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033630922
 002444,BRUNSWICK CORP,BC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033621386
 175007,ALLEGIANT TRAVEL CO,ALGT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033587817
@@ -2767,11 +2767,11 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 174729,TRAVEL PLUS LEISURE CO,TNL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0332751
 178874,ORLA MINING LTD,ORLA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03327069
 038212,APPLOVIN CORP,APP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03320185
-051244,AVIDIA BANCORP INC,AVBC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03319283
+051244,AVIDIA BANCORP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03319283
 035287,CHEWY INC,CHWY,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03318614
 035604,CLOUDFLARE INC,NET,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033155367
 007085,MASCO CORP,MAS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0331374
-060820,BULLISH,BLSH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033121347
+060820,BULLISH,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033121347
 145977,ADVANCE AUTO PARTS INC,AAP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03308928
 015181,BANCO BILBAO VIZCAYA ARGENTA,BBVA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033072703
 170750,DIAMONDBACK ENERGY INC,FANG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.033069994
@@ -2803,7 +2803,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 023812,REGENERON PHARMACEUTICALS,REGN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.032581154
 017151,WESBANCO INC,WSBC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.032500967
 005870,IDACORP INC,IDA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.032457326
-051058,RESOLUTE HOLDINGS MANAGEMENT,RHLD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.032422636
+051058,RESOLUTE HOLDINGS MANAGEMENT,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.032422636
 146607,WESTERN NEW ENG BANCORP INC,WNEB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03240359
 032382,ROKU INC,ROKU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03238841
 035708,PROGYNY INC,PGNY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0323465
@@ -2892,7 +2892,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 010795,UNITED AIRLINES HOLDINGS INC,UAL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.030031992
 025339,CREDIT ACCEPTANCE CORP,CACC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.03002581
 065958,C&F FINANCIAL CORP,CFFI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.030020367
-040232,EXZEO GROUP INC,XZO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.029946262
+040232,EXZEO GROUP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.029946262
 013071,RADNET INC,RDNT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.029856678
 353444,HALEON PLC,HLN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.029823564
 174236,SELECT MEDICAL HOLDINGS CORP,SEM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.029788187
@@ -2941,10 +2941,10 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 063185,CHECK POINT SOFTWARE TECHN,CHKP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028798735
 025389,GRAPHIC PACKAGING HOLDING CO,GPK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028790547
 033459,ORIGIN BANCORP,OBK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028776681
-153616,EAGLE FINANCIAL SERVICES INC,EFSI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028738966
+153616,EAGLE FINANCIAL SERVICES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028738966
 111873,RH,RH,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028695546
 001545,AMERICAN REALTY INVESTORS,ARL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028689792
-051921,RALLIANT CORP,RAL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028678238
+051921,RALLIANT CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028678238
 003735,DANAHER CORP,DHR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02867642
 179216,BROOKFIELD INFRS PTRS LP,BIP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028669734
 065248,ARCELORMITTAL,MT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028664535
@@ -2968,14 +2968,14 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 010999,UNITIL CORP,UTL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028119557
 030059,AMERN EAGLE OUTFITTERS INC,AEO,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028112859
 016777,FIRST BANCORP/NC,FBNC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028105604
-074725,BILLIONTOONE INC,BLLN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028104175
-060849,FIGMA INC,FIG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028101409
+074725,BILLIONTOONE INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028104175
+060849,FIGMA INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028101409
 037723,TRINITY CAPITAL INC,TRIN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028083468
 294524,LYONDELLBASELL INDUSTRIES,LYB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.028056696
 026347,EQUITY BANCSHARES INC,EQBK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027959397
 007866,NEW YORK TIMES CO  -CL A,NYT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027951684
 201140,AMBEV SA,ABEV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027943576
-037688,GBANK FINANCIAL HOLDINGS INC,8AE.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02791016
+037688,GBANK FINANCIAL HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02791016
 014401,INVESTORS TITLE CO,ITIC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027905786
 178519,LPL FINANCIAL HOLDINGS INC,LPLA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027834073
 031109,ANTERO MIDSTREAM CORP,AM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027822115
@@ -2998,7 +2998,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 016188,COGNEX CORP,CGNX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027375005
 066379,PERDOCEO EDUCATION CORP,PRDO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027364932
 065556,ANNALY CAPITAL MANAGEMENT,NLY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027349051
-045783,KARMAN HOLDINGS INC,KRMN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027344847
+045783,KARMAN HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027344847
 177983,GENPACT LTD,G,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027310757
 043023,CAVA GROUP INC,CAVA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027308155
 026016,UNIVERSAL INSURANCE HLDGS,UVE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.027299043
@@ -3095,7 +3095,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 041897,KENVUE INC,KVUE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024771025
 158742,MARKETAXESS HOLDINGS INC,MKTX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02476918
 061483,DAVITA INC,DVA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024750724
-045685,ANBIO BIOTECHNOLOGY,NNNN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024736963
+045685,ANBIO BIOTECHNOLOGY,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024736963
 005959,TRANE TECHNOLOGIES PLC,TT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024718557
 019927,MOELIS & CO,MC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0247152
 018241,FIRST COMMONWLTH FINL CP/PA,FCF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024603639
@@ -3112,7 +3112,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 063596,WILLIS LEASE FINANCE CORP,WLFC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024387022
 019565,RIO TINTO GROUP,RIO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02438643
 005568,KRAFT HEINZ CO,KHC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024339395
-074340,FIGURE TECHNOLOGY SOLUTIONS,FIGR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024278577
+074340,FIGURE TECHNOLOGY SOLUTIONS,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024278577
 006461,KIRBY CORP,KEX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024232697
 141846,ACADIA PHARMACEUTICALS INC,ACAD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024229623
 023086,NEXPOINT RESIDENTIAL TR INC,NXRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.024164284
@@ -3172,7 +3172,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 001161,ADVANCED MICRO DEVICES,AMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.022895083
 176914,CHENIERE ENERGY PARTNERS LP,CQP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.022854378
 012615,M/I HOMES INC,MHO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.022849215
-175230,AURA MINERALS INC,AUGO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.022846065
+175230,AURA MINERALS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.022846065
 004430,EQT CORP,EQT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.022804994
 027960,ALAMO GROUP INC,ALG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.022617739
 008543,ALTRIA GROUP INC,MO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02259102
@@ -3227,7 +3227,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 016790,COMMUNITY FINANCIAL SYST INC,CBU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.021450799
 171007,SERVICENOW INC,NOW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02143662
 326688,NVENT ELECTRIC PLC,NVT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02143464
-051869,CARIS LIFE SCIENCES INC,CAI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02139511
+051869,CARIS LIFE SCIENCES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02139511
 018468,PLAINS GP HOLDINGS LP,PAGP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.021360474
 037420,DOORDASH INC,DASH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.021327648
 039310,VICTORIAS SECRET AND CO,VSCO,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.021257162
@@ -3244,7 +3244,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 007993,NORTHWEST NATURAL HLDNG CO,NWN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020994332
 016597,LATTICE SEMICONDUCTOR CORP,LSCC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020993147
 020412,ARES MANAGEMENT CORP,ARES,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0209817
-051553,CHAGEE HOLDINGS LIMITED,CHA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020936513
+051553,CHAGEE HOLDINGS LIMITED,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020936513
 030260,SIMPSON MANUFACTURING INC,SSD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020925593
 019517,ONE GAS INC,OGS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02092339
 016125,CHIRON REAL ESTATE INC,GMRE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02091916
@@ -3257,7 +3257,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 017874,T-MOBILE US INC,TMUS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020679794
 008807,TXNM ENERGY INC,TXNM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020627052
 001447,AMERICAN EXPRESS CO,AXP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020581594
-032350,COASTALSOUTH BANCSHARES INC,COSO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020561514
+032350,COASTALSOUTH BANCSHARES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020561514
 039749,VITA COCO COMPANY INC,COCO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020558715
 028349,ALLSTATE CORP,ALL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020528387
 035168,CORTEVA INC,CTVA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020519305
@@ -3279,7 +3279,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 036798,KE HOLDINGS INC,BEKE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020257203
 018329,FIRST BUSEY CORP,BUSE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02025311
 008947,U S LIME & MINERALS,USLM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020205837
-024625,TOTALENERGIES SE,TTE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02020084
+024625,TOTALENERGIES SE,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02020084
 170841,PHILLIPS 66,PSX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020138731
 045169,GE VERNOVA INC,GEV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02009742
 003619,CROWN HOLDINGS INC,CCK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020092545
@@ -3287,7 +3287,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 005072,ALLY FINANCIAL INC,ALLY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020066114
 010867,UNION PACIFIC CORP,UNP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020036653
 145046,ELEVANCE HEALTH INC,ELV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020028083
-036743,ELEMENTAL ROYALTY CORP,ELE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02002375
+036743,ELEMENTAL ROYALTY CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02002375
 123455,ALAMOS GOLD INC,AGI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020016776
 022983,XENIA HOTELS & RESORTS INC,XHR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.020003362
 063892,NOV INC,NOV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.02000245
@@ -3330,7 +3330,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 009778,SNAP-ON INC,SNA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01923381
 005252,GRACO INC,GGG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.019177098
 106112,NEW GOLD INC,NGD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.019086014
-275108,JBS NV,Z98.MU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.019085988
+275108,JBS NV,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.019085988
 164471,RESTAURANT BRANDS INTL INC,QSR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0190824
 183830,PEBBLEBROOK HOTEL TRUST,PEB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01905788
 164633,HOME BANCSHARES INC,HOMB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.019022899
@@ -3389,7 +3389,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 010735,TRINITY INDUSTRIES INC,TRN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.017544093
 016653,TAYLOR MORRISON HOME CORP,TMHC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01749616
 161844,LAS VEGAS SANDS CORP,LVS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.017369136
-051379,ETORO GROUP LTD,ETOR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.017362447
+051379,ETORO GROUP LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.017362447
 009299,RYDER SYSTEM INC,R,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01722476
 160779,CENTERRA GOLD INC,CGAU,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.017191028
 035544,INMODE LTD,INMD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.017148139
@@ -3403,7 +3403,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 015247,VALERO ENERGY CORP,VLO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016986193
 011511,WILLIAMS-SONOMA INC,WSM,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016984068
 027364,TWILIO INC,TWLO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016974995
-050678,YUANBAO INC -ADR,ETHB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016898341
+050678,YUANBAO INC -ADR,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016898341
 006829,LOWE'S COS INC,LOW,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016831037
 006266,JOHNSON & JOHNSON,JNJ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016782397
 174744,EVERCORE INC,EVR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016778825
@@ -3427,7 +3427,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 155458,GRANITE REAL ESTATE INVEST,GRP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016192196
 004990,GAP INC,GAP,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01613188
 126296,EXPEDIA GROUP INC,EXPE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016090572
-043286,ALLIED GOLD CORP,A240.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0160891
+043286,ALLIED GOLD CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0160891
 111486,GILDAN ACTIVEWEAR INC,GIL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016043104
 008455,PPL CORP,PPL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016036218
 018383,BRIXMOR PROPERTY GROUP INC,BRX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.016003551
@@ -3439,7 +3439,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 064925,BXP INC,BXP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015863746
 010860,AMEREN CORP,AEE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015797397
 178529,MAIN STREET CAPITAL CORP,MAIN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015787272
-051531,AMERICAN INTEGRITY INSURANCE,8DI.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015755504
+051531,AMERICAN INTEGRITY INSURANCE,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015755504
 015929,LLOYDS BANKING GROUP PLC,LYG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015754187
 002312,ROBERT HALF INC,RHI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015740471
 114524,EBAY INC,EBAY,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015737554
@@ -3448,22 +3448,22 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 018732,LAKELAND FINANCIAL CORP,LKFN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015633695
 007923,NORFOLK SOUTHERN CORP,NSC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015630145
 136725,INTUITIVE SURGICAL INC,ISRG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015600027
-039498,MSC INCOME FUND INC,MSIF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0155864265
+039498,MSC INCOME FUND INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0155864265
 013421,CADENCE DESIGN SYSTEMS INC,CDNS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0155443335
 009667,SHERWIN-WILLIAMS CO,SHW,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015542904
 003439,CMS ENERGY CORP,CMS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01552436
 010846,UNILEVER PLC,UL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0155005185
 001988,BALL CORP,BALL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015468665
 162385,WEX INC,WEX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015434186
-157307,ISABELLA BANK CORP,ISBA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015401324
+157307,ISABELLA BANK CORP,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015401324
 014592,ALLIANCEBERNSTEIN HOLDING LP,AB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015305514
 133885,EXELIXIS INC,EXEL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015302337
 021238,VICOR CORP,VICR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015287521
 027914,HUMANA INC,HUM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015251401
 116029,PLAINS ALL AMER PIPELNE  -LP,PAA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015227756
 009846,EDISON INTERNATIONAL,EIX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015218086
-050707,KYIVSTAR GROUP LTD,KYIV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015210354
-045751,TITAN AMERICA SA,IH9.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015100296
+050707,KYIVSTAR GROUP LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015210354
+045751,TITAN AMERICA SA,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015100296
 161966,ARES CAPITAL CORP,ARCC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.015091938
 006774,LOCKHEED MARTIN CORP,LMT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01501235
 105365,AMERICAN TOWER CORP,AMT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0149660185
@@ -3478,8 +3478,8 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 029011,BOYD GAMING CORP,BYD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014746145
 011465,WHIRLPOOL CORP,WHR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014742328
 028769,SAUL CENTERS INC,BFS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014730697
-369350,THE MAGNUM ICE CREAM CO,MICC.AS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014700512
-074797,SOLSTICE ADVANCED MTRILS INC,ETHB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014671249
+369350,THE MAGNUM ICE CREAM CO,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014700512
+074797,SOLSTICE ADVANCED MTRILS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014671249
 029875,AVALONBAY COMMUNITIES INC,AVB,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014671236
 002137,BCE INC,BCE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014638384
 160329,ALPHABET INC,GOOGL,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014610377
@@ -3510,7 +3510,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 007881,NEWMONT CORP,NEM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.014001362
 160225,MASTERCARD INC,MA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.013998334
 018675,BURLINGTON STORES INC,BURL,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0139150275
-154511,CENTRAL BANCOMPANY,CBC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01391139
+154511,CENTRAL BANCOMPANY,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01391139
 041818,GE HEALTHCARE TECHNOLOGI INC,GEHC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.013837812
 016845,FIRST MERCHANTS CORP,FRME,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.013710863
 008810,PUBLIC SERVICE ENTRP GRP INC,PEG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.013637747
@@ -3549,7 +3549,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 010035,STATE STREET CORP,STT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01232747
 144496,UBS GROUP AG,UBS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0123179285
 023433,BLACK STONE MINERALS LP,BSM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01231243
-045775,SMITHFIELD FOODS INC,SFD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.012295816
+045775,SMITHFIELD FOODS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.012295816
 117768,NVIDIA CORP,NVDA,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.012269837
 018494,INDEPENDENCE REALTY TRUST,IRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.012252581
 002574,CSX CORP,CSX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.012252241
@@ -3565,14 +3565,14 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 008099,FIRSTENERGY CORP,FE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011892677
 108768,FIRST MAJESTIC SILVER CORP,AG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011851892
 034496,TENCENT MUSIC ENTERTAINMENT,TME,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011846236
-045779,MILLROSE PROPERTIES INC,MRP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011830685
+045779,MILLROSE PROPERTIES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011830685
 185532,TARGA RESOURCES CORP,TRGP,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011807366
 009063,AUTONATION INC,AN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01180316
 001932,BRITISH AMER TOBACCO PLC,BTI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011758866
 007970,EVERSOURCE ENERGY,ES,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011745724
 065718,GROUP 1 AUTOMOTIVE INC,GPI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011714569
 170761,VIPSHOP HOLDINGS LTD,VIPS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011636306
-051778,SLIDE INSURANCE HOLDINGS INC,ID8.F,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011623491
+051778,SLIDE INSURANCE HOLDINGS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011623491
 241637,ANHEUSER-BUSCH INBEV,BUD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0116207795
 100712,WOODSIDE ENERGY GROUP LTD,WDS,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011599904
 157413,TRIP COM GROUP LTD,TCOM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0115900505
@@ -3582,7 +3582,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 024316,MONSTER BEVERAGE CORP,MNST,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011442861
 010499,TEXAS INSTRUMENTS INC,TXN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011361039
 004029,DOMINION ENERGY INC,D,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01135158
-126474,BOYD GROUP SERVICES INC,BGSI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0113117965
+126474,BOYD GROUP SERVICES INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0113117965
 001257,ALEXANDER'S INC,ALX,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011290448
 008253,PACCAR INC,PCAR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011201599
 022459,URBAN EDGE PROPERTIES,UE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.011193632
@@ -3601,7 +3601,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 010016,STANLEY BLACK & DECKER INC,SWK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.010750533
 011304,AVISTA CORP,AVA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0107481135
 010917,UMH PROPERTIES INC,UMH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.010747723
-074813,QNITY ELECTRONICS INC,Q,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01068639
+074813,QNITY ELECTRONICS INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.01068639
 013580,UNIVERSAL HEALTH RLTY INCOME,UHT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.010634545
 021833,HESS MIDSTREAM LP,HESM,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.010630086
 039648,LIFE TIME GRP HOLD INC,LTH,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.010613579
@@ -3631,7 +3631,7 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 160991,DIGITAL REALTY TRUST INC,DLR,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.009598417
 018312,US FOODS HOLDING CORP,USFD,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.009579293
 011672,TJX COS INC (THE),TJX,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.009569346
-074397,COMMERCIAL BANCGROUP INC,CBK,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.00954949
+074397,COMMERCIAL BANCGROUP INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.00954949
 118122,APTIV PLC,APTV,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.009484495
 003429,CTO REALTY GROWTH INC,CTO,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.00941395
 033718,BJS WHSL CLUB HLDGS INC,BJ,2026-01-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.009359974
@@ -3695,14 +3695,14 @@ gvkey,conm,ticker,latest_observed_date,risk_window,pred_risk_5y
 022674,EASTERLY GOVERNMENT PPTYS,DEA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0055986946
 023556,COMMUNITY HEALTHCARE TRUST,CHCT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.005590964
 024533,NATIONAL HEALTH INVESTORS,NHI,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.005570646
-366911,AMRIZE LTD,AMRZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0054998873
-025792,EMERA INC,ERRAF,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0054875747
+366911,AMRIZE LTD,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0054998873
+025792,EMERA INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0054875747
 003562,COUSINS PROPERTIES INC,CUZ,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0054007573
 033684,ESSENTIAL PPT RLTY TST,EPRT,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.005356628
 029099,REGENCY CENTERS CORP,REG,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0050921813
-074927,SUNOCOCORP LLC,SUNC,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0050537293
+074927,SUNOCOCORP LLC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0050537293
 019582,CARETRUST REIT INC,CTRE,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.004993755
-074887,MEDLINE INC,MDLN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0049825106
+074887,MEDLINE INC,,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0049825106
 002783,PROGRESS ENERGY INC,PGN,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0048725083
 010096,PUBLIC STORAGE,PSA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.004856023
 185618,SABRA HEALTH CARE REIT INC,SBRA,2025-12-31,"Dec 2025 - Dec 2030 (5 years from last fiscal year, Alive Companies Only)",0.0047835982
