@@ -1,0 +1,23 @@
+feature,business_meaning
+leverage,Total Debt / Total Assets — core leverage risk
+debt_at,Total Debt / Total Assets
+de_ratio,Debt / Equity — gearing
+ebitda_margin,EBITDA / Sales — operating profitability (higher = safer)
+roa,Return on Assets
+roe,Return on Equity
+bm,Book-to-Market (high often signals distress)
+curr_ratio,Current Ratio — short-term liquidity
+quick_ratio,Quick Ratio — liquidity ex-inventory
+cash_ratio,Cash Ratio — most conservative liquidity
+intcov_ratio,Interest Coverage (EBIT / Interest)
+debt_ebitda,Debt / EBITDA — repayment burden
+log_at,log(Total Assets) — firm size (larger = safer)
+asset_turnover,Sales / Assets — efficiency
+fedfunds_lag1,Fed Funds rate (lagged 1y) — monetary policy
+gs10_lag1,10Y Treasury yield (lagged) — interest rate environment
+baa_lag1,Baa yield (lagged) — credit spreads / risk appetite
+aaa_lag1,Aaa yield (lagged) — high-grade borrowing costs
+fedfunds_lag1,Federal Funds rate lagged 1 year — monetary policy tightness
+gs10_lag1,10-Year Treasury yield lagged — long-term rates
+baa_lag1,Baa corporate yield lagged — credit spreads & risk appetite
+aaa_lag1,Aaa corporate yield lagged — high-grade cost of debt

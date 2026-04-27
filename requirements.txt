@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+pandas
+numpy
+xgboost
+scikit-learn
+shap
+joblib
+optuna
+pyarrow
+python-multipart
+yfinance

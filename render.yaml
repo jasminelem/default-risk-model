@@ -1,0 +1,14 @@
+# render.yaml - One-click deploy config for Render.com (optional but recommended)
+
+services:
+  - type: web
+    name: pulse-credit-risk-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    region: oregon          # or frankfurt, singapore, etc.
+    plan: free
+    healthCheckPath: /api/models/info
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      # Add any other secrets here later (e.g. API keys)

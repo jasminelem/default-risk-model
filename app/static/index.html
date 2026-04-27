@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse • Corporate Credit Risk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* === Premium Typography & Polish === */
+        :root {
+            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable", Inter, system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-feature-settings: "tnum" 1, "cv05" 1, "cv06" 1;
+            -webkit-font-smoothing: antialiased;
+            /* Very subtle lighting so the Liquid Glass blur actually reads */
+            background: 
+                radial-gradient(circle at 28% 18%, rgba(255,255,255,0.022) 0%, transparent 55%),
+                radial-gradient(circle at 72% 68%, rgba(255,255,255,0.017) 0%, transparent 60%),
+                #0a0a0c;
+        }
+
+        /* Display / Headings */
+        .title-font {
+            font-family: var(--font-display);
+            font-feature-settings: "tnum" 1, "cv05" 1;
+            font-weight: 600;
+            letter-spacing: -0.028em;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* All-caps micro labels */
+        .tracking-micro {
+            letter-spacing: 2.8px;
+            font-weight: 500;
+        }
+
+        /* === Search Bar — Frosted Liquid Glass === */
+        .search-input {
+            background: rgba(24, 24, 27, 0.78);
+            backdrop-filter: blur(26px) saturate(180%);
+            -webkit-backdrop-filter: blur(26px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.11);
+            box-shadow: 0 12px 32px -10px rgba(0,0,0,0.4),
+                        inset 0 1px 0 rgba(255,255,255,0.07);
+            transition: all 0.32s cubic-bezier(0.23, 1, 0.32, 1);
+            letter-spacing: -0.018em;
+        }
+        .search-input:focus {
+            background: rgba(28, 30, 36, 0.92);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.13),
+                        0 28px 60px -14px rgba(0,0,0,0.45),
+                        inset 0 1px 0 rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+        }
+
+        /* === Top 10 Risk Table === */
+        .risk-table {
+            font-size: 0.95rem;
+        }
+        .risk-table th {
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            color: #a1a1aa;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .risk-table td {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-feature-settings: "tnum";
+            transition: background-color 0.1s ease;
+        }
+        .top-table:hover td {
+            background-color: #1f2937;
+        }
+        .top-table:hover {
+            cursor: pointer;
+        }
+
+        /* === Horizon Toggle (Toolbar) === */
+        .horizon-toggle button {
+            transition: all 0.15s cubic-bezier(0.23, 1.0, 0.32, 1);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .active-horizon {
+            background-color: #27272a;
+            color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* === Cards === */
+        .card {
+            background: #18181b;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+                        0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), 
+                        box-shadow 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+                        0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* === Chart Polish === */
+        #stock-chart {
+            background: transparent;
+        }
+
+        /* =====================================================
+           LIQUID GLASS + PREMIUM APPLE-STYLE ANIMATIONS
+           Smooth, buttery, high-end feel (cubic-bezier is Apple's)
+        ===================================================== */
+
+        /* Global premium easing */
+        * {
+            transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* True Liquid Glass surfaces */
+        .glass,
+        .card,
+        #risk-table,
+        .search-input,
+        #suggestions,
+        .horizon-toggle {
+            background: rgba(24, 24, 27, 0.72);           /* deep translucent zinc */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.35),
+                        0 4px 12px -4px rgba(0,0,0,0.2),
+                        inset 0 1px 0 rgba(255,255,255,0.06);
+        }
+
+        /* Softer, more elegant cards with lift */
+        .card {
+            transition: transform 0.28s cubic-bezier(0.23, 1, 0.32, 1),
+                        box-shadow 0.28s cubic-bezier(0.23, 1, 0.32, 1),
+                        border-color 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 40px -12px rgba(0,0,0,0.38),
+                        0 6px 16px -6px rgba(0,0,0,0.22),
+                        inset 0 1px 0 rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.13);
+        }
+
+        /* Table container — extra liquid depth */
+        #risk-table {
+            background: transparent;
+        }
+        #dashboard > div.bg-zinc-900 {
+            background: rgba(24, 24, 27, 0.78);
+            backdrop-filter: blur(24px) saturate(170%);
+        }
+
+        /* Beautiful table row interactions (Liquid hover) */
+        .top-table {
+            transition: all 0.22s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .top-table:hover {
+            background: rgba(255,255,255,0.035) !important;
+            transform: translateX(1px);
+        }
+        .top-table:hover td {
+            color: #f4f4f5;
+        }
+
+        /* Horizon Toggle — premium pill with smooth active slide */
+        .horizon-toggle {
+            background: rgba(24,24,27,0.85);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .horizon-toggle button {
+            position: relative;
+            transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid transparent;
+        }
+        .horizon-toggle button:hover {
+            color: white;
+            background: rgba(255,255,255,0.06);
+        }
+        .active-horizon {
+            background: rgba(255,255,255,0.12) !important;
+            color: white !important;
+            border-color: rgba(255,255,255,0.14);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+
+
+        /* Suggestions dropdown — glassmorphic */
+        #suggestions {
+            background: rgba(24, 24, 27, 0.92);
+            backdrop-filter: blur(28px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.45);
+        }
+        #suggestions > div {
+            transition: background 0.15s ease, padding-left 0.15s cubic-bezier(0.23,1,0.32,1);
+        }
+        #suggestions > div:hover {
+            background: rgba(255,255,255,0.055);
+            padding-left: 2rem;
+        }
+
+        /* Period buttons (stock chart) — soft glass pills */
+        .period-btn {
+            transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid transparent;
+        }
+        .period-btn:hover {
+            background: #27272a;
+            border-color: rgba(255,255,255,0.12);
+            transform: translateY(-0.5px);
+        }
+        .period-btn.active {
+            background: rgba(255,255,255,0.14);
+            color: white;
+            border-color: rgba(255,255,255,0.18);
+        }
+
+        /* Detail view cards get extra love */
+        #company-risks .card,
+        #live-market .card,
+        #company-shap {
+            transition: transform 0.32s cubic-bezier(0.23,1,0.32,1),
+                        box-shadow 0.32s cubic-bezier(0.23,1,0.32,1);
+        }
+
+        /* Subtle entrance animation for detail view */
+        #detail-view {
+            animation: liquidEnter 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+        @keyframes liquidEnter {
+            from {
+                opacity: 0;
+                transform: translateY(16px) scale(0.985);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Risk % numbers — slightly more refined */
+        .tabular-nums {
+            font-feature-settings: "tnum" 1, "cv05" 1, "cv06" 1;
+            letter-spacing: -0.02em;
+        }
+
+        /* Back button — premium micro interaction */
+        button[onclick="showDashboard()"] {
+            transition: all 0.2s cubic-bezier(0.23,1,0.32,1);
+        }
+        button[onclick="showDashboard()"]:hover {
+            color: white;
+            transform: translateX(-2px);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white">
+
+    <!-- Main Content - Minimal -->
+    <div class="max-w-6xl mx-auto px-8 pt-12 pb-20">
+
+        <!-- Architecture & Data Pipeline Diagrams -->
+        <div class="max-w-5xl mx-auto mb-7">
+            <div class="text-center mb-4">
+                <div class="text-[10px] tracking-[2px] text-white/40">HOW PULSE WORKS</div>
+                <div class="text-white/60 text-sm mt-1 tracking-[-0.1px]">Clean time-split training • Dual-horizon XGBoost models • SHAP explainability • Live market integration</div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <!-- Data Pipeline -->
+                <div class="glass rounded-3xl p-6">
+                    <div class="uppercase tracking-[1.5px] text-[10px] text-white/50 mb-4">DATA PIPELINE</div>
+                    <svg viewBox="0 0 620 78" class="w-full h-[78px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Boxes -->
+                        <rect x="8" y="18" width="102" height="42" rx="8" fill="#27272a" stroke="#3f3f46" stroke-width="1"/>
+                        <text x="59" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5" font-family="Inter, system-ui">Raw Financial Data</text>
+
+                        <rect x="142" y="18" width="96" height="42" rx="8" fill="#27272a" stroke="#3f3f46" stroke-width="1"/>
+                        <text x="190" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5" font-family="Inter, system-ui">Linking &amp; Cleaning</text>
+
+                        <rect x="270" y="18" width="102" height="42" rx="8" fill="#27272a" stroke="#3f3f46" stroke-width="1"/>
+                        <text x="321" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5" font-family="Inter, system-ui">Feature Engineering</text>
+
+                        <rect x="404" y="18" width="92" height="42" rx="8" fill="#27272a" stroke="#3f3f46" stroke-width="1"/>
+                        <text x="450" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5" font-family="Inter, system-ui">Time-Split CV</text>
+
+                        <rect x="528" y="18" width="84" height="42" rx="8" fill="#1f2937" stroke="#4b5563" stroke-width="1.25"/>
+                        <text x="570" y="44" text-anchor="middle" fill="#e5e7eb" font-size="10.5" font-family="Inter, system-ui">Training Sets</text>
+
+                        <!-- Arrows -->
+                        <path d="M112 39 L140 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M240 39 L268 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M374 39 L402 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M498 39 L526 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Model Architecture -->
+                <div class="glass rounded-3xl p-6">
+                    <div class="uppercase tracking-[1.5px] text-[10px] text-white/50 mb-4">MODEL ARCHITECTURE</div>
+                    <svg viewBox="0 0 620 78" class="w-full h-[78px]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Input -->
+                        <rect x="22" y="18" width="78" height="42" rx="8" fill="#27272a" stroke="#3f3f46"/>
+                        <text x="61" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5" font-family="Inter, system-ui">Features</text>
+
+                        <!-- 12-Month Model -->
+                        <rect x="148" y="8" width="118" height="28" rx="7" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.25"/>
+                        <text x="207" y="27" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="Inter, system-ui" font-weight="500">XGBoost — 12-Month</text>
+
+                        <!-- 5-Year Model -->
+                        <rect x="148" y="42" width="118" height="28" rx="7" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.25"/>
+                        <text x="207" y="61" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="Inter, system-ui" font-weight="500">XGBoost — 5-Year</text>
+
+                        <!-- Output 12m -->
+                        <rect x="310" y="8" width="96" height="28" rx="7" fill="#1f2937" stroke="#4b5563"/>
+                        <text x="358" y="27" text-anchor="middle" fill="#e5e7eb" font-size="10" font-family="Inter, system-ui">PD + SHAP</text>
+
+                        <!-- Output 5y -->
+                        <rect x="310" y="42" width="96" height="28" rx="7" fill="#1f2937" stroke="#4b5563"/>
+                        <text x="358" y="61" text-anchor="middle" fill="#e5e7eb" font-size="10" font-family="Inter, system-ui">PD + SHAP</text>
+
+                        <!-- Final Risk Cards -->
+                        <rect x="452" y="18" width="110" height="42" rx="8" fill="#172554" stroke="#3b82f6" stroke-width="1.25"/>
+                        <text x="507" y="36" text-anchor="middle" fill="#bfdbfe" font-size="9.5" font-family="Inter, system-ui">Risk Level +</text>
+                        <text x="507" y="50" text-anchor="middle" fill="#bfdbfe" font-size="9.5" font-family="Inter, system-ui">Top Drivers</text>
+
+                        <!-- Connecting arrows -->
+                        <path d="M102 39 L146 25" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M102 39 L146 55" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M268 22 L308 22" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M268 56 L308 56" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M408 22 L450 39" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M408 56 L450 39" stroke="#52525b" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar Only (Minimal) -->
+        <div class="max-w-2xl mx-auto mb-10">
+            <div class="relative">
+                <input id="search-input" type="text" 
+                       placeholder="Search companies…"
+                       class="search-input w-full rounded-3xl px-8 py-5 text-[17px] placeholder:text-white/35 outline-none">
+                <div id="suggestions" class="hidden absolute mt-1.5 w-full bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50"></div>
+            </div>
+        </div>
+
+        <!-- DEFAULT VIEW: Single Risk List with Toolbar -->
+        <div id="dashboard">
+
+            <!-- Toolbar for switching horizons -->
+            <div class="flex items-center justify-between mb-6 px-1">
+                <div>
+                    <div class="text-[29px] title-font tracking-[-1.8px] font-semibold text-white/95">Top 10 Highest Risk Companies</div>
+                    <div id="list-subtitle" class="text-[13px] text-white/45 mt-1.5 tracking-[0.3px] font-medium transition-opacity duration-200">Dec 2025 — Dec 2026</div>
+                </div>
+
+                <!-- Horizon Toggle - Real Liquid Glass Sliding Segmented Control -->
+                <div id="horizon-toggle" class="relative flex rounded-2xl p-1 text-sm border border-white/15 bg-white/5 backdrop-blur-2xl overflow-hidden"
+                     style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);">
+                    <!-- Sliding glass pill (animated) -->
+                    <div id="horizon-pill" 
+                         class="absolute top-1 bottom-1 left-1 w-[calc(50%-2px)] bg-white/12 rounded-[14px] border border-white/15 transition-all duration-300"
+                         style="box-shadow: 0 2px 8px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);"></div>
+
+                    <button id="btn-12m" onclick="switchHorizon('12m')" 
+                            class="relative z-10 flex-1 px-6 py-1.5 font-medium tracking-[-0.1px] rounded-[14px] text-white transition-colors duration-200 whitespace-nowrap flex items-center justify-center">
+                        12-Month
+                    </button>
+                    <button id="btn-5y" onclick="switchHorizon('5y')" 
+                            class="relative z-10 flex-1 px-6 py-1.5 font-medium tracking-[-0.1px] rounded-[14px] text-white/65 hover:text-white transition-colors duration-200 whitespace-nowrap flex items-center justify-center">
+                        5-Year
+                    </button>
+                </div>
+            </div>
+
+            <!-- Single Dynamic Table -->
+            <div class="glass border border-white/10 rounded-3xl overflow-hidden">
+                <table id="risk-table" class="risk-table w-full text-sm">
+                    <thead class="bg-black/40 text-white/70 text-xs">
+                        <tr>
+                            <th class="px-8 py-4 text-left w-12">Rank</th>
+                            <th class="px-2 py-4 text-left">Company</th>
+                            <th class="px-4 py-4 text-left w-24">Ticker</th>
+                            <th class="px-4 py-4 text-left">Latest Fiscal</th>
+                            <th class="px-8 py-4 text-right font-mono">Risk %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="risk-tbody" class="divide-y divide-white/10"></tbody>
+                </table>
+            </div>
+
+            <div class="text-center text-[10px] text-white/40 mt-6 tracking-widest">BASED ON OPTUNA-TUNED XGBOOST • CLEAN TIME-SPLIT • NO DATA LEAKAGE • ONLY RECENT (DEC 2025+) DATA</div>
+        </div>
+
+        <!-- COMPANY DETAIL VIEW (appears when a company is selected) -->
+        <div id="detail-view" class="hidden max-w-5xl mx-auto">
+            <button onclick="showDashboard()" class="mb-6 text-sm flex items-center gap-2 text-white/60 hover:text-white transition">
+                ← Back to Top Risk Lists
+            </button>
+
+            <div id="company-header" class="mb-8"></div>
+
+            <div id="company-risks" class="grid md:grid-cols-2 gap-5 mb-8"></div>
+
+            <!-- Live Market Data -->
+            <div id="live-market" class="mb-10"></div>
+
+            <div id="company-shap" class="card rounded-3xl p-8"></div>
+        </div>
+
+    </div>
+
+<script>
+// ============ APP LOGIC ============
+const input = document.getElementById('search-input');
+const suggestions = document.getElementById('suggestions');
+const dashboard = document.getElementById('dashboard');
+const detailView = document.getElementById('detail-view');
+
+let debounceTimer;
+let top12mData = [];
+let top5yData = [];
+let currentHorizon = '12m';   // '12m' or '5y'
+
+// Load both lists on page load (wrapped for safety)
+try {
+    loadBothLists();
+} catch (e) {
+    console.error("Failed to load top lists:", e);
+}
+
+async function loadBothLists() {
+    const [t12, t5y] = await Promise.all([
+        fetch('/api/top/12m?limit=10').then(r => r.json()),
+        fetch('/api/top/5y?limit=10').then(r => r.json())
+    ]);
+    top12mData = t12;
+    top5yData = t5y;
+    renderCurrentList();
+
+    // Ensure the beautiful sliding toggle starts in correct state
+    switchHorizon('12m');
+}
+
+function renderCurrentList() {
+    const data = (currentHorizon === '12m' ? top12mData : top5yData) || [];
+    const riskKey = currentHorizon === '12m' ? 'pred_risk_2026' : 'pred_risk_5y';
+
+    const tbody = document.getElementById('risk-tbody');
+    if (!Array.isArray(data)) {
+        tbody.innerHTML = '<tr><td colspan="5" class="px-8 py-12 text-center text-red-400">Error loading list data. Please restart the server.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = data.map((row, i) => {
+        const ticker = row.ticker || '';
+        const risk = ((row[riskKey] || 0) * 100).toFixed(2);
+        const latest = row.latest_observed_date || row.latest_datadate || '';
+        return `
+            <tr class="top-table hover:bg-zinc-800/60 cursor-pointer" onclick="selectCompanyFromList('${row.gvkey}', '${row.conm.replace(/'/g, "\\'")}')">
+                <td class="px-8 py-4 font-mono text-white/50">${i + 1}</td>
+                <td class="px-2 py-4 font-semibold tracking-[-0.12px] text-white/95">${row.conm}</td>
+                <td class="px-4 py-4 font-mono text-xs text-white/70">${ticker}</td>
+                <td class="px-4 py-4 text-sm text-white/70">${latest}</td>
+                <td class="px-8 py-4 text-right font-semibold tabular-nums">${risk}%</td>
+            </tr>`;
+    }).join('');
+
+    // Update subtitle
+    const subtitle = document.getElementById('list-subtitle');
+
+    if (data.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" class="px-8 py-12 text-center text-white/50">
+                    No companies with recent data found for this horizon.<br>
+                    Try re-running <code>generate_risk_lists.py</code> with a relaxed date filter.
+                </td>
+            </tr>`;
+        subtitle.textContent = currentHorizon === '12m' 
+            ? "12-Month Horizon — No recent companies"
+            : "5-Year Horizon — No recent companies";
+        return;
+    }
+
+    subtitle.textContent = currentHorizon === '12m' 
+        ? "Dec 2025 — Dec 2026 (Companies with recent data only)"
+        : "Dec 2025 — Dec 2030 (Alive Companies Only, recent data)";
+}
+
+function switchHorizon(h) {
+    currentHorizon = h;
+
+    const pill = document.getElementById('horizon-pill');
+    const btn12 = document.getElementById('btn-12m');
+    const btn5y = document.getElementById('btn-5y');
+
+    // Slide the glass pill beautifully (Apple-style)
+    if (pill) {
+        pill.style.transform = h === '12m' ? 'translateX(0)' : 'translateX(100%)';
+    }
+
+    // Update button text contrast (active is pure white)
+    if (btn12) {
+        btn12.style.color = h === '12m' ? '#fff' : 'rgba(255,255,255,0.55)';
+        btn12.style.fontWeight = h === '12m' ? '600' : '500';
+    }
+    if (btn5y) {
+        btn5y.style.color = h === '5y' ? '#fff' : 'rgba(255,255,255,0.55)';
+        btn5y.style.fontWeight = h === '5y' ? '600' : '500';
+    }
+
+    renderCurrentList();
+}
+
+function selectCompanyFromList(gvkey, name) {
+    input.value = name;
+    loadCompanyDetail(gvkey);
+}
+
+// Search typeahead
+input.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    const q = input.value.trim();
+    if (q.length < 2) { suggestions.classList.add('hidden'); return; }
+
+    debounceTimer = setTimeout(async () => {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&limit=10`);
+        const companies = await res.json();
+        suggestions.innerHTML = companies.map(c => `
+            <div class="px-7 py-3.5 hover:bg-white/5 cursor-pointer flex items-center justify-between text-sm border-b border-white/10 last:border-0" 
+                 onclick="selectFromSearch('${c.gvkey}', '${c.conm.replace(/'/g, "\\'")}')">
+                <div>${c.conm}</div>
+                <div class="text-[10px] text-white/40">${c.latest_datadate}</div>
+            </div>`).join('');
+        suggestions.classList.remove('hidden');
+    }, 120);
+});
+
+function selectFromSearch(gvkey, name) {
+    input.value = name;
+    suggestions.classList.add('hidden');
+    loadCompanyDetail(gvkey);
+}
+
+async function loadCompanyDetail(gvkey) {
+    dashboard.classList.add('hidden');
+    detailView.classList.remove('hidden');
+
+    const res = await fetch(`/api/predict/${gvkey}`);
+    if (!res.ok) {
+        detailView.innerHTML = `<div class="text-center py-20 text-red-400">Could not load prediction for this company.</div>`;
+        return;
+    }
+    const d = await res.json();
+
+    const p12 = (d.prob_12m * 100).toFixed(1);
+    const p5 = (d.prob_5y * 100).toFixed(1);
+
+    const tickerHTML = d.ticker && d.ticker.trim() 
+        ? `<div class="font-mono text-4xl px-6 py-1 bg-white/10 rounded-2xl tracking-[-1.5px] text-white/95">${d.ticker}</div>` 
+        : '';
+
+    document.getElementById('company-header').innerHTML = `
+        <div class="flex items-center gap-4">
+            <div class="text-5xl title-font tracking-[-2.2px] font-semibold">${d.conm}</div>
+            ${tickerHTML}
+        </div>
+        <div class="text-white/50 mt-1">GVKEY ${d.gvkey} • Latest: ${d.latest_datadate}</div>
+    `;
+
+    document.getElementById('company-risks').innerHTML = `
+        <div class="card rounded-3xl p-8">
+            <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">12-MONTH RISK • DEC 2025–DEC 2026</div>
+            <div class="text-[68px] leading-none font-semibold tabular-nums tracking-[-4px] mt-1">${p12}<span class="text-3xl align-super font-normal">%</span></div>
+            <div class="text-sm mt-1 ${d.risk_level_12m === 'High' ? 'text-red-400' : d.risk_level_12m === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_12m} RISK</div>
+        </div>
+        <div class="card rounded-3xl p-8">
+            <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">5-YEAR RISK • DEC 2025–DEC 2030</div>
+            <div class="text-[68px] leading-none font-semibold tabular-nums tracking-[-4px] mt-1">${p5}<span class="text-3xl align-super font-normal">%</span></div>
+            <div class="text-sm mt-1 ${d.risk_level_5y === 'High' ? 'text-red-400' : d.risk_level_5y === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_5y} RISK</div>
+        </div>
+    `;
+
+    // === Live Market Data + Price Chart (consistent section for every company) ===
+    const ticker = (d.ticker || '').trim();
+    let marketHTML = '';
+    if (ticker) {
+        const hasSnapshot = !!d.current_price;
+        const change = d.change_percent || 0;
+        const changeClass = change >= 0 ? 'text-emerald-400' : 'text-red-400';
+        const changeSign = change >= 0 ? '+' : '';
+
+        marketHTML = `
+            <div class="card rounded-3xl p-7">
+                ${hasSnapshot ? `
+                <div class="flex items-center justify-between mb-5">
+                    <div>
+                        <div class="uppercase tracking-[2px] text-xs text-white/50">CURRENT MARKET DATA</div>
+                        <div class="text-4xl font-semibold tabular-nums tracking-[-1.5px] mt-1">$${d.current_price} 
+                            <span class="text-lg ${changeClass} font-medium">${changeSign}${change}%</span>
+                        </div>
+                    </div>
+                    <div class="text-right text-sm text-white/50">
+                        ${d.market_cap ? `$${(d.market_cap / 1e9).toFixed(1)}B` : ''} 
+                        ${d.volume ? `• ${(d.volume / 1e6).toFixed(1)}M vol` : ''}
+                    </div>
+                </div>` : `
+                <div class="uppercase tracking-[2px] text-xs text-white/50 mb-3">STOCK PRICE HISTORY • ${ticker}</div>`}
+
+                <!-- Period Buttons + Chart -->
+                <div class="flex gap-1 mb-2 text-xs">
+                    <button onclick="changeStockPeriod('${ticker}', '12m')" class="period-btn px-3 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 active">12M</button>
+                    <button onclick="changeStockPeriod('${ticker}', '5y')"  class="period-btn px-3 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700">5Y</button>
+                    <button onclick="changeStockPeriod('${ticker}', 'all')" class="period-btn px-3 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700">All Time</button>
+                </div>
+                <div class="relative h-[168px] w-full mt-1">
+                    <canvas id="stock-chart"></canvas>
+                </div>
+            </div>`;
+    } else {
+        // Graceful placeholder so every selected company has a consistent market section
+        marketHTML = `
+            <div class="card rounded-3xl p-7 border-white/5">
+                <div class="uppercase tracking-[2px] text-xs text-white/50 mb-2">EQUITY MARKET DATA</div>
+                <div class="text-white/60">No stock ticker symbol is linked for this issuer in our data.</div>
+                <div class="text-[11px] text-white/40 mt-1">Price history &amp; live quotes are only available for companies with exchange tickers.</div>
+            </div>`;
+    }
+    document.getElementById('live-market').innerHTML = marketHTML;
+
+    // Load initial price history (and draw chart) only when we have a real ticker
+    if (ticker) {
+        loadStockHistory(ticker, '12m');
+    }
+
+    // Store ticker for period switching (used by changeStockPeriod if needed)
+    window.currentDetailTicker = ticker || null;
+
+    // Always render SHAP feature importance
+    renderFeatureImportance(d);
+}
+
+// Helper to fetch + draw stock chart (used for initial load + period switches)
+async function loadStockHistory(ticker, period) {
+    if (!ticker) return;
+    try {
+        const res = await fetch(`/api/stock/${encodeURIComponent(ticker)}?period=${period}`);
+        const data = await res.json();
+        const tried = data.ticker || ticker;
+        if (!data.price_history || data.price_history.length === 0) {
+            const canvas = document.getElementById('stock-chart');
+            if (canvas) {
+                canvas.parentElement.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full text-center text-white/50 text-sm py-6">
+                        <div>No daily price history found for <span class="font-mono text-white/70">${tried}</span></div>
+                        <div class="text-[10px] mt-1 text-white/40">Ticker may be OTC, recently changed, delisted, or extremely low volume.</div>
+                    </div>`;
+            }
+            return;
+        }
+        const ctx = document.getElementById('stock-chart').getContext('2d');
+        if (window.currentStockChart) window.currentStockChart.destroy();
+        window.currentStockChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.price_history.map(p => p.date),
+                datasets: [{
+                    label: 'Close',
+                    data: data.price_history.map(p => p.close),
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59,130,246,0.1)',
+                    borderWidth: 1.75,
+                    tension: 0.2,
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#111',
+                        titleColor: '#fff',
+                        bodyColor: '#ddd',
+                        displayColors: false,
+                        callbacks: { label: (ctx) => `$${ctx.parsed.y}` }
+                    }
+                },
+                scales: {
+                    x: { display: false },
+                    y: {
+                        grid: { color: 'rgba(255,255,255,0.06)' },
+                        ticks: { color: '#666', font: { size: 10 } }
+                    }
+                }
+            }
+        });
+    } catch (e) {
+        console.error("Failed to load stock history", period, e);
+    }
+}
+
+// Render the SHAP / feature importance section (always called from loadCompanyDetail)
+function renderFeatureImportance(d) {
+    if (!d.top_features_12m || !d.top_features_5y) {
+        document.getElementById('company-shap').innerHTML = '<div class="text-white/40">No feature explanations available.</div>';
+        return;
+    }
+    const drivers12 = d.top_features_12m.slice(0,8).map(f => 
+        `<div class="flex justify-between py-[3px] text-sm border-b border-white/10 last:border-0">
+            <div>
+                <span class="font-medium">${f.meaning}</span>
+                <span class="text-xs text-white/40 ml-1.5 font-mono">(${f.feature})</span>
+            </div>
+            <div class="${f.shap_value>0?'text-red-400':'text-emerald-400'} font-mono">${f.shap_value > 0 ? '+' : ''}${f.shap_value}</div>
+        </div>`).join('');
+    const drivers5y = d.top_features_5y.slice(0,8).map(f => 
+        `<div class="flex justify-between py-[3px] text-sm border-b border-white/10 last:border-0">
+            <div>
+                <span class="font-medium">${f.meaning}</span>
+                <span class="text-xs text-white/40 ml-1.5 font-mono">(${f.feature})</span>
+            </div>
+            <div class="${f.shap_value>0?'text-red-400':'text-emerald-400'} font-mono">${f.shap_value > 0 ? '+' : ''}${f.shap_value}</div>
+        </div>`).join('');
+
+    document.getElementById('company-shap').innerHTML = `
+        <div class="grid md:grid-cols-2 gap-x-12">
+            <div>
+                <div class="uppercase tracking-[1.5px] text-xs mb-4 text-white/60">What drives the 12-month prediction</div>
+                ${drivers12}
+            </div>
+            <div class="mt-8 md:mt-0">
+                <div class="uppercase tracking-[1.5px] text-xs mb-4 text-white/60">What drives the 5-year prediction</div>
+                ${drivers5y}
+            </div>
+        </div>`;
+}
+
+// === Period Switcher for Stock Chart ===
+async function changeStockPeriod(ticker, period) {
+    // Visual feedback (works whether called from onclick attr or directly)
+    document.querySelectorAll('.period-btn').forEach(btn => btn.classList.remove('active'));
+    // Try to mark the clicked button if we can find it in the live DOM
+    const btns = document.querySelectorAll('.period-btn');
+    // Best-effort: the caller usually passes the symbol we already know
+    // (we just remove active from all; the newly chosen one will be the one that was clicked)
+
+    await loadStockHistory(ticker, period);
+
+    // After draw, try to re-apply active to the button whose text matches the period
+    const labelMap = { '12m': '12M', '5y': '5Y', 'all': 'All Time' };
+    const want = labelMap[period.toLowerCase()] || period.toUpperCase();
+    btns.forEach(b => { if (b.textContent.trim().toUpperCase() === want) b.classList.add('active'); });
+}
+
+function showDashboard() {
+    detailView.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+    input.value = '';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Close suggestions on outside click
+document.addEventListener('click', e => {
+    if (!e.target.closest('#search-input') && !e.target.closest('#suggestions')) {
+        suggestions.classList.add('hidden');
+    }
+});
+</script>
+</body>
+</html>

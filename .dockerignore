@@ -1,0 +1,70 @@
+# .dockerignore - Exclude unnecessary files from Docker build context
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter / Notebooks checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitattributes
+.gitignore
+
+# Large unnecessary outputs (you can include specific ones if needed)
+outputs/12m_model/*.png
+outputs/5y_model/*.png
+outputs/**/*.png
+
+# Large raw data you may not want in the image (optional - comment out if needed)
+# data/raw/
+
+# Test / temp
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Documentation not needed at runtime
+*.md
+!README.md
+
+# Local config
+.env
+.env.local
