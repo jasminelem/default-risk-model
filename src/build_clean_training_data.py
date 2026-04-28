@@ -16,6 +16,11 @@ Usage:
 After running, open notebooks/02_xgboost_modeling_hpo_shap.ipynb
 """
 
+# Make "from src.xxx" imports work when running the file directly
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -316,15 +321,15 @@ try:
 except Exception as e:
     print(f"   Macro attachment skipped: {e}")
 
-# --- NEW: Attach historical CapIQ / S&P credit ratings (point-in-time, uses ticker fallback) ---
+# --- Attach historical CapIQ / S&P ratings as real model features (gvkey + ticker) ---
 try:
-    from src.ratings import attach_ratings_to_panel
-    df = attach_ratings_to_panel(df, use_live=False)
+    from src.ratings import attach_historical_ratings
+    df = attach_historical_ratings(df, live=False)
 except Exception as e:
-    print(f"   [ratings] Attachment skipped: {e}")
-    for c in ["rating", "rating_numeric", "speculative_grade", "rating_age_years", "downgrade_1y"]:
+    print(f"   [ratings] CapIQ historical ratings skipped: {e}")
+    for c in ["rating_numeric", "speculative_grade", "downgrade_1y", "rating_age_years"]:
         if c not in df.columns:
-            df[c] = np.nan if c != "speculative_grade" else 0
+            df[c] = 0 if c == "speculative_grade" else np.nan
 
 df = df.drop(columns=['delist_bankrupt_date', 'fjc_bankrupt_date', 'bankrupt_event_date'], errors='ignore')
 

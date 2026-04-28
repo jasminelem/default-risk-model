@@ -42,6 +42,8 @@ DROP_COLS = [
     "fjc_default_chapter", "bankrupt_event_date", "delist_bankrupt_date",
     "default_date", "year_month",
     "fedfunds", "gs10", "baa", "aaa",
+    # Raw rating string is excluded; we keep rating_numeric, speculative_grade, downgrade_1y, rating_age_years as real features
+    "rating", "ratingdate",
     # Both targets must always be dropped — never use one as a feature for the other model
     "default_in_next_12m",
     "default_in_next_5y"

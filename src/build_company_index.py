@@ -14,6 +14,11 @@ WITHOUT retraining the models:
     python src/build_company_index.py
 """
 
+# Make "from src.xxx" work when running the script directly
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 import pandas as pd
 from pathlib import Path
 
@@ -46,9 +51,9 @@ def main():
     # Try to attach ticker from WRDS (best & most accurate source)
     ticker_count = 0
     try:
-        import wrds
+        from src.wrds_utils import get_wrds_connection
         print("Connecting to WRDS for ticker lookup (crsp.stocknames)...")
-        conn = wrds.Connection()
+        conn = get_wrds_connection(verbose=False)
         tickers = conn.raw_sql("""
             SELECT DISTINCT ON (permno) permno, ticker
             FROM crsp.stocknames
@@ -80,9 +85,9 @@ def main():
     credit_count = 0
     latest["credit_rating"] = ""
     try:
-        import wrds
+        from src.wrds_utils import get_wrds_connection
         print("Connecting to WRDS for credit rating lookup (ciqsamp_ratings / adsprate)...")
-        conn = wrds.Connection()
+        conn = get_wrds_connection(verbose=False)
         # Try CapIQ ratings table first (common under ciqsamp or ciq_rating schemas)
         try:
             ratings = conn.raw_sql("""

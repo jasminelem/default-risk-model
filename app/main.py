@@ -98,6 +98,23 @@ except Exception:
     FEATURE_MEANINGS = {}
     print("Warning: Could not load feature_definitions.csv — raw names will be shown in SHAP.")
 
+# === Load historical ratings for rich UI history view ===
+RATING_MAP = {
+    "AAA": 1, "AA+": 2, "AA": 3, "AA-": 4, "A+": 5, "A": 6, "A-": 7,
+    "BBB+": 8, "BBB": 9, "BBB-": 10,
+    "BB+": 11, "BB": 12, "BB-": 13, "B+": 14, "B": 15, "B-": 16,
+    "CCC+": 17, "CCC": 18, "CCC-": 19, "CC": 20, "C": 21, "D": 22, "SD": 23
+}
+
+try:
+    ratings_df = pd.read_parquet(PROJECT_ROOT / "data" / "raw" / "ciq_ratings.parquet")
+    ratings_df["gvkey"] = ratings_df["gvkey"].astype(str).str.strip().str.zfill(6)
+    ratings_df["ratingdate"] = pd.to_datetime(ratings_df["ratingdate"], errors="coerce")
+    print(f">>> Loaded {len(ratings_df):,} historical S&P/CapIQ ratings for UI")
+except Exception as e:
+    ratings_df = pd.DataFrame(columns=["gvkey", "ratingdate", "rating"])
+    print(f">>> Ratings history not loaded (UI will show limited info): {e}")
+
 print(f"Loaded {len(company_index):,} companies with normalized gvkeys. UI ready.")
 
 
@@ -151,6 +168,75 @@ def _get_live_market_data(ticker: str) -> Dict[str, Any]:
         }
     except Exception:
         return {}  # Graceful failure — never break the main credit risk view
+
+
+def get_rating_history(gvkey: str, max_history: int = 8) -> Dict[str, Any]:
+    """Return rich rating info for the UI: fiscal-year rating, latest rating, downgrade flag, and history table."""
+    gv = str(gvkey).strip().zfill(6)
+    if ratings_df.empty or "gvkey" not in ratings_df.columns:
+        return {
+            "fiscal_rating": None,
+            "latest_rating": None,
+            "recent_downgrade": False,
+            "rating_history": []
+        }
+
+    comp_ratings = ratings_df[ratings_df["gvkey"] == gv].dropna(subset=["ratingdate", "rating"]).copy()
+    if comp_ratings.empty:
+        return {"fiscal_rating": None, "latest_rating": None, "recent_downgrade": False, "rating_history": []}
+
+    # Latest known rating
+    latest_row = comp_ratings.sort_values("ratingdate").iloc[-1]
+    latest_rating = str(latest_row["rating"]).upper()
+
+    # Fiscal year-end rating (the one used by the model)
+    try:
+        row = _get_latest_row(gv)
+        fiscal_dt = pd.to_datetime(row.get("datadate"))
+        as_of = comp_ratings[comp_ratings["ratingdate"] <= fiscal_dt]
+        fiscal_rating = str(as_of.sort_values("ratingdate").iloc[-1]["rating"]).upper() if not as_of.empty else latest_rating
+    except Exception:
+        fiscal_rating = latest_rating
+
+    # Build clean recent history (oldest → newest for nice table)
+    hist_df = comp_ratings.sort_values("ratingdate", ascending=False).head(max_history)
+    history = []
+    prev_num = None
+    for _, r in hist_df.iloc[::-1].iterrows():   # reverse to oldest first
+        rstr = str(r["rating"]).upper()
+        num = RATING_MAP.get(rstr, 99)
+        change = ""
+        if prev_num is not None:
+            if num < prev_num:
+                change = "↑ Improved"
+            elif num > prev_num:
+                change = "↓ Downgraded"
+            else:
+                change = "→ Stable"
+        is_ig = num <= 10
+        history.append({
+            "year": int(r["ratingdate"].year),
+            "date": str(r["ratingdate"].date()),
+            "rating": rstr,
+            "grade": "Investment Grade" if is_ig else "Speculative Grade",
+            "change": change
+        })
+        prev_num = num
+
+    # Recent downgrade flag (last 24 months)
+    cutoff = pd.Timestamp.now() - pd.DateOffset(years=2)
+    recent = comp_ratings[comp_ratings["ratingdate"] >= cutoff].sort_values("ratingdate")
+    recent_downgrade = False
+    if len(recent) >= 2:
+        nums = [RATING_MAP.get(str(x).upper(), 99) for x in recent["rating"]]
+        recent_downgrade = nums[-1] > nums[0]
+
+    return {
+        "fiscal_rating": fiscal_rating,
+        "latest_rating": latest_rating,
+        "recent_downgrade": recent_downgrade,
+        "rating_history": history
+    }
 
 
 def _predict_and_explain(row: pd.Series) -> Dict[str, Any]:
@@ -255,6 +341,14 @@ def predict_company(gvkey: str) -> Dict[str, Any]:
         "best_params_5y": BEST_PARAMS_5Y,
         **live_data,   # current_price, change_percent, market_cap, volume, as_of
     })
+
+    # === Rich CapIQ/S&P Rating History for UI ===
+    try:
+        rating_info = get_rating_history(gvkey)
+        result.update(rating_info)   # adds fiscal_rating, latest_rating, recent_downgrade, rating_history
+    except Exception as e:
+        print(f"Rating history lookup failed for {gvkey}: {e}")
+
     return result
 
 
