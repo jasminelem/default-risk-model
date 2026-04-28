@@ -316,6 +316,16 @@ try:
 except Exception as e:
     print(f"   Macro attachment skipped: {e}")
 
+# --- NEW: Attach historical CapIQ / S&P credit ratings (point-in-time, uses ticker fallback) ---
+try:
+    from src.ratings import attach_ratings_to_panel
+    df = attach_ratings_to_panel(df, use_live=False)
+except Exception as e:
+    print(f"   [ratings] Attachment skipped: {e}")
+    for c in ["rating", "rating_numeric", "speculative_grade", "rating_age_years", "downgrade_1y"]:
+        if c not in df.columns:
+            df[c] = np.nan if c != "speculative_grade" else 0
+
 df = df.drop(columns=['delist_bankrupt_date', 'fjc_bankrupt_date', 'bankrupt_event_date'], errors='ignore')
 
 # Add the FULL AGENTS.md recommended feature set (including new market + CIQ flags)

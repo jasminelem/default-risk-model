@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology • Default Probability Model</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+        }
+        body {
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+        .title-font {
+            font-family: var(--font-display);
+            letter-spacing: -0.035em;
+        }
+        .glass {
+            background: rgba(24, 24, 27, 0.72);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.09);
+        }
+        .nav-link {
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white">
+
+    <div class="max-w-6xl mx-auto px-8 pt-8 pb-20">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-10 border-b border-white/10 pb-4">
+            <div>
+                <div class="title-font text-2xl tracking-[-1px]">Jasmine Lem</div>
+                <div class="text-sm text-white/50 -mt-1">Default Probability Model</div>
+            </div>
+            <a href="/" class="nav-link text-sm text-white/70 hover:text-white flex items-center gap-1">
+                ← Back to Dashboard
+            </a>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl title-font tracking-[-1.5px] font-semibold mb-4">Methodology</h1>
+            <p class="text-lg text-white/70 mb-10">A detailed overview of the data sources, machine learning pipeline, and explainability framework used to build this model.</p>
+        </div>
+
+        <!-- Section 1: Data Pipeline -->
+        <div class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">1. Data Pipeline &amp; Sources</h2>
+            <div class="glass rounded-3xl p-8 mb-4">
+                <p class="text-white/80 mb-4">The foundation of this model is a clean, time-series dataset constructed from multiple financial databases. The process ensures no data leakage and respects the temporal nature of financial reporting.</p>
+                
+                <div class="text-xs tracking-[1.5px] text-white/50 mb-2 mt-6">DATA SOURCES (WRDS)</div>
+                <ul class="list-disc list-inside text-sm text-white/70 space-y-1 mb-6 pl-2">
+                    <li><strong>Compustat Fundamentals (funda/fundq):</strong> Annual and quarterly financial statements (balance sheet, income statement).</li>
+                    <li><strong>CRSP Stock Prices (dsf):</strong> Daily stock returns and prices used to calculate market volatility and momentum.</li>
+                    <li><strong>FJC Bankruptcy Database:</strong> Historical records of corporate bankruptcy filings used to define the target variable.</li>
+                    <li><strong>Macroeconomic Data (FRED):</strong> Interest rates (Fed Funds, Treasury yields) and credit spreads (Baa/Aaa) as external risk factors.</li>
+                </ul>
+
+                <div class="text-xs tracking-[1.5px] text-white/50 mb-2">PIPELINE FLOW</div>
+                <div class="bg-black/20 p-4 rounded-xl text-xs font-mono text-white/60 border border-white/10">
+                    Raw Data → Linking (GVKEY/PERMNO) → Feature Engineering (60+ ratios) → Time-Split (Train/Val/Test) → Final Datasets
+                </div>
+
+                <!-- Data Ingestion Diagram -->
+                <div class="mt-6">
+                    <div class="text-xs tracking-[1.5px] text-white/50 mb-2">DATA INGESTION FLOW</div>
+                    <svg viewBox="0 0 860 108" class="w-full h-auto rounded-xl border border-white/10 bg-black/30 p-3" fill="none" text-rendering="optimizeLegibility" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif">
+                        <!-- Boxes -->
+                        <rect x="20" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
+                        <text x="81" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">WRDS Tables</text>
+                        <text x="81" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">Compustat / CRSP / FJC</text>
+
+                        <rect x="182" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
+                        <text x="243" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Link &amp; Clean</text>
+                        <text x="243" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">GVKEY + PERMNO</text>
+
+                        <rect x="344" y="26" width="132" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
+                        <text x="410" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Feature Engineering</text>
+                        <text x="410" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">60+ financial ratios</text>
+
+                        <rect x="516" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
+                        <text x="577" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Time Split</text>
+                        <text x="577" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">Train / Val / Test</text>
+
+                        <rect x="678" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
+                        <text x="739" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Parquet Store</text>
+                        <text x="739" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">monthly_train / test</text>
+
+                        <!-- Connecting arrows -->
+                        <path d="M142 53 L182 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
+                        <path d="M304 53 L344 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
+                        <path d="M476 53 L516 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
+                        <path d="M638 53 L678 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
+
+                        <defs>
+                            <marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
+                                <path d="M0 0 L7 3.5 L0 7" fill="none" stroke="#6b7280" stroke-width="1.75"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Model Training -->
+        <div class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">2. Model Training &amp; Architecture</h2>
+            <div class="glass rounded-3xl p-8">
+                <p class="text-white/80 mb-6">We trained two separate <strong>XGBoost Classifier</strong> models to predict the probability of default over two different horizons.</p>
+                
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <div class="glass border border-white/10 p-6 rounded-2xl">
+                        <div class="font-semibold text-white mb-1">12-Month Model</div>
+                        <div class="text-white/60">Target: <code>default_in_next_12m</code></div>
+                        <div class="text-white/60 mt-1">Optimised via <strong>Optuna</strong> (500+ trials) to maximise ROC-AUC on a time-based validation set.</div>
+                    </div>
+                    <div class="glass border border-white/10 p-6 rounded-2xl">
+                        <div class="font-semibold text-white mb-1">5-Year Model</div>
+                        <div class="text-white/60">Target: <code>default_in_next_5y</code></div>
+                        <div class="text-white/60 mt-1">Optimised via <strong>Optuna</strong> (500+ trials) to maximise ROC-AUC on a time-based validation set.</div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-xs text-white/50">The models use 60+ engineered features covering leverage, profitability, liquidity, market signals, and macroeconomic conditions. Hyperparameters are tuned to prevent overfitting on historical data.</div>
+
+                <!-- XGBoost Classifier Diagram -->
+                <div class="mt-6">
+                    <div class="text-xs tracking-[1.5px] text-white/50 mb-2">XGBOOST ENSEMBLE ARCHITECTURE</div>
+                    <svg viewBox="0 0 820 120" width="820" height="120" class="w-full h-auto rounded-xl border border-white/10 bg-black/30 p-3" fill="none" text-rendering="optimizeLegibility" shape-rendering="geometricPrecision" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif">
+                        <!-- Multiple small decision trees (stylized, ultra-crisp) -->
+                        <!-- Tree 1 -->
+                        <g transform="translate(60,18)">
+                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 1</text>
+                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="-20" y2="44" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="20" y2="44" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <circle cx="-20" cy="47" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                            <circle cx="20" cy="47" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                        </g>
+                        <!-- Tree 2 -->
+                        <g transform="translate(175,18)">
+                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 2</text>
+                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="-18" y2="42" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="18" y2="42" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="-18" y1="42" x2="-27" y2="55" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                            <line x1="-18" y1="42" x2="-9" y2="55" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                            <circle cx="-27" cy="57" r="4" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                            <circle cx="-9" cy="57" r="4" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                            <circle cx="18" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                        </g>
+                        <!-- Tree 3 -->
+                        <g transform="translate(290,18)">
+                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 3</text>
+                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="-16" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="16" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <circle cx="-16" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                            <circle cx="16" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                        </g>
+                        <!-- Tree 4 -->
+                        <g transform="translate(405,18)">
+                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 4</text>
+                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="-20" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <line x1="0" y1="22" x2="20" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                            <circle cx="-20" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                            <circle cx="20" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
+                        </g>
+
+                        <!-- Aggregator -->
+                        <rect x="490" y="28" width="72" height="36" rx="6" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
+                        <text x="526" y="49" text-anchor="middle" fill="#e5e7eb" font-size="10" font-weight="600">+  Average</text>
+
+                        <!-- Final output (wide enough for full label) -->
+                        <rect x="582" y="28" width="158" height="36" rx="6" fill="#052e16" stroke="#10b981" stroke-width="2.25" vector-effect="non-scaling-stroke" />
+                        <text x="661" y="49" text-anchor="middle" fill="#6ee7b7" font-size="10" font-weight="600">Sigmoid → P(default)</text>
+
+                        <!-- Connecting arrows (solid, crisp) -->
+                        <path d="M 464 46 L 490 46" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
+                        <path d="M 562 46 L 582 46" stroke="#10b981" stroke-width="2" vector-effect="non-scaling-stroke" marker-end="url(#arr2)" />
+                        <defs>
+                            <marker id="arr2" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
+                                <path d="M 0 0 L 7 3.5 L 0 7" fill="none" stroke="#10b981" stroke-width="2" />
+                            </marker>
+                        </defs>
+
+                        <text x="410" y="95" text-anchor="middle" fill="#9ca3af" font-size="10">Gradient-boosted ensemble of shallow decision trees (Optuna-tuned depth 4–7)</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Explainability (SHAP) -->
+        <div class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">3. Explainability (SHAP)</h2>
+            <div class="glass rounded-3xl p-8">
+                <p class="text-white/80 mb-4">To move beyond a "black box," we use <strong>SHAP (SHapley Additive exPlanations)</strong> to interpret model outputs.</p>
+                
+                <div class="text-sm text-white/70 space-y-3">
+                    <p><strong>Global View:</strong> We generate summary plots (beeswarm/bar) to show which features are most important for the model overall and in which direction they push the prediction.</p>
+                    <p><strong>Local View:</strong> For every individual company prediction, we calculate the exact contribution (SHAP value) of every feature. A positive value pushes the prediction towards "Default," a negative value pushes it towards "No Default."</p>
+                </div>
+                <div class="mt-4 p-3 bg-black/30 rounded-lg text-xs text-white/60 border border-white/10">
+                    The interactive chart on the main dashboard shows the local SHAP values for a specific company. The slider lets you compare the drivers for the 12-month vs 5-year horizons.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 4: Deployment -->
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">4. Deployment</h2>
+            <div class="glass rounded-3xl p-8 text-sm text-white/70">
+                The application is deployed as a containerised service:
+                <ul class="list-disc list-inside mt-3 space-y-1 pl-2">
+                    <li><strong>Backend:</strong> A FastAPI server loads the pre-trained XGBoost models and the company index into memory for low-latency inference.</li>
+                    <li><strong>Frontend:</strong> A static HTML/JS interface served by the same container, consuming the backend API for predictions and SHAP explanations.</li>
+                    <li><strong>Data:</strong> Large data files (Parquets) are managed via Git LFS to ensure reproducibility.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

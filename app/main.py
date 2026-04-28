@@ -45,6 +45,7 @@ app.add_middleware(
 
 # Serve the beautiful frontend
 app.mount("/static", StaticFiles(directory=str(PROJECT_ROOT / "app" / "static")), name="static")
+app.mount("/outputs", StaticFiles(directory=str(PROJECT_ROOT / "outputs")), name="outputs")
 
 
 # ============== LOAD EVERYTHING AT STARTUP (fast inference) ==============
@@ -212,10 +213,12 @@ def search_companies(q: str = "", limit: int = 12) -> List[Dict[str, Any]]:
     results = []
     for _, r in matches.iterrows():
         ticker = str(r.get("ticker", "")).upper() if pd.notna(r.get("ticker")) else ""
+        cr = str(r.get("credit_rating", "")).strip().upper() if pd.notna(r.get("credit_rating")) else ""
         results.append({
             "gvkey": str(r["gvkey"]),
             "conm": r["conm"],
             "ticker": ticker,
+            "credit_rating": cr,
             "latest_datadate": str(r["latest_datadate"].date()) if hasattr(r["latest_datadate"], "date") else str(r["latest_datadate"]),
         })
     return results
@@ -228,12 +231,16 @@ def predict_company(gvkey: str) -> Dict[str, Any]:
 
     result = _predict_and_explain(row)
 
-    # Get ticker from company index (padding-tolerant match)
+    # Get ticker + credit rating from company index (padding-tolerant match)
     gvkey_norm = str(gvkey).strip().zfill(6)
     ticker_row = company_index[company_index["gvkey"] == gvkey_norm]
     if len(ticker_row) == 0:
         ticker_row = company_index[company_index["gvkey"].str.zfill(6) == gvkey_norm]
     ticker = str(ticker_row["ticker"].iloc[0]).upper() if len(ticker_row) > 0 and pd.notna(ticker_row["ticker"].iloc[0]) else ""
+    credit_rating = ""
+    if len(ticker_row) > 0 and "credit_rating" in ticker_row.columns:
+        val = ticker_row["credit_rating"].iloc[0]
+        credit_rating = str(val).strip().upper() if pd.notna(val) else ""
 
     # Fetch live market data (price, market cap, etc.)
     live_data = _get_live_market_data(ticker) if ticker else {}
@@ -242,6 +249,7 @@ def predict_company(gvkey: str) -> Dict[str, Any]:
         "gvkey": str(gvkey),
         "conm": str(row.get("conm", "Unknown")),
         "ticker": ticker,
+        "credit_rating": credit_rating,
         "latest_datadate": str(row.get("datadate", "")),
         "best_params_12m": BEST_PARAMS_12M,
         "best_params_5y": BEST_PARAMS_5Y,
@@ -302,6 +310,13 @@ def top_12m(limit: int = 10):
     if not path.exists():
         return []
     df = pd.read_csv(path).head(limit)
+    # Attach credit rating from the full index (for UI visibility)
+    if "gvkey" in df.columns:
+        df["gvkey"] = df["gvkey"].astype(str).str.strip().str.zfill(6)
+        idx = company_index[["gvkey", "credit_rating"]].copy()
+        idx["gvkey"] = idx["gvkey"].astype(str).str.strip().str.zfill(6)
+        df = df.merge(idx, on="gvkey", how="left")
+        df["credit_rating"] = df["credit_rating"].fillna("").astype(str).str.strip().str.upper()
     return _safe_records(df)
 
 
@@ -311,6 +326,13 @@ def top_5y(limit: int = 10):
     if not path.exists():
         return []
     df = pd.read_csv(path).head(limit)
+    # Attach credit rating from the full index (for UI visibility)
+    if "gvkey" in df.columns:
+        df["gvkey"] = df["gvkey"].astype(str).str.strip().str.zfill(6)
+        idx = company_index[["gvkey", "credit_rating"]].copy()
+        idx["gvkey"] = idx["gvkey"].astype(str).str.strip().str.zfill(6)
+        df = df.merge(idx, on="gvkey", how="left")
+        df["credit_rating"] = df["credit_rating"].fillna("").astype(str).str.strip().str.upper()
     return _safe_records(df)
 
 

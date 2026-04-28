@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulse • Corporate Credit Risk</title>
+    <title>default-probability-model</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -15,7 +15,7 @@
         /* === Premium Typography & Polish === */
         :root {
             --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable", Inter, system-ui, sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
         }
 
         body {
@@ -302,148 +302,17 @@
     <!-- Main Content - Minimal -->
     <div class="max-w-6xl mx-auto px-8 pt-12 pb-20">
 
-        <!-- Main Title -->
-        <div class="max-w-3xl mx-auto text-center mb-5">
-            <h1 class="text-4xl md:text-5xl title-font tracking-[-2.2px] font-semibold text-white">Jasmine Lem Default
-                Probability Model</h1>
-            <p class="mt-3 text-white/70 text-[15px] leading-relaxed max-w-2xl mx-auto">
-                A transparent machine learning system that predicts the probability of corporate default over the next
-                12 months and 5 years, with full feature explanations.
+        <!-- Main Title & Description (Compact) -->
+        <div class="max-w-3xl mx-auto text-center mb-6">
+            <h1 class="text-3xl md:text-4xl title-font tracking-[-1.5px] font-semibold text-white">Defaulting Probability Model</h1>
+            <p class="mt-2 text-white/70 text-sm max-w-xl mx-auto">
+                Predicting corporate default risk with 12-month and 5-year forecasts using explainable AI.
             </p>
-        </div>
-
-        <!-- Architecture & Data Pipeline Diagrams -->
-        <div class="max-w-5xl mx-auto mb-8">
-            <div class="text-center mb-5">
-                <div class="inline-block bg-white/5 px-4 py-1 rounded-full text-[10px] tracking-[2px] text-white/50">
-                    MODEL ARCHITECTURE &amp; DATA PIPELINE</div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-5">
-                <!-- Data Pipeline -->
-                <div class="glass rounded-3xl p-7 hover:border-white/15 transition-all duration-200">
-                    <div class="flex items-center gap-2 mb-5">
-                        <div class="text-xs tracking-[2px] text-blue-400/80">DATA PIPELINE</div>
-                        <div class="flex-1 h-px bg-white/10"></div>
-                    </div>
-                    <svg viewBox="0 0 620 78" class="w-full h-[78px]" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Boxes -->
-                        <rect x="8" y="18" width="102" height="42" rx="8" fill="#27272a" stroke="#3f3f46"
-                            stroke-width="1" />
-                        <text x="59" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5"
-                            font-family="Inter, system-ui">Raw Financial Data</text>
-
-                        <rect x="142" y="18" width="96" height="42" rx="8" fill="#27272a" stroke="#3f3f46"
-                            stroke-width="1" />
-                        <text x="190" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5"
-                            font-family="Inter, system-ui">Linking &amp; Cleaning</text>
-
-                        <rect x="270" y="18" width="102" height="42" rx="8" fill="#27272a" stroke="#3f3f46"
-                            stroke-width="1" />
-                        <text x="321" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5"
-                            font-family="Inter, system-ui">Feature Engineering</text>
-
-                        <rect x="404" y="18" width="92" height="42" rx="8" fill="#27272a" stroke="#3f3f46"
-                            stroke-width="1" />
-                        <text x="450" y="44" text-anchor="middle" fill="#a1a1aa" font-size="10.5"
-                            font-family="Inter, system-ui">Time-Split CV</text>
-
-                        <rect x="528" y="18" width="84" height="42" rx="8" fill="#1f2937" stroke="#4b5563"
-                            stroke-width="1.25" />
-                        <text x="570" y="44" text-anchor="middle" fill="#e5e7eb" font-size="10.5"
-                            font-family="Inter, system-ui">Training Sets</text>
-
-                        <!-- Arrows -->
-                        <path d="M112 39 L140 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round" />
-                        <path d="M240 39 L268 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round" />
-                        <path d="M374 39 L402 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round" />
-                        <path d="M498 39 L526 39" stroke="#52525b" stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                </div>
-
-                <!-- Model Architecture (Clean 2D - Realistic XGBoost Ensemble) -->
-                <div class="glass rounded-3xl p-7 hover:border-white/15 transition-all duration-200">
-                    <div class="flex items-center gap-2 mb-5">
-                        <div class="text-xs tracking-[2px] text-blue-400/80">MODEL ARCHITECTURE</div>
-                        <div class="flex-1 h-px bg-white/10"></div>
-                    </div>
-
-                    <svg viewBox="0 0 620 92" class="w-full h-[92px]" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Input -->
-                        <rect x="20" y="28" width="70" height="36" rx="8" fill="#27272a" stroke="#3f3f46" />
-                        <text x="55" y="50" text-anchor="middle" fill="#a1a1aa" font-size="10"
-                            font-family="Inter, system-ui">Features</text>
-
-                        <!-- XGBoost Ensemble Box -->
-                        <rect x="115" y="14" width="175" height="64" rx="10" fill="#1e3a5f" stroke="#3b82f6"
-                            stroke-width="1.5" />
-                        <text x="202" y="11" text-anchor="middle" fill="#93c5fd" font-size="9"
-                            font-family="Inter, system-ui" font-weight="500">XGBoost Ensemble</text>
-
-                        <!-- 3 Decision Trees inside the ensemble -->
-                        <!-- Tree 1 -->
-                        <path d="M145 32 L135 55" stroke="#60a5fa" stroke-width="1.8" />
-                        <path d="M145 32 L155 55" stroke="#60a5fa" stroke-width="1.8" />
-                        <circle cx="145" cy="30" r="4" fill="#bae6fd" />
-                        <text x="145" y="62" text-anchor="middle" fill="#bae6fd" font-size="8"
-                            font-family="Inter, system-ui">Tree 1</text>
-
-                        <!-- Tree 2 -->
-                        <path d="M182 32 L172 55" stroke="#60a5fa" stroke-width="1.8" />
-                        <path d="M182 32 L192 55" stroke="#60a5fa" stroke-width="1.8" />
-                        <circle cx="182" cy="30" r="4" fill="#bae6fd" />
-                        <text x="182" y="62" text-anchor="middle" fill="#bae6fd" font-size="8"
-                            font-family="Inter, system-ui">Tree 2</text>
-
-                        <!-- Tree 3 -->
-                        <path d="M219 32 L209 55" stroke="#60a5fa" stroke-width="1.8" />
-                        <path d="M219 32 L229 55" stroke="#60a5fa" stroke-width="1.8" />
-                        <circle cx="219" cy="30" r="4" fill="#bae6fd" />
-                        <text x="219" y="62" text-anchor="middle" fill="#bae6fd" font-size="8"
-                            font-family="Inter, system-ui">Tree 3</text>
-
-                        <!-- Gradient Boosting Label -->
-                        <text x="167" y="76" text-anchor="middle" fill="#64748b" font-size="8"
-                            font-family="Inter, system-ui">Gradient Boosting</text>
-
-                        <!-- 12-Month Model -->
-                        <rect x="312" y="18" width="82" height="24" rx="6" fill="#1e3a5f" stroke="#3b82f6" />
-                        <text x="353" y="34" text-anchor="middle" fill="#bae6fd" font-size="9.5"
-                            font-family="Inter, system-ui">12-Month</text>
-
-                        <!-- 5-Year Model -->
-                        <rect x="312" y="48" width="82" height="24" rx="6" fill="#1e3a5f" stroke="#3b82f6" />
-                        <text x="353" y="64" text-anchor="middle" fill="#bae6fd" font-size="9.5"
-                            font-family="Inter, system-ui">5-Year</text>
-
-                        <!-- SHAP + PD -->
-                        <rect x="415" y="28" width="78" height="34" rx="7" fill="#172554" stroke="#3b82f6"
-                            stroke-width="1" />
-                        <text x="454" y="41" text-anchor="middle" fill="#bfdbfe" font-size="9"
-                            font-family="Inter, system-ui">PD + SHAP</text>
-                        <text x="454" y="53" text-anchor="middle" fill="#93c5fd" font-size="8"
-                            font-family="Inter, system-ui">Explanations</text>
-
-                        <!-- Final Output -->
-                        <rect x="515" y="22" width="85" height="48" rx="8" fill="#1f2937" stroke="#4b5563" />
-                        <text x="557" y="40" text-anchor="middle" fill="#e5e7eb" font-size="9.5"
-                            font-family="Inter, system-ui">Risk Level</text>
-                        <text x="557" y="54" text-anchor="middle" fill="#e5e7eb" font-size="8.5"
-                            font-family="Inter, system-ui">+ Top Drivers</text>
-
-                        <!-- Arrows -->
-                        <path d="M92 46 L113 46" stroke="#52525b" stroke-width="1.5" />
-                        <path d="M292 30 L310 30" stroke="#52525b" stroke-width="1.5" />
-                        <path d="M292 60 L310 60" stroke="#52525b" stroke-width="1.5" />
-                        <path d="M396 46 L413 46" stroke="#52525b" stroke-width="1.5" />
-                        <path d="M495 46 L513 46" stroke="#52525b" stroke-width="1.5" />
-                    </svg>
-                </div>
-            </div>
+            <a href="/static/methodology.html" class="inline-block mt-3 text-xs tracking-[1px] text-blue-400 hover:text-blue-300">VIEW METHODOLOGY →</a>
         </div>
 
         <!-- Search Bar Only (Minimal) -->
-        <div class="max-w-2xl mx-auto mb-10">
+        <div class="max-w-2xl mx-auto mb-6">
             <div class="relative">
                 <input id="search-input" type="text" placeholder="Search companies…"
                     class="search-input w-full rounded-3xl px-8 py-5 text-[17px] placeholder:text-white/35 outline-none">
@@ -457,7 +326,7 @@
         <div id="dashboard">
 
             <!-- Toolbar for switching horizons -->
-            <div class="flex items-center justify-between mb-6 px-1">
+            <div class="flex items-center justify-between mb-4 px-1">
                 <div>
                     <div class="text-[29px] title-font tracking-[-1.8px] font-semibold text-white/95">Top 10 Highest
                         Risk Companies</div>
@@ -494,6 +363,7 @@
                             <th class="px-8 py-4 text-left w-12">Rank</th>
                             <th class="px-2 py-4 text-left">Company</th>
                             <th class="px-4 py-4 text-left w-24">Ticker</th>
+                            <th class="px-4 py-4 text-left w-20">CapIQ Rating</th>
                             <th class="px-4 py-4 text-left">Latest Fiscal</th>
                             <th class="px-8 py-4 text-right font-mono">Risk %</th>
                         </tr>
@@ -501,9 +371,6 @@
                     <tbody id="risk-tbody" class="divide-y divide-white/10"></tbody>
                 </table>
             </div>
-
-            <div class="text-center text-[10px] text-white/40 mt-6 tracking-widest">BASED ON OPTUNA-TUNED XGBOOST •
-                CLEAN TIME-SPLIT • NO DATA LEAKAGE • ONLY RECENT (DEC 2025+) DATA</div>
         </div>
 
         <!-- COMPANY DETAIL VIEW (appears when a company is selected) -->
@@ -563,12 +430,13 @@
 
             const tbody = document.getElementById('risk-tbody');
             if (!Array.isArray(data)) {
-                tbody.innerHTML = '<tr><td colspan="5" class="px-8 py-12 text-center text-red-400">Error loading list data. Please restart the server.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" class="px-8 py-12 text-center text-red-400">Error loading list data. Please restart the server.</td></tr>';
                 return;
             }
 
             tbody.innerHTML = data.map((row, i) => {
                 const ticker = row.ticker || '';
+                const rating = (row.credit_rating || '').toString().trim().toUpperCase() || 'Unrated';
                 const risk = ((row[riskKey] || 0) * 100).toFixed(2);
                 const latest = row.latest_observed_date || row.latest_datadate || '';
                 return `
@@ -576,6 +444,7 @@
                 <td class="px-8 py-4 font-mono text-white/50">${i + 1}</td>
                 <td class="px-2 py-4 font-semibold tracking-[-0.12px] text-white/95">${row.conm}</td>
                 <td class="px-4 py-4 font-mono text-xs text-white/70">${ticker}</td>
+                <td class="px-4 py-4 font-mono text-xs ${rating !== 'Unrated' ? 'text-white/80' : 'text-white/40'}">${rating}</td>
                 <td class="px-4 py-4 text-sm text-white/70">${latest}</td>
                 <td class="px-8 py-4 text-right font-semibold tabular-nums">${risk}%</td>
             </tr>`;
@@ -587,7 +456,7 @@
             if (data.length === 0) {
                 tbody.innerHTML = `
             <tr>
-                <td colspan="5" class="px-8 py-12 text-center text-white/50">
+                <td colspan="6" class="px-8 py-12 text-center text-white/50">
                     No companies with recent data found for this horizon.<br>
                     Try re-running <code>generate_risk_lists.py</code> with a relaxed date filter.
                 </td>
@@ -676,12 +545,28 @@
                 ? `<div class="font-mono text-4xl px-6 py-1 bg-white/10 rounded-2xl tracking-[-1.5px] text-white/95">${d.ticker}</div>`
                 : '';
 
+            // Credit rating badge (CapIQ / S&P issuer rating)
+            let ratingHTML = '';
+            const rawRating = (d.credit_rating || '').toString().trim().toUpperCase();
+            if (rawRating && rawRating !== 'NR' && rawRating !== 'N/A' && rawRating !== '') {
+                const r = rawRating;
+                const isIG = /^(AAA|AA[+-]?|A[+-]?|BBB[+-]?)$/.test(r);
+                const isJunk = /^(BB[+-]?|B[+-]?|CCC[+-]?|CC|C|D)$/.test(r);
+                const ratingClass = isIG ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' :
+                                  isJunk ? 'bg-rose-500/20 text-rose-300 border-rose-500/40' :
+                                  'bg-amber-500/20 text-amber-300 border-amber-500/40';
+                ratingHTML = `<div class="font-mono text-xl px-4 py-1 rounded-2xl border tracking-[1px] ${ratingClass}">${r}</div>`;
+            } else {
+                ratingHTML = `<div class="font-mono text-xs px-3 py-1 rounded-2xl border border-white/20 text-white/50">UNRATED</div>`;
+            }
+
             document.getElementById('company-header').innerHTML = `
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-4 flex-wrap">
             <div class="text-5xl title-font tracking-[-2.2px] font-semibold">${d.conm}</div>
             ${tickerHTML}
+            ${ratingHTML}
         </div>
-        <div class="text-white/50 mt-1">GVKEY ${d.gvkey} • Latest: ${d.latest_datadate}</div>
+        <div class="text-white/50 mt-1">GVKEY ${d.gvkey} • Latest fiscal: ${d.latest_datadate} • CapIQ/S&amp;P Rating: ${rawRating || 'Unrated (no public issuer rating)'}</div>
     `;
 
             document.getElementById('company-risks').innerHTML = `
@@ -708,20 +593,20 @@
 
                 marketHTML = `
             <div class="card rounded-3xl p-7">
-                ${hasSnapshot ? `
                 <div class="flex items-center justify-between mb-5">
                     <div>
                         <div class="uppercase tracking-[2px] text-xs text-white/50">CURRENT MARKET DATA</div>
-                        <div class="text-4xl font-semibold tabular-nums tracking-[-1.5px] mt-1">$${d.current_price} 
-                            <span class="text-lg ${changeClass} font-medium">${changeSign}${change}%</span>
+                        <div class="text-4xl font-semibold tabular-nums tracking-[-1.5px] mt-1" id="market-price-value">
+                            ${hasSnapshot ? `$${d.current_price}` : '—'}
+                            <span id="market-period-change" class="text-lg ${changeClass} font-medium">${changeSign}${change}%</span>
                         </div>
+                        <div id="market-return-label" class="text-[10px] text-white/50 tracking-[1px] mt-0.5">1-day change</div>
                     </div>
                     <div class="text-right text-sm text-white/50">
                         ${d.market_cap ? `$${(d.market_cap / 1e9).toFixed(1)}B` : ''} 
                         ${d.volume ? `• ${(d.volume / 1e6).toFixed(1)}M vol` : ''}
                     </div>
-                </div>` : `
-                <div class="uppercase tracking-[2px] text-xs text-white/50 mb-3">STOCK PRICE HISTORY • ${ticker}</div>`}
+                </div>
 
                 <!-- Period Buttons + Chart with Loading -->
                 <div class="flex gap-1 mb-2 text-xs">
@@ -738,6 +623,7 @@
                         </div>
                     </div>
                 </div>
+                <div id="price-timeseries" class="mt-3 text-[11px]"></div>
             </div>`;
             } else {
                 // Graceful placeholder so every selected company has a consistent market section
@@ -779,6 +665,14 @@
 
                 if (loadingEl) loadingEl.classList.add('hidden');
                 if (chartContainer) chartContainer.style.opacity = '1';
+
+                // Always reflect the selected period in the return label (even if history is short)
+                const returnLabel = document.getElementById('market-return-label');
+                if (returnLabel) {
+                    const labelMap = { '12m': '12-month return', '5y': '5-year return', 'all': 'All-time return' };
+                    returnLabel.textContent = labelMap[(period || '12m').toLowerCase()] || 'Period return';
+                }
+
                 if (!data.price_history || data.price_history.length === 0) {
                     const canvas = document.getElementById('stock-chart');
                     if (canvas) {
@@ -830,40 +724,74 @@
                         }
                     }
                 });
+
+                // === Update CURRENT MARKET DATA % (and price if missing snapshot) to reflect selected period ===
+                const hist = data.price_history || [];
+                if (hist.length >= 1) {
+                    const lastPrice = hist[hist.length - 1].close;
+
+                    // Backfill the main price number if we didn't have a live snapshot from the predict API
+                    const priceValueEl = document.getElementById('market-price-value');
+                    if (priceValueEl && priceValueEl.textContent.trim().startsWith('—')) {
+                        priceValueEl.innerHTML = `$${lastPrice} <span id="market-period-change" class="text-lg text-white/90 font-medium"></span>`;
+                    }
+
+                    if (hist.length > 1) {
+                        const firstPrice = hist[0].close;
+                        const periodPct = ((lastPrice - firstPrice) / firstPrice) * 100;
+
+                        // Update the % badge (now guaranteed to exist)
+                        const changeEl = document.getElementById('market-period-change');
+                        if (changeEl) {
+                            const cls = periodPct >= 0 ? 'text-emerald-400' : 'text-red-400';
+                            changeEl.className = `text-lg ${cls} font-medium`;
+                            const sign = periodPct >= 0 ? '+' : '';
+                            changeEl.textContent = `${sign}${periodPct.toFixed(1)}%`;
+                        }
+                    } else {
+                        // Only one data point — show N/A or 0 for the return %
+                        const changeEl = document.getElementById('market-period-change');
+                        if (changeEl) {
+                            changeEl.className = 'text-lg text-white/60 font-medium';
+                            changeEl.textContent = 'N/A';
+                        }
+                    }
+
+                    // Render compact recent time series table (most recent first, ~15 rows)
+                    const tsEl = document.getElementById('price-timeseries');
+                    if (tsEl) {
+                        const recent = [...hist].reverse().slice(0, 15);
+                        let rows = '';
+                        for (let i = 0; i < recent.length; i++) {
+                            const p = recent[i];
+                            const prev = recent[i + 1] ? recent[i + 1].close : p.close;
+                            const dChg = prev ? ((p.close - prev) / prev * 100) : 0;
+                            const dChgStr = dChg.toFixed(1);
+                            const dCls = dChg >= 0 ? 'text-emerald-400' : 'text-red-400';
+                            rows += `<tr class="border-b border-white/5 last:border-0">
+                                <td class="py-px pr-4 font-mono text-[10px] text-white/50">${p.date}</td>
+                                <td class="py-px pr-3 tabular-nums text-white/90">$${p.close}</td>
+                                <td class="py-px text-right font-mono ${dCls}">${dChg >= 0 ? '+' : ''}${dChgStr}%</td>
+                            </tr>`;
+                        }
+                        tsEl.innerHTML = `
+                            <div class="flex items-center justify-between mt-3 mb-1">
+                                <div class="uppercase tracking-[1.5px] text-[10px] text-white/50">PRICE SERIES • ${period.toUpperCase()}</div>
+                                <div class="text-[10px] text-white/40">${hist.length} trading days</div>
+                            </div>
+                            <div class="overflow-auto max-h-[148px] border border-white/10 rounded-lg bg-black/20">
+                                <table class="w-full text-xs"><thead>
+                                    <tr class="text-white/40 border-b border-white/10">
+                                        <th class="text-left py-1 pl-2 font-normal">Date</th>
+                                        <th class="text-left py-1 font-normal">Close</th>
+                                        <th class="text-right py-1 pr-2 font-normal">Daily Chg</th>
+                                    </tr></thead><tbody>${rows}</tbody></table>
+                            </div>`;
+                    }
+                }
             } catch (e) {
                 console.error("Failed to load stock history", period, e);
             }
-
-
-            const drivers12 = d.top_features_12m.slice(0, 8).map(f =>
-                `<div class="flex justify-between py-[3px] text-sm border-b border-white/10 last:border-0">
-            <div>
-                <span class="font-medium">${f.meaning}</span>
-                <span class="text-xs text-white/40 ml-1.5 font-mono">(${f.feature})</span>
-            </div>
-            <div class="${f.shap_value > 0 ? 'text-red-400' : 'text-emerald-400'} font-mono">${f.shap_value > 0 ? '+' : ''}${f.shap_value}</div>
-        </div>`).join('');
-            const drivers5y = d.top_features_5y.slice(0, 8).map(f =>
-                `<div class="flex justify-between py-[3px] text-sm border-b border-white/10 last:border-0">
-            <div>
-                <span class="font-medium">${f.meaning}</span>
-                <span class="text-xs text-white/40 ml-1.5 font-mono">(${f.feature})</span>
-            </div>
-            <div class="${f.shap_value > 0 ? 'text-red-400' : 'text-emerald-400'} font-mono">${f.shap_value > 0 ? '+' : ''}${f.shap_value}</div>
-        </div>`).join('');
-
-            document.getElementById('company-shap').innerHTML =
-                explanationHTML +
-                '<div class="grid md:grid-cols-2 gap-x-12">' +
-                '<div>' +
-                '<div class="uppercase tracking-[1.5px] text-xs mb-4 text-white/60">What drives the 12-month prediction</div>' +
-                drivers12 +
-                '</div>' +
-                '<div class="mt-8 md:mt-0">' +
-                '<div class="uppercase tracking-[1.5px] text-xs mb-4 text-white/60">What drives the 5-year prediction</div>' +
-                drivers5y +
-                '</div>' +
-                '</div>';
         }
 
         // === Period Switcher for Stock Chart ===
@@ -897,51 +825,133 @@
             }
         });
 
-        function renderFeatureImportance(d) {
-            if (!d.top_features_12m || !d.top_features_5y) {
-                document.getElementById('company-shap').innerHTML = '<div class="text-white/40">No feature explanations available.</div>';
-                return;
-            }
+function renderFeatureImportance(d) {
+    if (!d.top_features_12m || !d.top_features_5y) {
+        document.getElementById('company-shap').innerHTML = '<div class="text-white/40">No feature explanations available.</div>';
+        return;
+    }
 
-            const explanationHTML =
-                '<div class="mb-6 text-sm text-white/70 leading-relaxed border-b border-white/10 pb-5">' +
-                '<strong class="text-white">How SHAP works:</strong> SHAP values show exactly how much each feature pushes the model prediction up or down.<br>' +
-                '<span class="text-red-400 font-medium">Red (+)</span> = increases default probability (higher risk).<br>' +
-                '<span class="text-emerald-400 font-medium">Green (-)</span> = decreases default probability (lower risk).<br>' +
-                'The larger the number, the stronger that feature impact on this company risk score.' +
-                '</div>';
+    // Store data globally for slider interaction
+    window.shapData = {
+        '12m': d.top_features_12m.slice(0, 8).reverse(),
+        '5y': d.top_features_5y.slice(0, 8).reverse()
+    };
 
-            const drivers12 = d.top_features_12m.slice(0, 8).map(f =>
-                '<div class="flex justify-between py-[3px] text-sm border-b border-white/10 last:border-0">' +
-                '<div>' +
-                '<span class="font-medium">' + f.meaning + '</span>' +
-                '<span class="text-xs text-white/40 ml-1.5 font-mono">(' + f.feature + ')</span>' +
-                '</div>' +
-                '<div class="' + (f.shap_value > 0 ? 'text-red-400' : 'text-emerald-400') + ' font-mono">' + (f.shap_value > 0 ? '+' : '') + f.shap_value + '</div>' +
-                '</div>').join('');
+    const containerHTML = `
+        <div class="flex justify-between items-center mb-2">
+            <div class="uppercase tracking-[1.5px] text-xs text-white/60" id="shap-view-label">12-Month Feature Impact</div>
+            <!-- Reusing the Liquid Glass Segmented Control style from the Top 10 page -->
+            <div id="shap-toggle" class="relative flex rounded-xl p-0.5 text-xs border border-white/15 bg-white/5">
+                <div id="shap-pill" class="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-white/10 rounded-[6px] transition-all duration-300"></div>
+                <button id="shap-12m" onclick="updateShapChart('12m')" class="relative z-10 px-3 py-0.5 font-medium text-white active">12M</button>
+                <button id="shap-5y" onclick="updateShapChart('5y')" class="relative z-10 px-3 py-0.5 text-white/60 hover:text-white">5Y</button>
+            </div>
+        </div>
+        <div class="relative h-[280px] w-full">
+            <canvas id="shap-chart"></canvas>
+        </div>
+    `;
+    
+    document.getElementById('company-shap').innerHTML = containerHTML;
 
-            const drivers5y = d.top_features_5y.slice(0, 8).map(f =>
-                '<div class="flex justify-between py-[3px] text-sm border-b border-white/10 last:border-0">' +
-                '<div>' +
-                '<span class="font-medium">' + f.meaning + '</span>' +
-                '<span class="text-xs text-white/40 ml-1.5 font-mono">(' + f.feature + ')</span>' +
-                '</div>' +
-                '<div class="' + (f.shap_value > 0 ? 'text-red-400' : 'text-emerald-400') + ' font-mono">' + (f.shap_value > 0 ? '+' : '') + f.shap_value + '</div>' +
-                '</div>').join('');
+    // Setup Segmented Control (Reusing Horizon Toggle logic)
+    const label = document.getElementById('shap-view-label');
+    const pill = document.getElementById('shap-pill');
+    const btn12 = document.getElementById('shap-12m');
+    const btn5y = document.getElementById('shap-5y');
 
-            document.getElementById('company-shap').innerHTML =
-                explanationHTML +
-                '<div class="grid md:grid-cols-2 gap-x-12">' +
-                '<div>' +
-                '<div class="uppercase tracking-[1.5px] text-xs mb-4 text-white/60">What drives the 12-month prediction</div>' +
-                drivers12 +
-                '</div>' +
-                '<div class="mt-8 md:mt-0">' +
-                '<div class="uppercase tracking-[1.5px] text-xs mb-4 text-white/60">What drives the 5-year prediction</div>' +
-                drivers5y +
-                '</div>' +
-                '</div>';
+    function setShapToggle(view) {
+        if (pill) {
+            pill.style.transform = view === '12m' ? 'translateX(0)' : 'translateX(100%)';
         }
+        if (btn12) {
+            btn12.style.color = view === '12m' ? '#fff' : 'rgba(255,255,255,0.55)';
+            btn12.style.fontWeight = view === '12m' ? '600' : '500';
+        }
+        if (btn5y) {
+            btn5y.style.color = view === '5y' ? '#fff' : 'rgba(255,255,255,0.55)';
+            btn5y.style.fontWeight = view === '5y' ? '600' : '500';
+        }
+    }
+
+    // Initial state
+    setShapToggle('12m');
+
+    updateShapChart('12m');
+}
+
+function updateShapChart(view) {
+    // Update the visual toggle state (the sliding pill) - Logic moved here to avoid scope issues
+    const pill = document.getElementById('shap-pill');
+    const btn12 = document.getElementById('shap-12m');
+    const btn5y = document.getElementById('shap-5y');
+    const label = document.getElementById('shap-view-label');
+
+    if (pill) {
+        pill.style.transform = view === '12m' ? 'translateX(0)' : 'translateX(100%)';
+    }
+    if (btn12) {
+        btn12.style.color = view === '12m' ? '#fff' : 'rgba(255,255,255,0.55)';
+        btn12.style.fontWeight = view === '12m' ? '600' : '500';
+    }
+    if (btn5y) {
+        btn5y.style.color = view === '5y' ? '#fff' : 'rgba(255,255,255,0.55)';
+        btn5y.style.fontWeight = view === '5y' ? '600' : '500';
+    }
+    if (label) {
+        label.textContent = view === '12m' ? '12-Month Feature Impact' : '5-Year Feature Impact';
+    }
+
+    const ctx = document.getElementById('shap-chart').getContext('2d');
+    const data = window.shapData[view];
+    
+    if (!data) return;
+
+    const labels = data.map(f => f.meaning || f.feature);
+    const values = data.map(f => f.shap_value);
+    const colors = data.map(f => f.shap_value > 0 ? '#ef4444' : '#10b981');
+
+    if (window.shapChart) {
+        window.shapChart.destroy();
+    }
+
+    window.shapChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'SHAP Impact',
+                data: values,
+                backgroundColor: colors,
+                borderColor: colors,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: (context) => `Impact: ${context.raw.toFixed(4)}`
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(255,255,255,0.06)' },
+                    ticks: { color: '#666' }
+                },
+                y: {
+                    grid: { display: false },
+                    ticks: { color: '#a1a1aa', font: { size: 11 } }
+                }
+            }
+        }
+    });
+}
 
         // Helper to fetch + draw stock chart (used for initial load + period switches)
         async function loadStockHistory(ticker, period) {

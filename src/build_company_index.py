@@ -73,6 +73,62 @@ def main():
         print("Ticker field will be empty.")
         latest["ticker"] = ""
 
+    # === Attach latest known credit rating (CapIQ / S&P issuer rating) for UI display ===
+    # Ratings are NOT yet used as model features (per AGENTS.md spec); this is for transparency in the UI.
+    # To populate with real data: add WRDS query on ciqsamp_ratings / ciq_rating / comp.adsprate (splticrm etc.)
+    # and merge latest rating per gvkey. Wrapped in try so build never breaks.
+    credit_count = 0
+    latest["credit_rating"] = ""
+    try:
+        import wrds
+        print("Connecting to WRDS for credit rating lookup (ciqsamp_ratings / adsprate)...")
+        conn = wrds.Connection()
+        # Try CapIQ ratings table first (common under ciqsamp or ciq_rating schemas)
+        try:
+            ratings = conn.raw_sql("""
+                SELECT DISTINCT ON (gvkey) gvkey, ratingvalue as credit_rating
+                FROM ciqsamp_ratings
+                WHERE ratingvalue IS NOT NULL
+                ORDER BY gvkey, ratingdate DESC NULLS LAST
+            """)
+        except Exception:
+            # Fallback: S&P ratings via Compustat adsprate (splticrm = S&P Long Term Issuer Credit Rating)
+            ratings = conn.raw_sql("""
+                SELECT DISTINCT ON (gvkey) gvkey, splticrm as credit_rating
+                FROM comp.adsprate
+                WHERE splticrm IS NOT NULL
+                ORDER BY gvkey, datadate DESC NULLS LAST
+            """)
+        conn.close()
+
+        if "gvkey" in ratings.columns:
+            ratings["gvkey"] = ratings["gvkey"].astype(str).str.strip().str.zfill(6)
+            latest["gvkey"] = latest["gvkey"].astype(str).str.strip().str.zfill(6)
+
+            # First try gvkey
+            latest = latest.merge(ratings[["gvkey", "credit_rating"]], on="gvkey", how="left", suffixes=("", "_new"))
+
+            # Ticker fallback (many rating records also contain ticker)
+            if "ticker" in ratings.columns and "ticker" in latest.columns:
+                still_missing = latest["credit_rating"].isna() | (latest["credit_rating"].astype(str).str.strip() == "")
+                if still_missing.any() and still_missing.sum() > 0:
+                    tr = ratings.dropna(subset=["ticker"])[["ticker", "credit_rating"]].copy()
+                    tr["ticker"] = tr["ticker"].astype(str).str.upper().str.strip()
+                    tr = tr.drop_duplicates("ticker")
+                    ticker_map = dict(zip(tr["ticker"], tr["credit_rating"]))
+                    latest.loc[still_missing, "credit_rating"] = latest.loc[still_missing, "ticker"].map(ticker_map)
+
+            if "credit_rating_new" in latest.columns:
+                latest["credit_rating"] = latest["credit_rating_new"].fillna(latest.get("credit_rating", "")).astype(str).str.strip().str.upper()
+                latest = latest.drop(columns=["credit_rating_new"], errors="ignore")
+
+            credit_count = int((latest["credit_rating"].astype(str).str.strip() != "").sum())
+            print(f"Attached credit ratings for {credit_count:,} companies (using gvkey + ticker fallback).")
+    except Exception as e:
+        print(f"Could not fetch credit ratings from WRDS: {e}")
+        print("credit_rating will be blank (extend WRDS query in build_company_index.py to populate CapIQ ratings).")
+        latest["credit_rating"] = ""
+
     # Build fast search string (name + gvkey + ticker)
     latest["search_text"] = (
         latest["conm"].astype(str).str.upper() + " " +
@@ -80,8 +136,8 @@ def main():
         latest["ticker"].astype(str).str.upper()
     )
 
-    # Final clean columns
-    latest = latest[["gvkey", "conm", "ticker", "latest_datadate", "search_text"]]
+    # Final clean columns (now includes credit_rating for UI)
+    latest = latest[["gvkey", "conm", "ticker", "credit_rating", "latest_datadate", "search_text"]]
 
     # Save
     out_path = MODELS_DIR / "company_index.parquet"
