@@ -262,7 +262,7 @@
 <body class="bg-[#0f0f0f] text-white">
 
     <!-- Main Content - Minimal -->
-    <div class="max-w-4xl mx-auto px-6 pt-10 pb-16">
+    <div class="max-w-5xl mx-auto px-6 pt-10 pb-16">
 
         <!-- Header -->
         <div class="mb-8">
@@ -299,7 +299,7 @@
                         <th class="py-2 pr-4 text-left w-16">Rating</th>
                         <th class="py-2 pr-4 text-left w-20">Fiscal</th>
                         <th class="py-2 pr-4 text-right font-mono w-20">12M PD</th>
-                        <th class="py-2 text-right font-mono w-20">5Y PD</th>
+                        <th class="py-2 pr-1 text-right font-mono w-20">5Y PD</th>
                     </tr>
                 </thead>
                 <tbody id="risk-tbody" class="divide-y divide-white/[0.04]"></tbody>
@@ -399,9 +399,9 @@
                 <td class="py-2.5 pr-4 font-medium text-white/90 text-sm">${row.conm}</td>
                 <td class="py-2.5 pr-4 font-mono text-xs text-white/40">${ticker}</td>
                 <td class="py-2.5 pr-4 font-mono text-xs ${rating ? 'text-white/50' : 'text-white/15'}">${rating || '--'}</td>
-                <td class="py-2.5 pr-4 text-xs text-white/30">${latest}</td>
+                <td class="py-2.5 pr-4 text-xs text-white/30 whitespace-nowrap">${latest}</td>
                 <td class="py-2.5 pr-4 text-right font-mono tabular-nums text-sm text-white/70">${risk12m}%</td>
-                <td class="py-2.5 text-right font-mono tabular-nums text-sm text-white/70">${risk5y}${risk5y !== '--' ? '%' : ''}</td>
+                <td class="py-2.5 pr-1 text-right font-mono tabular-nums text-sm text-white/70">${risk5y}${risk5y !== '--' ? '%' : ''}</td>
             </tr>`;
             }).join('');
         }
