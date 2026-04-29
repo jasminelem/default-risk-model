@@ -3,407 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Methodology • Default Probability Model</title>
+    <title>Methodology</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-display: 'Space Grotesk', sans-serif;
-        }
-        body {
-            font-family: var(--font-sans);
-            -webkit-font-smoothing: antialiased;
-        }
-        .title-font {
-            font-family: var(--font-display);
-            letter-spacing: -0.035em;
-        }
-        .glass {
-            background: rgba(24, 24, 27, 0.72);
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255,255,255,0.09);
-        }
-        .nav-link {
-            transition: color 0.2s ease;
-        }
-        .nav-link:hover {
-            color: white;
-        }
+        body { font-family: 'Work Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+        code { font-size: 0.8em; background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 3px; }
     </style>
 </head>
-<body class="bg-zinc-950 text-white">
+<body class="bg-[#0f0f0f] text-[#e0e0e0]">
 
-    <div class="max-w-6xl mx-auto px-8 pt-8 pb-20">
-        <!-- Header -->
-        <div class="flex justify-between items-center mb-10 border-b border-white/10 pb-4">
-            <div>
-                <div class="title-font text-2xl tracking-[-1px]">Jasmine Lem</div>
-                <div class="text-sm text-white/50 -mt-1">Default Probability Model</div>
-            </div>
-            <a href="/" class="nav-link text-sm text-white/70 hover:text-white flex items-center gap-1">
-                ← Back to Dashboard
-            </a>
+    <div class="max-w-[680px] mx-auto px-6 pt-10 pb-20">
+
+        <a href="/" class="text-sm text-white/30 hover:text-white/60 transition-colors">&larr; Back</a>
+
+        <h1 class="text-[32px] font-semibold tracking-[-1px] mt-6 mb-1">Methodology</h1>
+        <p class="text-white/35 text-sm mb-10">How the default probability model works.</p>
+
+        <div class="border-b border-white/[0.06] mb-6"></div>
+
+        <!-- Data Sources -->
+        <h2 class="text-[15px] font-semibold mb-3">Data Sources</h2>
+        <p class="text-sm text-white/50 leading-relaxed mb-3">All data is sourced from WRDS. Financial statements from <strong class="text-white/70">Compustat</strong>, stock prices from <strong class="text-white/70">CRSP</strong>, bankruptcy filings from <strong class="text-white/70">FJC</strong> (1929-2019) and <strong class="text-white/70">CapIQ Key Developments</strong> (2020+), macro rates from <strong class="text-white/70">Fed H.15</strong>.</p>
+        <p class="text-sm text-white/50 leading-relaxed mb-6">60+ financial ratios are engineered from raw data: leverage, profitability, liquidity, Altman Z components, cash flow, market signals, and credit ratings. Companies are linked via GVKEY-PERMNO with strict date filtering to prevent data leakage.</p>
+
+        <div class="border-b border-white/[0.06] mb-6"></div>
+
+        <!-- Model -->
+        <h2 class="text-[15px] font-semibold mb-3">Model</h2>
+        <p class="text-sm text-white/50 leading-relaxed mb-3">A single <strong class="text-white/70">XGBoost classifier</strong> predicts default probability at both the 12-month and 5-year horizons. The prediction horizon is encoded as a feature (<code>horizon_months</code> = 12 or 60), so each company is scored twice from one model.</p>
+        <ul class="text-sm text-white/50 leading-relaxed space-y-1.5 mb-6 pl-4">
+            <li class="list-disc"><strong class="text-white/70">Monotonicity</strong> &mdash; XGBoost <code>monotone_constraints</code> guarantee P(5y) &ge; P(12m) by construction.</li>
+            <li class="list-disc"><strong class="text-white/70">Calibration</strong> &mdash; 5-fold isotonic regression maps raw scores to true probabilities using ~400K cross-validated samples.</li>
+            <li class="list-disc"><strong class="text-white/70">Tuning</strong> &mdash; Optuna HPO maximises ROC-AUC on a time-based validation set.</li>
+        </ul>
+
+        <div class="border-b border-white/[0.06] mb-6"></div>
+
+        <!-- Explainability -->
+        <h2 class="text-[15px] font-semibold mb-3">Explainability</h2>
+        <p class="text-sm text-white/50 leading-relaxed mb-6">Every prediction includes <strong class="text-white/70">SHAP values</strong> showing which features push default probability up or down for that company. Positive value = increases risk, negative = decreases it. One explainer handles both horizons.</p>
+
+        <div class="border-b border-white/[0.06] mb-6"></div>
+
+        <!-- CDS -->
+        <h2 class="text-[15px] font-semibold mb-3">CDS Fair Value</h2>
+        <p class="text-sm text-white/50 leading-relaxed mb-2">Model PD is converted to an implied CDS spread using the reduced-form pricing framework:</p>
+        <div class="font-mono text-xs text-blue-300/70 mb-1.5 pl-4">spread = -ln(1 - PD) &times; (1 - R) &times; 10,000</div>
+        <div class="font-mono text-xs text-blue-300/70 mb-2 pl-4">PD = 1 - exp(-spread / (1 - R) / 10,000)</div>
+        <p class="text-sm text-white/35 leading-relaxed mb-6">R = 40% recovery (senior unsecured). Assumes constant hazard rate. Indicative only.</p>
+
+        <div class="border-b border-white/[0.06] mb-6"></div>
+
+        <!-- Peers -->
+        <h2 class="text-[15px] font-semibold mb-3">Peer Comparison</h2>
+        <p class="text-sm text-white/50 leading-relaxed mb-6">Each company's PD is ranked against its SIC industry sector, showing the percentile rank, sector median, and five closest peers by default probability. Financials and utilities are excluded.</p>
+
+        <div class="border-b border-white/[0.06] mb-6"></div>
+
+        <!-- Calibration -->
+        <h2 class="text-[15px] font-semibold mb-3">Calibration</h2>
+        <p class="text-sm text-white/50 leading-relaxed mb-4">Predicted PDs are binned and compared against actual default rates. Ratio near 1.0 = well calibrated.</p>
+
+        <div class="flex items-center gap-2 mb-4">
+            <button id="cal-12m-btn" onclick="loadCalibrationTable('12m')" class="text-xs font-medium text-white/80 px-2.5 py-1 rounded bg-white/[0.08]">12-Month</button>
+            <button id="cal-5y-btn" onclick="loadCalibrationTable('5y')" class="text-xs text-white/35 px-2.5 py-1 rounded hover:text-white/60 transition-colors">5-Year</button>
         </div>
 
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl title-font tracking-[-1.5px] font-semibold mb-4">Methodology</h1>
-            <p class="text-lg text-white/70 mb-10">A detailed overview of the data sources, machine learning pipeline, explainability framework, CDS spread analysis, peer benchmarking, and backtesting calibration behind this platform.</p>
-        </div>
-
-        <!-- Section 1: Data Pipeline -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">1. Data Pipeline &amp; Sources</h2>
-            <div class="glass rounded-3xl p-8 mb-4">
-                <p class="text-white/80 mb-4">The foundation of this model is a clean, time-series dataset constructed from multiple financial databases. The process ensures no data leakage and respects the temporal nature of financial reporting.</p>
-                
-                <div class="text-xs tracking-[1.5px] text-white/50 mb-2 mt-6">DATA SOURCES (WRDS)</div>
-                <ul class="list-disc list-inside text-sm text-white/70 space-y-1 mb-6 pl-2">
-                    <li><strong>Compustat Fundamentals (funda/fundq):</strong> Annual and quarterly financial statements (balance sheet, income statement).</li>
-                    <li><strong>CRSP Stock Prices (dsf):</strong> Daily stock returns and prices used to calculate market volatility and momentum.</li>
-                    <li><strong>FJC Bankruptcy Database:</strong> Historical records of corporate bankruptcy filings used to define the target variable.</li>
-                    <li><strong>Macroeconomic Data (FRED):</strong> Interest rates (Fed Funds, Treasury yields) and credit spreads (Baa/Aaa) as external risk factors.</li>
-                </ul>
-
-                <div class="text-xs tracking-[1.5px] text-white/50 mb-2">PIPELINE FLOW</div>
-                <div class="bg-black/20 p-4 rounded-xl text-xs font-mono text-white/60 border border-white/10">
-                    Raw Data → Linking (GVKEY/PERMNO) → Feature Engineering (60+ ratios) → Time-Split (Train/Val/Test) → Final Datasets
-                </div>
-
-                <!-- Data Ingestion Diagram -->
-                <div class="mt-6">
-                    <div class="text-xs tracking-[1.5px] text-white/50 mb-2">DATA INGESTION FLOW</div>
-                    <svg viewBox="0 0 860 108" class="w-full h-auto rounded-xl border border-white/10 bg-black/30 p-3" fill="none" text-rendering="optimizeLegibility" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif">
-                        <!-- Boxes -->
-                        <rect x="20" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
-                        <text x="81" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">WRDS Tables</text>
-                        <text x="81" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">Compustat / CRSP / FJC</text>
-
-                        <rect x="182" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
-                        <text x="243" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Link &amp; Clean</text>
-                        <text x="243" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">GVKEY + PERMNO</text>
-
-                        <rect x="344" y="26" width="132" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
-                        <text x="410" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Feature Engineering</text>
-                        <text x="410" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">60+ financial ratios</text>
-
-                        <rect x="516" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
-                        <text x="577" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Time Split</text>
-                        <text x="577" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">Train / Val / Test</text>
-
-                        <rect x="678" y="26" width="122" height="54" rx="9" stroke="#4b5563" stroke-width="1.5" />
-                        <text x="739" y="48" text-anchor="middle" fill="#e5e7eb" font-size="11" font-weight="600">Parquet Store</text>
-                        <text x="739" y="62" text-anchor="middle" fill="#9ca3af" font-size="9">monthly_train / test</text>
-
-                        <!-- Connecting arrows -->
-                        <path d="M142 53 L182 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
-                        <path d="M304 53 L344 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
-                        <path d="M476 53 L516 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
-                        <path d="M638 53 L678 53" stroke="#6b7280" stroke-width="1.75" marker-end="url(#arr)" />
-
-                        <defs>
-                            <marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
-                                <path d="M0 0 L7 3.5 L0 7" fill="none" stroke="#6b7280" stroke-width="1.75"/>
-                            </marker>
-                        </defs>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 2: Model Training -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">2. Model Architecture</h2>
-            <div class="glass rounded-3xl p-8">
-                <p class="text-white/80 mb-6">A single <strong>unified discrete-time hazard model</strong> (XGBoost) predicts default probability at both the 12-month and 5-year horizons. Instead of two separate models, the prediction horizon is encoded as a feature (<code>horizon_months</code> = 12 or 60). Each company is scored twice to produce both PDs from one model.</p>
-                
-                <div class="grid md:grid-cols-2 gap-4 text-sm">
-                    <div class="glass border border-white/10 p-6 rounded-2xl">
-                        <div class="font-semibold text-white mb-1">Monotonicity Guarantee</div>
-                        <div class="text-white/60">XGBoost <code>monotone_constraints</code> enforce that P(default) is non-decreasing in <code>horizon_months</code>. The 5-year PD is always &ge; the 12-month PD by construction.</div>
-                    </div>
-                    <div class="glass border border-white/10 p-6 rounded-2xl">
-                        <div class="font-semibold text-white mb-1">Calibration</div>
-                        <div class="text-white/60"><code>CalibratedClassifierCV</code> with 5-fold isotonic regression maps raw scores to true default probabilities using ~400K cross-validated predictions.</div>
-                    </div>
-                </div>
-                
-                <div class="mt-6 text-xs text-white/50">The model uses 60+ features (leverage, profitability, liquidity, market signals, macro conditions) plus the horizon feature. Hyperparameters are tuned via Optuna (40 trials) on a time-based validation set.</div>
-
-                <!-- XGBoost Classifier Diagram -->
-                <div class="mt-6">
-                    <div class="text-xs tracking-[1.5px] text-white/50 mb-2">XGBOOST ENSEMBLE ARCHITECTURE</div>
-                    <svg viewBox="0 0 820 120" width="820" height="120" class="w-full h-auto rounded-xl border border-white/10 bg-black/30 p-3" fill="none" text-rendering="optimizeLegibility" shape-rendering="geometricPrecision" font-family="Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif">
-                        <!-- Multiple small decision trees (stylized, ultra-crisp) -->
-                        <!-- Tree 1 -->
-                        <g transform="translate(60,18)">
-                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 1</text>
-                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="-20" y2="44" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="20" y2="44" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <circle cx="-20" cy="47" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                            <circle cx="20" cy="47" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                        </g>
-                        <!-- Tree 2 -->
-                        <g transform="translate(175,18)">
-                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 2</text>
-                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="-18" y2="42" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="18" y2="42" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="-18" y1="42" x2="-27" y2="55" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                            <line x1="-18" y1="42" x2="-9" y2="55" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                            <circle cx="-27" cy="57" r="4" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                            <circle cx="-9" cy="57" r="4" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                            <circle cx="18" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                        </g>
-                        <!-- Tree 3 -->
-                        <g transform="translate(290,18)">
-                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 3</text>
-                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="-16" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="16" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <circle cx="-16" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                            <circle cx="16" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                        </g>
-                        <!-- Tree 4 -->
-                        <g transform="translate(405,18)">
-                            <rect x="-30" y="-8" width="60" height="22" rx="5" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <text x="0" y="7" text-anchor="middle" fill="#d1d5db" font-size="9" font-weight="600">Tree 4</text>
-                            <circle cx="0" cy="30" r="6" fill="#27272a" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="-20" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <line x1="0" y1="22" x2="20" y2="43" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                            <circle cx="-20" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                            <circle cx="20" cy="46" r="4.5" fill="#18181b" stroke="#6b7280" stroke-width="1.75" vector-effect="non-scaling-stroke" />
-                        </g>
-
-                        <!-- Aggregator -->
-                        <rect x="490" y="28" width="72" height="36" rx="6" fill="#18181b" stroke="#4b5563" stroke-width="2" vector-effect="non-scaling-stroke" />
-                        <text x="526" y="49" text-anchor="middle" fill="#e5e7eb" font-size="10" font-weight="600">+  Average</text>
-
-                        <!-- Final output (wide enough for full label) -->
-                        <rect x="582" y="28" width="158" height="36" rx="6" fill="#052e16" stroke="#10b981" stroke-width="2.25" vector-effect="non-scaling-stroke" />
-                        <text x="661" y="49" text-anchor="middle" fill="#6ee7b7" font-size="10" font-weight="600">Sigmoid → P(default)</text>
-
-                        <!-- Connecting arrows (solid, crisp) -->
-                        <path d="M 464 46 L 490 46" stroke="#6b7280" stroke-width="2" vector-effect="non-scaling-stroke" />
-                        <path d="M 562 46 L 582 46" stroke="#10b981" stroke-width="2" vector-effect="non-scaling-stroke" marker-end="url(#arr2)" />
-                        <defs>
-                            <marker id="arr2" markerWidth="10" markerHeight="10" refX="7" refY="3.5" orient="auto">
-                                <path d="M 0 0 L 7 3.5 L 0 7" fill="none" stroke="#10b981" stroke-width="2" />
-                            </marker>
-                        </defs>
-
-                        <text x="410" y="95" text-anchor="middle" fill="#9ca3af" font-size="10">Gradient-boosted ensemble of shallow decision trees (Optuna-tuned depth 4–7)</text>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 3: Explainability (SHAP) -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">3. Explainability (SHAP)</h2>
-            <div class="glass rounded-3xl p-8">
-                <p class="text-white/80 mb-4">To move beyond a "black box," we use <strong>SHAP (SHapley Additive exPlanations)</strong> to interpret model outputs.</p>
-                
-                <div class="text-sm text-white/70 space-y-3">
-                    <p><strong>Global View:</strong> We generate summary plots (beeswarm/bar) to show which features are most important for the model overall and in which direction they push the prediction.</p>
-                    <p><strong>Local View:</strong> For every individual company prediction, we calculate the exact contribution (SHAP value) of every feature. A positive value pushes the prediction towards "Default," a negative value pushes it towards "No Default."</p>
-                </div>
-                <div class="mt-4 p-3 bg-black/30 rounded-lg text-xs text-white/60 border border-white/10">
-                    The dashboard shows local SHAP values for each company at both horizons. Since a single model is used, the feature attributions are consistent across horizons &mdash; differences reflect how the model weights features differently at 12 months vs 5 years.
-                </div>
-            </div>
-        </div>
-        
-        <!-- Section 4: CDS Spread Analysis & Fair Value -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">4. CDS Spread Analysis &amp; Fair Value</h2>
-            <div class="glass rounded-3xl p-8">
-                <p class="text-white/80 mb-4">The platform bridges fundamental credit analysis with market pricing by translating between default probabilities and CDS spreads using the standard reduced-form credit pricing framework.</p>
-
-                <div class="grid md:grid-cols-2 gap-4 mb-6">
-                    <div class="glass border border-white/10 p-6 rounded-2xl">
-                        <div class="font-semibold text-white mb-2">Fair Value CDS Spread</div>
-                        <div class="text-white/60 text-sm mb-3">For every company, the model PD is converted into an implied "fair" CDS spread:</div>
-                        <div class="bg-black/30 p-3 rounded-lg font-mono text-sm text-blue-300 border border-white/10">
-                            spread = &minus;ln(1 &minus; PD) &times; (1 &minus; R) &times; 10,000
-                        </div>
-                        <div class="text-xs text-white/50 mt-2">Where R = 40% (standard recovery assumption for senior unsecured debt). The result is the annualised spread in basis points that a CDS contract should trade at if the model's PD is correct.</div>
-                    </div>
-                    <div class="glass border border-white/10 p-6 rounded-2xl">
-                        <div class="font-semibold text-white mb-2">Market-Implied PD</div>
-                        <div class="text-white/60 text-sm mb-3">Users can enter an observed CDS spread to reverse-engineer the market's implied default probability:</div>
-                        <div class="bg-black/30 p-3 rounded-lg font-mono text-sm text-blue-300 border border-white/10">
-                            PD = 1 &minus; exp(&minus;spread / (1 &minus; R) / 10,000)
-                        </div>
-                        <div class="text-xs text-white/50 mt-2">This is the inverse of the fair-spread formula. The recovery rate can be adjusted for seniority: 60% for senior secured, 40% for senior unsecured, 25% for subordinated.</div>
-                    </div>
-                </div>
-
-                <div class="text-xs tracking-[1.5px] text-white/50 mb-2 mt-6">RICH / CHEAP RELATIVE VALUE FLAG</div>
-                <div class="text-sm text-white/70 mb-3">When both model PD and market-implied PD are available, the system flags divergences using a simple ratio test:</div>
-                <div class="bg-black/20 rounded-xl border border-white/10 overflow-hidden">
-                    <table class="w-full text-sm">
-                        <thead class="bg-black/40">
-                            <tr class="text-white/50 text-xs">
-                                <th class="py-2 px-4 text-left font-medium">Condition</th>
-                                <th class="py-2 px-4 text-left font-medium">Flag</th>
-                                <th class="py-2 px-4 text-left font-medium">Interpretation</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-white/70">
-                            <tr class="border-b border-white/5">
-                                <td class="py-2 px-4 font-mono text-xs">Market PD &gt; 2&times; Model PD</td>
-                                <td class="py-2 px-4"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">CHEAP</span></td>
-                                <td class="py-2 px-4 text-xs">Market overprices default risk relative to fundamentals. The bond or CDS may offer value.</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-2 px-4 font-mono text-xs">Market PD &lt; 0.5&times; Model PD</td>
-                                <td class="py-2 px-4"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/40">RICH</span></td>
-                                <td class="py-2 px-4 text-xs">Market underprices default risk. The bond may be overvalued relative to the fundamental model view.</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 font-mono text-xs">0.5&times; &le; ratio &le; 2&times;</td>
-                                <td class="py-2 px-4"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-white/10 text-white/60 border border-white/20">FAIR</span></td>
-                                <td class="py-2 px-4 text-xs">Market pricing is broadly consistent with the model's fundamental assessment.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="mt-4 p-3 bg-black/30 rounded-lg text-xs text-white/60 border border-white/10">
-                    <strong>Assumptions &amp; Limitations:</strong> The reduced-form model assumes a constant hazard rate and a fixed recovery rate. Real CDS pricing involves term structure, counterparty risk, and liquidity premia not captured here. The fair spread should be treated as an indicative benchmark, not a trading signal.
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 5: Peer Group Comparison -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">5. Peer Group Comparison</h2>
-            <div class="glass rounded-3xl p-8">
-                <p class="text-white/80 mb-4">Each company's default probability is contextualised against its industry peers. This helps distinguish between companies that are risky in absolute terms versus companies that are risky relative to their sector.</p>
-
-                <div class="text-sm text-white/70 space-y-3 mb-6">
-                    <p><strong>Industry Classification:</strong> Companies are grouped by SIC sector using Compustat's historical SIC codes, mapped to 10 broad industry sectors (Manufacturing, Services, Retail, etc.). Financial firms (SIC 6000-6999) and utilities (SIC 4900-4999) are excluded from the model universe due to fundamentally different capital structures.</p>
-                    <p><strong>Percentile Ranking:</strong> For each company, we compute its percentile rank within its sector by comparing its calibrated 12-month PD against all other companies in the same industry. A firm at the 90th percentile has a higher predicted default risk than 90% of its sector peers.</p>
-                    <p><strong>Peer Selection:</strong> The five closest peers by default probability are displayed alongside the target company, enabling direct comparisons between firms with similar risk profiles.</p>
-                </div>
-
-                <div class="text-xs tracking-[1.5px] text-white/50 mb-2">PEER STATISTICS PROVIDED</div>
-                <div class="bg-black/20 rounded-xl border border-white/10 overflow-hidden">
-                    <table class="w-full text-sm">
-                        <thead class="bg-black/40">
-                            <tr class="text-white/50 text-xs">
-                                <th class="py-2 px-4 text-left font-medium">Metric</th>
-                                <th class="py-2 px-4 text-left font-medium">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-white/70">
-                            <tr class="border-b border-white/5">
-                                <td class="py-2 px-4 font-semibold text-white/80">Risk Percentile</td>
-                                <td class="py-2 px-4 text-xs">Where the company's PD falls relative to all firms in its sector (0th = lowest risk, 100th = highest risk).</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-2 px-4 font-semibold text-white/80">Peer Median PD</td>
-                                <td class="py-2 px-4 text-xs">The median default probability across all companies in the same industry.</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-2 px-4 font-semibold text-white/80">Peer Min / Max PD</td>
-                                <td class="py-2 px-4 text-xs">The range of default probabilities within the sector, showing the best and worst positioned firms.</td>
-                            </tr>
-                            <tr>
-                                <td class="py-2 px-4 font-semibold text-white/80">Closest Peers</td>
-                                <td class="py-2 px-4 text-xs">The five companies with the most similar default probability, enabling like-for-like fundamental comparison.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="mt-4 p-3 bg-black/30 rounded-lg text-xs text-white/60 border border-white/10">
-                    All PDs for peer comparison are pre-computed at startup using the unified model at horizon=12, ensuring consistency with the company-level predictions.
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 6: Backtesting & Calibration -->
-        <div class="max-w-4xl mx-auto mt-16 mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">6. Backtesting &amp; Calibration</h2>
-            <div class="glass rounded-3xl p-8">
-                <p class="text-white/80 mb-4">To validate that the model's predicted probabilities are well-calibrated, we backtest against historical data. For each PD bucket, we compare the model's average predicted default rate to the actual observed default rate.</p>
-                <p class="text-white/60 text-sm mb-6">A well-calibrated model will have a <strong>Ratio</strong> close to 1.0 across all buckets. Values significantly above 1.0 indicate under-prediction (model is too optimistic); below 1.0 indicates over-prediction (model is too conservative).</p>
-
-                <!-- Horizon toggle for calibration tables -->
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="relative flex rounded-xl p-0.5 text-xs border border-white/15 bg-white/5">
-                        <div id="cal-pill" class="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-white/10 rounded-[6px] transition-all duration-300"></div>
-                        <button id="cal-12m-btn" onclick="loadCalibrationTable('12m')" class="relative z-10 px-3 py-0.5 font-medium text-white">12-Month</button>
-                        <button id="cal-5y-btn" onclick="loadCalibrationTable('5y')" class="relative z-10 px-3 py-0.5 text-white/60 hover:text-white">5-Year</button>
-                    </div>
-                    <span id="cal-label" class="text-xs text-white/40">12-Month Model Calibration</span>
-                </div>
-
-                <div id="calibration-table-container">
-                    <div class="text-center py-8 text-white/40 text-sm">Loading calibration data...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 7: Deployment -->
-        <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">7. Deployment</h2>
-            <div class="glass rounded-3xl p-8 text-sm text-white/70">
-                The application is deployed as a containerised service:
-                <ul class="list-disc list-inside mt-3 space-y-1 pl-2">
-                    <li><strong>Backend:</strong> A FastAPI server loads the unified XGBoost model (raw + calibrated) and the full company index into memory at startup. All 12-month PDs are pre-computed for instant peer comparison. A single SHAP explainer handles both horizons.</li>
-                    <li><strong>Frontend:</strong> A static HTML/JS interface served by the same container, consuming the backend API for predictions, SHAP explanations, peer comparisons, and calibration data. CDS spread analysis runs entirely client-side for instant feedback.</li>
-                    <li><strong>Data:</strong> Large data files (Parquets) are managed via Git LFS to ensure reproducibility.</li>
-                </ul>
-
-                <div class="text-xs tracking-[1.5px] text-white/50 mb-2 mt-6">API ENDPOINTS</div>
-                <div class="bg-black/20 rounded-xl border border-white/10 overflow-hidden">
-                    <table class="w-full text-xs">
-                        <thead class="bg-black/40">
-                            <tr class="text-white/50">
-                                <th class="py-2 px-3 text-left font-medium">Endpoint</th>
-                                <th class="py-2 px-3 text-left font-medium">Description</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-white/60 font-mono">
-                            <tr class="border-b border-white/5">
-                                <td class="py-1.5 px-3 text-blue-300">GET /api/search?q=</td>
-                                <td class="py-1.5 px-3 font-sans">Real-time company typeahead (name, ticker, or GVKEY)</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-1.5 px-3 text-blue-300">GET /api/predict/{gvkey}</td>
-                                <td class="py-1.5 px-3 font-sans">Dual-horizon PD, SHAP explanations, fair CDS spreads, live market data, and rating history</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-1.5 px-3 text-blue-300">GET /api/peers/{gvkey}</td>
-                                <td class="py-1.5 px-3 font-sans">Sector peer group statistics, percentile rank, and closest peers by PD</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-1.5 px-3 text-blue-300">GET /api/calibration/{horizon}</td>
-                                <td class="py-1.5 px-3 font-sans">Historical backtesting calibration table (12m or 5y)</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-1.5 px-3 text-blue-300">GET /api/top/combined</td>
-                                <td class="py-1.5 px-3 font-sans">Top risk companies ranked by 12-month PD with 5-year PD attached</td>
-                            </tr>
-                            <tr class="border-b border-white/5">
-                                <td class="py-1.5 px-3 text-blue-300">GET /api/top/industries</td>
-                                <td class="py-1.5 px-3 font-sans">Industries ranked by average default risk</td>
-                            </tr>
-                            <tr>
-                                <td class="py-1.5 px-3 text-blue-300">GET /api/stock/{ticker}</td>
-                                <td class="py-1.5 px-3 font-sans">Historical price data via yfinance</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div id="calibration-table-container">
+            <div class="text-sm text-white/20 py-4">Loading...</div>
         </div>
 
     </div>
@@ -411,74 +79,55 @@
     <script>
         async function loadCalibrationTable(horizon) {
             const container = document.getElementById('calibration-table-container');
-            const pill = document.getElementById('cal-pill');
             const btn12 = document.getElementById('cal-12m-btn');
             const btn5y = document.getElementById('cal-5y-btn');
-            const label = document.getElementById('cal-label');
 
-            // Toggle visual state
-            if (pill) pill.style.transform = horizon === '12m' ? 'translateX(0)' : 'translateX(100%)';
-            if (btn12) { btn12.style.color = horizon === '12m' ? '#fff' : 'rgba(255,255,255,0.55)'; btn12.style.fontWeight = horizon === '12m' ? '600' : '500'; }
-            if (btn5y) { btn5y.style.color = horizon === '5y' ? '#fff' : 'rgba(255,255,255,0.55)'; btn5y.style.fontWeight = horizon === '5y' ? '600' : '500'; }
-            if (label) label.textContent = horizon === '12m' ? '12-Month Model Calibration' : '5-Year Model Calibration';
+            btn12.className = horizon === '12m'
+                ? 'text-xs font-medium text-white/80 px-2.5 py-1 rounded bg-white/[0.08]'
+                : 'text-xs text-white/35 px-2.5 py-1 rounded hover:text-white/60 transition-colors';
+            btn5y.className = horizon === '5y'
+                ? 'text-xs font-medium text-white/80 px-2.5 py-1 rounded bg-white/[0.08]'
+                : 'text-xs text-white/35 px-2.5 py-1 rounded hover:text-white/60 transition-colors';
 
             try {
                 const res = await fetch(`/api/calibration/${horizon}`);
-                if (!res.ok) {
-                    container.innerHTML = '<div class="text-center py-8 text-white/40 text-sm">Calibration table not yet generated. Run <code>python src/build_calibration_table.py</code> to create it.</div>';
-                    return;
-                }
+                if (!res.ok) { container.innerHTML = '<div class="text-sm text-white/20 py-4">Not generated yet.</div>'; return; }
                 const data = await res.json();
-                if (!data || data.length === 0) {
-                    container.innerHTML = '<div class="text-center py-8 text-white/40 text-sm">No calibration data available.</div>';
-                    return;
-                }
+                if (!data || !data.length) { container.innerHTML = '<div class="text-sm text-white/20 py-4">No data.</div>'; return; }
 
-                let rows = data.map(row => {
-                    const ratio = row.ratio;
-                    let ratioColor = 'text-emerald-400';
-                    if (ratio === null) ratioColor = 'text-white/40';
-                    else if (ratio > 2.0 || ratio < 0.5) ratioColor = 'text-red-400';
-                    else if (ratio > 1.5 || ratio < 0.67) ratioColor = 'text-amber-400';
-
-                    return `<tr class="border-b border-white/5 last:border-0">
-                        <td class="py-2.5 px-3 font-mono text-sm text-white/80">${row.bucket}</td>
-                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/60">${row.count.toLocaleString()}</td>
-                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/60">${row.actual_defaults.toLocaleString()}</td>
-                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/80">${(row.mean_predicted_pd * 100).toFixed(3)}%</td>
-                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/80">${(row.actual_default_rate * 100).toFixed(3)}%</td>
-                        <td class="py-2.5 px-3 text-right font-mono text-sm font-semibold ${ratioColor}">${ratio !== null ? ratio.toFixed(2) + 'x' : 'N/A'}</td>
+                const rows = data.map(row => {
+                    const r = row.ratio;
+                    let c = 'text-white/50';
+                    if (r === null) c = 'text-white/20';
+                    else if (r > 0.8 && r < 1.25) c = 'text-emerald-400/70';
+                    else if (r > 1.5 || r < 0.67) c = 'text-red-400/70';
+                    else c = 'text-amber-400/70';
+                    return `<tr class="border-b border-white/[0.04]">
+                        <td class="py-1.5 pr-4 font-mono text-white/50">${row.bucket}</td>
+                        <td class="py-1.5 pr-4 text-right text-white/30">${row.count.toLocaleString()}</td>
+                        <td class="py-1.5 pr-4 text-right text-white/50">${(row.mean_predicted_pd*100).toFixed(2)}%</td>
+                        <td class="py-1.5 pr-4 text-right text-white/50">${(row.actual_default_rate*100).toFixed(2)}%</td>
+                        <td class="py-1.5 text-right font-medium ${c}">${r !== null ? r.toFixed(2)+'x' : '--'}</td>
                     </tr>`;
                 }).join('');
 
                 container.innerHTML = `
-                    <div class="overflow-auto rounded-xl border border-white/10">
-                        <table class="w-full text-sm">
-                            <thead class="bg-black/40">
-                                <tr class="text-white/50 text-xs">
-                                    <th class="py-2.5 px-3 text-left font-medium">PD Bucket</th>
-                                    <th class="py-2.5 px-3 text-right font-medium"># Firms</th>
-                                    <th class="py-2.5 px-3 text-right font-medium"># Defaults</th>
-                                    <th class="py-2.5 px-3 text-right font-medium">Mean Predicted PD</th>
-                                    <th class="py-2.5 px-3 text-right font-medium">Actual Default Rate</th>
-                                    <th class="py-2.5 px-3 text-right font-medium">Ratio (Actual / Predicted)</th>
-                                </tr>
-                            </thead>
-                            <tbody>${rows}</tbody>
-                        </table>
-                    </div>
-                    <div class="mt-3 text-[10px] text-white/40">
-                        Backtested on training + validation data (firm-years up to 2023). Ratio near 1.0 = well calibrated.
-                        <span class="text-emerald-400/60">Green</span> = good,
-                        <span class="text-amber-400/60">Amber</span> = moderate deviation,
-                        <span class="text-red-400/60">Red</span> = significant deviation.
-                    </div>`;
+                    <table class="w-full text-xs">
+                        <thead>
+                            <tr class="text-white/25 border-b border-white/[0.06]">
+                                <th class="py-1.5 pr-4 text-left font-medium">Bucket</th>
+                                <th class="py-1.5 pr-4 text-right font-medium">Firms</th>
+                                <th class="py-1.5 pr-4 text-right font-medium">Predicted</th>
+                                <th class="py-1.5 pr-4 text-right font-medium">Actual</th>
+                                <th class="py-1.5 text-right font-medium">Ratio</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>`;
             } catch (e) {
-                container.innerHTML = '<div class="text-center py-8 text-red-400/60 text-sm">Failed to load calibration data.</div>';
+                container.innerHTML = '<div class="text-sm text-red-400/40 py-4">Failed to load.</div>';
             }
         }
-
-        // Load 12m table on page load
         loadCalibrationTable('12m');
     </script>
 </body>
