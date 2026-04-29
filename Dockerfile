@@ -9,8 +9,6 @@ WORKDIR /app
 # Install system dependencies required for pandas, pyarrow, shap, etc.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    git \
-    git-lfs \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first (better layer caching)
