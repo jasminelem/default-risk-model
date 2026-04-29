@@ -42,3 +42,15 @@ Thumbs.db
 # Large outputs you may not want to commit
 outputs/12m_model/*.png
 outputs/5y_model/*.png
+
+# ── Large data files (regenerable from WRDS / pipeline) ──
+# Raw data pulled from WRDS — re-download with notebooks/00_setup_wrds.ipynb
+data/raw/*
+!data/raw/ciq_ratings.parquet
+
+# Processed pipeline outputs — rebuild with notebooks/01 + 02
+data/processed/*
+!data/processed/monthly_test.parquet
+
+# Old backups
+backups/

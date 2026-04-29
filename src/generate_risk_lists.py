@@ -95,7 +95,14 @@ def main():
     latest_5y = alive_recent.sort_values("datadate").groupby("gvkey").tail(1).copy()
 
     X_5y = latest_5y[feature_cols].fillna(0).astype("float32")
-    latest_5y["pred_risk_5y"] = model_5y.predict_proba(X_5y)[:, 1]
+    latest_5y["pred_risk_5y_raw"] = model_5y.predict_proba(X_5y)[:, 1]
+
+    # Monotonicity: P(default within 5y) must be >= P(default within 1y)
+    pred_12m_lookup = latest_12m.set_index("gvkey")["pred_risk_2026"]
+    latest_5y["pred_risk_5y"] = np.maximum(
+        latest_5y["pred_risk_5y_raw"],
+        latest_5y["gvkey"].map(pred_12m_lookup).fillna(0),
+    )
 
     top_5y = latest_5y.sort_values("pred_risk_5y", ascending=False)[
         ["gvkey", "conm", "datadate", "pred_risk_5y"]

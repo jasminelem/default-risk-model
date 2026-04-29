@@ -1,10 +1,4 @@
-# Large binary / generated data files → Git LFS
-*.parquet filter=lfs diff=lfs merge=lfs -text
-*.joblib filter=lfs diff=lfs merge=lfs -text
-*.pkl filter=lfs diff=lfs merge=lfs -text
-
-# Generated risk lists (important for /api/top endpoints)
-outputs/**/*.csv filter=lfs diff=lfs merge=lfs -text
-# Keep small config files in normal Git
-*.json -filter -diff -merge
-* !text !filter !merge !diff
+# Binary files — treat as binary (no diff/merge), but stored in regular git (not LFS)
+*.parquet binary
+*.joblib binary
+*.pkl binary

@@ -250,8 +250,11 @@ def _predict_and_explain(row: pd.Series) -> Dict[str, Any]:
     shap_12m = explainer_12m.shap_values(X_df)[0]
 
     # 5-year
-    prob_5y = float(model_5y.predict_proba(X_df)[0, 1])
+    prob_5y_raw = float(model_5y.predict_proba(X_df)[0, 1])
     shap_5y = explainer_5y.shap_values(X_df)[0]
+
+    # Monotonicity: P(default within 5y) must be >= P(default within 1y)
+    prob_5y = max(prob_5y_raw, prob_12m)
 
     # Build top feature contributions (positive = increases risk) with human-readable meaning
     def top_features(shap_vals, top_k=12):
