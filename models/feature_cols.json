@@ -62,5 +62,6 @@
   "fcf_to_debt",
   "cfo_to_assets",
   "revenue_growth",
-  "credit_spread_lag1"
+  "credit_spread_lag1",
+  "horizon_months"
 ]

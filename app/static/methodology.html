@@ -48,7 +48,7 @@
 
         <div class="max-w-3xl mx-auto">
             <h1 class="text-4xl title-font tracking-[-1.5px] font-semibold mb-4">Methodology</h1>
-            <p class="text-lg text-white/70 mb-10">A detailed overview of the data sources, machine learning pipeline, and explainability framework used to build this model.</p>
+            <p class="text-lg text-white/70 mb-10">A detailed overview of the data sources, machine learning pipeline, explainability framework, CDS spread analysis, peer benchmarking, and backtesting calibration behind this platform.</p>
         </div>
 
         <!-- Section 1: Data Pipeline -->
@@ -113,24 +113,22 @@
 
         <!-- Section 2: Model Training -->
         <div class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">2. Model Training &amp; Architecture</h2>
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">2. Model Architecture</h2>
             <div class="glass rounded-3xl p-8">
-                <p class="text-white/80 mb-6">We trained two separate <strong>XGBoost Classifier</strong> models to predict the probability of default over two different horizons.</p>
+                <p class="text-white/80 mb-6">A single <strong>unified discrete-time hazard model</strong> (XGBoost) predicts default probability at both the 12-month and 5-year horizons. Instead of two separate models, the prediction horizon is encoded as a feature (<code>horizon_months</code> = 12 or 60). Each company is scored twice to produce both PDs from one model.</p>
                 
                 <div class="grid md:grid-cols-2 gap-4 text-sm">
                     <div class="glass border border-white/10 p-6 rounded-2xl">
-                        <div class="font-semibold text-white mb-1">12-Month Model</div>
-                        <div class="text-white/60">Target: <code>default_in_next_12m</code></div>
-                        <div class="text-white/60 mt-1">Optimised via <strong>Optuna</strong> (500+ trials) to maximise ROC-AUC on a time-based validation set.</div>
+                        <div class="font-semibold text-white mb-1">Monotonicity Guarantee</div>
+                        <div class="text-white/60">XGBoost <code>monotone_constraints</code> enforce that P(default) is non-decreasing in <code>horizon_months</code>. The 5-year PD is always &ge; the 12-month PD by construction.</div>
                     </div>
                     <div class="glass border border-white/10 p-6 rounded-2xl">
-                        <div class="font-semibold text-white mb-1">5-Year Model</div>
-                        <div class="text-white/60">Target: <code>default_in_next_5y</code></div>
-                        <div class="text-white/60 mt-1">Optimised via <strong>Optuna</strong> (500+ trials) to maximise ROC-AUC on a time-based validation set.</div>
+                        <div class="font-semibold text-white mb-1">Calibration</div>
+                        <div class="text-white/60"><code>CalibratedClassifierCV</code> with 5-fold isotonic regression maps raw scores to true default probabilities using ~400K cross-validated predictions.</div>
                     </div>
                 </div>
                 
-                <div class="mt-6 text-xs text-white/50">The models use 60+ engineered features covering leverage, profitability, liquidity, market signals, and macroeconomic conditions. Hyperparameters are tuned to prevent overfitting on historical data.</div>
+                <div class="mt-6 text-xs text-white/50">The model uses 60+ features (leverage, profitability, liquidity, market signals, macro conditions) plus the horizon feature. Hyperparameters are tuned via Optuna (40 trials) on a time-based validation set.</div>
 
                 <!-- XGBoost Classifier Diagram -->
                 <div class="mt-6">
@@ -215,24 +213,273 @@
                     <p><strong>Local View:</strong> For every individual company prediction, we calculate the exact contribution (SHAP value) of every feature. A positive value pushes the prediction towards "Default," a negative value pushes it towards "No Default."</p>
                 </div>
                 <div class="mt-4 p-3 bg-black/30 rounded-lg text-xs text-white/60 border border-white/10">
-                    The interactive chart on the main dashboard shows the local SHAP values for a specific company. The slider lets you compare the drivers for the 12-month vs 5-year horizons.
+                    The dashboard shows local SHAP values for each company at both horizons. Since a single model is used, the feature attributions are consistent across horizons &mdash; differences reflect how the model weights features differently at 12 months vs 5 years.
                 </div>
             </div>
         </div>
         
-        <!-- Section 4: Deployment -->
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">4. Deployment</h2>
+        <!-- Section 4: CDS Spread Analysis & Fair Value -->
+        <div class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">4. CDS Spread Analysis &amp; Fair Value</h2>
+            <div class="glass rounded-3xl p-8">
+                <p class="text-white/80 mb-4">The platform bridges fundamental credit analysis with market pricing by translating between default probabilities and CDS spreads using the standard reduced-form credit pricing framework.</p>
+
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <div class="glass border border-white/10 p-6 rounded-2xl">
+                        <div class="font-semibold text-white mb-2">Fair Value CDS Spread</div>
+                        <div class="text-white/60 text-sm mb-3">For every company, the model PD is converted into an implied "fair" CDS spread:</div>
+                        <div class="bg-black/30 p-3 rounded-lg font-mono text-sm text-blue-300 border border-white/10">
+                            spread = &minus;ln(1 &minus; PD) &times; (1 &minus; R) &times; 10,000
+                        </div>
+                        <div class="text-xs text-white/50 mt-2">Where R = 40% (standard recovery assumption for senior unsecured debt). The result is the annualised spread in basis points that a CDS contract should trade at if the model's PD is correct.</div>
+                    </div>
+                    <div class="glass border border-white/10 p-6 rounded-2xl">
+                        <div class="font-semibold text-white mb-2">Market-Implied PD</div>
+                        <div class="text-white/60 text-sm mb-3">Users can enter an observed CDS spread to reverse-engineer the market's implied default probability:</div>
+                        <div class="bg-black/30 p-3 rounded-lg font-mono text-sm text-blue-300 border border-white/10">
+                            PD = 1 &minus; exp(&minus;spread / (1 &minus; R) / 10,000)
+                        </div>
+                        <div class="text-xs text-white/50 mt-2">This is the inverse of the fair-spread formula. The recovery rate can be adjusted for seniority: 60% for senior secured, 40% for senior unsecured, 25% for subordinated.</div>
+                    </div>
+                </div>
+
+                <div class="text-xs tracking-[1.5px] text-white/50 mb-2 mt-6">RICH / CHEAP RELATIVE VALUE FLAG</div>
+                <div class="text-sm text-white/70 mb-3">When both model PD and market-implied PD are available, the system flags divergences using a simple ratio test:</div>
+                <div class="bg-black/20 rounded-xl border border-white/10 overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead class="bg-black/40">
+                            <tr class="text-white/50 text-xs">
+                                <th class="py-2 px-4 text-left font-medium">Condition</th>
+                                <th class="py-2 px-4 text-left font-medium">Flag</th>
+                                <th class="py-2 px-4 text-left font-medium">Interpretation</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white/70">
+                            <tr class="border-b border-white/5">
+                                <td class="py-2 px-4 font-mono text-xs">Market PD &gt; 2&times; Model PD</td>
+                                <td class="py-2 px-4"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">CHEAP</span></td>
+                                <td class="py-2 px-4 text-xs">Market overprices default risk relative to fundamentals. The bond or CDS may offer value.</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-2 px-4 font-mono text-xs">Market PD &lt; 0.5&times; Model PD</td>
+                                <td class="py-2 px-4"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/40">RICH</span></td>
+                                <td class="py-2 px-4 text-xs">Market underprices default risk. The bond may be overvalued relative to the fundamental model view.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 font-mono text-xs">0.5&times; &le; ratio &le; 2&times;</td>
+                                <td class="py-2 px-4"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-white/10 text-white/60 border border-white/20">FAIR</span></td>
+                                <td class="py-2 px-4 text-xs">Market pricing is broadly consistent with the model's fundamental assessment.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 p-3 bg-black/30 rounded-lg text-xs text-white/60 border border-white/10">
+                    <strong>Assumptions &amp; Limitations:</strong> The reduced-form model assumes a constant hazard rate and a fixed recovery rate. Real CDS pricing involves term structure, counterparty risk, and liquidity premia not captured here. The fair spread should be treated as an indicative benchmark, not a trading signal.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Peer Group Comparison -->
+        <div class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">5. Peer Group Comparison</h2>
+            <div class="glass rounded-3xl p-8">
+                <p class="text-white/80 mb-4">Each company's default probability is contextualised against its industry peers. This helps distinguish between companies that are risky in absolute terms versus companies that are risky relative to their sector.</p>
+
+                <div class="text-sm text-white/70 space-y-3 mb-6">
+                    <p><strong>Industry Classification:</strong> Companies are grouped by SIC sector using Compustat's historical SIC codes, mapped to 10 broad industry sectors (Manufacturing, Services, Retail, etc.). Financial firms (SIC 6000-6999) and utilities (SIC 4900-4999) are excluded from the model universe due to fundamentally different capital structures.</p>
+                    <p><strong>Percentile Ranking:</strong> For each company, we compute its percentile rank within its sector by comparing its calibrated 12-month PD against all other companies in the same industry. A firm at the 90th percentile has a higher predicted default risk than 90% of its sector peers.</p>
+                    <p><strong>Peer Selection:</strong> The five closest peers by default probability are displayed alongside the target company, enabling direct comparisons between firms with similar risk profiles.</p>
+                </div>
+
+                <div class="text-xs tracking-[1.5px] text-white/50 mb-2">PEER STATISTICS PROVIDED</div>
+                <div class="bg-black/20 rounded-xl border border-white/10 overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead class="bg-black/40">
+                            <tr class="text-white/50 text-xs">
+                                <th class="py-2 px-4 text-left font-medium">Metric</th>
+                                <th class="py-2 px-4 text-left font-medium">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white/70">
+                            <tr class="border-b border-white/5">
+                                <td class="py-2 px-4 font-semibold text-white/80">Risk Percentile</td>
+                                <td class="py-2 px-4 text-xs">Where the company's PD falls relative to all firms in its sector (0th = lowest risk, 100th = highest risk).</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-2 px-4 font-semibold text-white/80">Peer Median PD</td>
+                                <td class="py-2 px-4 text-xs">The median default probability across all companies in the same industry.</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-2 px-4 font-semibold text-white/80">Peer Min / Max PD</td>
+                                <td class="py-2 px-4 text-xs">The range of default probabilities within the sector, showing the best and worst positioned firms.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 font-semibold text-white/80">Closest Peers</td>
+                                <td class="py-2 px-4 text-xs">The five companies with the most similar default probability, enabling like-for-like fundamental comparison.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 p-3 bg-black/30 rounded-lg text-xs text-white/60 border border-white/10">
+                    All PDs for peer comparison are pre-computed at startup using the unified model at horizon=12, ensuring consistency with the company-level predictions.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Backtesting & Calibration -->
+        <div class="max-w-4xl mx-auto mt-16 mb-16">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">6. Backtesting &amp; Calibration</h2>
+            <div class="glass rounded-3xl p-8">
+                <p class="text-white/80 mb-4">To validate that the model's predicted probabilities are well-calibrated, we backtest against historical data. For each PD bucket, we compare the model's average predicted default rate to the actual observed default rate.</p>
+                <p class="text-white/60 text-sm mb-6">A well-calibrated model will have a <strong>Ratio</strong> close to 1.0 across all buckets. Values significantly above 1.0 indicate under-prediction (model is too optimistic); below 1.0 indicates over-prediction (model is too conservative).</p>
+
+                <!-- Horizon toggle for calibration tables -->
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="relative flex rounded-xl p-0.5 text-xs border border-white/15 bg-white/5">
+                        <div id="cal-pill" class="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-white/10 rounded-[6px] transition-all duration-300"></div>
+                        <button id="cal-12m-btn" onclick="loadCalibrationTable('12m')" class="relative z-10 px-3 py-0.5 font-medium text-white">12-Month</button>
+                        <button id="cal-5y-btn" onclick="loadCalibrationTable('5y')" class="relative z-10 px-3 py-0.5 text-white/60 hover:text-white">5-Year</button>
+                    </div>
+                    <span id="cal-label" class="text-xs text-white/40">12-Month Model Calibration</span>
+                </div>
+
+                <div id="calibration-table-container">
+                    <div class="text-center py-8 text-white/40 text-sm">Loading calibration data...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Deployment -->
+        <div class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-xl font-semibold tracking-tight mb-4 text-white/90">7. Deployment</h2>
             <div class="glass rounded-3xl p-8 text-sm text-white/70">
                 The application is deployed as a containerised service:
                 <ul class="list-disc list-inside mt-3 space-y-1 pl-2">
-                    <li><strong>Backend:</strong> A FastAPI server loads the pre-trained XGBoost models and the company index into memory for low-latency inference.</li>
-                    <li><strong>Frontend:</strong> A static HTML/JS interface served by the same container, consuming the backend API for predictions and SHAP explanations.</li>
+                    <li><strong>Backend:</strong> A FastAPI server loads the unified XGBoost model (raw + calibrated) and the full company index into memory at startup. All 12-month PDs are pre-computed for instant peer comparison. A single SHAP explainer handles both horizons.</li>
+                    <li><strong>Frontend:</strong> A static HTML/JS interface served by the same container, consuming the backend API for predictions, SHAP explanations, peer comparisons, and calibration data. CDS spread analysis runs entirely client-side for instant feedback.</li>
                     <li><strong>Data:</strong> Large data files (Parquets) are managed via Git LFS to ensure reproducibility.</li>
                 </ul>
+
+                <div class="text-xs tracking-[1.5px] text-white/50 mb-2 mt-6">API ENDPOINTS</div>
+                <div class="bg-black/20 rounded-xl border border-white/10 overflow-hidden">
+                    <table class="w-full text-xs">
+                        <thead class="bg-black/40">
+                            <tr class="text-white/50">
+                                <th class="py-2 px-3 text-left font-medium">Endpoint</th>
+                                <th class="py-2 px-3 text-left font-medium">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-white/60 font-mono">
+                            <tr class="border-b border-white/5">
+                                <td class="py-1.5 px-3 text-blue-300">GET /api/search?q=</td>
+                                <td class="py-1.5 px-3 font-sans">Real-time company typeahead (name, ticker, or GVKEY)</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-1.5 px-3 text-blue-300">GET /api/predict/{gvkey}</td>
+                                <td class="py-1.5 px-3 font-sans">Dual-horizon PD, SHAP explanations, fair CDS spreads, live market data, and rating history</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-1.5 px-3 text-blue-300">GET /api/peers/{gvkey}</td>
+                                <td class="py-1.5 px-3 font-sans">Sector peer group statistics, percentile rank, and closest peers by PD</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-1.5 px-3 text-blue-300">GET /api/calibration/{horizon}</td>
+                                <td class="py-1.5 px-3 font-sans">Historical backtesting calibration table (12m or 5y)</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-1.5 px-3 text-blue-300">GET /api/top/combined</td>
+                                <td class="py-1.5 px-3 font-sans">Top risk companies ranked by 12-month PD with 5-year PD attached</td>
+                            </tr>
+                            <tr class="border-b border-white/5">
+                                <td class="py-1.5 px-3 text-blue-300">GET /api/top/industries</td>
+                                <td class="py-1.5 px-3 font-sans">Industries ranked by average default risk</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1.5 px-3 text-blue-300">GET /api/stock/{ticker}</td>
+                                <td class="py-1.5 px-3 font-sans">Historical price data via yfinance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <script>
+        async function loadCalibrationTable(horizon) {
+            const container = document.getElementById('calibration-table-container');
+            const pill = document.getElementById('cal-pill');
+            const btn12 = document.getElementById('cal-12m-btn');
+            const btn5y = document.getElementById('cal-5y-btn');
+            const label = document.getElementById('cal-label');
+
+            // Toggle visual state
+            if (pill) pill.style.transform = horizon === '12m' ? 'translateX(0)' : 'translateX(100%)';
+            if (btn12) { btn12.style.color = horizon === '12m' ? '#fff' : 'rgba(255,255,255,0.55)'; btn12.style.fontWeight = horizon === '12m' ? '600' : '500'; }
+            if (btn5y) { btn5y.style.color = horizon === '5y' ? '#fff' : 'rgba(255,255,255,0.55)'; btn5y.style.fontWeight = horizon === '5y' ? '600' : '500'; }
+            if (label) label.textContent = horizon === '12m' ? '12-Month Model Calibration' : '5-Year Model Calibration';
+
+            try {
+                const res = await fetch(`/api/calibration/${horizon}`);
+                if (!res.ok) {
+                    container.innerHTML = '<div class="text-center py-8 text-white/40 text-sm">Calibration table not yet generated. Run <code>python src/build_calibration_table.py</code> to create it.</div>';
+                    return;
+                }
+                const data = await res.json();
+                if (!data || data.length === 0) {
+                    container.innerHTML = '<div class="text-center py-8 text-white/40 text-sm">No calibration data available.</div>';
+                    return;
+                }
+
+                let rows = data.map(row => {
+                    const ratio = row.ratio;
+                    let ratioColor = 'text-emerald-400';
+                    if (ratio === null) ratioColor = 'text-white/40';
+                    else if (ratio > 2.0 || ratio < 0.5) ratioColor = 'text-red-400';
+                    else if (ratio > 1.5 || ratio < 0.67) ratioColor = 'text-amber-400';
+
+                    return `<tr class="border-b border-white/5 last:border-0">
+                        <td class="py-2.5 px-3 font-mono text-sm text-white/80">${row.bucket}</td>
+                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/60">${row.count.toLocaleString()}</td>
+                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/60">${row.actual_defaults.toLocaleString()}</td>
+                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/80">${(row.mean_predicted_pd * 100).toFixed(3)}%</td>
+                        <td class="py-2.5 px-3 text-right font-mono text-sm text-white/80">${(row.actual_default_rate * 100).toFixed(3)}%</td>
+                        <td class="py-2.5 px-3 text-right font-mono text-sm font-semibold ${ratioColor}">${ratio !== null ? ratio.toFixed(2) + 'x' : 'N/A'}</td>
+                    </tr>`;
+                }).join('');
+
+                container.innerHTML = `
+                    <div class="overflow-auto rounded-xl border border-white/10">
+                        <table class="w-full text-sm">
+                            <thead class="bg-black/40">
+                                <tr class="text-white/50 text-xs">
+                                    <th class="py-2.5 px-3 text-left font-medium">PD Bucket</th>
+                                    <th class="py-2.5 px-3 text-right font-medium"># Firms</th>
+                                    <th class="py-2.5 px-3 text-right font-medium"># Defaults</th>
+                                    <th class="py-2.5 px-3 text-right font-medium">Mean Predicted PD</th>
+                                    <th class="py-2.5 px-3 text-right font-medium">Actual Default Rate</th>
+                                    <th class="py-2.5 px-3 text-right font-medium">Ratio (Actual / Predicted)</th>
+                                </tr>
+                            </thead>
+                            <tbody>${rows}</tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 text-[10px] text-white/40">
+                        Backtested on training + validation data (firm-years up to 2023). Ratio near 1.0 = well calibrated.
+                        <span class="text-emerald-400/60">Green</span> = good,
+                        <span class="text-amber-400/60">Amber</span> = moderate deviation,
+                        <span class="text-red-400/60">Red</span> = significant deviation.
+                    </div>`;
+            } catch (e) {
+                container.innerHTML = '<div class="text-center py-8 text-red-400/60 text-sm">Failed to load calibration data.</div>';
+            }
+        }
+
+        // Load 12m table on page load
+        loadCalibrationTable('12m');
+    </script>
 </body>
 </html>

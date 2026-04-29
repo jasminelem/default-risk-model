@@ -94,18 +94,7 @@
             cursor: pointer;
         }
 
-        /* === Horizon Toggle (Toolbar) === */
-        .horizon-toggle button {
-            transition: all 0.15s cubic-bezier(0.23, 1.0, 0.32, 1);
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
-
-        .active-horizon {
-            background-color: #27272a;
-            color: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
+        /* === (Horizon toggle removed — single combined list) === */
 
         /* === Cards === */
         .card {
@@ -142,8 +131,7 @@
         .card,
         #risk-table,
         .search-input,
-        #suggestions,
-        .horizon-toggle {
+        #suggestions {
             background: rgba(24, 24, 27, 0.72);
             /* deep translucent zinc */
             backdrop-filter: blur(20px) saturate(180%);
@@ -193,29 +181,7 @@
             color: #f4f4f5;
         }
 
-        /* Horizon Toggle — premium pill with smooth active slide */
-        .horizon-toggle {
-            background: rgba(24, 24, 27, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .horizon-toggle button {
-            position: relative;
-            transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-            border: 1px solid transparent;
-        }
-
-        .horizon-toggle button:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .active-horizon {
-            background: rgba(255, 255, 255, 0.12) !important;
-            color: white !important;
-            border-color: rgba(255, 255, 255, 0.14);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
+        /* === (Horizon toggle styles removed) === */
 
 
 
@@ -300,24 +266,51 @@
 <body class="bg-zinc-950 text-white">
 
     <!-- Main Content - Minimal -->
-    <div class="max-w-6xl mx-auto px-8 pt-12 pb-20">
+    <div class="max-w-6xl mx-auto px-8 pt-6 pb-16">
 
         <!-- Main Title & Description (Compact) -->
-        <div class="max-w-3xl mx-auto text-center mb-6">
-            <h1 class="text-3xl md:text-4xl title-font tracking-[-1.5px] font-semibold text-white">Defaulting Probability Model</h1>
-            <p class="mt-2 text-white/70 text-sm max-w-xl mx-auto">
+        <div class="max-w-3xl mx-auto text-center mb-4">
+            <h1 class="text-2xl md:text-3xl title-font tracking-[-1.5px] font-semibold text-white">Defaulting Probability Model</h1>
+            <p class="mt-1 text-white/70 text-xs max-w-xl mx-auto">
                 Predicting corporate default risk with 12-month and 5-year forecasts using explainable AI.
             </p>
-            <a href="/static/methodology.html" class="inline-block mt-3 text-xs tracking-[1px] text-blue-400 hover:text-blue-300">VIEW METHODOLOGY →</a>
+            <a href="/static/methodology.html" class="inline-block mt-1.5 text-[10px] tracking-[1px] text-blue-400 hover:text-blue-300">VIEW METHODOLOGY →</a>
         </div>
 
         <!-- Search Bar Only (Minimal) -->
-        <div class="max-w-2xl mx-auto mb-6">
+        <div class="max-w-2xl mx-auto mb-5">
             <div class="relative">
                 <input id="search-input" type="text" placeholder="Search companies…"
-                    class="search-input w-full rounded-3xl px-8 py-5 text-[17px] placeholder:text-white/35 outline-none">
+                    class="search-input w-full rounded-2xl px-6 py-3.5 text-[15px] placeholder:text-white/35 outline-none">
                 <div id="suggestions"
                     class="hidden absolute mt-1.5 w-full bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50">
+                </div>
+            </div>
+        </div>
+
+        <!-- Backtesting Calibration Section (hidden when viewing company detail) -->
+        <div id="calibration-section" class="mb-8">
+            <div class="glass border border-white/10 rounded-3xl overflow-hidden">
+                <!-- Header row inside the card -->
+                <div class="flex items-center justify-between px-5 py-3 border-b border-white/8 bg-black/30">
+                    <div class="flex items-center gap-3">
+                        <div class="text-sm font-semibold text-white/90 title-font tracking-[-0.5px]">Model Calibration</div>
+                        <div class="text-[11px] text-white/35">Predicted PD vs actual default rate</div>
+                    </div>
+                    <div class="relative flex rounded-lg p-0.5 text-[11px] border border-white/15 bg-white/5">
+                        <div id="dash-cal-pill" class="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-white/10 rounded-[4px] transition-all duration-300"></div>
+                        <button onclick="loadDashCalibration('12m')" id="dash-cal-12m" class="relative z-10 px-2.5 py-0.5 font-medium text-white">12M</button>
+                        <button onclick="loadDashCalibration('5y')" id="dash-cal-5y" class="relative z-10 px-2.5 py-0.5 text-white/60 hover:text-white">5Y</button>
+                    </div>
+                </div>
+                <!-- Table + Chart side by side -->
+                <div class="grid md:grid-cols-[1fr_1fr]">
+                    <div id="dash-cal-table" class="text-center py-8 text-white/40 text-sm">Loading...</div>
+                    <div class="p-4">
+                        <div class="relative h-full min-h-[200px] w-full">
+                            <canvas id="cal-chart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -325,52 +318,30 @@
         <!-- DEFAULT VIEW: Single Risk List with Toolbar -->
         <div id="dashboard">
 
-            <!-- Toolbar for switching horizons -->
-            <div class="flex items-center justify-between mb-4 px-1">
-                <div>
-                    <div class="text-[29px] title-font tracking-[-1.8px] font-semibold text-white/95">Top 10 Highest
-                        Risk Companies</div>
-                    <div id="list-subtitle"
-                        class="text-[13px] text-white/45 mt-1.5 tracking-[0.3px] font-medium transition-opacity duration-200">
-                        Dec 2025 — Dec 2026</div>
-                </div>
-
-                <!-- Horizon Toggle - Real Liquid Glass Sliding Segmented Control -->
-                <div id="horizon-toggle"
-                    class="relative flex rounded-2xl p-1 text-sm border border-white/15 bg-white/5 backdrop-blur-2xl overflow-hidden"
-                    style="box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);">
-                    <!-- Sliding glass pill (animated) -->
-                    <div id="horizon-pill"
-                        class="absolute top-1 bottom-1 left-1 w-[calc(50%-2px)] bg-white/12 rounded-[14px] border border-white/15 transition-all duration-300"
-                        style="box-shadow: 0 2px 8px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);"></div>
-
-                    <button id="btn-12m" onclick="switchHorizon('12m')"
-                        class="relative z-10 flex-1 px-6 py-1.5 font-medium tracking-[-0.1px] rounded-[14px] text-white transition-colors duration-200 whitespace-nowrap flex items-center justify-center">
-                        12-Month
-                    </button>
-                    <button id="btn-5y" onclick="switchHorizon('5y')"
-                        class="relative z-10 flex-1 px-6 py-1.5 font-medium tracking-[-0.1px] rounded-[14px] text-white/65 hover:text-white transition-colors duration-200 whitespace-nowrap flex items-center justify-center">
-                        5-Year
-                    </button>
-                </div>
+            <!-- Header -->
+            <div class="mb-3 px-1">
+                <div class="text-lg title-font tracking-[-0.8px] font-semibold text-white/95">Top 10 Highest Risk Companies</div>
+                <div class="text-[11px] text-white/40 mt-0.5 tracking-[0.3px] font-medium">Ranked by 12-month default probability</div>
             </div>
 
             <!-- Single Dynamic Table -->
-            <div class="glass border border-white/10 rounded-3xl overflow-hidden">
+            <div class="glass border border-white/10 rounded-2xl overflow-hidden">
                 <table id="risk-table" class="risk-table w-full text-sm">
                     <thead class="bg-black/40 text-white/70 text-xs">
                         <tr>
-                            <th class="px-8 py-4 text-left w-12">Rank</th>
-                            <th class="px-2 py-4 text-left">Company</th>
-                            <th class="px-4 py-4 text-left w-24">Ticker</th>
-                            <th class="px-4 py-4 text-left w-20">CapIQ Rating</th>
-                            <th class="px-4 py-4 text-left">Latest Fiscal</th>
-                            <th class="px-8 py-4 text-right font-mono">Risk %</th>
+                            <th class="px-4 py-2.5 text-left w-10">Rank</th>
+                            <th class="px-2 py-2.5 text-left">Company</th>
+                            <th class="px-3 py-2.5 text-left w-20">Ticker</th>
+                            <th class="px-3 py-2.5 text-left w-20">Rating</th>
+                            <th class="px-3 py-2.5 text-left">Fiscal</th>
+                            <th class="px-3 py-2.5 text-right font-mono">12M PD</th>
+                            <th class="px-4 py-2.5 text-right font-mono">5Y PD</th>
                         </tr>
                     </thead>
                     <tbody id="risk-tbody" class="divide-y divide-white/10"></tbody>
                 </table>
             </div>
+
         </div>
 
         <!-- COMPANY DETAIL VIEW (appears when a company is selected) -->
@@ -383,6 +354,12 @@
             <div id="company-header" class="mb-8"></div>
 
             <div id="company-risks" class="grid md:grid-cols-2 gap-5 mb-8"></div>
+
+            <!-- CDS Spread Analyzer (Features 1 + 5) -->
+            <div id="cds-analyzer" class="mb-8"></div>
+
+            <!-- Peer Group Comparison (Feature 4) -->
+            <div id="peer-comparison" class="mb-8"></div>
 
             <!-- Live Market Data -->
             <div id="live-market" class="mb-10"></div>
@@ -400,106 +377,202 @@
         const detailView = document.getElementById('detail-view');
 
         let debounceTimer;
-        let top12mData = [];
-        let top5yData = [];
-        let currentHorizon = '12m';   // '12m' or '5y'
+        let topData = [];
 
-        // Load both lists on page load (wrapped for safety)
+        // Load combined list + calibration on page load
         try {
-            loadBothLists();
+            loadTopList();
+            loadDashCalibration('12m');
         } catch (e) {
-            console.error("Failed to load top lists:", e);
+            console.error("Failed to load dashboard data:", e);
         }
 
-        async function loadBothLists() {
-            const [t12, t5y] = await Promise.all([
-                fetch('/api/top/12m?limit=10').then(r => r.json()),
-                fetch('/api/top/5y?limit=10').then(r => r.json())
-            ]);
-            top12mData = t12;
-            top5yData = t5y;
-            renderCurrentList();
-
-            // Ensure the beautiful sliding toggle starts in correct state
-            switchHorizon('12m');
+        async function loadTopList() {
+            const res = await fetch('/api/top/combined?limit=10');
+            topData = await res.json();
+            renderTopList();
         }
 
-        function renderCurrentList() {
-            const data = (currentHorizon === '12m' ? top12mData : top5yData) || [];
-            const riskKey = currentHorizon === '12m' ? 'pred_risk_2026' : 'pred_risk_5y';
-
+        function renderTopList() {
+            const data = topData || [];
             const tbody = document.getElementById('risk-tbody');
             if (!Array.isArray(data)) {
-                tbody.innerHTML = '<tr><td colspan="6" class="px-8 py-12 text-center text-red-400">Error loading list data. Please restart the server.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" class="px-8 py-12 text-center text-red-400">Error loading list data. Please restart the server.</td></tr>';
+                return;
+            }
+
+            if (data.length === 0) {
+                tbody.innerHTML = `
+            <tr>
+                <td colspan="7" class="px-8 py-12 text-center text-white/50">
+                    No companies with recent data found.<br>
+                    Try re-running <code>generate_risk_lists.py</code> with a relaxed date filter.
+                </td>
+            </tr>`;
                 return;
             }
 
             tbody.innerHTML = data.map((row, i) => {
                 const ticker = row.ticker || '';
                 const rating = (row.credit_rating || '').toString().trim().toUpperCase() || 'Unrated';
-                const risk = ((row[riskKey] || 0) * 100).toFixed(2);
+                const risk12m = ((row.pred_risk_2026 || 0) * 100).toFixed(2);
+                const risk5y = row.pred_risk_5y != null ? ((row.pred_risk_5y) * 100).toFixed(2) : '--';
                 const latest = row.latest_observed_date || row.latest_datadate || '';
+                const delistTag = row.delisted ? '<span class="ml-1.5 px-1.5 py-0.5 rounded text-[9px] font-semibold bg-red-500/20 text-red-300 border border-red-500/40 align-middle">DELISTED</span>' : '';
                 return `
             <tr class="top-table hover:bg-zinc-800/60 cursor-pointer" onclick="selectCompanyFromList('${row.gvkey}', '${row.conm.replace(/'/g, "\\'")}')">
-                <td class="px-8 py-4 font-mono text-white/50">${i + 1}</td>
-                <td class="px-2 py-4 font-semibold tracking-[-0.12px] text-white/95">${row.conm}</td>
-                <td class="px-4 py-4 font-mono text-xs text-white/70">${ticker}</td>
-                <td class="px-4 py-4 font-mono text-xs ${rating !== 'Unrated' ? 'text-white/80' : 'text-white/40'}">${rating}</td>
-                <td class="px-4 py-4 text-sm text-white/70">${latest}</td>
-                <td class="px-8 py-4 text-right font-semibold tabular-nums">${risk}%</td>
+                <td class="px-4 py-2.5 font-mono text-white/50 text-xs">${i + 1}</td>
+                <td class="px-2 py-2.5 font-semibold tracking-[-0.12px] text-white/95 text-sm">${row.conm}${delistTag}</td>
+                <td class="px-3 py-2.5 font-mono text-xs text-white/70">${ticker}</td>
+                <td class="px-3 py-2.5 font-mono text-xs ${rating !== 'Unrated' ? 'text-white/80' : 'text-white/40'}">${rating}</td>
+                <td class="px-3 py-2.5 text-xs text-white/70">${latest}</td>
+                <td class="px-3 py-2.5 text-right font-semibold tabular-nums text-sm">${risk12m}%</td>
+                <td class="px-4 py-2.5 text-right font-semibold tabular-nums text-sm">${risk5y}${risk5y !== '--' ? '%' : ''}</td>
             </tr>`;
             }).join('');
-
-            // Update subtitle
-            const subtitle = document.getElementById('list-subtitle');
-
-            if (data.length === 0) {
-                tbody.innerHTML = `
-            <tr>
-                <td colspan="6" class="px-8 py-12 text-center text-white/50">
-                    No companies with recent data found for this horizon.<br>
-                    Try re-running <code>generate_risk_lists.py</code> with a relaxed date filter.
-                </td>
-            </tr>`;
-                subtitle.textContent = currentHorizon === '12m'
-                    ? "12-Month Horizon — No recent companies"
-                    : "5-Year Horizon — No recent companies";
-                return;
-            }
-
-            subtitle.textContent = currentHorizon === '12m'
-                ? "Dec 2025 — Dec 2026 (Companies with recent data only)"
-                : "Dec 2025 — Dec 2030 (Alive Companies Only, recent data)";
-        }
-
-        function switchHorizon(h) {
-            currentHorizon = h;
-
-            const pill = document.getElementById('horizon-pill');
-            const btn12 = document.getElementById('btn-12m');
-            const btn5y = document.getElementById('btn-5y');
-
-            // Slide the glass pill beautifully (Apple-style)
-            if (pill) {
-                pill.style.transform = h === '12m' ? 'translateX(0)' : 'translateX(100%)';
-            }
-
-            // Update button text contrast (active is pure white)
-            if (btn12) {
-                btn12.style.color = h === '12m' ? '#fff' : 'rgba(255,255,255,0.55)';
-                btn12.style.fontWeight = h === '12m' ? '600' : '500';
-            }
-            if (btn5y) {
-                btn5y.style.color = h === '5y' ? '#fff' : 'rgba(255,255,255,0.55)';
-                btn5y.style.fontWeight = h === '5y' ? '600' : '500';
-            }
-
-            renderCurrentList();
         }
 
         function selectCompanyFromList(gvkey, name) {
             input.value = name;
             loadCompanyDetail(gvkey);
+        }
+
+        // === Dashboard Calibration Table + Chart ===
+        async function loadDashCalibration(horizon) {
+            // Toggle pill
+            const pill = document.getElementById('dash-cal-pill');
+            const btn12 = document.getElementById('dash-cal-12m');
+            const btn5y = document.getElementById('dash-cal-5y');
+            if (pill) pill.style.transform = horizon === '12m' ? 'translateX(0)' : 'translateX(100%)';
+            if (btn12) { btn12.style.color = horizon === '12m' ? '#fff' : 'rgba(255,255,255,0.55)'; btn12.style.fontWeight = horizon === '12m' ? '600' : '500'; }
+            if (btn5y) { btn5y.style.color = horizon === '5y' ? '#fff' : 'rgba(255,255,255,0.55)'; btn5y.style.fontWeight = horizon === '5y' ? '600' : '500'; }
+
+            const tableContainer = document.getElementById('dash-cal-table');
+            try {
+                const res = await fetch(`/api/calibration/${horizon}`);
+                if (!res.ok) {
+                    tableContainer.innerHTML = '<div class="px-6 py-10 text-center text-white/40 text-sm">Not yet generated. Run <code class="text-white/60">python src/build_calibration_table.py</code></div>';
+                    return;
+                }
+                const data = await res.json();
+                if (!data || data.length === 0) {
+                    tableContainer.innerHTML = '<div class="px-6 py-10 text-center text-white/40 text-sm">No calibration data available.</div>';
+                    return;
+                }
+
+                // Render table
+                const rows = data.map(row => {
+                    const ratio = row.ratio;
+                    let rColor = 'text-emerald-400';
+                    if (ratio === null) rColor = 'text-white/40';
+                    else if (ratio > 2.0 || ratio < 0.5) rColor = 'text-red-400';
+                    else if (ratio > 1.5 || ratio < 0.67) rColor = 'text-amber-400';
+
+                    return `<tr class="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                        <td class="py-1.5 px-3 font-mono text-xs text-white/80">${row.bucket}</td>
+                        <td class="py-1.5 px-2 text-right font-mono text-xs text-white/50">${row.count.toLocaleString()}</td>
+                        <td class="py-1.5 px-2 text-right font-mono text-xs text-white/70">${(row.mean_predicted_pd * 100).toFixed(2)}%</td>
+                        <td class="py-1.5 px-2 text-right font-mono text-xs text-white/70">${(row.actual_default_rate * 100).toFixed(2)}%</td>
+                        <td class="py-1.5 px-3 text-right font-mono text-xs font-semibold ${rColor}">${ratio !== null ? ratio.toFixed(2) + 'x' : '--'}</td>
+                    </tr>`;
+                }).join('');
+
+                tableContainer.innerHTML = `
+                    <table class="w-full text-xs">
+                        <thead class="bg-black/30 text-white/50">
+                            <tr>
+                                <th class="py-1.5 px-3 text-left font-medium">PD Bucket</th>
+                                <th class="py-1.5 px-2 text-right font-medium"># Obs</th>
+                                <th class="py-1.5 px-2 text-right font-medium">Predicted</th>
+                                <th class="py-1.5 px-2 text-right font-medium">Actual</th>
+                                <th class="py-1.5 px-3 text-right font-medium">Ratio</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>`;
+
+                // Render chart
+                renderCalChart(data, horizon);
+            } catch (e) {
+                tableContainer.innerHTML = '<div class="px-6 py-10 text-center text-red-400/60 text-sm">Failed to load calibration data.</div>';
+            }
+        }
+
+        function renderCalChart(data, horizon) {
+            const ctx = document.getElementById('cal-chart');
+            if (!ctx) return;
+            if (window.calChart) window.calChart.destroy();
+
+            const labels = data.map(r => r.bucket);
+            const predicted = data.map(r => r.mean_predicted_pd * 100);
+            const actual = data.map(r => r.actual_default_rate * 100);
+
+            // Perfect calibration line (45-degree reference)
+            const maxVal = Math.max(...predicted, ...actual);
+
+            window.calChart = new Chart(ctx.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Predicted PD',
+                            data: predicted,
+                            backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                            borderColor: 'rgba(59, 130, 246, 0.8)',
+                            borderWidth: 1,
+                            borderRadius: 4,
+                            order: 2,
+                        },
+                        {
+                            label: 'Actual Default Rate',
+                            data: actual,
+                            backgroundColor: 'rgba(16, 185, 129, 0.5)',
+                            borderColor: 'rgba(16, 185, 129, 0.8)',
+                            borderWidth: 1,
+                            borderRadius: 4,
+                            order: 1,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: { color: '#a1a1aa', font: { size: 9 }, boxWidth: 10, padding: 10 }
+                        },
+                        tooltip: {
+                            backgroundColor: '#111',
+                            titleColor: '#fff',
+                            bodyColor: '#ddd',
+                            callbacks: {
+                                label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)}%`
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#71717a', font: { size: 9 }, maxRotation: 45 }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.06)' },
+                            ticks: {
+                                color: '#71717a',
+                                font: { size: 10 },
+                                callback: (v) => v.toFixed(0) + '%'
+                            },
+                            title: {
+                                display: false,
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         // Search typeahead
@@ -529,6 +602,7 @@
 
         async function loadCompanyDetail(gvkey) {
             dashboard.classList.add('hidden');
+            document.getElementById('calibration-section').classList.add('hidden');
             detailView.classList.remove('hidden');
 
             const res = await fetch(`/api/predict/${gvkey}`);
@@ -538,8 +612,17 @@
             }
             const d = await res.json();
 
-            const p12 = (d.prob_12m * 100).toFixed(1);
-            const p5 = (d.prob_5y * 100).toFixed(1);
+            // Smart PD formatting: show enough precision so tiny values don't display as "0.0%"
+            function fmtPD(prob) {
+                const pct = prob * 100;
+                if (pct >= 1) return pct.toFixed(1);
+                if (pct >= 0.01) return pct.toFixed(2);
+                if (pct >= 0.001) return pct.toFixed(3);
+                if (prob > 0) return '<0.001';
+                return '0.0';
+            }
+            const p12 = fmtPD(d.prob_12m);
+            const p5 = fmtPD(d.prob_5y);
 
             const tickerHTML = d.ticker && d.ticker.trim()
                 ? `<div class="font-mono text-4xl px-6 py-1 bg-white/10 rounded-2xl tracking-[-1.5px] text-white/95">${d.ticker}</div>`
@@ -560,29 +643,70 @@
                 ratingHTML = `<div class="font-mono text-xs px-3 py-1 rounded-2xl border border-white/20 text-white/50">UNRATED</div>`;
             }
 
+            const delistedHTML = d.delisted
+                ? '<div class="px-2.5 py-1 rounded-xl text-xs font-semibold bg-red-500/20 text-red-300 border border-red-500/40">DELISTED</div>'
+                : '';
+
             document.getElementById('company-header').innerHTML = `
         <div class="flex items-center gap-4 flex-wrap">
             <div class="text-5xl title-font tracking-[-2.2px] font-semibold">${d.conm}</div>
             ${tickerHTML}
             ${ratingHTML}
+            ${delistedHTML}
         </div>
         <div class="text-white/50 mt-1">GVKEY ${d.gvkey} • Latest fiscal: ${d.latest_datadate} • CapIQ/S&amp;P Rating: ${rawRating || 'Unrated (no public issuer rating)'}</div>
     `;
 
             document.getElementById('company-risks').innerHTML = `
         <div class="card rounded-3xl p-8">
-            <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">12-MONTH RISK • DEC 2025–DEC 2026</div>
+            <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">12-MONTH PD • DEC 2025–DEC 2026</div>
             <div class="text-[68px] leading-none font-semibold tabular-nums tracking-[-4px] mt-1">${p12}<span class="text-3xl align-super font-normal">%</span></div>
-            <div class="text-sm mt-1 ${d.risk_level_12m === 'High' ? 'text-red-400' : d.risk_level_12m === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_12m} RISK</div>
+            <div class="text-sm mt-1 ${d.risk_level_12m === 'High' ? 'text-red-400' : d.risk_level_12m === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_12m}</div>
+            <div class="mt-3 pt-3 border-t border-white/10 flex items-center gap-2">
+                <span class="text-[10px] tracking-[1.5px] text-white/40 uppercase">Implied Fair CDS</span>
+                <span class="font-mono text-sm text-white/80">${d.fair_spread_12m != null ? d.fair_spread_12m + ' bps' : '--'}</span>
+            </div>
         </div>
         <div class="card rounded-3xl p-8">
-            <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">5-YEAR RISK • DEC 2025–DEC 2030</div>
+            <div class="uppercase text-xs tracking-[2px] text-white/50 mb-1">5-YEAR PD • DEC 2025–DEC 2030</div>
             <div class="text-[68px] leading-none font-semibold tabular-nums tracking-[-4px] mt-1">${p5}<span class="text-3xl align-super font-normal">%</span></div>
-            <div class="text-sm mt-1 ${d.risk_level_5y === 'High' ? 'text-red-400' : d.risk_level_5y === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_5y} RISK</div>
+            <div class="text-sm mt-1 ${d.risk_level_5y === 'High' ? 'text-red-400' : d.risk_level_5y === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_5y}</div>
+            <div class="mt-3 pt-3 border-t border-white/10 flex items-center gap-2">
+                <span class="text-[10px] tracking-[1.5px] text-white/40 uppercase">Implied Fair CDS</span>
+                <span class="font-mono text-sm text-white/80">${d.fair_spread_5y != null ? d.fair_spread_5y + ' bps' : '--'}</span>
+            </div>
         </div>
     `;
 
+            // === CDS Spread Analyzer (Features 1 + 5: market-implied PD + rich/cheap flag) ===
+            window.currentModelPD12m = d.prob_12m;
+            window.currentModelPD5y = d.prob_5y;
+            document.getElementById('cds-analyzer').innerHTML = `
+        <div class="card rounded-3xl p-7">
+            <div class="uppercase tracking-[2px] text-xs text-white/50 mb-4">CDS SPREAD ANALYZER</div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-xs text-white/50 mb-1.5">CDS Spread (bps)</label>
+                    <input id="cds-spread-input" type="number" min="0" step="1" placeholder="e.g. 250"
+                        class="w-full rounded-xl px-4 py-3 text-lg font-mono bg-white/5 border border-white/15 text-white placeholder:text-white/25 outline-none focus:border-blue-500/50 focus:bg-white/8 transition"
+                        oninput="computeMarketPD()">
+                    <div class="flex items-center gap-3 mt-2">
+                        <label class="text-[10px] text-white/40">Recovery Rate</label>
+                        <select id="cds-recovery" class="bg-white/5 border border-white/15 rounded-lg px-2 py-0.5 text-xs text-white/70 outline-none" onchange="computeMarketPD()">
+                            <option value="0.40" selected>40% (Senior Unsecured)</option>
+                            <option value="0.25">25% (Subordinated)</option>
+                            <option value="0.60">60% (Senior Secured)</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="cds-result" class="flex flex-col justify-center">
+                    <div class="text-white/40 text-sm">Enter a CDS spread to see the market-implied default probability.</div>
+                </div>
+            </div>
+        </div>`;
 
+            // === Peer Group Comparison (Feature 4) ===
+            loadPeerComparison(gvkey, d.prob_12m, d.industry);
 
             // === Live Market Data + Price Chart (consistent section for every company) ===
             const ticker = (d.ticker || '').trim();
@@ -816,6 +940,7 @@
         function showDashboard() {
             detailView.classList.add('hidden');
             dashboard.classList.remove('hidden');
+            document.getElementById('calibration-section').classList.remove('hidden');
             input.value = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1030,6 +1155,142 @@ function updateShapChart(view) {
                 const chartContainer = document.getElementById('chart-container');
                 if (loadingEl) loadingEl.classList.add('hidden');
                 if (chartContainer) chartContainer.style.opacity = '1';
+            }
+        }
+
+        // === CDS Spread Analyzer: compute market-implied PD + rich/cheap flag ===
+        function computeMarketPD() {
+            const spreadInput = document.getElementById('cds-spread-input');
+            const recoverySelect = document.getElementById('cds-recovery');
+            const resultDiv = document.getElementById('cds-result');
+            if (!spreadInput || !resultDiv) return;
+
+            const spreadBps = parseFloat(spreadInput.value);
+            if (isNaN(spreadBps) || spreadBps <= 0) {
+                resultDiv.innerHTML = '<div class="text-white/40 text-sm">Enter a CDS spread to see the market-implied default probability.</div>';
+                return;
+            }
+
+            const recovery = parseFloat(recoverySelect.value);
+            const spreadDecimal = spreadBps / 10000;
+            const marketPD = 1 - Math.exp(-spreadDecimal / (1 - recovery));
+            const marketPDpct = (marketPD * 100).toFixed(2);
+
+            const modelPD = window.currentModelPD12m || 0;
+            const modelPDpct = (modelPD * 100).toFixed(2);
+
+            // Rich/Cheap flag (Feature 5)
+            let flagHTML = '';
+            if (modelPD > 0.0001) {
+                const ratio = marketPD / modelPD;
+                if (ratio > 2.0) {
+                    flagHTML = `<div class="mt-3 flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">CHEAP</span>
+                        <span class="text-xs text-white/50">Market overprices risk (${ratio.toFixed(1)}x model) &mdash; bond may be undervalued</span>
+                    </div>`;
+                } else if (ratio < 0.5) {
+                    flagHTML = `<div class="mt-3 flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/40">RICH</span>
+                        <span class="text-xs text-white/50">Market underprices risk (${ratio.toFixed(1)}x model) &mdash; bond may be overvalued</span>
+                    </div>`;
+                } else {
+                    flagHTML = `<div class="mt-3 flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-white/10 text-white/60 border border-white/20">FAIR</span>
+                        <span class="text-xs text-white/50">Market & model broadly aligned (${ratio.toFixed(1)}x)</span>
+                    </div>`;
+                }
+            }
+
+            resultDiv.innerHTML = `
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <div class="text-[10px] tracking-[1.5px] text-white/40 uppercase mb-0.5">Market-Implied PD</div>
+                        <div class="text-3xl font-semibold tabular-nums tracking-[-1.5px]">${marketPDpct}<span class="text-lg font-normal">%</span></div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] tracking-[1.5px] text-white/40 uppercase mb-0.5">Model PD (12M)</div>
+                        <div class="text-3xl font-semibold tabular-nums tracking-[-1.5px] text-white/70">${modelPDpct}<span class="text-lg font-normal">%</span></div>
+                    </div>
+                </div>
+                ${flagHTML}
+            `;
+        }
+
+        // === Peer Group Comparison (Feature 4) ===
+        async function loadPeerComparison(gvkey, companyPD, industry) {
+            const container = document.getElementById('peer-comparison');
+            if (!container) return;
+            if (!industry || industry.trim() === '') {
+                container.innerHTML = '';
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/peers/${gvkey}`);
+                if (!res.ok) { container.innerHTML = ''; return; }
+                const p = await res.json();
+                if (!p.peer_count || p.peer_count < 2) { container.innerHTML = ''; return; }
+
+                const pctile = p.percentile_rank;
+                const pctColor = pctile >= 80 ? 'text-red-400' : pctile >= 50 ? 'text-amber-400' : 'text-emerald-400';
+
+                // Build peer list rows
+                let peerRows = '';
+                if (p.closest_peers && p.closest_peers.length > 0) {
+                    peerRows = p.closest_peers.map(peer => {
+                        const peerPDpct = (peer.pd_12m * 100).toFixed(2);
+                        return `<tr class="border-b border-white/5 last:border-0">
+                            <td class="py-1.5 pr-3 text-sm text-white/80 cursor-pointer hover:text-white" onclick="selectCompanyFromList('${peer.gvkey}', '${(peer.conm || '').replace(/'/g, "\\'")}')">${peer.conm}</td>
+                            <td class="py-1.5 text-right font-mono text-sm text-white/60">${peerPDpct}%</td>
+                        </tr>`;
+                    }).join('');
+                }
+
+                // Percentile bar visualization
+                const barWidth = Math.max(2, Math.min(98, pctile));
+
+                container.innerHTML = `
+            <div class="card rounded-3xl p-7">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <div class="uppercase tracking-[2px] text-xs text-white/50">PEER COMPARISON</div>
+                        <div class="text-sm text-white/60 mt-0.5">${p.industry} &mdash; ${p.peer_count} companies</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-3xl font-semibold tabular-nums tracking-[-1.5px] ${pctColor}">${pctile}<span class="text-lg font-normal align-super">th</span></div>
+                        <div class="text-[10px] tracking-[1px] text-white/40">RISK PERCENTILE</div>
+                    </div>
+                </div>
+
+                <!-- Percentile bar -->
+                <div class="relative h-2 bg-white/10 rounded-full mb-4 overflow-hidden">
+                    <div class="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-emerald-500 via-amber-500 to-red-500" style="width:100%;opacity:0.3"></div>
+                    <div class="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white border-2 border-zinc-900 shadow-lg" style="left:${barWidth}%"></div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 text-center mb-4">
+                    <div>
+                        <div class="text-[10px] text-white/40 uppercase">Peer Median</div>
+                        <div class="font-mono text-sm text-white/70">${(p.peer_median_pd * 100).toFixed(2)}%</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-white/40 uppercase">Peer Min</div>
+                        <div class="font-mono text-sm text-emerald-400/80">${(p.peer_min_pd * 100).toFixed(3)}%</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] text-white/40 uppercase">Peer Max</div>
+                        <div class="font-mono text-sm text-red-400/80">${(p.peer_max_pd * 100).toFixed(2)}%</div>
+                    </div>
+                </div>
+
+                ${peerRows ? `
+                <div class="border-t border-white/10 pt-3">
+                    <div class="text-[10px] tracking-[1.5px] text-white/40 uppercase mb-2">CLOSEST PEERS BY DEFAULT RISK</div>
+                    <table class="w-full"><tbody>${peerRows}</tbody></table>
+                </div>` : ''}
+            </div>`;
+            } catch (e) {
+                container.innerHTML = '';
             }
         }
     </script>

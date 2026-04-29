@@ -1,0 +1,74 @@
+[
+  {
+    "bucket": "0-1%",
+    "count": 112044,
+    "actual_defaults": 0,
+    "actual_default_rate": 0.0,
+    "mean_predicted_pd": 0.002144,
+    "ratio": 0.0
+  },
+  {
+    "bucket": "1-3%",
+    "count": 21643,
+    "actual_defaults": 10,
+    "actual_default_rate": 0.000462,
+    "mean_predicted_pd": 0.01825,
+    "ratio": 0.025
+  },
+  {
+    "bucket": "3-5%",
+    "count": 9788,
+    "actual_defaults": 42,
+    "actual_default_rate": 0.004291,
+    "mean_predicted_pd": 0.0396,
+    "ratio": 0.108
+  },
+  {
+    "bucket": "5-10%",
+    "count": 22133,
+    "actual_defaults": 199,
+    "actual_default_rate": 0.008991,
+    "mean_predicted_pd": 0.076169,
+    "ratio": 0.118
+  },
+  {
+    "bucket": "10-20%",
+    "count": 13993,
+    "actual_defaults": 857,
+    "actual_default_rate": 0.061245,
+    "mean_predicted_pd": 0.137489,
+    "ratio": 0.445
+  },
+  {
+    "bucket": "20-30%",
+    "count": 5151,
+    "actual_defaults": 1290,
+    "actual_default_rate": 0.250437,
+    "mean_predicted_pd": 0.245216,
+    "ratio": 1.021
+  },
+  {
+    "bucket": "30-50%",
+    "count": 3755,
+    "actual_defaults": 2236,
+    "actual_default_rate": 0.595473,
+    "mean_predicted_pd": 0.370293,
+    "ratio": 1.608
+  },
+  {
+    "bucket": "50-75%",
+    "count": 479,
+    "actual_defaults": 447,
+    "actual_default_rate": 0.933194,
+    "mean_predicted_pd": 0.563845,
+    "ratio": 1.655
+  },
+  {
+    "bucket": "75-90%",
+    "count": 17,
+    "actual_defaults": 17,
+    "actual_default_rate": 1.0,
+    "mean_predicted_pd": 0.775122,
+    "ratio": 1.29
+  }
+]
