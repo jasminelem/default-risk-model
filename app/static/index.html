@@ -1039,19 +1039,13 @@ function updateShapChart(view) {
             const marketPD = 1 - Math.exp(-spreadDecimal / (1 - recovery));
             const marketPDpct = (marketPD * 100).toFixed(2);
 
-            const modelPD12m = window.currentModelPD12m || 0;
             const modelPD5y = window.currentModelPD5y || 0;
-            const modelPD12pct = (modelPD12m * 100).toFixed(2);
             const modelPD5ypct = (modelPD5y * 100).toFixed(2);
 
-            // Fair spreads from model PDs
-            const fairSpread12m = Math.round(-Math.log(1 - Math.min(modelPD12m, 0.9999)) * (1 - recovery) * 10000);
-            const fairSpread5y = Math.round(-Math.log(1 - Math.min(modelPD5y, 0.9999)) * (1 - recovery) * 10000);
-
-            // Rich/Cheap flag vs 12m model
+            // Rich/Cheap flag vs 5y model PD
             let flagHTML = '';
-            if (modelPD12m > 0) {
-                const ratio = marketPD / modelPD12m;
+            if (modelPD5y > 0) {
+                const ratio = marketPD / modelPD5y;
                 if (ratio > 2.0) {
                     flagHTML = `<span class="px-2 py-0.5 rounded text-xs font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">CHEAP</span>
                         <span class="text-xs text-white/40">Market overprices risk (${ratio.toFixed(1)}x model)</span>`;
@@ -1065,20 +1059,11 @@ function updateShapChart(view) {
             }
 
             resultDiv.innerHTML = `
-                <div class="space-y-3">
-                    <div>
-                        <div class="text-xs text-white/35 mb-1">Market-Implied PD</div>
-                        <div class="text-3xl font-semibold tabular-nums tracking-[-1.5px]">${marketPDpct}<span class="text-lg font-normal">%</span></div>
-                        <div class="text-xs text-white/30 mt-0.5">${spreadBps} bps spread</div>
-                    </div>
-                    <div class="border-t border-white/[0.04] pt-3">
-                        <table class="w-full text-xs">
-                            <tr class="text-white/25"><th class="text-left font-medium pb-1"></th><th class="text-right font-medium pb-1">Model PD</th><th class="text-right font-medium pb-1">Fair Spread</th></tr>
-                            <tr class="text-white/60 border-b border-white/[0.04]"><td class="py-1">12-Month</td><td class="py-1 text-right tabular-nums">${modelPD12pct}%</td><td class="py-1 text-right tabular-nums">${fairSpread12m} bps</td></tr>
-                            <tr class="text-white/60"><td class="py-1">5-Year</td><td class="py-1 text-right tabular-nums">${modelPD5ypct}%</td><td class="py-1 text-right tabular-nums">${fairSpread5y} bps</td></tr>
-                        </table>
-                    </div>
-                    ${flagHTML ? `<div class="flex items-center gap-2 pt-1">${flagHTML}</div>` : ''}
+                <div>
+                    <div class="text-xs text-white/35 mb-1">Market-Implied PD</div>
+                    <div class="text-3xl font-semibold tabular-nums tracking-[-1.5px]">${marketPDpct}<span class="text-lg font-normal">%</span></div>
+                    <div class="text-xs text-white/30 mt-1">vs Model 5Y PD: ${modelPD5ypct}%</div>
+                    ${flagHTML ? `<div class="flex items-center gap-2 mt-2">${flagHTML}</div>` : ''}
                 </div>
             `;
         }
