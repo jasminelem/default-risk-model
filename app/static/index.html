@@ -430,28 +430,34 @@
                 if (!data || !data.length) { container.innerHTML = '<div class="text-xs text-white/20 py-4">No data.</div>'; return; }
 
                 const rows = data.map(r => {
-                    let c = 'text-white/40';
-                    if (r.ratio === null) c = 'text-white/20';
-                    else if (r.ratio > 0.8 && r.ratio < 1.25) c = 'text-emerald-400/70';
-                    else if (r.ratio > 1.5 || r.ratio < 0.67) c = 'text-red-400/70';
-                    else c = 'text-amber-400/70';
-                    return `<tr class="border-b border-white/[0.04]">
-                        <td class="py-1.5 pr-4 font-mono text-white/50">${r.bucket}</td>
-                        <td class="py-1.5 pr-4 text-right text-white/25">${r.count.toLocaleString()}</td>
-                        <td class="py-1.5 pr-4 text-right text-white/50">${(r.mean_predicted_pd*100).toFixed(2)}%</td>
-                        <td class="py-1.5 pr-4 text-right text-white/50">${(r.actual_default_rate*100).toFixed(2)}%</td>
-                        <td class="py-1.5 text-right font-medium ${c}">${r.ratio !== null ? r.ratio.toFixed(2)+'x' : '--'}</td>
+                    let c = 'text-white/40'; let bg = 'bg-white/5';
+                    if (r.ratio === null) { c = 'text-white/20'; bg = 'bg-white/5'; }
+                    else if (r.ratio > 0.8 && r.ratio < 1.25) { c = 'text-emerald-400'; bg = 'bg-emerald-400/15'; }
+                    else if (r.ratio > 1.5 || r.ratio < 0.67) { c = 'text-red-400'; bg = 'bg-red-400/15'; }
+                    else { c = 'text-amber-400'; bg = 'bg-amber-400/15'; }
+                    const barW = r.ratio !== null ? Math.min(100, Math.max(5, r.ratio * 50)) : 0;
+                    return `<tr class="border-b border-white/[0.04] hover:bg-white/[0.02] transition-colors">
+                        <td class="py-2 pr-4 font-mono text-white/70">${r.bucket}</td>
+                        <td class="py-2 pr-4 text-right text-white/35 tabular-nums">${r.count.toLocaleString()}</td>
+                        <td class="py-2 pr-4 text-right text-white/60 tabular-nums">${(r.mean_predicted_pd*100).toFixed(2)}%</td>
+                        <td class="py-2 pr-4 text-right text-white/60 tabular-nums">${(r.actual_default_rate*100).toFixed(2)}%</td>
+                        <td class="py-2 pr-1 text-right">
+                            <span class="inline-flex items-center gap-1.5">
+                                <span class="inline-block h-1.5 rounded-full ${bg}" style="width:${barW}px"></span>
+                                <span class="font-medium tabular-nums ${c}">${r.ratio !== null ? r.ratio.toFixed(2)+'x' : '--'}</span>
+                            </span>
+                        </td>
                     </tr>`;
                 }).join('');
 
                 container.innerHTML = `
                     <table class="w-full text-xs">
-                        <thead><tr class="text-white/20 border-b border-white/[0.06]">
-                            <th class="py-1.5 pr-4 text-left font-medium">Bucket</th>
-                            <th class="py-1.5 pr-4 text-right font-medium">Firms</th>
-                            <th class="py-1.5 pr-4 text-right font-medium">Predicted</th>
-                            <th class="py-1.5 pr-4 text-right font-medium">Actual</th>
-                            <th class="py-1.5 text-right font-medium">Ratio</th>
+                        <thead><tr class="text-white/35 border-b border-white/[0.06]">
+                            <th class="py-2 pr-4 text-left font-medium">Bucket</th>
+                            <th class="py-2 pr-4 text-right font-medium">Firms</th>
+                            <th class="py-2 pr-4 text-right font-medium">Predicted</th>
+                            <th class="py-2 pr-4 text-right font-medium">Actual</th>
+                            <th class="py-2 pr-1 text-right font-medium">Ratio</th>
                         </tr></thead>
                         <tbody>${rows}</tbody>
                     </table>`;
