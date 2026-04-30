@@ -296,7 +296,6 @@
                         <th class="py-2 pl-1 pr-4 text-left w-8">#</th>
                         <th class="py-2 pr-4 text-left">Company</th>
                         <th class="py-2 pr-4 text-left w-16">Ticker</th>
-                        <th class="py-2 pr-4 text-left w-16">Rating</th>
                         <th class="py-2 pr-4 text-left w-20">Fiscal</th>
                         <th class="py-2 pr-4 text-right font-mono w-20">12M PD</th>
                         <th class="py-2 pr-1 text-right font-mono w-20">5Y PD</th>
@@ -389,7 +388,6 @@
 
             tbody.innerHTML = data.map((row, i) => {
                 const ticker = row.ticker || '';
-                const rating = (row.credit_rating || '').toString().trim().toUpperCase() || '';
                 const risk12m = ((row.pred_risk_2026 || 0) * 100).toFixed(2);
                 const risk5y = row.pred_risk_5y != null ? ((row.pred_risk_5y) * 100).toFixed(2) : '--';
                 const latest = row.latest_observed_date || row.latest_datadate || '';
@@ -398,7 +396,6 @@
                 <td class="py-2.5 pl-1 pr-4 font-mono text-white/25 text-xs">${i + 1}</td>
                 <td class="py-2.5 pr-4 font-medium text-white/90 text-sm">${row.conm}</td>
                 <td class="py-2.5 pr-4 font-mono text-xs text-white/40">${ticker}</td>
-                <td class="py-2.5 pr-4 font-mono text-xs ${rating ? 'text-white/50' : 'text-white/15'}">${rating || '--'}</td>
                 <td class="py-2.5 pr-4 text-xs text-white/30 whitespace-nowrap">${latest}</td>
                 <td class="py-2.5 pr-4 text-right font-mono tabular-nums text-sm text-white/70">${risk12m}%</td>
                 <td class="py-2.5 pr-1 text-right font-mono tabular-nums text-sm text-white/70">${risk5y}${risk5y !== '--' ? '%' : ''}</td>
@@ -519,33 +516,12 @@
                 ? `<div class="font-mono text-4xl px-6 py-1 bg-white/10 rounded-2xl tracking-[-1.5px] text-white/95">${d.ticker}</div>`
                 : '';
 
-            // Credit rating badge (CapIQ / S&P issuer rating)
-            let ratingHTML = '';
-            const rawRating = (d.credit_rating || '').toString().trim().toUpperCase();
-            if (rawRating && rawRating !== 'NR' && rawRating !== 'N/A' && rawRating !== '') {
-                const r = rawRating;
-                const isIG = /^(AAA|AA[+-]?|A[+-]?|BBB[+-]?)$/.test(r);
-                const isJunk = /^(BB[+-]?|B[+-]?|CCC[+-]?|CC|C|D)$/.test(r);
-                const ratingClass = isIG ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' :
-                                  isJunk ? 'bg-rose-500/20 text-rose-300 border-rose-500/40' :
-                                  'bg-amber-500/20 text-amber-300 border-amber-500/40';
-                ratingHTML = `<div class="font-mono text-xl px-4 py-1 rounded-2xl border tracking-[1px] ${ratingClass}">${r}</div>`;
-            } else {
-                ratingHTML = `<div class="font-mono text-xs px-3 py-1 rounded-2xl border border-white/20 text-white/50">UNRATED</div>`;
-            }
-
-            const delistedHTML = d.delisted
-                ? '<div class="px-2.5 py-1 rounded-xl text-xs font-semibold bg-red-500/20 text-red-300 border border-red-500/40">DELISTED</div>'
-                : '';
-
             document.getElementById('company-header').innerHTML = `
         <div class="flex items-center gap-4 flex-wrap">
             <div class="text-5xl title-font tracking-[-2.2px] font-semibold">${d.conm}</div>
             ${tickerHTML}
-            ${ratingHTML}
-            ${delistedHTML}
         </div>
-        <div class="text-white/50 mt-1">GVKEY ${d.gvkey} • Latest fiscal: ${d.latest_datadate} • CapIQ/S&amp;P Rating: ${rawRating || 'Unrated (no public issuer rating)'}</div>
+        <div class="text-white/35 text-sm mt-1">GVKEY ${d.gvkey} &middot; Latest fiscal: ${d.latest_datadate}</div>
     `;
 
             document.getElementById('company-risks').innerHTML = `
