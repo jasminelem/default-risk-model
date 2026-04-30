@@ -530,7 +530,6 @@
             <div class="text-[56px] leading-none font-semibold tabular-nums tracking-[-3px]">${p12}<span class="text-2xl align-super font-normal">%</span></div>
             <div class="flex items-center gap-3 mt-1">
                 <span class="text-sm ${d.risk_level_12m === 'High' ? 'text-red-400' : d.risk_level_12m === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_12m}</span>
-                <span class="text-xs text-white/25">${d.fair_spread_12m != null ? d.fair_spread_12m + ' bps' : ''}</span>
             </div>
         </div>
         <div>
@@ -538,7 +537,6 @@
             <div class="text-[56px] leading-none font-semibold tabular-nums tracking-[-3px]">${p5}<span class="text-2xl align-super font-normal">%</span></div>
             <div class="flex items-center gap-3 mt-1">
                 <span class="text-sm ${d.risk_level_5y === 'High' ? 'text-red-400' : d.risk_level_5y === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_5y}</span>
-                <span class="text-xs text-white/25">${d.fair_spread_5y != null ? d.fair_spread_5y + ' bps' : ''}</span>
             </div>
         </div>
     `;
