@@ -530,7 +530,7 @@
             <div class="text-[56px] leading-none font-semibold tabular-nums tracking-[-3px]">${p12}<span class="text-2xl align-super font-normal">%</span></div>
             <div class="flex items-center gap-3 mt-1">
                 <span class="text-sm ${d.risk_level_12m === 'High' ? 'text-red-400' : d.risk_level_12m === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_12m}</span>
-                
+                <span class="text-xs text-white/25">${d.fair_spread_12m != null ? d.fair_spread_12m + ' bps' : ''}</span>
             </div>
         </div>
         <div>
@@ -538,7 +538,7 @@
             <div class="text-[56px] leading-none font-semibold tabular-nums tracking-[-3px]">${p5}<span class="text-2xl align-super font-normal">%</span></div>
             <div class="flex items-center gap-3 mt-1">
                 <span class="text-sm ${d.risk_level_5y === 'High' ? 'text-red-400' : d.risk_level_5y === 'Medium' ? 'text-amber-400' : 'text-emerald-400'}">${d.risk_level_5y}</span>
-                
+                <span class="text-xs text-white/25">${d.fair_spread_5y != null ? d.fair_spread_5y + ' bps' : ''}</span>
             </div>
         </div>
     `;
@@ -1039,43 +1039,47 @@ function updateShapChart(view) {
             const marketPD = 1 - Math.exp(-spreadDecimal / (1 - recovery));
             const marketPDpct = (marketPD * 100).toFixed(2);
 
-            const modelPD = window.currentModelPD12m || 0;
-            const modelPDpct = (modelPD * 100).toFixed(2);
+            const modelPD12m = window.currentModelPD12m || 0;
+            const modelPD5y = window.currentModelPD5y || 0;
+            const modelPD12pct = (modelPD12m * 100).toFixed(2);
+            const modelPD5ypct = (modelPD5y * 100).toFixed(2);
 
-            // Rich/Cheap flag (Feature 5)
+            // Fair spreads from model PDs
+            const fairSpread12m = Math.round(-Math.log(1 - Math.min(modelPD12m, 0.9999)) * (1 - recovery) * 10000);
+            const fairSpread5y = Math.round(-Math.log(1 - Math.min(modelPD5y, 0.9999)) * (1 - recovery) * 10000);
+
+            // Rich/Cheap flag vs 12m model
             let flagHTML = '';
-            if (modelPD > 0) {
-                const ratio = marketPD / modelPD;
+            if (modelPD12m > 0) {
+                const ratio = marketPD / modelPD12m;
                 if (ratio > 2.0) {
-                    flagHTML = `<div class="mt-3 flex items-center gap-2">
-                        <span class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">CHEAP</span>
-                        <span class="text-xs text-white/50">Market overprices risk (${ratio.toFixed(1)}x model) &mdash; bond may be undervalued</span>
-                    </div>`;
+                    flagHTML = `<span class="px-2 py-0.5 rounded text-xs font-medium bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">CHEAP</span>
+                        <span class="text-xs text-white/40">Market overprices risk (${ratio.toFixed(1)}x model)</span>`;
                 } else if (ratio < 0.5) {
-                    flagHTML = `<div class="mt-3 flex items-center gap-2">
-                        <span class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/40">RICH</span>
-                        <span class="text-xs text-white/50">Market underprices risk (${ratio.toFixed(1)}x model) &mdash; bond may be overvalued</span>
-                    </div>`;
+                    flagHTML = `<span class="px-2 py-0.5 rounded text-xs font-medium bg-rose-500/15 text-rose-400 border border-rose-500/30">RICH</span>
+                        <span class="text-xs text-white/40">Market underprices risk (${ratio.toFixed(1)}x model)</span>`;
                 } else {
-                    flagHTML = `<div class="mt-3 flex items-center gap-2">
-                        <span class="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-white/10 text-white/60 border border-white/20">FAIR</span>
-                        <span class="text-xs text-white/50">Market & model broadly aligned (${ratio.toFixed(1)}x)</span>
-                    </div>`;
+                    flagHTML = `<span class="px-2 py-0.5 rounded text-xs font-medium bg-white/[0.06] text-white/50 border border-white/10">FAIR</span>
+                        <span class="text-xs text-white/40">Aligned (${ratio.toFixed(1)}x)</span>`;
                 }
             }
 
             resultDiv.innerHTML = `
-                <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-3">
                     <div>
-                        <div class="text-[10px] tracking-[1.5px] text-white/40 uppercase mb-0.5">Market-Implied PD</div>
+                        <div class="text-xs text-white/35 mb-1">Market-Implied PD</div>
                         <div class="text-3xl font-semibold tabular-nums tracking-[-1.5px]">${marketPDpct}<span class="text-lg font-normal">%</span></div>
+                        <div class="text-xs text-white/30 mt-0.5">${spreadBps} bps spread</div>
                     </div>
-                    <div>
-                        <div class="text-[10px] tracking-[1.5px] text-white/40 uppercase mb-0.5">Model PD (12M)</div>
-                        <div class="text-3xl font-semibold tabular-nums tracking-[-1.5px] text-white/70">${modelPDpct}<span class="text-lg font-normal">%</span></div>
+                    <div class="border-t border-white/[0.04] pt-3">
+                        <table class="w-full text-xs">
+                            <tr class="text-white/25"><th class="text-left font-medium pb-1"></th><th class="text-right font-medium pb-1">Model PD</th><th class="text-right font-medium pb-1">Fair Spread</th></tr>
+                            <tr class="text-white/60 border-b border-white/[0.04]"><td class="py-1">12-Month</td><td class="py-1 text-right tabular-nums">${modelPD12pct}%</td><td class="py-1 text-right tabular-nums">${fairSpread12m} bps</td></tr>
+                            <tr class="text-white/60"><td class="py-1">5-Year</td><td class="py-1 text-right tabular-nums">${modelPD5ypct}%</td><td class="py-1 text-right tabular-nums">${fairSpread5y} bps</td></tr>
+                        </table>
                     </div>
+                    ${flagHTML ? `<div class="flex items-center gap-2 pt-1">${flagHTML}</div>` : ''}
                 </div>
-                ${flagHTML}
             `;
         }
 
