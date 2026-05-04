@@ -333,8 +333,6 @@
 
             <div id="company-risks" class="grid md:grid-cols-2 gap-8 mb-6"></div>
 
-            <div id="pd-curve" class="border-t border-white/[0.06] pt-6 mb-6"></div>
-
             <div id="cds-analyzer" class="mb-6"></div>
 
             <div id="peer-comparison" class="mb-6"></div>
@@ -728,78 +726,11 @@
             // Store ticker for period switching (used by changeStockPeriod if needed)
             window.currentDetailTicker = ticker || null;
 
-            // PD term structure curve
-            renderPDCurve(d);
-
             // Always render SHAP feature importance
             renderFeatureImportance(d);
         }
 
-        function renderPDCurve(d) {
-            const container = document.getElementById('pd-curve');
-            if (!d.pd_curve || d.pd_curve.length === 0) {
-                container.innerHTML = '';
-                return;
-            }
 
-            container.innerHTML = `
-                <div class="text-xs text-white/35 mb-3">PD TERM STRUCTURE</div>
-                <div class="relative h-[180px] w-full">
-                    <canvas id="pd-curve-chart"></canvas>
-                </div>
-            `;
-
-            const ctx = document.getElementById('pd-curve-chart').getContext('2d');
-            const labels = d.pd_curve.map(p => p.horizon + 'm');
-            const values = d.pd_curve.map(p => p.pd * 100);
-
-            if (window.pdCurveChart) window.pdCurveChart.destroy();
-            window.pdCurveChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: values,
-                        borderColor: '#6366f1',
-                        backgroundColor: 'rgba(99, 102, 241, 0.08)',
-                        borderWidth: 2,
-                        tension: 0.3,
-                        pointRadius: 3,
-                        pointBackgroundColor: '#6366f1',
-                        pointHoverRadius: 5,
-                        fill: true,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: '#111',
-                            titleColor: '#fff',
-                            bodyColor: '#ddd',
-                            displayColors: false,
-                            callbacks: { label: (ctx) => ctx.parsed.y.toFixed(2) + '% PD' }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: 'rgba(255,255,255,0.25)', font: { size: 10 } }
-                        },
-                        y: {
-                            grid: { color: 'rgba(255,255,255,0.04)' },
-                            ticks: {
-                                color: 'rgba(255,255,255,0.25)',
-                                font: { size: 10 },
-                                callback: (v) => v.toFixed(1) + '%'
-                            }
-                        }
-                    }
-                }
-            });
-        }
 
         // Helper to fetch + draw stock chart (used for initial load + period switches)
         async function loadStockHistory(ticker, period) {
