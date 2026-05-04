@@ -333,6 +333,8 @@
 
             <div id="company-risks" class="grid md:grid-cols-2 gap-8 mb-6"></div>
 
+            <div id="pd-curve" class="border-t border-white/[0.06] pt-6 mb-6"></div>
+
             <div id="cds-analyzer" class="mb-6"></div>
 
             <div id="peer-comparison" class="mb-6"></div>
@@ -726,7 +728,10 @@
             // Store ticker for period switching (used by changeStockPeriod if needed)
             window.currentDetailTicker = ticker || null;
 
-            // Always render SHAP feature importance
+            // PD term structure curve
+            renderPDCurve(d);
+
+            // SHAP feature importance (1Y-5Y)
             renderFeatureImportance(d);
         }
 
@@ -910,82 +915,109 @@
             }
         });
 
+function renderPDCurve(d) {
+    const container = document.getElementById('pd-curve');
+    if (!d.pd_curve || d.pd_curve.length === 0) { container.innerHTML = ''; return; }
+
+    container.innerHTML = `
+        <div class="text-xs text-white/35 mb-3">PD TERM STRUCTURE</div>
+        <div class="relative h-[180px] w-full">
+            <canvas id="pd-curve-chart"></canvas>
+        </div>
+    `;
+
+    const ctx = document.getElementById('pd-curve-chart').getContext('2d');
+    const labels = d.pd_curve.map(p => {
+        const m = p.horizon;
+        return m < 12 ? m + 'm' : (m / 12) + 'Y';
+    });
+    const values = d.pd_curve.map(p => p.pd * 100);
+
+    if (window.pdCurveChart) window.pdCurveChart.destroy();
+    window.pdCurveChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                borderColor: '#6366f1',
+                backgroundColor: 'rgba(99, 102, 241, 0.06)',
+                borderWidth: 2,
+                tension: 0.3,
+                pointRadius: 3,
+                pointBackgroundColor: '#6366f1',
+                pointHoverRadius: 5,
+                fill: true,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#111', titleColor: '#fff', bodyColor: '#ddd',
+                    displayColors: false,
+                    callbacks: { label: (c) => c.parsed.y.toFixed(2) + '% PD' }
+                }
+            },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.25)', font: { size: 10 } } },
+                y: {
+                    grid: { color: 'rgba(255,255,255,0.04)' },
+                    ticks: { color: 'rgba(255,255,255,0.25)', font: { size: 10 }, callback: (v) => v.toFixed(1) + '%' }
+                }
+            }
+        }
+    });
+}
+
 function renderFeatureImportance(d) {
-    if (!d.top_features_12m || !d.top_features_5y) {
-        document.getElementById('company-shap').innerHTML = '<div class="text-white/40">No feature explanations available.</div>';
+    const years = ['1Y', '2Y', '3Y', '4Y', '5Y'];
+    const shapYears = d.shap_years || {};
+
+    // Fallback: if shap_years not present, use legacy fields
+    if (!shapYears['1Y'] && d.top_features_12m) shapYears['1Y'] = d.top_features_12m;
+    if (!shapYears['5Y'] && d.top_features_5y) shapYears['5Y'] = d.top_features_5y;
+
+    const available = years.filter(y => shapYears[y] && shapYears[y].length > 0);
+    if (available.length === 0) {
+        document.getElementById('company-shap').innerHTML = '<div class="text-white/30 text-sm">No feature explanations available.</div>';
         return;
     }
 
-    // Store data globally for slider interaction
-    window.shapData = {
-        '12m': d.top_features_12m.slice(0, 8).reverse(),
-        '5y': d.top_features_5y.slice(0, 8).reverse()
-    };
+    window.shapData = {};
+    available.forEach(y => { window.shapData[y] = shapYears[y].slice(0, 8).reverse(); });
 
-    const containerHTML = `
-        <div class="flex justify-between items-center mb-2">
-            <div class="text-xs text-white/35" id="shap-view-label">12-MONTH FEATURE IMPACT</div>
-            <!-- Reusing the Liquid Glass Segmented Control style from the Top 10 page -->
-            <div id="shap-toggle" class="relative flex rounded-xl p-0.5 text-xs border border-white/15 bg-white/5">
-                <div id="shap-pill" class="absolute top-0.5 bottom-0.5 left-0.5 w-[calc(50%-2px)] bg-white/10 rounded-[6px] transition-all duration-300"></div>
-                <button id="shap-12m" onclick="updateShapChart('12m')" class="relative z-10 px-3 py-0.5 font-medium text-white active">12M</button>
-                <button id="shap-5y" onclick="updateShapChart('5y')" class="relative z-10 px-3 py-0.5 text-white/60 hover:text-white">5Y</button>
-            </div>
+    const buttons = available.map(y =>
+        `<button onclick="updateShapChart('${y}')" class="shap-yr-btn text-xs px-2.5 py-1 rounded transition-colors ${y === available[0] ? 'font-medium text-white/80 bg-white/[0.06]' : 'text-white/30 hover:text-white/60'}">${y}</button>`
+    ).join('');
+
+    document.getElementById('company-shap').innerHTML = `
+        <div class="flex items-center justify-between mb-3">
+            <div class="text-xs text-white/35" id="shap-view-label">${available[0]} FEATURE IMPACT</div>
+            <div class="flex gap-1">${buttons}</div>
         </div>
         <div class="relative h-[280px] w-full">
             <canvas id="shap-chart"></canvas>
         </div>
     `;
-    
-    document.getElementById('company-shap').innerHTML = containerHTML;
 
-    // Setup Segmented Control (Reusing Horizon Toggle logic)
-    const label = document.getElementById('shap-view-label');
-    const pill = document.getElementById('shap-pill');
-    const btn12 = document.getElementById('shap-12m');
-    const btn5y = document.getElementById('shap-5y');
-
-    function setShapToggle(view) {
-        if (pill) {
-            pill.style.transform = view === '12m' ? 'translateX(0)' : 'translateX(100%)';
-        }
-        if (btn12) {
-            btn12.style.color = view === '12m' ? '#fff' : 'rgba(255,255,255,0.55)';
-            btn12.style.fontWeight = view === '12m' ? '600' : '500';
-        }
-        if (btn5y) {
-            btn5y.style.color = view === '5y' ? '#fff' : 'rgba(255,255,255,0.55)';
-            btn5y.style.fontWeight = view === '5y' ? '600' : '500';
-        }
-    }
-
-    // Initial state
-    setShapToggle('12m');
-
-    updateShapChart('12m');
+    updateShapChart(available[0]);
 }
 
 function updateShapChart(view) {
-    // Update the visual toggle state (the sliding pill) - Logic moved here to avoid scope issues
-    const pill = document.getElementById('shap-pill');
-    const btn12 = document.getElementById('shap-12m');
-    const btn5y = document.getElementById('shap-5y');
-    const label = document.getElementById('shap-view-label');
+    // Update button states
+    document.querySelectorAll('.shap-yr-btn').forEach(btn => {
+        if (btn.textContent === view) {
+            btn.className = 'shap-yr-btn text-xs px-2.5 py-1 rounded font-medium text-white/80 bg-white/[0.06] transition-colors';
+        } else {
+            btn.className = 'shap-yr-btn text-xs px-2.5 py-1 rounded text-white/30 hover:text-white/60 transition-colors';
+        }
+    });
 
-    if (pill) {
-        pill.style.transform = view === '12m' ? 'translateX(0)' : 'translateX(100%)';
-    }
-    if (btn12) {
-        btn12.style.color = view === '12m' ? '#fff' : 'rgba(255,255,255,0.55)';
-        btn12.style.fontWeight = view === '12m' ? '600' : '500';
-    }
-    if (btn5y) {
-        btn5y.style.color = view === '5y' ? '#fff' : 'rgba(255,255,255,0.55)';
-        btn5y.style.fontWeight = view === '5y' ? '600' : '500';
-    }
-    if (label) {
-        label.textContent = view === '12m' ? '12-Month Feature Impact' : '5-Year Feature Impact';
-    }
+    const label = document.getElementById('shap-view-label');
+    if (label) label.textContent = view + ' FEATURE IMPACT';
 
     const ctx = document.getElementById('shap-chart').getContext('2d');
     const data = window.shapData[view];

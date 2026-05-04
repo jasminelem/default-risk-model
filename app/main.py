@@ -321,13 +321,14 @@ def _predict_and_explain(row: pd.Series) -> Dict[str, Any]:
     prob_12m = pd_curve[1]["pd"]  # index 1 = 12m
     prob_5y = pd_curve[9]["pd"]   # index 9 = 60m
 
-    # SHAP (on raw model, 12m and 5y only)
-    X_12m = pd.DataFrame([base_vals + [np.float32(12)]], columns=FEATURE_COLS)
-    X_60m = pd.DataFrame([base_vals + [np.float32(60)]], columns=FEATURE_COLS)
-    shap_12m = explainer.shap_values(X_12m)[0]
-    shap_5y = explainer.shap_values(X_60m)[0]
+    # SHAP at yearly horizons (12, 24, 36, 48, 60 months)
+    SHAP_HORIZONS = [12, 24, 36, 48, 60]
+    shap_by_year = {}
+    for h in SHAP_HORIZONS:
+        X_h = pd.DataFrame([base_vals + [np.float32(h)]], columns=FEATURE_COLS)
+        shap_by_year[h] = explainer.shap_values(X_h)[0]
 
-    def top_features(shap_vals, top_k=12):
+    def top_features(shap_vals, top_k=10):
         contrib = [(f, v) for f, v in zip(FEATURE_COLS, shap_vals) if f != "horizon_months"]
         contrib = sorted(contrib, key=lambda x: abs(x[1]), reverse=True)[:top_k]
         return [
@@ -341,14 +342,21 @@ def _predict_and_explain(row: pd.Series) -> Dict[str, Any]:
             for f, v in contrib
         ]
 
+    # Build SHAP for each year
+    shap_years = {}
+    for h in SHAP_HORIZONS:
+        label = f"{h // 12}Y"
+        shap_years[label] = top_features(shap_by_year[h])
+
     return {
         "prob_12m": round(prob_12m, 4),
         "prob_5y": round(prob_5y, 4),
         "pd_curve": pd_curve,
         "risk_level_12m": "High" if prob_12m > 0.55 else ("Medium" if prob_12m > 0.30 else "Low"),
         "risk_level_5y": "High" if prob_5y > 0.40 else ("Medium" if prob_5y > 0.18 else "Low"),
-        "top_features_12m": top_features(shap_12m),
-        "top_features_5y": top_features(shap_5y),
+        "top_features_12m": shap_years.get("1Y", []),
+        "top_features_5y": shap_years.get("5Y", []),
+        "shap_years": shap_years,
         "feature_count": len(BASE_FEATURES),
     }
 
