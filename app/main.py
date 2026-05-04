@@ -53,8 +53,7 @@ app.mount("/outputs", StaticFiles(directory=str(PROJECT_ROOT / "outputs")), name
 print("Loading production models and data for the Credit Risk UI...")
 
 # Unified hazard model: single model, horizon is a feature
-calibrated_model = joblib.load(MODELS_DIR / "unified_calibrated.joblib")
-raw_model = joblib.load(MODELS_DIR / "unified_model.joblib")
+model = joblib.load(MODELS_DIR / "unified_model.joblib")
 
 # Feature columns (includes horizon_months)
 with open(MODELS_DIR / "feature_cols.json") as f:
@@ -99,8 +98,8 @@ DELISTED_GVKEYS = set(
 )
 print(f">>> {len(DELISTED_GVKEYS)} companies flagged as delisted/bankrupt")
 
-# Single SHAP explainer for the unified model
-explainer = shap.TreeExplainer(raw_model)
+# Single SHAP explainer
+explainer = shap.TreeExplainer(model)
 
 # Load feature translations for nice SHAP explanations
 try:
@@ -134,7 +133,7 @@ _X_base = _latest_per_company[BASE_FEATURES].fillna(0).infer_objects(copy=False)
 import numpy as np
 _X_12m = _X_base.copy()
 _X_12m["horizon_months"] = np.float32(12)
-_pd_all = calibrated_model.predict_proba(_X_12m)[:, 1]
+_pd_all = model.predict_proba(_X_12m)[:, 1]
 all_company_pds = pd.DataFrame({
     "gvkey": _latest_per_company["gvkey"].values,
     "pd_12m": _pd_all,
@@ -313,7 +312,7 @@ def _predict_and_explain(row: pd.Series) -> Dict[str, Any]:
     prev_pd = 0.0
     for h in HORIZONS:
         X_h = pd.DataFrame([base_vals + [np.float32(h)]], columns=FEATURE_COLS)
-        raw_pd = float(calibrated_model.predict_proba(X_h)[0, 1])
+        raw_pd = float(model.predict_proba(X_h)[0, 1])
         pd_val = max(raw_pd, prev_pd)  # monotonicity safety net
         pd_curve.append({"horizon": h, "pd": round(pd_val, 6)})
         prev_pd = pd_val
@@ -484,7 +483,7 @@ def peer_comparison(gvkey: str) -> Dict[str, Any]:
             row = _get_latest_row(gvkey)
             X_s = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
             X_12m = pd.DataFrame([list(X_s.values) + [np.float32(12)]], columns=FEATURE_COLS)
-            company_pd = float(calibrated_model.predict_proba(X_12m)[0, 1])
+            company_pd = float(model.predict_proba(X_12m)[0, 1])
         except Exception:
             return {"industry": peer_label, "peer_count": len(peers)}
     else:
@@ -727,7 +726,7 @@ def top_combined(limit: int = 10):
             row = _get_latest_row(r["gvkey"])
             X_base = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
             X_60m = pd.DataFrame([list(X_base.values) + [np.float32(60)]], columns=FEATURE_COLS)
-            p5y = float(calibrated_model.predict_proba(X_60m)[0, 1])
+            p5y = float(model.predict_proba(X_60m)[0, 1])
             p12m = r["pd_12m"]
             pd_5y_list.append(max(p5y, p12m * 1.15, p12m + 0.005))
         except Exception:

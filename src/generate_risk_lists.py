@@ -5,8 +5,8 @@ Regenerate the Top Risk Lists using the unified hazard model.
 Run AFTER `save_best_models.py` finishes:
     python src/generate_risk_lists.py
 
-Scores each company twice (horizon=12, horizon=60) with the single calibrated
-model, enforces monotonicity as a safety net, and saves CSV lists.
+Scores each company twice (horizon=12, horizon=60) with the unified model,
+enforces monotonicity as a safety net, and saves CSV lists.
 """
 
 import json
@@ -48,9 +48,9 @@ def enrich_with_tickers(df, company_idx):
 
 
 def main():
-    print("Loading unified calibrated model...")
+    print("Loading unified model...")
 
-    model = joblib.load(MODELS_DIR / "unified_calibrated.joblib")
+    model = joblib.load(MODELS_DIR / "unified_model.joblib")
 
     with open(MODELS_DIR / "feature_cols.json") as f:
         feature_cols = json.load(f)

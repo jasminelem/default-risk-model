@@ -3,21 +3,19 @@
 Train a single unified discrete-time hazard model for credit default prediction.
 
 A single XGBoost classifier learns P(default | features, horizon) by treating
-`horizon_months` as a feature. Each firm-year observation is duplicated:
-  - once with horizon_months=12  and label=default_in_next_12m
-  - once with horizon_months=60  and label=default_in_next_5y
+`horizon_months` as a feature. Each firm-year is stacked 10 times (6m to 60m).
+Monotone constraints guarantee PD is non-decreasing across horizons.
 
-This guarantees monotonicity (P(5y) >= P(1y)) by construction and eliminates
-the need for two separate models, two calibrators, and post-hoc enforcement.
+No scale_pos_weight, no CalibratedClassifierCV — the raw model produces
+naturally calibrated probabilities via binary:logistic.
 
 Run:
     python src/save_best_models.py
 
 Outputs:
-    models/unified_model.joblib          -- raw XGBoost (for SHAP)
-    models/unified_calibrated.joblib     -- CalibratedClassifierCV (for predictions)
-    models/feature_cols.json             -- feature list (includes horizon_months)
-    models/best_params.json              -- best Optuna hyperparameters
+    models/unified_model.joblib     -- XGBoost model (predictions + SHAP)
+    models/feature_cols.json        -- feature list (includes horizon_months)
+    models/best_params.json         -- best Optuna hyperparameters
 """
 
 import json
@@ -28,7 +26,6 @@ import numpy as np
 import optuna
 import pandas as pd
 import xgboost as xgb
-from sklearn.calibration import CalibratedClassifierCV
 from sklearn.metrics import roc_auc_score
 import warnings
 warnings.filterwarnings("ignore")
@@ -91,21 +88,16 @@ def main():
     X_train, y_train = stack_horizons(train, base_features)
     X_val, y_val = stack_horizons(val, base_features)
 
-    # feature_cols now includes horizon_months
     feature_cols = list(X_train.columns)
 
-    # Monotone constraint: force P(default) to be non-decreasing in horizon_months.
-    # +1 = prediction must increase as feature increases, 0 = unconstrained.
+    # Monotone constraint: PD must be non-decreasing in horizon_months
     mono_constraints = tuple(1 if c == "horizon_months" else 0 for c in feature_cols)
 
     print(f"Stacked train: {len(X_train):,} rows ({len(HORIZONS)}x {len(train):,})")
     print(f"Stacked val:   {len(X_val):,} rows")
     print(f"Combined positive rate: {y_train.mean():.4%}")
-    print(f"Monotone constraint on horizon_months: enabled (+1)")
 
-    scale_pos = (len(y_train) - y_train.sum()) / max(y_train.sum(), 1)
-
-    # --- Optuna HPO ---
+    # --- Optuna HPO (no scale_pos_weight) ---
     def objective(trial):
         params = {
             "n_estimators": trial.suggest_int("n_estimators", 350, 850),
@@ -117,7 +109,6 @@ def main():
             "reg_alpha": trial.suggest_float("reg_alpha", 0.0, 1.5),
             "reg_lambda": trial.suggest_float("reg_lambda", 0.5, 4.0),
             "monotone_constraints": mono_constraints,
-            "scale_pos_weight": scale_pos,
             "random_state": 42,
             "n_jobs": -1,
             "eval_metric": "auc",
@@ -132,35 +123,25 @@ def main():
 
     best_params = study.best_params
     best_params["monotone_constraints"] = mono_constraints
-    best_params["scale_pos_weight"] = scale_pos
     best_params["random_state"] = 42
     best_params["n_jobs"] = -1
 
     print(f"\nBest validation AUC: {study.best_value:.4f}")
-    print(f"Best params: {best_params}")
 
-    # --- Train final models ---
+    # --- Train final model on train+val ---
     X_all = pd.concat([X_train, X_val], ignore_index=True)
     y_all = pd.concat([y_train, y_val], ignore_index=True)
 
-    # 1) Raw model (for SHAP)
-    print("\nTraining raw model on train+val...")
-    raw_model = xgb.XGBClassifier(**best_params)
-    raw_model.fit(X_all, y_all)
+    print("\nTraining final model on train+val...")
+    model = xgb.XGBClassifier(**best_params)
+    model.fit(X_all, y_all)
 
-    # 2) Calibrated model (5-fold isotonic)
-    print("Fitting CalibratedClassifierCV (5-fold isotonic)...")
-    base = xgb.XGBClassifier(**best_params)
-    calibrated_model = CalibratedClassifierCV(base, cv=5, method="isotonic")
-    calibrated_model.fit(X_all, y_all)
-
-    # Sanity check: verify monotonicity across all horizons on val
-    n_base = len(val)
-    print(f"\nMonotonicity + calibration check on val:")
+    # Sanity check: monotonicity + probability ranges on val
+    print(f"\nValidation check:")
     prev_preds = None
     for h in HORIZONS:
         h_mask = X_val["horizon_months"] == h
-        preds = calibrated_model.predict_proba(X_val[h_mask])[:, 1]
+        preds = model.predict_proba(X_val[h_mask])[:, 1]
         mono_str = ""
         if prev_preds is not None:
             mono_pct = (preds >= prev_preds - 1e-6).mean() * 100
@@ -169,22 +150,24 @@ def main():
         prev_preds = preds
 
     # --- Save ---
-    joblib.dump(raw_model, MODELS_DIR / "unified_model.joblib")
-    joblib.dump(calibrated_model, MODELS_DIR / "unified_calibrated.joblib")
+    joblib.dump(model, MODELS_DIR / "unified_model.joblib")
 
     with open(MODELS_DIR / "feature_cols.json", "w") as f:
         json.dump(feature_cols, f, indent=2)
 
-    # Save params (convert numpy types and tuples for JSON compatibility)
     save_params = {k: (list(v) if isinstance(v, tuple) else float(v) if hasattr(v, 'item') else v)
                    for k, v in best_params.items()}
     with open(MODELS_DIR / "best_params.json", "w") as f:
         json.dump(save_params, f, indent=2)
 
+    # Clean up old calibrated model if it exists
+    old_cal = MODELS_DIR / "unified_calibrated.joblib"
+    if old_cal.exists():
+        old_cal.unlink()
+        print("Removed old unified_calibrated.joblib (no longer needed)")
+
     print(f"\nSaved:")
-    print(f"  models/unified_model.joblib       (raw, for SHAP)")
-    print(f"  models/unified_calibrated.joblib   (calibrated, for predictions)")
-    print(f"  models/feature_cols.json           ({len(feature_cols)} features incl. horizon_months)")
+    print(f"  models/unified_model.joblib    ({len(feature_cols)} features incl. horizon_months)")
     print(f"  models/best_params.json")
     print(f"\nNext: python src/generate_risk_lists.py")
 

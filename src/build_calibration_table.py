@@ -2,11 +2,9 @@
 """
 Build backtesting calibration tables using the unified hazard model.
 
-IMPORTANT: Only uses observations with COMPLETE follow-up windows so that
-actual default rates are not biased downward by right-censoring.
-  - 12m table: uses all training data (all obs have 12m+ of follow-up)
-  - 5y table:  uses only training obs with datadate <= 2020-12-31
-               (ensuring a full 60-month window through end of data)
+Uses the TEST set (out-of-sample data the model has never seen) for honest
+calibration evaluation. Also restricts to observations with complete
+follow-up windows to avoid right-censoring bias.
 
 Output: outputs/calibration_table_12m.json, outputs/calibration_table_5y.json
 
@@ -61,70 +59,78 @@ def build_table(predicted_pds, actuals):
     return rows
 
 
-def main():
-    print("Loading unified model and historical data...")
+def print_table(table):
+    for row in table:
+        print(f"    {row['bucket']:>8s}  n={row['count']:>7,}  "
+              f"pred={row['mean_predicted_pd']:.4%}  actual={row['actual_default_rate']:.4%}  "
+              f"ratio={row['ratio']}")
 
-    model = joblib.load(MODELS_DIR / "unified_calibrated.joblib")
+
+def main():
+    print("Loading unified model...")
+
+    model = joblib.load(MODELS_DIR / "unified_model.joblib")
 
     with open(MODELS_DIR / "feature_cols.json") as f:
         feature_cols = json.load(f)
 
     base_features = [c for c in feature_cols if c != "horizon_months"]
 
-    train_path = DATA_PROC / "monthly_train.parquet"
-    if not train_path.exists():
-        print("Training data not found.")
+    # Load TEST set (out-of-sample, never seen during training)
+    test_path = DATA_PROC / "monthly_test.parquet"
+    if not test_path.exists():
+        print("Test data not found.")
         return
-    train = pd.read_parquet(train_path)
-    train["datadate"] = pd.to_datetime(train["datadate"])
-    print(f"  Loaded training data: {len(train):,} rows ({train['datadate'].min().date()} to {train['datadate'].max().date()})")
+    test = pd.read_parquet(test_path)
+    test["datadate"] = pd.to_datetime(test["datadate"])
+    print(f"  Test set: {len(test):,} rows ({test['datadate'].min().date()} to {test['datadate'].max().date()})")
 
-    X_base = train[base_features].fillna(0).astype("float32")
+    X_base = test[base_features].fillna(0).astype("float32")
 
-    # 12-month: all training obs have complete 12m follow-up
-    if "default_in_next_12m" in train.columns:
+    # 12-month calibration (out-of-sample)
+    target_12m = "default_in_next_12m"
+    if target_12m in test.columns:
         X_12m = X_base.copy()
         X_12m["horizon_months"] = np.float32(12)
-        preds_12m = model.predict_proba(X_12m)[:, 1]
-        actuals_12m = train["default_in_next_12m"].values
+        preds = model.predict_proba(X_12m)[:, 1]
+        actuals = test[target_12m].values
 
-        print(f"\n12m: scoring {len(train):,} obs (all have complete 12m follow-up)")
-        print(f"  Mean predicted: {preds_12m.mean():.4%}  Actual default rate: {actuals_12m.mean():.4%}")
+        print(f"\n12-Month Calibration (OUT-OF-SAMPLE on test set):")
+        print(f"  {len(test):,} obs, predicted mean={preds.mean():.4%}, actual rate={actuals.mean():.4%}")
 
-        table_12m = build_table(preds_12m, actuals_12m)
+        table = build_table(preds, actuals)
         out_path = OUTPUT_DIR / "calibration_table_12m.json"
         with open(out_path, "w") as f:
-            json.dump(table_12m, f, indent=2)
+            json.dump(table, f, indent=2)
+        print_table(table)
         print(f"  Saved -> {out_path}")
-        for row in table_12m:
-            print(f"    {row['bucket']:>8s}  n={row['count']:>7,}  "
-                  f"pred={row['mean_predicted_pd']:.4%}  actual={row['actual_default_rate']:.4%}  "
-                  f"ratio={row['ratio']}")
 
-    # 5-year: restrict to obs with complete 60-month follow-up
-    if "default_in_next_5y" in train.columns:
-        cutoff = train["datadate"].max() - pd.DateOffset(years=5)
-        mask = train["datadate"] <= cutoff
-        train_5y = train[mask]
-        X_5y = X_base[mask].copy()
-        X_5y["horizon_months"] = np.float32(60)
-        preds_5y = model.predict_proba(X_5y)[:, 1]
-        actuals_5y = train_5y["default_in_next_5y"].values
+    # 5-year calibration (out-of-sample, only obs with complete follow-up)
+    target_5y = "default_in_next_60m" if "default_in_next_60m" in test.columns else "default_in_next_5y"
+    if target_5y in test.columns:
+        cutoff = test["datadate"].max() - pd.DateOffset(years=5)
+        mask = test["datadate"] <= cutoff
+        test_5y = test[mask]
 
-        print(f"\n5y: scoring {len(train_5y):,} obs (datadate <= {cutoff.date()}, complete 5y follow-up)")
-        print(f"  Mean predicted: {preds_5y.mean():.4%}  Actual default rate: {actuals_5y.mean():.4%}")
+        if len(test_5y) > 0:
+            X_5y = X_base[mask].copy()
+            X_5y["horizon_months"] = np.float32(60)
+            preds = model.predict_proba(X_5y)[:, 1]
+            actuals = test_5y[target_5y].values
 
-        table_5y = build_table(preds_5y, actuals_5y)
-        out_path = OUTPUT_DIR / "calibration_table_5y.json"
-        with open(out_path, "w") as f:
-            json.dump(table_5y, f, indent=2)
-        print(f"  Saved -> {out_path}")
-        for row in table_5y:
-            print(f"    {row['bucket']:>8s}  n={row['count']:>7,}  "
-                  f"pred={row['mean_predicted_pd']:.4%}  actual={row['actual_default_rate']:.4%}  "
-                  f"ratio={row['ratio']}")
+            print(f"\n5-Year Calibration (OUT-OF-SAMPLE, obs with complete 5y follow-up):")
+            print(f"  {len(test_5y):,} obs (datadate <= {cutoff.date()}), predicted mean={preds.mean():.4%}, actual rate={actuals.mean():.4%}")
 
-    print("\nCalibration tables generated (using only observations with complete follow-up windows).")
+            table = build_table(preds, actuals)
+            out_path = OUTPUT_DIR / "calibration_table_5y.json"
+            with open(out_path, "w") as f:
+                json.dump(table, f, indent=2)
+            print_table(table)
+            print(f"  Saved -> {out_path}")
+        else:
+            print("\n5-Year: No test observations with complete 5y follow-up (test set too recent).")
+
+    print("\nDone. Calibration tables use TEST data only (never seen during training).")
 
 
 if __name__ == "__main__":
