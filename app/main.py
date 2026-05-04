@@ -19,6 +19,7 @@ from datetime import datetime
 
 import joblib
 import pandas as pd
+pd.set_option('future.no_silent_downcasting', True)
 import shap
 import yfinance as yf
 from fastapi import FastAPI, HTTPException
@@ -61,6 +62,9 @@ with open(MODELS_DIR / "feature_cols.json") as f:
 
 # Base features = everything except horizon_months
 BASE_FEATURES = [c for c in FEATURE_COLS if c != "horizon_months"]
+
+# All prediction horizons (months)
+HORIZONS = [6, 12, 18, 24, 30, 36, 42, 48, 54, 60]
 
 # Best params (for display)
 with open(MODELS_DIR / "best_params.json") as f:
@@ -130,7 +134,7 @@ _X_base = _latest_per_company[BASE_FEATURES].fillna(0).infer_objects(copy=False)
 import numpy as np
 _X_12m = _X_base.copy()
 _X_12m["horizon_months"] = np.float32(12)
-_pd_all = calibrated_model.predict_proba(_X_12m)[:, 1]
+_pd_all = raw_model.predict_proba(_X_12m)[:, 1]
 all_company_pds = pd.DataFrame({
     "gvkey": _latest_per_company["gvkey"].values,
     "pd_12m": _pd_all,
@@ -215,11 +219,11 @@ def _get_live_market_data(ticker: str) -> Dict[str, Any]:
             for idx, row in hist.iterrows():
                 price_history.append({
                     "date": idx.strftime("%Y-%m-%d"),
-                    "close": round(float(row["Close"]), 2)
+                    "close": round(float(row["Close"]), 4) if float(row["Close"]) < 1 else round(float(row["Close"]), 2)
                 })
 
         return {
-            "current_price": round(float(price), 2) if price else None,
+            "current_price": round(float(price), 4) if price and float(price) < 1 else (round(float(price), 2) if price else None),
             "change_percent": round(float(change), 2) if change else 0,
             "market_cap": int(market_cap) if market_cap else None,
             "volume": int(volume) if volume else None,
@@ -302,22 +306,28 @@ def get_rating_history(gvkey: str, max_history: int = 8) -> Dict[str, Any]:
 def _predict_and_explain(row: pd.Series) -> Dict[str, Any]:
     """Core inference + SHAP for one company row using the unified hazard model."""
     X_base = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
+    base_vals = list(X_base.values)
 
-    # Build feature vectors at each horizon
-    X_12m = pd.DataFrame([list(X_base.values) + [np.float32(12)]], columns=FEATURE_COLS)
-    X_60m = pd.DataFrame([list(X_base.values) + [np.float32(60)]], columns=FEATURE_COLS)
+    # PD term structure: score at every horizon
+    pd_curve = []
+    prev_pd = 0.0
+    for h in HORIZONS:
+        X_h = pd.DataFrame([base_vals + [np.float32(h)]], columns=FEATURE_COLS)
+        raw_pd = float(calibrated_model.predict_proba(X_h)[0, 1])
+        pd_val = max(raw_pd, prev_pd)  # monotonicity safety net
+        pd_curve.append({"horizon": h, "pd": round(pd_val, 6)})
+        prev_pd = pd_val
 
-    # Calibrated predictions
-    prob_12m = float(calibrated_model.predict_proba(X_12m)[0, 1])
-    prob_5y_raw = float(calibrated_model.predict_proba(X_60m)[0, 1])
-    prob_5y = max(prob_5y_raw, prob_12m)  # safety net
+    prob_12m = pd_curve[1]["pd"]  # index 1 = 12m
+    prob_5y = pd_curve[9]["pd"]   # index 9 = 60m
 
-    # SHAP (on raw model, one explainer)
+    # SHAP (on raw model, 12m and 5y only)
+    X_12m = pd.DataFrame([base_vals + [np.float32(12)]], columns=FEATURE_COLS)
+    X_60m = pd.DataFrame([base_vals + [np.float32(60)]], columns=FEATURE_COLS)
     shap_12m = explainer.shap_values(X_12m)[0]
     shap_5y = explainer.shap_values(X_60m)[0]
 
     def top_features(shap_vals, top_k=12):
-        # Exclude horizon_months from SHAP display
         contrib = [(f, v) for f, v in zip(FEATURE_COLS, shap_vals) if f != "horizon_months"]
         contrib = sorted(contrib, key=lambda x: abs(x[1]), reverse=True)[:top_k]
         return [
@@ -331,15 +341,10 @@ def _predict_and_explain(row: pd.Series) -> Dict[str, Any]:
             for f, v in contrib
         ]
 
-    recovery = 0.40
-    fair_spread_12m = round(-math.log(1 - min(prob_12m, 0.9999)) * (1 - recovery) * 10000, 1)
-    fair_spread_5y = round(-math.log(1 - min(prob_5y, 0.9999)) * (1 - recovery) * 10000, 1)
-
     return {
         "prob_12m": round(prob_12m, 4),
         "prob_5y": round(prob_5y, 4),
-        "fair_spread_12m": fair_spread_12m,
-        "fair_spread_5y": fair_spread_5y,
+        "pd_curve": pd_curve,
         "risk_level_12m": "High" if prob_12m > 0.55 else ("Medium" if prob_12m > 0.30 else "Low"),
         "risk_level_5y": "High" if prob_5y > 0.40 else ("Medium" if prob_5y > 0.18 else "Low"),
         "top_features_12m": top_features(shap_12m),
@@ -471,7 +476,7 @@ def peer_comparison(gvkey: str) -> Dict[str, Any]:
             row = _get_latest_row(gvkey)
             X_s = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
             X_12m = pd.DataFrame([list(X_s.values) + [np.float32(12)]], columns=FEATURE_COLS)
-            company_pd = float(calibrated_model.predict_proba(X_12m)[0, 1])
+            company_pd = float(raw_model.predict_proba(X_12m)[0, 1])
         except Exception:
             return {"industry": peer_label, "peer_count": len(peers)}
     else:
@@ -506,6 +511,101 @@ def calibration_table(horizon: str) -> List[Dict[str, Any]]:
     if horizon not in CALIBRATION_TABLES:
         raise HTTPException(404, f"Calibration table for '{horizon}' not found. Run src/build_calibration_table.py first.")
     return CALIBRATION_TABLES[horizon]
+
+
+@app.get("/api/industries")
+def industry_ranking() -> List[Dict[str, Any]]:
+    """Return all industries ranked by median 12-month PD, with per-industry top 3 features."""
+    if all_company_pds.empty or "industry" not in all_company_pds.columns:
+        return []
+
+    valid = all_company_pds[all_company_pds["industry"].str.strip() != ""].copy()
+    if valid.empty:
+        return []
+
+    grouped = valid.groupby("industry")["pd_12m"].agg(
+        median_pd="median", count="count"
+    ).reset_index()
+
+    # Filter out tiny industries (< 5 companies) — too noisy to be meaningful
+    grouped = grouped[grouped["count"] >= 5]
+
+    # Sort by median PD descending, break ties by firm count (larger industries first)
+    grouped = grouped.sort_values(["median_pd", "count"], ascending=[False, False])
+
+    return [
+        {
+            "industry": str(r["industry"]),
+            "median_pd": round(float(r["median_pd"]), 6),
+            "count": int(r["count"]),
+        }
+        for _, r in grouped.iterrows()
+    ]
+
+
+@app.get("/api/industry_detail")
+def industry_detail(industry: str = "", limit: int = 10, feat_limit: int = 10) -> Dict[str, Any]:
+    """Return example companies + SHAP feature importance for a specific industry."""
+    industry = industry.strip()
+    if not industry:
+        raise HTTPException(400, "industry parameter required")
+
+    # Find companies in this industry
+    ind_companies = all_company_pds[all_company_pds["industry"] == industry].copy()
+    if ind_companies.empty:
+        raise HTTPException(404, f"No companies found for industry '{industry}'")
+
+    # Top companies by PD (highest risk first) + lowest risk
+    top_risk = ind_companies.nlargest(limit, "pd_12m")
+    low_risk = ind_companies.nsmallest(min(5, len(ind_companies)), "pd_12m")
+
+    # Attach tickers
+    ticker_map = company_index.set_index("gvkey")["ticker"].to_dict() if "ticker" in company_index.columns else {}
+
+    def _company_list(df):
+        return [
+            {
+                "gvkey": str(r["gvkey"]),
+                "conm": str(r["conm"]),
+                "ticker": str(ticker_map.get(r["gvkey"], "")).upper(),
+                "pd_12m": round(float(r["pd_12m"]), 6),
+            }
+            for _, r in df.iterrows()
+        ]
+
+    # SHAP feature importance for this industry
+    ind_gvkeys = set(ind_companies["gvkey"].values)
+    pool = _latest_per_company[_latest_per_company["gvkey"].isin(ind_gvkeys)]
+    features = []
+    sample_size = 0
+    try:
+        sample = pool.sample(n=min(200, len(pool)), random_state=42)
+        sample_size = len(sample)
+        X_s = sample[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
+        X_s["horizon_months"] = np.float32(12)
+        sv = explainer.shap_values(X_s)
+        mean_abs = np.abs(sv).mean(axis=0)
+        top_feats = sorted(
+            [(f, float(v)) for f, v in zip(FEATURE_COLS, mean_abs) if f != "horizon_months"],
+            key=lambda x: x[1], reverse=True
+        )[:feat_limit]
+        features = [
+            {"feature": f, "meaning": FEATURE_MEANINGS.get(f, f.replace("_", " ").title()), "importance": round(v, 4)}
+            for f, v in top_feats
+        ]
+    except Exception:
+        pass
+
+    return {
+        "industry": industry,
+        "total_companies": len(ind_companies),
+        "median_pd": round(float(ind_companies["pd_12m"].median()), 6),
+        "mean_pd": round(float(ind_companies["pd_12m"].mean()), 6),
+        "highest_risk": _company_list(top_risk),
+        "lowest_risk": _company_list(low_risk),
+        "features": features,
+        "sample_size": sample_size,
+    }
 
 
 @app.get("/api/models/info")
@@ -591,34 +691,49 @@ def top_5y(limit: int = 10):
 
 @app.get("/api/top/combined")
 def top_combined(limit: int = 10):
-    """Top companies ranked by 12-month PD, with their 5-year PD attached."""
-    path_12m = PROJECT_ROOT / "outputs" / "12m_model" / "top_2026_companies.csv"
-    path_5y = PROJECT_ROOT / "outputs" / "5y_model" / "top_2026_risk_5y_2026data_only_alive.csv"
-    if not path_12m.exists():
+    """Top companies ranked by 12-month PD, scored live from the raw model.
+    Only includes companies with fiscal data from 2025 or later."""
+    if all_company_pds.empty:
         return []
-    df = pd.read_csv(path_12m).head(limit)
-    df["gvkey"] = df["gvkey"].astype(str).str.strip().str.zfill(6)
-    if path_5y.exists():
-        df_5y = pd.read_csv(path_5y)[["gvkey", "pred_risk_5y"]]
-        df_5y["gvkey"] = df_5y["gvkey"].astype(str).str.strip().str.zfill(6)
-        df = df.merge(df_5y, on="gvkey", how="left")
-    else:
-        df["pred_risk_5y"] = None
 
-    # Fill any missing 5y predictions by scoring on the fly with the unified model
-    missing = df["pred_risk_5y"].isna()
-    if missing.any():
-        for idx_i in df[missing].index:
-            gv = df.loc[idx_i, "gvkey"]
-            try:
-                row = _get_latest_row(gv)
-                X_base = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
-                X_60m = pd.DataFrame([list(X_base.values) + [np.float32(60)]], columns=FEATURE_COLS)
-                p5y = float(calibrated_model.predict_proba(X_60m)[0, 1])
-                p12m = df.loc[idx_i, "pred_risk_2026"]
-                df.loc[idx_i, "pred_risk_5y"] = max(p5y, p12m)  # monotonicity
-            except Exception:
-                pass
+    # Filter to 2025+ fiscal dates only
+    if "latest_datadate" in company_index.columns:
+        recent_gvkeys = set(
+            company_index[
+                pd.to_datetime(company_index["latest_datadate"], errors="coerce") >= pd.Timestamp("2025-01-01")
+            ]["gvkey"].values
+        )
+        pool = all_company_pds[all_company_pds["gvkey"].isin(recent_gvkeys)]
+    else:
+        pool = all_company_pds
+
+    if pool.empty:
+        pool = all_company_pds  # fallback if no 2025+ data
+
+    df = pool.nlargest(limit, "pd_12m").copy()
+
+    # Score 5-year PD live for the top N (must always be > 12m)
+    pd_5y_list = []
+    for _, r in df.iterrows():
+        try:
+            row = _get_latest_row(r["gvkey"])
+            X_base = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
+            X_60m = pd.DataFrame([list(X_base.values) + [np.float32(60)]], columns=FEATURE_COLS)
+            p5y = float(raw_model.predict_proba(X_60m)[0, 1])
+            p12m = r["pd_12m"]
+            pd_5y_list.append(max(p5y, p12m * 1.15, p12m + 0.005))
+        except Exception:
+            pd_5y_list.append(None)
+    df["pred_risk_5y"] = pd_5y_list
+    df = df.rename(columns={"pd_12m": "pred_risk_2026"})
+
+    # Attach ticker + latest fiscal date from company_index
+    if "ticker" in company_index.columns:
+        ticker_map = company_index.set_index("gvkey")["ticker"].to_dict()
+        df["ticker"] = df["gvkey"].map(ticker_map).fillna("")
+    if "latest_datadate" in company_index.columns:
+        date_map = company_index.set_index("gvkey")["latest_datadate"].to_dict()
+        df["latest_datadate"] = df["gvkey"].map(date_map)
 
     # Attach delisted flag
     df["delisted"] = df["gvkey"].isin(DELISTED_GVKEYS)
@@ -670,7 +785,7 @@ def get_stock_history(ticker: str, period: str = "1y"):
                 for idx, row in hist.iterrows():
                     price_history.append({
                         "date": idx.strftime("%Y-%m-%d"),
-                        "close": round(float(row["Close"]), 2)
+                        "close": round(float(row["Close"]), 4) if float(row["Close"]) < 1 else round(float(row["Close"]), 2)
                     })
                 return {"price_history": price_history, "period": period, "ticker": sym}
         except Exception:

@@ -306,19 +306,20 @@
 
         </div>
 
-        <!-- Calibration (below risk list, hidden when viewing company detail) -->
-        <div id="calibration-section" class="mt-10 border-t border-white/[0.06] pt-6">
+        <!-- Calibration section removed from main page — now in methodology.html -->
+
+        <!-- Industry Risk Ranking with per-industry feature importance -->
+        <div id="industry-section" class="mt-10 border-t border-white/[0.06] pt-6">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <div class="text-sm font-semibold text-white/70">Calibration</div>
-                    <div class="text-xs text-white/25 mt-0.5">Predicted PD vs actual default rate</div>
+                    <div class="text-sm font-semibold text-white/70">Industry Risk Ranking</div>
+                    <div class="text-xs text-white/25 mt-0.5">Click any industry for details</div>
                 </div>
-                <div class="flex gap-1">
-                    <button onclick="loadDashCalibration('12m')" id="dash-cal-12m" class="text-xs font-medium text-white/70 px-2.5 py-1 rounded bg-white/[0.06]">12M</button>
-                    <button onclick="loadDashCalibration('5y')" id="dash-cal-5y" class="text-xs text-white/30 px-2.5 py-1 rounded hover:text-white/60 transition-colors">5Y</button>
-                </div>
+                <button id="industry-expand-btn" onclick="toggleIndustryExpand()" class="hidden text-[10px] text-white/30 hover:text-white/60 px-2.5 py-1 rounded border border-white/10 transition-colors">Show All</button>
             </div>
-            <div id="dash-cal-table" class="text-sm text-white/30 py-4">Loading...</div>
+            <div id="industry-table" class="text-sm text-white/30 py-4">Loading...</div>
+            <!-- Expandable industry detail panel (appears below the table when an industry is clicked) -->
+            <div id="industry-detail-panel" class="hidden mt-6"></div>
         </div>
 
         <!-- COMPANY DETAIL VIEW (appears when a company is selected) -->
@@ -331,6 +332,8 @@
             <div id="company-header" class="mb-8"></div>
 
             <div id="company-risks" class="grid md:grid-cols-2 gap-8 mb-6"></div>
+
+            <div id="pd-curve" class="border-t border-white/[0.06] pt-6 mb-6"></div>
 
             <div id="cds-analyzer" class="mb-6"></div>
 
@@ -353,10 +356,10 @@
         let debounceTimer;
         let topData = [];
 
-        // Load combined list + calibration on page load
+        // Load combined list + industry ranking + feature importance on page load
         try {
             loadTopList();
-            loadDashCalibration('12m');
+            loadIndustryRanking();
         } catch (e) {
             console.error("Failed to load dashboard data:", e);
         }
@@ -408,59 +411,153 @@
             loadCompanyDetail(gvkey);
         }
 
-        // === Dashboard Calibration Table + Chart ===
-        async function loadDashCalibration(horizon) {
-            const btn12 = document.getElementById('dash-cal-12m');
-            const btn5y = document.getElementById('dash-cal-5y');
-            btn12.className = horizon === '12m'
-                ? 'text-xs font-medium text-white/70 px-2.5 py-1 rounded bg-white/[0.06]'
-                : 'text-xs text-white/30 px-2.5 py-1 rounded hover:text-white/60 transition-colors';
-            btn5y.className = horizon === '5y'
-                ? 'text-xs font-medium text-white/70 px-2.5 py-1 rounded bg-white/[0.06]'
-                : 'text-xs text-white/30 px-2.5 py-1 rounded hover:text-white/60 transition-colors';
+        // === Industry Detail Panel (companies + feature importance) ===
+        let _activeIndustry = '';
 
-            const container = document.getElementById('dash-cal-table');
+        async function loadIndustryDetail(industry) {
+            const panel = document.getElementById('industry-detail-panel');
+
+            // Toggle off if clicking the same industry
+            if (_activeIndustry === industry && !panel.classList.contains('hidden')) {
+                panel.classList.add('hidden');
+                _activeIndustry = '';
+                return;
+            }
+            _activeIndustry = industry;
+
+            panel.classList.remove('hidden');
+            panel.innerHTML = '<div class="text-xs text-white/20 py-6 text-center">Loading industry details...</div>';
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
             try {
-                const res = await fetch(`/api/calibration/${horizon}`);
-                if (!res.ok) { container.innerHTML = '<div class="text-xs text-white/20 py-4">Not generated yet.</div>'; return; }
-                const data = await res.json();
-                if (!data || !data.length) { container.innerHTML = '<div class="text-xs text-white/20 py-4">No data.</div>'; return; }
+                const res = await fetch(`/api/industry_detail?industry=${encodeURIComponent(industry)}&limit=10&feat_limit=10`);
+                if (!res.ok) { panel.innerHTML = '<div class="text-xs text-red-400/40 py-4">Failed to load.</div>'; return; }
+                const d = await res.json();
 
-                const rows = data.map(r => {
-                    let c = 'text-white/40'; let bg = 'bg-white/5';
-                    if (r.ratio === null) { c = 'text-white/20'; bg = 'bg-white/5'; }
-                    else if (r.ratio > 0.8 && r.ratio < 1.25) { c = 'text-emerald-400'; bg = 'bg-emerald-400/15'; }
-                    else if (r.ratio > 1.5 || r.ratio < 0.67) { c = 'text-red-400'; bg = 'bg-red-400/15'; }
-                    else { c = 'text-amber-400'; bg = 'bg-amber-400/15'; }
-                    const barW = r.ratio !== null ? Math.min(100, Math.max(5, r.ratio * 50)) : 0;
-                    return `<tr class="border-b border-white/[0.04] hover:bg-white/[0.02] transition-colors">
-                        <td class="py-2 pr-4 font-mono text-white/70">${r.bucket}</td>
-                        <td class="py-2 pr-4 text-right text-white/35 tabular-nums">${r.count.toLocaleString()}</td>
-                        <td class="py-2 pr-4 text-right text-white/60 tabular-nums">${(r.mean_predicted_pd*100).toFixed(2)}%</td>
-                        <td class="py-2 pr-4 text-right text-white/60 tabular-nums">${(r.actual_default_rate*100).toFixed(2)}%</td>
-                        <td class="py-2 pr-1 text-right">
-                            <span class="inline-flex items-center gap-1.5">
-                                <span class="inline-block h-1.5 rounded-full ${bg}" style="width:${barW}px"></span>
-                                <span class="font-medium tabular-nums ${c}">${r.ratio !== null ? r.ratio.toFixed(2)+'x' : '--'}</span>
-                            </span>
-                        </td>
+                // Feature importance bars
+                const maxImp = d.features.length > 0 ? d.features[0].importance : 1;
+                const featBars = d.features.map(f => {
+                    const pct = (f.importance / maxImp * 100).toFixed(0);
+                    return `<div class="flex items-center gap-2 py-1">
+                        <div class="w-40 text-[11px] text-white/50 text-right truncate" title="${f.feature}">${f.meaning}</div>
+                        <div class="flex-1 h-3.5 bg-white/[0.04] rounded overflow-hidden">
+                            <div class="h-full bg-blue-500/40 rounded" style="width:${pct}%"></div>
+                        </div>
+                        <div class="w-12 text-right font-mono text-[10px] text-white/40">${f.importance.toFixed(3)}</div>
+                    </div>`;
+                }).join('');
+
+                // Highest risk companies
+                const highRows = d.highest_risk.map(c => {
+                    const pd = (c.pd_12m * 100).toFixed(2);
+                    return `<tr class="border-b border-white/[0.04] hover:bg-white/[0.02] cursor-pointer transition-colors" onclick="selectCompanyFromList('${c.gvkey}', '${(c.conm || '').replace(/'/g, "\\'")}')">
+                        <td class="py-1.5 pr-3 text-xs text-white/70">${c.conm}</td>
+                        <td class="py-1.5 pr-3 font-mono text-[10px] text-white/40">${c.ticker}</td>
+                        <td class="py-1.5 text-right font-mono text-xs text-red-400/80">${pd}%</td>
                     </tr>`;
                 }).join('');
 
-                container.innerHTML = `
-                    <table class="w-full text-xs">
-                        <thead><tr class="text-white/35 border-b border-white/[0.06]">
-                            <th class="py-2 pr-4 text-left font-medium">Bucket</th>
-                            <th class="py-2 pr-4 text-right font-medium">Firms</th>
-                            <th class="py-2 pr-4 text-right font-medium">Predicted</th>
-                            <th class="py-2 pr-4 text-right font-medium">Actual</th>
-                            <th class="py-2 pr-1 text-right font-medium">Ratio</th>
-                        </tr></thead>
-                        <tbody>${rows}</tbody>
-                    </table>`;
+                // Lowest risk companies
+                const lowRows = d.lowest_risk.map(c => {
+                    const pd = (c.pd_12m * 100).toFixed(2);
+                    return `<tr class="border-b border-white/[0.04] hover:bg-white/[0.02] cursor-pointer transition-colors" onclick="selectCompanyFromList('${c.gvkey}', '${(c.conm || '').replace(/'/g, "\\'")}')">
+                        <td class="py-1.5 pr-3 text-xs text-white/70">${c.conm}</td>
+                        <td class="py-1.5 pr-3 font-mono text-[10px] text-white/40">${c.ticker}</td>
+                        <td class="py-1.5 text-right font-mono text-xs text-emerald-400/80">${pd}%</td>
+                    </tr>`;
+                }).join('');
+
+                panel.innerHTML = `
+                    <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <div class="text-sm font-semibold text-white/80">${d.industry}</div>
+                                <div class="text-[11px] text-white/30">${d.total_companies} companies &middot; Median PD: ${(d.median_pd * 100).toFixed(2)}% &middot; Mean PD: ${(d.mean_pd * 100).toFixed(2)}%</div>
+                            </div>
+                            <button onclick="document.getElementById('industry-detail-panel').classList.add('hidden'); _activeIndustry='';" class="text-xs text-white/30 hover:text-white/60 px-2 py-1 rounded border border-white/10">Close</button>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Feature Importance -->
+                            <div>
+                                <div class="text-[10px] uppercase tracking-[1.5px] text-white/30 mb-2">Top Risk Drivers (SHAP)</div>
+                                <div class="text-[10px] text-white/20 mb-2">${d.sample_size} companies sampled</div>
+                                ${featBars}
+                            </div>
+
+                            <!-- Example Companies -->
+                            <div>
+                                <div class="text-[10px] uppercase tracking-[1.5px] text-white/30 mb-2">Highest Risk</div>
+                                <table class="w-full mb-4"><tbody>${highRows}</tbody></table>
+
+                                <div class="text-[10px] uppercase tracking-[1.5px] text-white/30 mb-2 mt-3">Lowest Risk</div>
+                                <table class="w-full"><tbody>${lowRows}</tbody></table>
+                            </div>
+                        </div>
+                    </div>`;
             } catch (e) {
-                container.innerHTML = '<div class="text-xs text-red-400/40 py-4">Failed to load.</div>';
+                panel.innerHTML = '<div class="text-xs text-red-400/40 py-4">Failed to load industry details.</div>';
             }
+        }
+
+        // === Industry Risk Ranking ===
+        let _allIndustryData = [];
+        let _industryExpanded = false;
+
+        async function loadIndustryRanking() {
+            const container = document.getElementById('industry-table');
+            try {
+                const res = await fetch('/api/industries');
+                _allIndustryData = await res.json();
+                if (!_allIndustryData || !_allIndustryData.length) { container.innerHTML = '<div class="text-xs text-white/20 py-4">No industry data.</div>'; return; }
+                // Show expand button if more than 10
+                if (_allIndustryData.length > 10) {
+                    document.getElementById('industry-expand-btn').classList.remove('hidden');
+                }
+                renderIndustryTable(false);
+            } catch (e) {
+                container.innerHTML = '<div class="text-xs text-red-400/40 py-4">Failed to load industry data.</div>';
+            }
+        }
+
+        function toggleIndustryExpand() {
+            _industryExpanded = !_industryExpanded;
+            document.getElementById('industry-expand-btn').textContent = _industryExpanded ? 'Show Top 10' : 'Show All';
+            renderIndustryTable(_industryExpanded);
+        }
+
+        function renderIndustryTable(showAll) {
+            const data = showAll ? _allIndustryData : _allIndustryData.slice(0, 10);
+            const container = document.getElementById('industry-table');
+
+            const rows = data.map((r, i) => {
+                const medPD = (r.median_pd * 100).toFixed(2);
+                const barW = Math.min(200, Math.max(8, r.median_pd * 2000));
+                const barColor = r.median_pd > 0.10 ? 'bg-red-400/60' : r.median_pd > 0.03 ? 'bg-amber-400/50' : 'bg-emerald-400/40';
+                const indEsc = r.industry.replace(/'/g, "\\'");
+                return `<tr class="border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors cursor-pointer" onclick="loadIndustryDetail('${indEsc}')">
+                    <td class="py-2 pl-1 pr-3 font-mono text-white/30 text-xs">${i + 1}</td>
+                    <td class="py-2 pr-4 text-white/80 text-xs">${r.industry}</td>
+                    <td class="py-2 pr-4 text-right tabular-nums text-xs text-white/50">${r.count}</td>
+                    <td class="py-2 pr-1 text-right">
+                        <span class="inline-flex items-center gap-1.5">
+                            <span class="inline-block h-1.5 rounded-full ${barColor}" style="width:${barW}px"></span>
+                            <span class="font-mono text-xs text-white/70">${medPD}%</span>
+                        </span>
+                    </td>
+                </tr>`;
+            }).join('');
+
+            container.innerHTML = `
+                <table class="w-full text-xs">
+                    <thead><tr class="text-white/35 border-b border-white/[0.06]">
+                        <th class="py-2 pl-1 pr-3 text-left font-medium">#</th>
+                        <th class="py-2 pr-4 text-left font-medium">Industry</th>
+                        <th class="py-2 pr-4 text-right font-medium">Firms</th>
+                        <th class="py-2 pr-1 text-right font-medium">Median PD</th>
+                    </tr></thead>
+                    <tbody>${rows}</tbody>
+                </table>`;
         }
 
         // Search typeahead
@@ -490,7 +587,7 @@
 
         async function loadCompanyDetail(gvkey) {
             dashboard.classList.add('hidden');
-            document.getElementById('calibration-section').classList.add('hidden');
+            document.getElementById('industry-section').classList.add('hidden');
             detailView.classList.remove('hidden');
 
             const res = await fetch(`/api/predict/${gvkey}`);
@@ -586,7 +683,7 @@
                     <div>
                         <div class="text-xs text-white/35 mb-1">MARKET DATA</div>
                         <div class="text-3xl font-semibold tabular-nums tracking-[-1px]" id="market-price-value">
-                            ${hasSnapshot ? `$${d.current_price}` : '\u2014'}
+                            ${hasSnapshot ? `$${d.current_price < 1 ? d.current_price.toFixed(4) : d.current_price.toFixed(2)}` : '\u2014'}
                             <span id="market-period-change" class="text-base ${changeClass} font-medium">${changeSign}${change}%</span>
                         </div>
                         <div id="market-return-label" class="text-[10px] text-white/30 mt-0.5">1-day change</div>
@@ -631,8 +728,77 @@
             // Store ticker for period switching (used by changeStockPeriod if needed)
             window.currentDetailTicker = ticker || null;
 
+            // PD term structure curve
+            renderPDCurve(d);
+
             // Always render SHAP feature importance
             renderFeatureImportance(d);
+        }
+
+        function renderPDCurve(d) {
+            const container = document.getElementById('pd-curve');
+            if (!d.pd_curve || d.pd_curve.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            container.innerHTML = `
+                <div class="text-xs text-white/35 mb-3">PD TERM STRUCTURE</div>
+                <div class="relative h-[180px] w-full">
+                    <canvas id="pd-curve-chart"></canvas>
+                </div>
+            `;
+
+            const ctx = document.getElementById('pd-curve-chart').getContext('2d');
+            const labels = d.pd_curve.map(p => p.horizon + 'm');
+            const values = d.pd_curve.map(p => p.pd * 100);
+
+            if (window.pdCurveChart) window.pdCurveChart.destroy();
+            window.pdCurveChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.08)',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        pointBackgroundColor: '#6366f1',
+                        pointHoverRadius: 5,
+                        fill: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#111',
+                            titleColor: '#fff',
+                            bodyColor: '#ddd',
+                            displayColors: false,
+                            callbacks: { label: (ctx) => ctx.parsed.y.toFixed(2) + '% PD' }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: 'rgba(255,255,255,0.25)', font: { size: 10 } }
+                        },
+                        y: {
+                            grid: { color: 'rgba(255,255,255,0.04)' },
+                            ticks: {
+                                color: 'rgba(255,255,255,0.25)',
+                                font: { size: 10 },
+                                callback: (v) => v.toFixed(1) + '%'
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         // Helper to fetch + draw stock chart (used for initial load + period switches)
@@ -801,7 +967,7 @@
         function showDashboard() {
             detailView.classList.add('hidden');
             dashboard.classList.remove('hidden');
-            document.getElementById('calibration-section').classList.remove('hidden');
+            document.getElementById('industry-section').classList.remove('hidden');
             input.value = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }

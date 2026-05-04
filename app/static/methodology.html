@@ -31,12 +31,14 @@
 
         <!-- Model -->
         <h2 class="text-[15px] font-semibold mb-3">Model</h2>
-        <p class="text-sm text-white/50 leading-relaxed mb-3">A single <strong class="text-white/70">XGBoost classifier</strong> predicts default probability at both the 12-month and 5-year horizons. The prediction horizon is encoded as a feature (<code>horizon_months</code> = 12 or 60), so each company is scored twice from one model.</p>
-        <ul class="text-sm text-white/50 leading-relaxed space-y-1.5 mb-6 pl-4">
-            <li class="list-disc"><strong class="text-white/70">Monotonicity</strong> &mdash; XGBoost <code>monotone_constraints</code> guarantee P(5y) &ge; P(12m) by construction.</li>
-            <li class="list-disc"><strong class="text-white/70">Calibration</strong> &mdash; 5-fold isotonic regression maps raw scores to true probabilities using ~400K cross-validated samples.</li>
-            <li class="list-disc"><strong class="text-white/70">Tuning</strong> &mdash; Optuna HPO maximises ROC-AUC on a time-based validation set.</li>
+        <p class="text-sm text-white/50 leading-relaxed mb-3">A single <strong class="text-white/70">XGBoost classifier</strong> predicts default probability at any horizon from 6 to 60 months. The prediction horizon is encoded as a continuous feature (<code>horizon_months</code>), trained with 10 horizons (6m, 12m, 18m, ..., 60m). At inference, any N-month PD can be queried.</p>
+        <ul class="text-sm text-white/50 leading-relaxed space-y-1.5 mb-3 pl-4">
+            <li class="list-disc"><strong class="text-white/70">Fundamentals-first</strong> &mdash; Raw stock price features removed. Market signal condensed into a single <strong class="text-white/70">Merton Distance-to-Default</strong> metric.</li>
+            <li class="list-disc"><strong class="text-white/70">Monotonicity</strong> &mdash; XGBoost <code>monotone_constraints</code> guarantee PD is non-decreasing across horizons.</li>
+            <li class="list-disc"><strong class="text-white/70">Calibration</strong> &mdash; 5-fold isotonic regression maps raw scores to true probabilities using ~2M cross-validated samples.</li>
+            <li class="list-disc"><strong class="text-white/70">PD term structure</strong> &mdash; Each company gets a full credit curve (6m to 60m), not just two point estimates.</li>
         </ul>
+        <p class="text-sm text-white/35 leading-relaxed mb-6">Hyperparameters tuned via Optuna on a time-based validation set.</p>
 
         <div class="border-b border-white/[0.06] mb-6"></div>
 

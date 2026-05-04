@@ -38,6 +38,8 @@ DATA_PROC = PROJECT_ROOT / "data" / "processed"
 MODELS_DIR = PROJECT_ROOT / "models"
 MODELS_DIR.mkdir(exist_ok=True)
 
+HORIZONS = [6, 12, 18, 24, 30, 36, 42, 48, 54, 60]
+
 DROP_COLS = [
     "gvkey", "permno", "month_end", "datadate", "conm", "cik",
     "annual_date", "ratio_date", "qtr_date",
@@ -48,10 +50,12 @@ DROP_COLS = [
     "default_date", "year_month",
     "fedfunds", "gs10", "baa", "aaa",
     "rating", "ratingdate",
-    # Both targets are dropped -- they become labels via stacking, never features
-    "default_in_next_12m",
+    # Raw market features dropped -- replaced by Merton DD
+    "mktcap_dec", "ret_12m", "ret_vol_12m", "excess_ret_12m",
+    "equity_to_liabilities_mkt", "prcc_f", "bm",
+    # All horizon targets (become labels via stacking, never features)
     "default_in_next_5y",
-]
+] + [f"default_in_next_{h}m" for h in HORIZONS]
 
 
 def get_base_feature_cols(df: pd.DataFrame) -> list:
@@ -60,22 +64,19 @@ def get_base_feature_cols(df: pd.DataFrame) -> list:
 
 
 def stack_horizons(df: pd.DataFrame, feature_cols: list):
-    """Duplicate each row for both horizons, adding horizon_months as a feature."""
+    """Stack each row N times (one per horizon), adding horizon_months as a feature."""
     X_base = df[feature_cols].fillna(0).astype("float32")
-
-    # 12-month horizon
-    X_12m = X_base.copy()
-    X_12m["horizon_months"] = np.float32(12)
-    y_12m = df["default_in_next_12m"].astype(int)
-
-    # 60-month (5-year) horizon
-    X_60m = X_base.copy()
-    X_60m["horizon_months"] = np.float32(60)
-    y_60m = df["default_in_next_5y"].astype(int)
-
-    X = pd.concat([X_12m, X_60m], ignore_index=True)
-    y = pd.concat([y_12m, y_60m], ignore_index=True)
-    return X, y
+    Xs, ys = [], []
+    for h in HORIZONS:
+        X_h = X_base.copy()
+        X_h["horizon_months"] = np.float32(h)
+        target_col = f"default_in_next_{h}m"
+        if target_col in df.columns:
+            ys.append(df[target_col].astype(int))
+        else:
+            ys.append(pd.Series(0, index=df.index))
+        Xs.append(X_h)
+    return pd.concat(Xs, ignore_index=True), pd.concat(ys, ignore_index=True)
 
 
 def main():
@@ -97,7 +98,7 @@ def main():
     # +1 = prediction must increase as feature increases, 0 = unconstrained.
     mono_constraints = tuple(1 if c == "horizon_months" else 0 for c in feature_cols)
 
-    print(f"Stacked train: {len(X_train):,} rows (2x {len(train):,})")
+    print(f"Stacked train: {len(X_train):,} rows ({len(HORIZONS)}x {len(train):,})")
     print(f"Stacked val:   {len(X_val):,} rows")
     print(f"Combined positive rate: {y_train.mean():.4%}")
     print(f"Monotone constraint on horizon_months: enabled (+1)")
@@ -153,17 +154,19 @@ def main():
     calibrated_model = CalibratedClassifierCV(base, cv=5, method="isotonic")
     calibrated_model.fit(X_all, y_all)
 
-    # Sanity check: verify monotonicity on val set
-    val_12m = X_val[X_val["horizon_months"] == 12].copy()
-    val_60m = X_val[X_val["horizon_months"] == 60].copy()
-    # Match by index position (first half = 12m, second half = 60m)
-    n_val_base = len(val)
-    pred_12m = calibrated_model.predict_proba(val_12m)[:, 1]
-    pred_60m = calibrated_model.predict_proba(val_60m)[:, 1]
-    mono_pct = (pred_60m >= pred_12m - 1e-6).mean() * 100
-    print(f"\nMonotonicity check (5y >= 1y): {mono_pct:.1f}% of val companies")
-    print(f"Val 12m PD: mean={pred_12m.mean():.4%}, max={pred_12m.max():.4%}")
-    print(f"Val 5y PD:  mean={pred_60m.mean():.4%}, max={pred_60m.max():.4%}")
+    # Sanity check: verify monotonicity across all horizons on val
+    n_base = len(val)
+    print(f"\nMonotonicity + calibration check on val:")
+    prev_preds = None
+    for h in HORIZONS:
+        h_mask = X_val["horizon_months"] == h
+        preds = calibrated_model.predict_proba(X_val[h_mask])[:, 1]
+        mono_str = ""
+        if prev_preds is not None:
+            mono_pct = (preds >= prev_preds - 1e-6).mean() * 100
+            mono_str = f"  mono={mono_pct:.0f}%"
+        print(f"  {h:2d}m: mean={preds.mean():.4%}, max={preds.max():.4%}{mono_str}")
+        prev_preds = preds
 
     # --- Save ---
     joblib.dump(raw_model, MODELS_DIR / "unified_model.joblib")

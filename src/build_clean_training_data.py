@@ -114,8 +114,8 @@ def add_full_agents_spec_features(df: pd.DataFrame) -> pd.DataFrame:
     df['wc_to_assets'] = (df.get('act', 0) - df.get('lct', 0)) / df['at'].replace(0, np.nan)
     df['re_to_assets'] = df.get('re', 0) / df['at'].replace(0, np.nan)
     df['ebit_to_assets'] = df.get('ebit', df.get('oiadp', 0)) / df['at'].replace(0, np.nan)
-    # Market version of Z4
-    df['equity_to_liabilities_mkt'] = (df.get('csho', 0) * df.get('prcc_f', 0)) / df['lt'].replace(0, np.nan)
+    # Book version of Z4 (no market price dependency)
+    df['equity_to_liabilities'] = df['seq'].fillna(0) / df['lt'].replace(0, np.nan)
     df['sales_to_assets'] = df.get('sale', 0) / df['at'].replace(0, np.nan)
 
     # === Profitability (AGENTS.md) ===
@@ -140,8 +140,15 @@ def add_full_agents_spec_features(df: pd.DataFrame) -> pd.DataFrame:
     if 'gs10_lag1' in df.columns and 'tb3ms' in df.columns:   # if tb3ms available
         df['term_spread_lag1'] = df['gs10_lag1'] - df.get('tb3ms', 0)
 
-    # === Basic IBES signals (if columns exist in the panel) ===
-    # (Coverage change and dispersion would be added if richer IBES is merged)
+    # === Merton Distance-to-Default ===
+    # Structural credit metric: condenses equity price + leverage + volatility
+    # into a single theoretically-grounded default proximity measure.
+    equity = (df.get('csho', 0) * df.get('prcc_f', 0)).replace(0, np.nan)
+    debt = df['dltt'].fillna(0) + df['dlc'].fillna(0)
+    V = equity.fillna(0) + debt
+    sigma_e = df.get('ret_vol_12m', np.nan)
+    sigma_a = sigma_e * (equity / V.replace(0, np.nan))
+    df['merton_dd'] = (np.log((V / debt.replace(0, np.nan)).clip(lower=1e-6)) + (0.05 - 0.5 * sigma_a**2)) / sigma_a.replace(0, np.nan)
 
     df = df.replace([np.inf, -np.inf], np.nan)
     return df
@@ -289,17 +296,18 @@ df = df.sort_values(['gvkey', 'datadate'])
 df = attach_crsp_market_features(df)
 
 # --- 4. Correct 12-month pre-event target (best coverage) ---
-df['default_in_next_12m'] = (
-    df['bankrupt_event_date'].notna() &
-    (df['datadate'] < df['bankrupt_event_date']) &
-    (df['datadate'] >= df['bankrupt_event_date'] - pd.DateOffset(days=365))
-).astype(int)
+# Multi-horizon default targets (6m to 60m in 6-month steps)
+HORIZONS = [6, 12, 18, 24, 30, 36, 42, 48, 54, 60]
+for h in HORIZONS:
+    df[f'default_in_next_{h}m'] = (
+        df['bankrupt_event_date'].notna() &
+        (df['datadate'] < df['bankrupt_event_date']) &
+        (df['datadate'] >= df['bankrupt_event_date'] - pd.DateOffset(months=h))
+    ).astype(int)
 
-df['default_in_next_5y'] = (
-    df['bankrupt_event_date'].notna() &
-    (df['datadate'] < df['bankrupt_event_date']) &
-    (df['datadate'] >= df['bankrupt_event_date'] - pd.DateOffset(years=5))
-).astype(int)
+# Keep legacy names for backward compat
+df['default_in_next_12m'] = df['default_in_next_12m']
+df['default_in_next_5y'] = df['default_in_next_60m']
 
 # --- 5. Attach macro variables (as-of fiscal year end) ---
 try:
