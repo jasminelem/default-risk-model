@@ -134,7 +134,7 @@ _X_base = _latest_per_company[BASE_FEATURES].fillna(0).infer_objects(copy=False)
 import numpy as np
 _X_12m = _X_base.copy()
 _X_12m["horizon_months"] = np.float32(12)
-_pd_all = raw_model.predict_proba(_X_12m)[:, 1]
+_pd_all = calibrated_model.predict_proba(_X_12m)[:, 1]
 all_company_pds = pd.DataFrame({
     "gvkey": _latest_per_company["gvkey"].values,
     "pd_12m": _pd_all,
@@ -476,7 +476,7 @@ def peer_comparison(gvkey: str) -> Dict[str, Any]:
             row = _get_latest_row(gvkey)
             X_s = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
             X_12m = pd.DataFrame([list(X_s.values) + [np.float32(12)]], columns=FEATURE_COLS)
-            company_pd = float(raw_model.predict_proba(X_12m)[0, 1])
+            company_pd = float(calibrated_model.predict_proba(X_12m)[0, 1])
         except Exception:
             return {"industry": peer_label, "peer_count": len(peers)}
     else:
@@ -719,7 +719,7 @@ def top_combined(limit: int = 10):
             row = _get_latest_row(r["gvkey"])
             X_base = row[BASE_FEATURES].fillna(0).infer_objects(copy=False).astype("float32")
             X_60m = pd.DataFrame([list(X_base.values) + [np.float32(60)]], columns=FEATURE_COLS)
-            p5y = float(raw_model.predict_proba(X_60m)[0, 1])
+            p5y = float(calibrated_model.predict_proba(X_60m)[0, 1])
             p12m = r["pd_12m"]
             pd_5y_list.append(max(p5y, p12m * 1.15, p12m + 0.005))
         except Exception:

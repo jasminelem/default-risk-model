@@ -1,31 +1,61 @@
 feature,business_meaning
-leverage,Total Debt / Total Assets — core leverage risk
-debt_at,Total Debt / Total Assets
-de_ratio,Debt / Equity — gearing
-ebitda_margin,EBITDA / Sales — operating profitability (higher = safer)
-roa,Return on Assets
-roe,Return on Equity
-bm,Book-to-Market (high often signals distress)
-curr_ratio,Current Ratio — short-term liquidity
-quick_ratio,Quick Ratio — liquidity ex-inventory
-cash_ratio,Cash Ratio — most conservative liquidity
-intcov_ratio,Interest Coverage (EBIT / Interest)
-debt_ebitda,Debt / EBITDA — repayment burden
-log_at,log(Total Assets) — firm size (larger = safer)
-asset_turnover,Sales / Assets — efficiency
-fedfunds_lag1,Fed Funds rate (lagged 1y) — monetary policy
-gs10_lag1,10Y Treasury yield (lagged) — interest rate environment
-baa_lag1,Baa yield (lagged) — credit spreads / risk appetite
-aaa_lag1,Aaa yield (lagged) — high-grade borrowing costs
-fedfunds_lag1,Federal Funds rate lagged 1 year — monetary policy tightness
-gs10_lag1,10-Year Treasury yield lagged — long-term rates
-baa_lag1,Baa corporate yield lagged — credit spreads & risk appetite
-aaa_lag1,Aaa corporate yield lagged — high-grade cost of debt
-prcc_f,Stock Price (Fiscal Year End) — market signal of distress
-seq,Stockholders' Equity (Book Value) — net worth (low/negative = insolvency risk)
-mktcap_dec,Market Capitalization (Decile) — firm size (small caps are riskier)
-ret_vol_12m,Stock Return Volatility (12M) — uncertainty and risk
+at,Total Assets — firm size
+lt,Total Liabilities
+sale,Revenue / Sales
 ni,Net Income — bottom-line profit (losses signal distress)
-wc_to_assets,Working Capital / Total Assets — short-term liquidity buffer
-equity_to_liabilities_mkt,Market Value of Equity / Total Liabilities — market leverage (low = distress)
-ret_12m,12-Month Stock Return — market performance (large drops precede default)
+oiadp,Operating Income After Depreciation (EBIT)
+dp,Depreciation & Amortization
+re,Retained Earnings — accumulated profits (negative = history of losses)
+rect,Receivables — amounts owed to the firm
+invt,Inventories
+ppent,"Property, Plant & Equipment (net)"
+che,Cash & Short-Term Investments — liquidity buffer
+act,Current Assets
+lct,Current Liabilities
+dlc,Short-Term Debt (debt in current liabilities)
+dltt,Long-Term Debt
+seq,Stockholders' Equity (book value) — net worth
+xint,Interest Expense — debt servicing cost
+capx,Capital Expenditures
+csho,Common Shares Outstanding
+roa,Return on Assets — profitability relative to asset base
+roe,Return on Equity — profitability for shareholders
+debt_ebitda,Debt / EBITDA — repayment burden (higher = riskier)
+de_ratio,Debt / Equity — financial gearing
+debt_at,Debt / Total Assets — overall leverage
+curr_ratio,Current Ratio — short-term liquidity
+quick_ratio,Quick Ratio — liquidity excluding inventory
+cash_ratio,Cash Ratio — most conservative liquidity measure
+intcov_ratio,Interest Coverage — ability to service debt (lower = riskier)
+fedfunds_lag1,Fed Funds Rate (lagged 1yr) — monetary policy tightness
+gs10_lag1,10-Year Treasury Yield (lagged) — long-term rate environment
+baa_lag1,Baa Corporate Yield (lagged) — credit market risk appetite
+aaa_lag1,Aaa Corporate Yield (lagged) — high-grade borrowing cost
+rating_numeric,S&P/CapIQ Credit Rating (numeric scale — higher = worse)
+speculative_grade,Speculative Grade Flag (1 = below BBB-)
+rating_age_years,Years Since Last Rating — stale ratings may miss deterioration
+downgrade_1y,Downgraded in Past Year (1 = yes)
+log_at,Log(Total Assets) — firm size (larger firms default less)
+firm_age,Firm Age in Years — younger firms are riskier
+leverage,Total Debt / Total Assets — core leverage ratio
+debt_to_assets,Total Debt / Total Assets
+debt_to_equity,Total Debt / Equity — financial gearing
+net_debt_to_assets,(Debt - Cash) / Assets — leverage net of cash buffer
+debt_to_ebitda,Debt / EBITDA — years to repay debt from earnings
+cash_to_assets,Cash / Assets — liquidity cushion
+wc_to_assets,Working Capital / Assets — short-term liquidity buffer (Altman Z1)
+re_to_assets,Retained Earnings / Assets — cumulative profitability (Altman Z2)
+ebit_to_assets,EBIT / Assets — operating efficiency (Altman Z3)
+equity_to_liabilities,Book Equity / Liabilities — solvency ratio (Altman Z4 book version)
+sales_to_assets,Sales / Assets — asset efficiency (Altman Z5)
+ebitda_margin,EBITDA / Sales — operating profitability margin
+net_margin,Net Income / Sales — bottom-line margin
+gross_margin,Gross Profit / Sales — pricing power
+interest_coverage,EBITDA / Interest Expense — debt servicing capacity
+fcf,Free Cash Flow (Operating CF - CapEx) — cash generation
+fcf_to_debt,Free Cash Flow / Total Debt — ability to repay from cash flow
+cfo_to_assets,Operating Cash Flow / Assets — cash-based profitability
+revenue_growth,Year-over-Year Revenue Growth — declining revenue signals distress
+credit_spread_lag1,Baa - Aaa Yield Spread (lagged) — credit cycle indicator
+merton_dd,Merton Distance-to-Default — structural credit metric (higher = safer)
+horizon_months,Prediction Horizon in Months — time window for default probability
