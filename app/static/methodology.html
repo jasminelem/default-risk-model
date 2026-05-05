@@ -35,16 +35,16 @@
         <ul class="text-sm text-white/50 leading-relaxed space-y-1.5 mb-3 pl-4">
             <li class="list-disc"><strong class="text-white/70">Fundamentals-first</strong> &mdash; Raw stock price features removed. Market signal condensed into a single <strong class="text-white/70">Merton Distance-to-Default</strong> metric.</li>
             <li class="list-disc"><strong class="text-white/70">Monotonicity</strong> &mdash; XGBoost <code>monotone_constraints</code> guarantee PD is non-decreasing across horizons.</li>
-            <li class="list-disc"><strong class="text-white/70">Calibration</strong> &mdash; 5-fold isotonic regression maps raw scores to true probabilities using ~2M cross-validated samples.</li>
+            <li class="list-disc"><strong class="text-white/70">No calibrator wrapper</strong> &mdash; The raw XGBoost <code>binary:logistic</code> objective produces naturally calibrated probabilities. No <code>scale_pos_weight</code> or post-hoc calibration layer.</li>
             <li class="list-disc"><strong class="text-white/70">PD term structure</strong> &mdash; Each company gets a full credit curve (6m to 60m), not just two point estimates.</li>
         </ul>
-        <p class="text-sm text-white/35 leading-relaxed mb-6">Hyperparameters tuned via Optuna on a time-based validation set.</p>
+        <p class="text-sm text-white/35 leading-relaxed mb-6">Hyperparameters tuned via Optuna (40 trials) on a time-based validation set. AUC: 0.892.</p>
 
         <div class="border-b border-white/[0.06] mb-6"></div>
 
         <!-- Explainability -->
         <h2 class="text-[15px] font-semibold mb-3">Explainability</h2>
-        <p class="text-sm text-white/50 leading-relaxed mb-6">Every prediction includes <strong class="text-white/70">SHAP values</strong> showing which features push default probability up or down for that company. Positive value = increases risk, negative = decreases it. One explainer handles both horizons.</p>
+        <p class="text-sm text-white/50 leading-relaxed mb-6">Every prediction includes <strong class="text-white/70">SHAP values</strong> at 5 yearly horizons (1Y through 5Y), showing which features drive default risk at each time scale. Positive value = increases risk, negative = decreases it.</p>
 
         <div class="border-b border-white/[0.06] mb-6"></div>
 
@@ -65,7 +65,7 @@
 
         <!-- Calibration -->
         <h2 class="text-[15px] font-semibold mb-3">Calibration</h2>
-        <p class="text-sm text-white/50 leading-relaxed mb-4">Predicted PDs are binned and compared against actual default rates. Ratio near 1.0 = well calibrated.</p>
+        <p class="text-sm text-white/50 leading-relaxed mb-4">Out-of-sample backtest on the test set (data the model never saw during training). Predicted PDs are binned and compared against actual default rates. Ratio near 1.0 = well calibrated.</p>
 
         <div class="flex items-center gap-2 mb-4">
             <button id="cal-12m-btn" onclick="loadCalibrationTable('12m')" class="text-xs font-medium text-white/80 px-2.5 py-1 rounded bg-white/[0.08]">12-Month</button>
