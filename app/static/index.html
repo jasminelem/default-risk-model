@@ -365,15 +365,8 @@
         }
 
         async function loadTopList() {
-            const cached = sessionStorage.getItem('topListCache');
-            if (cached) {
-                topData = JSON.parse(cached);
-                renderTopList();
-                return;
-            }
             const res = await fetch('/api/top/combined?limit=10');
             topData = await res.json();
-            sessionStorage.setItem('topListCache', JSON.stringify(topData));
             renderTopList();
         }
 
