@@ -728,7 +728,7 @@ def top_combined(limit: int = 10):
             X_60m = pd.DataFrame([list(X_base.values) + [np.float32(60)]], columns=FEATURE_COLS)
             p5y = float(model.predict_proba(X_60m)[0, 1])
             p12m = r["pd_12m"]
-            pd_5y_list.append(max(p5y, p12m * 1.15, p12m + 0.005))
+            pd_5y_list.append(max(p5y, p12m))
         except Exception:
             pd_5y_list.append(None)
     df["pred_risk_5y"] = pd_5y_list
