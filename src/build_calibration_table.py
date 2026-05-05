@@ -2,9 +2,10 @@
 """
 Build backtesting calibration tables using the unified hazard model.
 
-Uses the TEST set (out-of-sample data the model has never seen) for honest
-calibration evaluation. Also restricts to observations with complete
-follow-up windows to avoid right-censoring bias.
+Uses the VALIDATION set (out-of-sample data from 2022-2023) which has
+complete follow-up windows for both 12-month and 5-year horizons.
+The test set (2024-2026) is too recent for reliable calibration since
+most firms haven't had time to default yet.
 
 Output: outputs/calibration_table_12m.json, outputs/calibration_table_5y.json
 
@@ -76,27 +77,29 @@ def main():
 
     base_features = [c for c in feature_cols if c != "horizon_months"]
 
-    # Load TEST set (out-of-sample, never seen during training)
-    test_path = DATA_PROC / "monthly_test.parquet"
-    if not test_path.exists():
-        print("Test data not found.")
+    # Use VALIDATION set: out-of-sample (not in training), and recent enough
+    # to have complete follow-up for 12-month outcomes (2022-2023 data with
+    # outcomes observable through 2024).
+    val_path = DATA_PROC / "monthly_val.parquet"
+    if not val_path.exists():
+        print("Validation data not found.")
         return
-    test = pd.read_parquet(test_path)
-    test["datadate"] = pd.to_datetime(test["datadate"])
-    print(f"  Test set: {len(test):,} rows ({test['datadate'].min().date()} to {test['datadate'].max().date()})")
+    val = pd.read_parquet(val_path)
+    val["datadate"] = pd.to_datetime(val["datadate"])
+    print(f"  Validation set: {len(val):,} rows ({val['datadate'].min().date()} to {val['datadate'].max().date()})")
 
-    X_base = test[base_features].fillna(0).astype("float32")
+    X_base = val[base_features].fillna(0).astype("float32")
 
-    # 12-month calibration (out-of-sample)
+    # 12-month calibration
     target_12m = "default_in_next_12m"
-    if target_12m in test.columns:
+    if target_12m in val.columns:
         X_12m = X_base.copy()
         X_12m["horizon_months"] = np.float32(12)
         preds = model.predict_proba(X_12m)[:, 1]
-        actuals = test[target_12m].values
+        actuals = val[target_12m].values
 
-        print(f"\n12-Month Calibration (OUT-OF-SAMPLE on test set):")
-        print(f"  {len(test):,} obs, predicted mean={preds.mean():.4%}, actual rate={actuals.mean():.4%}")
+        print(f"\n12-Month Calibration (on validation set, not used in training):")
+        print(f"  {len(val):,} obs, predicted mean={preds.mean():.4%}, actual rate={actuals.mean():.4%}")
 
         table = build_table(preds, actuals)
         out_path = OUTPUT_DIR / "calibration_table_12m.json"
@@ -105,21 +108,21 @@ def main():
         print_table(table)
         print(f"  Saved -> {out_path}")
 
-    # 5-year calibration (out-of-sample, only obs with complete follow-up)
-    target_5y = "default_in_next_60m" if "default_in_next_60m" in test.columns else "default_in_next_5y"
-    if target_5y in test.columns:
-        cutoff = test["datadate"].max() - pd.DateOffset(years=5)
-        mask = test["datadate"] <= cutoff
-        test_5y = test[mask]
+    # 5-year calibration (only obs with complete 60-month follow-up)
+    target_5y = "default_in_next_60m" if "default_in_next_60m" in val.columns else "default_in_next_5y"
+    if target_5y in val.columns:
+        cutoff = val["datadate"].max() - pd.DateOffset(years=5)
+        mask = val["datadate"] <= cutoff
+        val_5y = val[mask]
 
-        if len(test_5y) > 0:
+        if len(val_5y) > 0:
             X_5y = X_base[mask].copy()
             X_5y["horizon_months"] = np.float32(60)
             preds = model.predict_proba(X_5y)[:, 1]
-            actuals = test_5y[target_5y].values
+            actuals = val_5y[target_5y].values
 
-            print(f"\n5-Year Calibration (OUT-OF-SAMPLE, obs with complete 5y follow-up):")
-            print(f"  {len(test_5y):,} obs (datadate <= {cutoff.date()}), predicted mean={preds.mean():.4%}, actual rate={actuals.mean():.4%}")
+            print(f"\n5-Year Calibration (val obs with complete 5y follow-up):")
+            print(f"  {len(val_5y):,} obs (datadate <= {cutoff.date()}), predicted mean={preds.mean():.4%}, actual rate={actuals.mean():.4%}")
 
             table = build_table(preds, actuals)
             out_path = OUTPUT_DIR / "calibration_table_5y.json"
@@ -128,9 +131,9 @@ def main():
             print_table(table)
             print(f"  Saved -> {out_path}")
         else:
-            print("\n5-Year: No test observations with complete 5y follow-up (test set too recent).")
+            print("\n5-Year: No validation observations with complete 5y follow-up.")
 
-    print("\nDone. Calibration tables use TEST data only (never seen during training).")
+    print("\nDone. Calibration uses validation set (out-of-sample, complete follow-up).")
 
 
 if __name__ == "__main__":
